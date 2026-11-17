@@ -1,21 +1,14 @@
-# Saídas de build e cache do Gradle/Minecraft
+# Saídas de build e cache do Gradle/Loom.
+# Contêm cópias do próprio Minecraft (jars da Mojang), que não podem ser redistribuídas,
+# e são regeneradas pelo "gradlew build".
 galetocraft/build/
 galetocraft/.gradle/
 galetocraft/run/
 galetocraft/out/
 galetocraft/bin/
-*.log
 
-# Configuração local do Claude Code
+# Configuração local do Claude Code nesta máquina
 .claude/
-
-# Histórico de rodadas de revisão (renders e cópias de cada rodada, ~2,2 GB).
-# Ficam só as versões congeladas (final*).
-modelos/*/revisao/*
-!modelos/*/revisao/final*
-
-# Capturas brutas dos benchmarks (os .csv ficam)
-benchmark/galeria*/
 
 # Python
 __pycache__/
@@ -25,4 +18,3 @@ __pycache__/
 Thumbs.db
 desktop.ini
 *.DS_Store
-modelos/fotos_jogo/_log.txt

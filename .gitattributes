@@ -1,0 +1,4 @@
+modelos/*/revisao/**/*.bak filter=lfs diff=lfs merge=lfs -text
+benchmark/**/*.png filter=lfs diff=lfs merge=lfs -text
+modelos/*/revisao/**/*.png filter=lfs diff=lfs merge=lfs -text
+modelos/*/revisao/**/*.bbmodel filter=lfs diff=lfs merge=lfs -text

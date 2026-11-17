@@ -575,7 +575,7 @@ def tronco_ossos():
     return pcs
 
 # lâminas da ombreira, de cima para baixo: (x de dentro, x de fora, y de cima, z da frente, z de trás, inclinação, bico)
-LAMINAS = [(2.4, 8.4, 27.6, -4.8, 3.4, 30, 2.5), (4.4, 9.8, 26.0, -4.4, 3.0, 38, 2.2), (6.2, 10.8, 24.4, -4.0, 2.6, 46, 1.9)]
+LAMINAS = [(2.4, 8.6, 27.6, -4.4, 2.8, 34, 3.0), (4.6, 10.0, 25.9, -3.9, 2.3, 44, 2.6), (6.4, 10.9, 24.2, -3.4, 1.8, 54, 2.2)]
 
 def ombreiras_ossos():
     """Ombreiras roxas ANGULOSAS (quadro "Ombreira (Armadura)"): 3 lâminas sobrepostas em degrau que caem
@@ -596,7 +596,8 @@ def ombreiras_ossos():
             # friso dourado em relevo na beirada de fora
             fx0, fx1 = sorted(((xo - 0.6) * lado, (xo + 0.1) * lado))
             pcs.append(peca(f"ombreira{k}_friso_{s}", [fx0, y0 - 0.2, zf + 0.2], [fx1, y1 + 0.35, zt - 0.2], mat_ouro, res=3))
-            ossos.append(osso(f"ombreira{k}_{s}", [xi * lado, y1, -0.7], [0, 0, -inc * lado], pcs))
+            # cada lâmina também gira um pouco para trás (as bordas não ficam paralelas: placas angulosas, não gaveta)
+            ossos.append(osso(f"ombreira{k}_{s}", [xi * lado, y1, -0.7], [0, -(8 + 6 * k) * lado, -inc * lado], pcs))
     return ossos
 
 def pescoco_ossos():
@@ -674,23 +675,28 @@ def flanco_ossos(lado):
 # ================= CAUDA DE FÊNIX TRIPLA =================
 RAIZ_CAUDA = (0.0, 19.4, 8.6)
 # 3 foices de cada lado, em ângulos desencontrados (de lado são 6 foices em leque): (lado, elevação, abertura, comprimento)
-# (as de baixo abrem bem para os lados: de frente e de costas aparecem como as chamas compridas dos lados da ficha)
-FOICES = [(-1, 50, 0.12, 22.0), (1, 32, 0.20, 23.0), (-1, 16, 0.32, 23.0), (1, 0, 0.42, 22.0), (-1, -16, 0.54, 20.0), (1, -32, 0.62, 18.0)]
+# 6 foices LARGAS e achatadas como cimitarras, sobrepostas em leque: (lado, elevação inicial, abertura, comprimento).
+# As de cima sobem mais; as de baixo apontam para trás e para baixo; todas curvam para trás e para baixo.
+FOICES = [(-1, 64, 0.06, 24.0), (1, 48, 0.10, 24.0), (-1, 32, 0.16, 23.0), (1, 16, 0.22, 22.0), (-1, 0, 0.30, 20.0), (1, -16, 0.38, 18.0)]
+N_FOICE = 6
+LARG_FOICE = (9.0, 8.0, 6.8, 5.4, 4.0, 2.6)          # largura de cada segmento (afina até a ponta aguda)
+COMP_FOICE = (0.19, 0.18, 0.17, 0.16, 0.15, 0.15)    # fração do comprimento em cada segmento
 
 def cauda_ossos():
-    """Cauda de fênix tripla: leque grande de penas longas em FOICE (4 segmentos que afinam e curvam para cima),
-    varrendo para trás e para cima, vermelho -> laranja -> amarelo nas pontas. Sem correntes."""
+    """Cauda de fênix tripla, SEM correntes: leque de 6 foices largas e achatadas (6 segmentos que afinam de 9 para
+    2,6 e curvam 10° por junta, uma curva contínua de cimitarra), sobrepostas sem vãos grandes; base vermelha, faixa
+    laranja e ponta amarela."""
     pc = []
     for k, (lado, elev, fora, L) in enumerate(FOICES):
         a = math.radians(elev)
         d = (fora * lado, math.sin(a), math.cos(a))
-        raiz = (0.9 * lado, 20.6 - 0.25 * k, 9.2 + 0.1 * k)
-        segs = [(L * 0.30, 5.8, 1.3), (L * 0.27, 5.0, 1.2), (L * 0.22, 3.9, 1.1), (L * 0.17, 2.8, 1.0)]
-        # curva que aumenta para a ponta (o gancho da foice)
-        pc.append(pluma(f"foice{k}", raiz, d, (lado, 0.0, 0.0), segs, [6, 12, 22], F_FOICE, dobra=(0, 1, 0), lingua=0.08))
+        raiz = (0.7 * lado, 20.8 - 0.3 * k, 8.6 + 0.12 * k)
+        segs = [(L * f, w, 1.2 - 0.04 * j) for j, (f, w) in enumerate(zip(COMP_FOICE, LARG_FOICE))]
+        pc.append(pluma(f"foice{k}", raiz, d, (lado, 0.0, 0.0), segs, [10] * (N_FOICE - 1), F_FOICE, dobra=(0, -1, 0.2),
+                        lingua=0.08))
     return osso("cauda", list(RAIZ_CAUDA), [0, 0, 0], pc)
 
-ONDAS = [(f"foice{k}", 4, (1.6, 1.4, 0.0)) for k in range(len(FOICES))]
+ONDAS = [(f"foice{k}", N_FOICE, (1.4, 1.2, 0.0)) for k in range(len(FOICES))]
 ANIM_PARADO = {}
 ANIM_ANDANDO = {}
 
