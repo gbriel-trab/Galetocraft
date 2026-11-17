@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "package": "br.galetocraft.teste.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": ["JanelaTesteMixin"],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

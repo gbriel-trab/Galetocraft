@@ -1,0 +1,9 @@
+nível 1 (16+ blocos): 9 grupos, 72 faces, dif 1.0% -> dedo1, peito0_meio, peito1_meio, barbela_meio, rosto_frente, cranio, cauda_ponta2, asa_baixo, cauda_anel4
+nível 2 (32+ blocos): 2 grupos, 48 faces, dif 2.0% -> asa_ombro, dedo2
+nível 3 (48+ blocos): 4 grupos, 36 faces, dif 2.9% -> pescoco, peito0, dedo0, elmo_topo
+faces no modelo (antes de otimizar): 720
+-> C:\Users\gbriel\Desktop\galopiru\modelos\taturico\lods.json
+otimização: ossos 17 -> 32, cubos -> 120, faces 720 -> 687, cubos com brilho 0, faces de LOD por nível {1: 69, 2: 48, 3: 35}
+taturico: altura do modelo 2.46 blocos -> 1.20 (escala 0.488)
+ok: 120 cubos em 32 ossos, textura 512x512, ossos animados: ['asa_d', 'asa_e', 'barbela', 'cabeca', 'cauda', 'cauda_anel_0', 'cauda_anel_1', 'cauda_anel_2', 'cauda_anel_3', 'cauda_anel_4', 'corpo', 'crista', 'perna_d', 'perna_e', 'pescoco']
+fim: 0

@@ -1,0 +1,9 @@
+nível 1 (16+ blocos): 22 grupos, 276 faces, dif 1.0% -> pescoco, saiote1, saiote2, capa01, capa11, dedo_meio, dedo_ponta_meio, dedo_dentro, dedo_ponta_dentro, asa21, cranio, saiote4, talisma_alca, bochecha1, cranio_frente, cranio_miolo, quilha_queixo, capa12, saiote3, no_faixa, saiote6, garra_dentro
+nível 2 (32+ blocos): 8 grupos, 126 faces, dif 2.0% -> nuca0, asa01, asa11, quilha, saiote5, dedo_fora, tornozelo, garra_meio
+nível 3 (48+ blocos): 7 grupos, 90 faces, dif 2.9% -> capa02, bochecha2, dedo_tras, garra_tras, bico_gancho, saiote0, garra_fora
+faces no modelo (antes de otimizar): 1332
+-> C:\Users\gbriel\Desktop\galopiru\modelos\cocorvolt\lods.json
+otimização: ossos 157 -> 80, cubos -> 222, faces 1332 -> 1232, cubos com brilho 37, faces de LOD por nível {1: 270, 2: 117, 3: 90}
+cocorvolt: altura do modelo 2.59 blocos -> 2.60 (escala 1.004)
+ok: 222 cubos em 80 ossos, textura 512x1024, ossos animados: ['asa_d', 'asa_e', 'cabeca', 'cauda', 'cauda0_0', 'cauda0_1', 'cauda0_2', 'cauda1_0', 'cauda1_1', 'cauda1_2', 'cauda2_0', 'cauda2_1', 'cauda2_2', 'cauda3_0', 'cauda3_1', 'cauda3_2', 'cauda4_0', 'cauda4_1', 'cauda4_2', 'cauda5_0', 'cauda5_1', 'cauda5_2', 'cauda6_0', 'cauda6_1', 'cauda6_2', 'cauda7_0', 'cauda7_1', 'cauda7_2', 'cauda8_0', 'cauda8_1', 'cauda8_2', 'cauda9_0', 'cauda9_1', 'cauda9_2', 'corpo', 'perna_d', 'perna_e', 'pescoco', 'talisma_d', 'talisma_e']
+fim: 0

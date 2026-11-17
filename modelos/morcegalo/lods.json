@@ -1,0 +1,11 @@
+{
+ "1": [
+  "^(?:bico_baixo|cotovelo_d|cotovelo_e|gola0_d_v0|gola0_d_v1|gola0_e_v1|gola1_d|gola1_d_v0|gola1_d_v1|gola1_e|gola1_e_v0|gola1_e_v1|gola2_d|gola2_d_v1|gola2_e|gola2_e_v0|gola2_e_v1|gola3_d|gola3_d_v0|gola3_d_v1|gola3_e|gola3_e_v0|gola3_e_v1|gola4_e_v0|gola4_e_v1|nuca_aba|peito00_v0|peito01_v0|peito02_v0|peito10_v0|peito11_v0|peito12_v0|peito21_v0|pena00_d_v0|pena00_d_v1|pena00_e_v0|pena00_e_v1|pena01_d|pena01_d_v0|pena01_d_v1|pena01_e|pena01_e_v0|pena01_e_v1|pena02_d_v0|pena02_d_v1|pena02_e_v0|pena02_e_v1|pena03_d_v0|pena03_d_v1|pena03_e_v0|pena03_e_v1|pena04_e|pena04_e_v0|pena04_e_v1|pena10_d_v0|pena10_d_v1|pena10_e_v0|pena10_e_v1|pena11_d_v0|pena11_d_v1|pena11_e_v0|pena11_e_v1|pena12_d_v0|pena12_d_v1|pena12_e_v0|pena12_e_v1|pena13_d_v1|pena13_e_v0|pena13_e_v1|pena14_e|pena14_e_v0|pena14_e_v1|pena20_d_v0|pena20_e_v0|pena20_e_v1|pena21_d|pena21_d_v0|pena21_d_v1|pena21_e|pena21_e_v0|pena21_e_v1|pena22_d_v0|pena22_d_v1|pena22_e_v0|pena22_e_v1|pena23_d|pena23_d_v0|pena23_d_v1|pena23_e|pena23_e_v0|pena23_e_v1|pena24_e|pena24_e_v0|pena24_e_v1|pena30_d_v0|pena30_e_v0|pena30_e_v1|pena31_d_v0|pena31_e_v0|pena31_e_v1|pena32_d_v0|pena32_d_v1|pena32_e_v0|pena32_e_v1|pena33_d_v0|pena33_e_v0|pena33_e_v1|pena34_e|pena34_e_v0|pena40_d_v0|pena40_e_v1|pena41_d_v0|pena41_d_v1|pena41_e_v0|pena41_e_v1|pena42_d|pena42_d_v0|pena42_d_v1|pena42_e|pena42_e_v0|pena42_e_v1|pena43_d_v1|pena43_e_v0|pena44_e_v0|pescoco|rabo3_0|rabo3_1|rabo3_2|rabo3_3|sobrancelha_fr_d|sobrancelha_fr_e|tronco_a|tronco_b|tronco_c|tronco_d)$"
+ ],
+ "2": [
+  "^(?:calca_d|calca_d_v1|calca_e|calca_e_v0|cara|dedo_tras_d|dedo_tras_e|gola0_e_v0|gola2_d_v0|gola4_e|peito20_v0|peito22_v0|peito30_v0|peito30_v1|peito_base_a|peito_base_b|peito_base_c|pena02_d|pena02_e|pena13_d_v0|pena20_d_v1|pena30_d_v1|pena31_d|pena31_d_v1|pena31_e|pena32_d|pena32_e|pena33_d|pena33_d_v1|pena33_e|pena34_e_v1|pena40_d|pena40_d_v1|pena40_e|pena40_e_v0|testa)$"
+ ],
+ "3": [
+  "^(?:bico_meio|calca_d_v0|crista0_a|crista0_b|gola0_d|gola0_e|pena11_d|pena11_e|pena22_d|pena22_e|pena41_d|pena41_e|pena43_d_v0)$"
+ ]
+}

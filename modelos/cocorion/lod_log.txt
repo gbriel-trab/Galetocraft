@@ -1,0 +1,9 @@
+nível 1 (16+ blocos): 15 grupos, 240 faces, dif 1.0% -> cintura, costas1, juba17, prega_lado, juba16, hakama_cint, katana_bainha, cauda7_pt, queixo, juba15, asa_c2, costas0, costas2, cauda3_pt, bico_baixo
+nível 2 (32+ blocos): 6 grupos, 132 faces, dif 2.0% -> asa_c1, cauda5_pt, asa_l3, juba8, juba9, juba24
+nível 3 (48+ blocos): 5 grupos, 114 faces, dif 2.9% -> asa_c3, dedo_meio, asa_l1, cranio, bico_meio
+faces no modelo (antes de otimizar): 1728
+-> C:\Users\gbriel\Desktop\galopiru\modelos\cocorion\lods.json
+otimização: ossos 129 -> 59, cubos -> 288, faces 1728 -> 1643, cubos com brilho 0, faces de LOD por nível {1: 229, 2: 125, 3: 109}
+cocorion: altura do modelo 2.54 blocos -> 2.40 (escala 0.947)
+ok: 288 cubos em 59 ossos, textura 512x512, ossos animados: ['asa_d', 'asa_e', 'cabeca', 'cauda', 'cauda0_0', 'cauda0_1', 'cauda0_2', 'cauda0_3', 'cauda1_0', 'cauda1_1', 'cauda1_2', 'cauda1_3', 'cauda2_0', 'cauda2_1', 'cauda2_2', 'cauda2_3', 'cauda3_0', 'cauda3_1', 'cauda3_2', 'cauda3_3', 'cauda4_0', 'cauda4_1', 'cauda4_2', 'cauda4_3', 'cauda5_0', 'cauda5_1', 'cauda5_2', 'cauda5_3', 'cauda6_0', 'cauda6_1', 'cauda6_2', 'cauda6_3', 'cauda7_0', 'cauda7_1', 'cauda7_2', 'cauda7_3', 'corpo', 'crista', 'perna_d', 'perna_e', 'pescoco']
+fim: 0

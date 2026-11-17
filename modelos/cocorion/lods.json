@@ -1,0 +1,11 @@
+{
+ "1": [
+  "^(?:asa_c2_d|asa_c2_d_m|asa_c2_d_p|asa_c2_e|asa_c2_e_m|asa_c2_e_p|bico_baixo|cauda3_pt|cauda7_pt|cintura_a|cintura_b|cintura_c|cintura_d|costas0|costas0_m|costas0_p|costas1|costas1_m|costas1_p|costas2|costas2_m|costas2_p|hakama_cint_a|hakama_cint_b|hakama_cint_c|juba15_0|juba15_1|juba15_2|juba16_0|juba16_1|juba16_2|juba17_0|juba17_1|juba17_2|katana_bainha|prega_lado_d|prega_lado_e|queixo_a|queixo_b|queixo_c)$"
+ ],
+ "2": [
+  "^(?:asa_c1_d|asa_c1_d_m|asa_c1_d_p|asa_c1_e|asa_c1_e_m|asa_c1_e_p|asa_l3_d|asa_l3_d_m|asa_l3_d_p|asa_l3_e|asa_l3_e_m|asa_l3_e_p|cauda5_pt|juba24_0|juba24_1|juba24_2|juba8_0|juba8_1|juba8_2|juba9_0|juba9_1|juba9_2)$"
+ ],
+ "3": [
+  "^(?:asa_c3_d|asa_c3_d_m|asa_c3_d_p|asa_c3_e|asa_c3_e_m|asa_c3_e_p|asa_l1_d|asa_l1_d_m|asa_l1_d_p|asa_l1_e|asa_l1_e_m|asa_l1_e_p|bico_meio|cranio_a|cranio_b|cranio_c|cranio_d|dedo_meio_d|dedo_meio_e)$"
+ ]
+}

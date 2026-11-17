@@ -1,0 +1,28 @@
+{
+	"schemaVersion": 1,
+	"id": "galetocraft",
+	"version": "${version}",
+	"name": "Galetocraft",
+	"description": "Galos lendários para o Minecraft. #001: Pirococó, o galo-fênix das chamas.",
+	"authors": [
+		"gbriel"
+	],
+	"license": "All-Rights-Reserved",
+	"icon": "assets/galetocraft/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"br.galetocraft.GaletocraftMod"
+		],
+		"client": [
+			"br.galetocraft.client.GaletocraftClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.20.1",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*",
+		"geckolib": ">=5.4.5"
+	}
+}

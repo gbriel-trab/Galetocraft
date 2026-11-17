@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "galetocraft:item/vagalo_spawn_egg"
+  }
+}

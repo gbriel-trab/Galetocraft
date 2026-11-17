@@ -1,0 +1,9 @@
+nível 1 (16+ blocos): 16 grupos, 168 faces, dif 1.0% -> guelra_d_1_fc0, guelra_d_1_fb0, guelra_e_1_fc0, guelra_e_1_fb0, guelra_e_1_fb1, queixo_frente, queixo_nuca, guelra_d_1_fc1, guelra_d_1_fb1, guelra_e_1_fc1, guelra_e_2_fc0, asa_primaria1, guelra_d_2_fc1, guelra_d_2_fc0, bico_meio, cranio_nuca
+nível 2 (32+ blocos): 6 grupos, 54 faces, dif 1.9% -> palpebra, queixo_meio, testa_nuca, guelra_d_0_fb0, guelra_e_0_fb0, bico_ponta
+nível 3 (48+ blocos): 6 grupos, 42 faces, dif 3.0% -> cranio_meio, guelra_d_1_haste1, guelra_d_2_haste1, guelra_e_1_haste0, testa_frente, testa_diag
+faces no modelo (antes de otimizar): 1326
+-> C:\Users\gbriel\Desktop\galopiru\modelos\axococo\lods.json
+otimização: ossos 69 -> 51, cubos -> 221, faces 1326 -> 1233, cubos com brilho 0, faces de LOD por nível {1: 152, 2: 50, 3: 39}
+axococo: altura do modelo 2.40 blocos -> 1.15 (escala 0.479)
+ok: 221 cubos em 51 ossos, textura 512x512, ossos animados: ['asa_d', 'asa_e', 'cabeca', 'cauda', 'cauda_p0_0', 'cauda_p0_1', 'cauda_p0_2', 'cauda_p0_3', 'cauda_p1_0', 'cauda_p1_1', 'cauda_p1_2', 'cauda_p1_3', 'cauda_p1_4', 'cauda_p2_0', 'cauda_p2_1', 'cauda_p2_2', 'cauda_p2_3', 'cauda_p3_0', 'cauda_p3_1', 'cauda_p3_2', 'cauda_p4_0', 'cauda_p4_1', 'cauda_p4_2', 'cauda_p5_0', 'cauda_p5_1', 'cauda_p5_2', 'corpo', 'crista', 'guelra_d_0', 'guelra_d_1', 'guelra_d_2', 'guelra_e_0', 'guelra_e_1', 'guelra_e_2', 'perna_d', 'perna_e', 'pescoco']
+fim: 0

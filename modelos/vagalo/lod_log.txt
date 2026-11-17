@@ -1,0 +1,9 @@
+nível 1 (16+ blocos): 10 grupos, 120 faces, dif 0.9% -> garupa, bico_baixo, telha1, peito, cauda4, crista_base, sobrancelha, cranio_frente, cranio_lados, barbela_meio
+nível 2 (32+ blocos): 5 grupos, 72 faces, dif 2.0% -> tufo0, telha3, dedo_meio, tufo1, bico_base
+nível 3 (48+ blocos): 5 grupos, 84 faces, dif 2.8% -> telha2, pescoco, cauda2, garra_meio, garra_dentro
+faces no modelo (antes de otimizar): 954
+-> C:\Users\gbriel\Desktop\galopiru\modelos\vagalo\lods.json
+otimização: ossos 97 -> 47, cubos -> 159, faces 954 -> 884, cubos com brilho 64, faces de LOD por nível {1: 116, 2: 71, 3: 81}
+vagalo: altura do modelo 2.16 blocos -> 1.00 (escala 0.463)
+ok: 159 cubos em 47 ossos, textura 512x512, ossos animados: ['asa_d', 'asa_e', 'asa_inseto2_d', 'asa_inseto2_e', 'asa_inseto_d', 'asa_inseto_e', 'cabeca', 'cauda', 'cauda0_0', 'cauda0_1', 'cauda0_2', 'cauda0_3', 'cauda0_4', 'cauda0_5', 'corpo', 'crista', 'perna_d', 'perna_e', 'pescoco']
+fim: 0

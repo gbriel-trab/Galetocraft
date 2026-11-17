@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "galetocraft-teste",
+  "version": "1.0.0",
+  "name": "Galetocraft (testes)",
+  "environment": "*",
+  "mixins": ["galetocraft-teste.mixins.json"],
+  "entrypoints": {
+    "fabric-client-gametest": ["br.galetocraft.teste.PirococoTesteCliente", "br.galetocraft.teste.GaleriaTesteCliente", "br.galetocraft.teste.PirococoBenchmark"]
+  }
+}

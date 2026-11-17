@@ -1,0 +1,11 @@
+{
+ "1": [
+  "^(?:asa_baixo_d|asa_baixo_e|barbela_meio|cauda_anel4_0|cauda_anel4_1|cauda_ponta2|cranio|dedo1_d|dedo1_e|peito0_meio|peito1_meio|rosto_frente)$"
+ ],
+ "2": [
+  "^(?:asa_ombro_d_a|asa_ombro_d_b|asa_ombro_d_c|asa_ombro_e_a|asa_ombro_e_b|asa_ombro_e_c|dedo2_d|dedo2_e)$"
+ ],
+ "3": [
+  "^(?:dedo0_d|dedo0_e|elmo_topo|peito0_d|peito0_e|pescoco)$"
+ ]
+}
