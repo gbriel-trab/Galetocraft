@@ -4,11 +4,15 @@
 - **Planta conferida sobre a ficha:** `modelos/pirococo/proporcoes_anime_planta.png`, gerada por
   `python ferramentas/planta_proporcoes.py pirococo_anime`. As caixas coloridas são os volumes planejados
   e ficam por cima das vistas de frente e de lado da ficha.
-- **Convenções** (as mesmas do `galo_base.py`):
+- **Convenções** (as do arquivo `.geo.json` lido pelo GeckoLib, iguais às do Cobblemon):
   - 16 u = 1 bloco;
   - y sobe a partir do chão;
   - x = 0 no meio do corpo, e x negativo é o lado DIREITO da criatura (`_d`);
   - z = 0 no pivô do quadril, e a FRENTE (o bico) fica em z negativo.
+- **Estilo:** semi-voxel do Cobblemon (`estudos/cobblemon/estudo_estilo_cobblemon.md`). Isso quer dizer:
+  - 1 pixel de textura por unidade;
+  - cubos de tamanho inteiro;
+  - detalhes finos em planos recortados.
 - **Como medi:** recortei as 4 vistas ortográficas, tirei o fundo branco e medi a silhueta linha a linha. Depois
   classifiquei as cores (creme, prata, roxo, dourado, vermelho) ao longo das linhas de centro, para achar os
   marcos. A vista de frente tem 276 px do chão à crista (6,13 px/u) e a lateral tem 273 px (6,07 px/u).
@@ -27,7 +31,7 @@
 | `ferramentas/dimensoes.py` + hitbox (`ModEntidades`) | tabela do dono | altura 2,80; hitbox 1,2 × 2,8 |
 
 **Recomendação:** manter **ALTURA = 2,80 blocos** (a diferença para a silhueta fica em ~3%, dentro do erro do
-desenho). Modelar com **H = 45 u**, já que o exportador normaliza para 44,8. O topo do elmo cai em 39 u (2,44 blocos)
+desenho). Modelar com **H = 45 u**: o GeckoLib desenha 1 u = 1/16 de bloco, então a ponta da crista fica em 44,8–45 u. O topo do elmo cai em 39 u (2,44 blocos)
 e a crista leva até 45.
 
 | medida | ficha | no jogo (H = 2,80) | tabela atual |
@@ -64,7 +68,7 @@ Regras da tradução (valem para as próximas fichas também):
    (5–15 blocos), 1 u ocupa poucos pixels de tela. A cabeça em si cresce só ~10% (6,8 → 7,5 u de largura).
 3. **Dar volume mínimo ao que no 2D é traço.** Nenhuma pena, trança ou chama fica com menos de 1 u de espessura
    visível:
-   - penas e chamas viram placas recortadas em X;
+   - penas e chamas viram planos (espessura 0) com o contorno recortado em pixel, como no Cobblemon;
    - as tranças viram segmentos de 2 u.
 4. **Cortar exageros de perspectiva.** O 2D desenha os pés em escorço (15 u de comprimento!), e lá eles passam a
    9,5 u. A ponta da cauda baixa, que no desenho passa do chão, sobe para ≥ 1,5 u. A barra da capa fica a 1,5 u do
@@ -113,7 +117,7 @@ Regras da tradução (valem para as próximas fichas também):
 
 | peça | ficha (% H) | ficha (u) | **alvo (u)** | nota |
 |---|---|---|---|---|
-| juba (crista + chamas laterais), máx. em y ≈ 37 | 0,34–0,38 | 15–17 | **15** | placas em X; aparar 1–2 u das pontas |
+| juba (crista + chamas laterais), máx. em y ≈ 37 | 0,34–0,38 | 15–17 | **15** | planos recortados; aparar 1–2 u das pontas |
 | par de penas em U (externas) | 0,20 | 9 | **9** | curvam para dentro na ponta |
 | cabeça (elmo/rosto) | 0,15 | 6,8 | **7,5** | +10% de legibilidade |
 | gema da testa | — | 2,1 × 3,9 | **2,5 × 4,5** | losango vertical; +15% |
@@ -161,15 +165,15 @@ espessura das tranças, fica em ~2,25.
 
 | parte | o que a ficha mostra | como fazer em voxel |
 |---|---|---|
-| crista | 2 penas externas em U (as mais altas), 1 central, 3 chamas por lado e 3 tufos de bochecha por lado; de lado são 5 lâminas varridas para trás | lâminas recortadas em X; degradê vermelho; raiz escura |
-| elmo | tiara prateada com 2 asas que sobem para trás e a gema rubi/roxa vertical no centro; viseira por cima dos olhos | placa prateada facetada, 0,5 u acima da face; gema `losango` com brilho |
-| olhos | estreitos, inclinados para dentro (cara séria), íris vermelho-escura | 2 × 1 u visível, pintado em res 8 numa face plana diagonal; a viseira faz a sombra |
+| crista | 2 penas externas em U (as mais altas), 1 central, 3 chamas por lado e 3 tufos de bochecha por lado; de lado são 5 lâminas varridas para trás | leque de planos recortados (o Cobblemon usa 10–50 planos em cristas grandes); 4–5 tons de vermelho em faixas; raiz escura |
+| elmo | tiara prateada com 2 asas que sobem para trás e a gema rubi/roxa vertical no centro; viseira por cima dos olhos | placa prateada sobre a cabeça; gema em caixa de 2 × 4 u com facetas pintadas, num osso `_brilho` |
+| olhos | estreitos, inclinados para dentro (cara séria), íris vermelho-escura | plaquinha de 2 × 1 px (1 px por unidade, como o Talonflame) sobre a face da cabeça, com `inflate` 0,01–0,02; 1 px de íris vermelho-escura; a viseira por cima faz a sombra; pálpebra em peça própria para piscar |
 | bico | gancho de rapina dourado; a boca abre (expressão "Bravo") | base, meio e gancho em cunha; mandíbula em osso próprio |
 | colar e peitoral | V prateado em 2 camadas, gema losango no centro | 2 placas em V com chanfro; gema saltada 0,5 u |
 | ombreiras | prata com miolo roxo e ponta dourada | 3 placas por lado, a de fora apontando 20° para cima |
 | peito | creme com 2–3 chevrons de pena | textura (não geometria) |
 | capa / asas | 3 camadas: roxa com filetes prata (~4 penas por lado), roxa → vermelha (~5) e vermelha comprida (~6) | placas recortadas em ponta, em leque; 2 ossos (`asa_d` / `asa_e`) |
-| coxas | saia de penas vermelhas (3–4 por coxa) | placas em X por cima de um núcleo arredondado |
+| coxas | saia de penas vermelhas (3–4 por coxa) | planos recortados por cima de uma caixa |
 | pernas | joelheira prata pontuda, canela roxa, tornozeleira prata | caixas de 3 / 2 / 3 u |
 | pés | roxo-escuro escamado, 3 dedos na frente + 1 atrás, garras douradas grossas | dedos de 1,5 u; garra em 2 segmentos curvos |
 | cauda tripla | 3 tranças douradas, cada uma terminando numa pena-lâmina dourada com losango roxo | 5–6 segmentos de 2 × 2 × 3,5 u com a trança pintada (cada segmento girado 45° sobre o anterior); lâmina de 5–6 u no fim |
@@ -180,24 +184,26 @@ mesma geometria gira ~90° para abrir. Não modele asas separadas.
 
 ---
 
-## 7. Ossos e pivôs (GeckoLib, nomes que o exportador já anima)
+## 7. Ossos e pivôs (GeckoLib; as animações usam estes nomes)
 
 | osso | pai | pivô (x, y, z) | nota |
 |---|---|---|---|
-| `corpo` | — | (0, 15, -1) | quadril |
+| `pirococo` | — (raiz) | (0, 0, 0) | raiz com pivô no chão, como pede o Cobblemon |
+| `corpo` | pirococo | (0, 15, -1) | quadril |
 | `pescoco` | corpo | (0, 29, -4) | |
 | `cabeca` | pescoco | (0, 31,5, -3,5) | |
 | `crista` | cabeca | (0, 38,5, -2) | |
 | `asa_d` / `asa_e` | corpo | (-5 / +5, 28,5, 0) | capa; abre para o "manto aberto" |
 | `cauda` | corpo | (0, 24,5, +3,5) | |
-| `cauda_a_N`, `cauda_b_N`, `cauda_c_N` | cauda | — | cadeias de `pena_curva`; declarar em `ONDAS` |
-| `perna_d` / `perna_e` | — (raiz) | (-2,6 / +2,6, 15, 0) | x negativo = direita |
+| `cauda_a_N`, `cauda_b_N`, `cauda_c_N` | cauda | — | segmentos encadeados; ondulam com seno defasado na animação |
+| `perna_d` / `perna_e` | pirococo | (-2,6 / +2,6, 15, 0) | x negativo = direita |
 
 ---
 
 ## 8. Orçamento
 
-O limite é ≤ 350 peças, com textura de até 512 × 1024 e D = 2 (rosto e gemas em res 4–8). A estimativa por parte:
+**O alvo no estilo Cobblemon é de 110–170 cubos**, com teto de 200. Para comparar: Blaziken 127, Ho-Oh 135,
+Braviary 152. A textura fica em 128 × 128 ou 256 × 128, a 1 px por unidade. A estimativa por parte:
 
 | parte | peças |
 |---|---|
