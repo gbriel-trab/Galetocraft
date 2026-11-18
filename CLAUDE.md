@@ -14,10 +14,11 @@ guia antes de criar, refazer ou revisar qualquer modelo. Resumo:
 - Modele em pose neutra; a postura vem do `parado`. Animações obrigatórias: parado, andar e piscar (pálpebra
   escondida); recomendadas: grito e dormir.
 - Confira com `python ferramentas/analisar_geo.py MODELO.geo.json TEXTURA.png --anim ANIM.json --estilo`.
-- **Método de trabalho:** `modelos/COMO_MODELAR_COM_CLAUDE.md`. Modele com `/effort high` e em laço com portões:
-  bloqueio, ossos, bordas, textura e animação. A cada volta, gere a folha de vistas, responda às perguntas do crítico
-  e use um subagente crítico sem o raciocínio do autor. Cite pelo nome os anti-padrões a evitar e volte para a
-  rodada anterior se a nota cair.
+- **Método de trabalho: a skill `modelar-galeto`** (pesquisa em `modelos/COMO_MODELAR_COM_CLAUDE.md`).
+  - Modele com `/effort high`, em laço com portões: bloqueio, ossos, bordas, textura e animação.
+  - A cada volta, rode a `folha_critica.py` (vistas, rosto, arte, escala do jogo, animações e peças soltas) e chame
+    um subagente crítico, sem o raciocínio do autor.
+  - Cite pelo nome os anti-padrões a evitar e volte para a rodada anterior se a nota cair.
 - **Galetos novos partem de UMA ilustração no estilo da arte oficial dos Pokémon** (guia, seção 13): pose neutra
   com as proporções da arte, cores por `cobble_base.rampa_da_arte()`, animação `render` que recria a pose da
   arte, conferida com `ferramentas/comparar_arte.py` (IoU ≥ 60%). Exemplo: `referencias/blaziken_arte_para_modelo.md`.
@@ -29,6 +30,10 @@ guia antes de criar, refazer ou revisar qualquer modelo. Resumo:
   elementos marcantes. Simplificar como o Cobblemon simplifica a arte oficial é o esperado.
 
 ## Skills do projeto
+- `.claude/skills/modelar-galeto/`: o método para criar, refazer ou revisar um modelo.
+  - Traz o laço com portões, o crítico com perguntas de sim ou não e os anti-padrões com nome.
+  - `scripts/folha_critica.py` monta a folha do crítico num comando só.
+  - `scripts/pecas_soltas.py` acha cubos soltos e pés fora do chão, também nas animações.
 - `.claude/skills/engenharia-reversa-cobblemon/`: o processo de engenharia reversa de um modelo do Cobblemon
   (feito com o Blaziken e o Combusken): baixar, medir geometria/textura/animações, comparar a arte oficial com
   o modelo e escrever o relatório. Traz os scripts juntos e os números de referência.

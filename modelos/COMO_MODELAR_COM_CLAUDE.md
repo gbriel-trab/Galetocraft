@@ -4,6 +4,14 @@ Pesquisa de 18/11/2026. Fontes: o guia da Anthropic sobre o modelo atual do Clau
 artigos de 2024 a 2026 sobre modelagem 3D escrita em código com crítica visual e a nossa experiência com o
 Pirococó. O padrão visual continua sendo o `GUIA_ESTILO.md`. Este documento trata do **método de trabalho**.
 
+**A versão para o Claude usar é a skill `.claude/skills/modelar-galeto/`.** Ela traz:
+- o laço;
+- as perguntas do crítico;
+- os anti-padrões, que crescem a cada galeto;
+- a `folha_critica.py` e o `pecas_soltas.py`.
+
+Este documento é o relatório da pesquisa.
+
 ## Resumo
 1. **O ganho vem de um laço fechado, não de pedir "um design melhor".** O laço é: referência, bloqueio, renders de
    várias vistas, crítica por lista de perguntas, correção pequena e nova medida. O modelo atual lê imagens muito
@@ -186,7 +194,7 @@ Pronto quando: IoU ≥ 60% na pose `render`, --estilo ≥ 13/15, todas as pergun
 - Copiar geometria, textura ou animação do Cobblemon (licença CC BY-NC e Pokémon da Nintendo). Aqui só entram
   medidas e técnicas.
 
-## 9. Próximos passos sugeridos (ainda não feitos)
+## 9. Próximos passos sugeridos (1 e 2 feitos na skill `modelar-galeto`)
 1. **Detector de peças soltas no `analisar_geo.py`:**
    - cubo que não toca nem atravessa outro cubo do mesmo osso ou do pai;
    - pé acima ou abaixo do chão na pose `parado`;
