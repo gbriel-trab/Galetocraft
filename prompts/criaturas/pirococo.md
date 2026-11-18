@@ -10,7 +10,8 @@ filhote nem chibi), e usa armadura prateada de cavaleiro. Os elementos que o ide
 - **Capa de penas em sino:** roxa em cima e vermelha embaixo.
 - **Pernas longas e finas** com joelheira e tornozeleira prateadas.
 - **Garras douradas.**
-- **3 tranças douradas** caindo para trás, cada uma terminando numa pena-lâmina.
+- **3 tranças douradas** saindo **na horizontal, lado a lado,** das costas da armadura superior, cada uma
+  terminando numa pena-lâmina. É uma mudança do dono em relação à ficha, onde elas caem até o chão.
 
 **Expressão:** a neutra da ficha ("NORMAL"), séria e determinada.
 
@@ -20,7 +21,7 @@ filhote nem chibi), e usa armadura prateada de cavaleiro. Os elementos que o ide
 |---|---|
 | altura total (chão → ponta da crista) | **45 u** (2,8 blocos) |
 | largura máxima (capa, na frente) | ~29 u |
-| comprimento (ponta do bico → ponta da cauda) | ~36 u |
+| comprimento (ponta do bico → ponta da cauda) | ~38 u |
 | cubos | **110–170** (teto 200), dos quais ~40–50% planos |
 | textura | 128×128 ou 256×128 (no máximo 256×256), 1 px por u |
 
@@ -87,16 +88,17 @@ filhote nem chibi), e usa armadura prateada de cavaleiro. Os elementos que o ide
 | capa: borda de trás | até +13,5 (em y ≈ 7) | |
 | pé | −8 → +1,5 | 3 dedos na frente, 1 atrás |
 
-**Cauda:** a raiz das 3 tranças fica em z = +3,5, com y entre 23,5 e 25,5 (alto das costas, logo abaixo da capa).
-As pontas:
+**Cauda** (mudança do dono: ignore a cauda da ficha):
 
-| trança | ponta (z, y) |
-|---|---|
-| A (alta) | (+24,5, 16,5) |
-| B (média) | (+23,5, 4,5) |
-| C (baixa) | (+19,5, 1,5) |
+- **Fecho:** placa prata 6×3×1 nas costas da armadura superior, em x −3..3, y 25..28, z +3..+4.
+- **Tranças:** saem do fecho na **horizontal**, todas em y ≈ 26,5, lado a lado:
+  - a central (x 0) vai reta para trás;
+  - as laterais (x ±1,5) abrem ±18° em leque, vistas de cima.
+- **Caimento:** leve, só no fim (0°, 0°, 2°, 4° e 6° por segmento).
+- **Medidas:** as pontas terminam em z ≈ +26 a +28; as laterais abrem até x ≈ ±7.
 
-**Perfil em S:** a cabeça vai para a frente, o peito estufa e a capa e a cauda descem para trás.
+**Perfil em S:** a cabeça vai para a frente, o peito estufa e a capa desce para trás. As tranças seguem na
+horizontal, na altura das ombreiras.
 
 ### Peças e como fazer
 
@@ -113,7 +115,7 @@ As pontas:
 | coxas | saia de penas vermelhas (3–4 por coxa) | uma caixa vermelha + planos recortados por cima |
 | pernas | joelheira prata pontuda, canela roxa, tornozeleira prata | caixas de 3 / 2 / 3 u |
 | pés | roxo-escuro escamado, 3 dedos na frente + 1 atrás, garras douradas grossas | dedos em caixas de 1–2 u; garra dourada caída na ponta |
-| cauda tripla | 3 tranças douradas, cada uma com uma pena-lâmina dourada e um losango roxo no fim | 5–6 segmentos de 2×2×3–4 u por trança, alternando giros de 45° no eixo da trança para ler como trança; lâmina plana de 5–6 u no fim |
+| cauda tripla | 3 tranças douradas, cada uma com uma pena-lâmina dourada e um losango roxo no fim (na horizontal, ver acima) | 5 segmentos de 2×2×3 por trança, **sem** giro de 45° (a trança é pintada em listras diagonais de 3 tons); lâmina de 3×7 em 2 planos cruzados (X), com o losango numa plaquinha `_brilho` |
 
 **Atenção:**
 
@@ -132,8 +134,9 @@ As pontas:
 | `crista` | cabeca | (0, 38,5, −2) | ondula com atraso |
 | `olhos`, `palpebra_d`, `palpebra_e` | cabeca | — | piscar |
 | `asa_d` / `asa_e` | corpo | (−5 / +5, 28,5, 0) | a capa; balança leve |
-| `cauda` | corpo | (0, 24,5, +3,5) | |
-| `cauda_a_0..5`, `cauda_b_0..5`, `cauda_c_0..5` | cauda (em cadeia) | na junta de cada segmento | ondulam com fase crescente |
+| `cauda` | corpo | (0, 26,5, +3,5) | |
+| `cauda_a_0..4` (central), `cauda_b_0..4` (−x), `cauda_c_0..4` (+x) | cauda (em cadeia) | na junta de cada segmento | balançam com fase crescente |
+| `lamina_a`, `lamina_b`, `lamina_c` | último segmento de cada trança | — | |
 | `perna_d` / `perna_e` | pirococo | (−2,6 / +2,6, 15, 0) | andar |
 | `pe_d` / `pe_e` | perna | (∓2,6, 3,5, −1) | compensa a perna no andar |
 
@@ -163,7 +166,7 @@ O olho leva ainda 1 px de pupila #210826 e, se o olho tiver mais de 2 px, 1 px d
 - **Cabeça:** ±2° em x e ±3° em y, defasada do corpo.
 - **Crista:** ±4°, atrasada da cabeça.
 - **Capa** (`asa_d`/`asa_e`): ±2° em z, espelhada entre os lados.
-- **Tranças:** ondulam em x e z com ±4–8°, com atraso de −30° por segmento.
+- **Tranças:** balançam ±3° em y e ±2° em x, com atraso de −30° por segmento; as laterais em fase oposta.
 - **Piscar:** 1 vez no fim do laço.
 
 **walk (L = 2):**
@@ -172,12 +175,12 @@ O olho leva ainda 1 px de pupila #210826 e, se o olho tiver mais de 2 px, 1 px d
 - **Corpo:** sobe e desce 0,4 u, 2 vezes por ciclo, e balança ±3° em z.
 - **Cabeça:** contrabalança, ficando mais estável que o corpo.
 - **Capa:** acompanha com atraso.
-- **Tranças:** com mais amplitude que no idle.
+- **Tranças:** ±6° em y, acompanhando o corpo.
 
 ### Pontos de reprovação específicos desta criatura
 
 - Cabeça grande demais (fofa) ou rosto genérico de galinha. É uma ave de rapina séria.
 - Pernas grossas ou curtas: a perna visível tem 10,5 u (23% da altura).
 - Capa fechada na frente, escondendo o colar e o peito creme.
-- Tranças fundidas numa peça só, ou sem a lâmina na ponta.
+- Tranças fundidas numa peça só, sem a lâmina na ponta, caindo até o chão ou penduradas entre as pernas.
 - Pés gigantes. O desenho 2D exagera as garras em perspectiva: use as medidas acima.
