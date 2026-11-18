@@ -41,4 +41,10 @@ guia antes de criar, refazer ou revisar qualquer modelo. Resumo:
 - **Nunca** copie arquivos, geometria, textura ou animação do Cobblemon para o repositório. Os modelos deles são
   CC BY-NC 3.0 e os Pokémon são da Nintendo. Estude fora do repositório; aqui só entram medidas e técnicas.
 - O dono roda no Windows (Java 25 para o Gradle). Não rode o Gradle nem o Minecraft sem pedido.
+- Na nuvem, o ambiente "Galetocraft" já libera Fabric, GeckoLib, Mojang e o LFS do GitHub, e instala Java 25, Xvfb e
+  Mesa. Dentro de `galetocraft/`:
+  - compilar: `JAVA_HOME=/usr/lib/jvm/java-25-openjdk-amd64 ./gradlew build`;
+  - testar no jogo: `JAVA_HOME=... xvfb-run -a -s "-screen 0 1920x1080x24" ./gradlew runClientGameTest`. Os prints
+    saem em `build/run/clientGameTest/screenshots/`. O teste do Pirococó passa; a galeria pode estourar o tempo de
+    criar o mundo com OpenGL por software.
 - Não sobrescreva rodadas antigas em `modelos/<id>/revisao/`; use um prefixo novo.
