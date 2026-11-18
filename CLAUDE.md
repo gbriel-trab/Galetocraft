@@ -23,7 +23,11 @@ guia antes de criar, refazer ou revisar qualquer modelo. Resumo:
 ## Onde fica cada coisa
 - `galetocraft/`: o mod. `GaloRenderer.java` desenha (com LOD e brilho); os modelos e as animações GeckoLib estão
   em `src/main/resources/assets/galetocraft/geckolib/`.
-- `ferramentas/especies/<id>.py`: o gerador de cada espécie, sobre `ferramentas/galo_base.py`.
+- **Padrão novo:** `ferramentas/cobble_base.py` (biblioteca) e `ferramentas/especies/pirococo_cobblemon.py` (piloto
+  aprovável e exemplo; `python ... cbNN --mod`). Saída em `modelos/<id>/cobblemon/`, rodadas `cbNN_*` em
+  `modelos/<id>/revisao/`. No `.geo.json`, o lado esquerdo da criatura fica em +x.
+- Padrão antigo (ainda nas outras 11 espécies): `ferramentas/especies/<id>.py` sobre `ferramentas/galo_base.py`.
+  Não rode `exportar_especie.py pirococo`: ele sobrescreveria o piloto no mod.
   - `ferramentas/exportar_especie.py` exporta para o mod;
   - `ferramentas/dimensoes.py` tem a tabela oficial de alturas;
   - `ferramentas/comparar_ficha.py` mede IoU e cor contra a ficha.

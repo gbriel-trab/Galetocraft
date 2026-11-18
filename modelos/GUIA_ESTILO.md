@@ -41,11 +41,13 @@ Copiamos **o jeito de fazer**, nunca as peças.
 - **UV de caixa (box UV) em 100% dos cubos**, sem UV por face (0 de 78 modelos usam). Assim todo pixel do
   modelo tem o mesmo tamanho, que é o que faz o modelo parecer do Minecraft.
 - **Tamanhos inteiros** (0 fracionados na mediana). Posições e pivôs podem cair em 0,25 ou 0,5.
-- **A escala vai no renderizador**, nunca na geometria. O Cobblemon usa `baseScale` (0,8; 0,6–1,03). No
-  Galetocraft, a altura da tabela `ferramentas/dimensoes.py` vira uma escala do `GaloRenderer`. O modelo fica na
-  grade, com cerca de 16 × altura ÷ escala unidades de altura.
-  - **A fazer no código:** hoje `exportar_especie.py` multiplica a geometria por `k` (`converter(bbm, k)`), e é
-    isso que gera os tamanhos fracionados.
+- **Escala 1 (decisão do piloto):** o modelo já nasce na altura da tabela `ferramentas/dimensoes.py`, com
+  16 × altura unidades (2,8 blocos ≈ 45 px). O pixel fica do tamanho do pixel do Minecraft, e o renderizador não
+  precisa de escala. O Cobblemon usa `baseScale` de 0,6 a 1,03 (0,8 na mediana), então 1 está dentro do padrão.
+  - Se uma espécie precisar de outra escala, ela vai no renderizador (`GaloRenderer`), nunca na geometria. Isso
+    ainda não está implementado.
+  - O exportador antigo (`exportar_especie.py`) multiplica a geometria por `k` e gera tamanhos fracionados. Ele
+    não serve para o padrão novo; use `ferramentas/cobble_base.py` (seção 12).
 - **Por que isso importa:** os Cocorídeos atuais têm 2 a 9 texels por unidade (Pirococó 3,5; Vagaló 8,8), com
   densidades diferentes no mesmo modelo. O pixel deles é 2 a 9 vezes menor que o de um mob do Minecraft. Isso dá
   cara de "textura HD colada em voxel", e não de Cobblemon.
@@ -177,6 +179,10 @@ Técnicas:
   5/15/20/15/35). Penas soltas giram um pouco ao contrário, para parecer que têm peso.
 - **Expressão por escala:** peito que estufa (1,2–1,5) e pupila que encolhe (0,7).
 - **Efeitos ligados e desligados por escala 0:** fogo de batalha, asa aberta ou fechada.
+- **No Galetocraft**, as curvas são escritas em Python (`onda`, `canal`) e gravadas como keyframes lineares
+  (`cobble_base.gravar`). O resultado é o mesmo movimento do Molang, sem depender do suporte a Molang do GeckoLib.
+  Enquanto as entidades só tiverem o controlador de movimento, o piscar entra dentro do `parado` (2 piscadas a
+  cada 8 s); a animação `blink` separada já fica pronta para um controlador próprio.
 - **Validar sempre:** os ossos animados existem e o Molang compila. Os dois erros que achamos no Cobblemon foram
   um osso `neck` inexistente e parênteses errados.
 
@@ -240,7 +246,25 @@ E, fora da ferramenta: um fã reconhece na hora a criatura da ficha, e o modelo 
 | Taturico | 1,20 | 120 | 687 | 512x512 | 450 | 0% | 13% | 4/15 |
 | Vagaló | 1,00 | 239 | 1.309 | 512x512 | 6.191 | 0% | 67% | 2/15 |
 
-Nenhum modelo atual segue o padrão; todos precisam ser refeitos nele. O caminho sugerido:
-1. passar a escala para o renderizador e gerar UV de caixa em `galo_base.py` e `exportar_especie.py`;
-2. refazer uma espécie piloto (o Pirococó, que é o mais próximo do Blaziken) e levá-la ao dono;
-3. só então seguir para as outras.
+**Piloto (18/11/2026):** Pirococó no padrão, 2,78 blocos, 80 cubos, 344 faces, textura 128x64, 26 cores, 43%
+de planos, 0% de cubos girados, **15/15**. Arquivos em `modelos/pirococo/cobblemon/`; já está no mod.
+
+Os outros 11 ainda seguem o padrão antigo. O caminho: o dono aprova o piloto no jogo e, a partir dele, as outras
+espécies são refeitas uma a uma com `cobble_base.py`.
+
+## 12. Como modelar no padrão
+- Biblioteca: `ferramentas/cobble_base.py`. Ela escreve direto o `.geo.json` do jogo:
+  - ossos e cubos inteiros;
+  - UV de caixa empacotada sozinha;
+  - `espelhar()` para o lado direito (com `mirror` e a mesma UV);
+  - planos com recorte;
+  - pintura por texel com `mosqueado()`;
+  - brilho em ossos `*_brilho`;
+  - animações gravadas como keyframes.
+- Exemplo completo: `ferramentas/especies/pirococo_cobblemon.py`. Rode com
+  `python ferramentas/especies/pirococo_cobblemon.py cbNN [--mod]`. Ele grava a rodada `cbNN_*` em
+  `modelos/pirococo/revisao/` (vistas, parado, andar, rosto e arte lado a lado), confere o `--estilo` e, com
+  `--mod`, copia o modelo para o mod.
+- Orientação: frente em -z e **lado esquerdo da criatura em +x** no `.geo.json`, como no Cobblemon; `_e` é o
+  esquerdo e `_d` o direito. Os modelos antigos usavam o contrário (`_d` em +x).
+- O Blockbench abre o `.geo.json` direto (formato Bedrock / GeckoLib) para ajustes à mão.
