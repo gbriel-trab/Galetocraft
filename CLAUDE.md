@@ -85,6 +85,15 @@ O fluxo completo está em `base/LEIA_ME.md`. Em resumo:
 - **Modelos:** rode `ferramentas/especies/<id>.py` e depois `ferramentas/exportar_especie.py <id>`, como descrito em `galetocraft/LEIAME.md`.
 - **Git LFS:** os arquivos de `modelos/*/revisao/` e os PNGs do benchmark estão no LFS. Nesta cópia há só ponteiros.
 
+## Projeto GALETOCRAFT no app do Claude
+
+- O criador mantém um Projeto "GALETOCRAFT" no claude.ai, que não lê este repositório.
+- O conhecimento desse Projeto vem de um pacote gerado por `python ferramentas/projeto/gerar_pacote_projeto.py --saida <pasta>`:
+  - os arquivos 00–05 (conhecimento, fichas, Galolpédia, regras, decisões);
+  - as artes reduzidas;
+  - um ZIP com tudo.
+- Gere o pacote de novo depois de cada revisão da base e entregue ao criador para trocar os arquivos do Projeto.
+
 ## Conhecimento consolidado
 
 O resumo completo (espécies, regras, sistemas, pendências e mapa do acervo) está em `docs/CONHECIMENTO_GALETOCRAFT.md`.

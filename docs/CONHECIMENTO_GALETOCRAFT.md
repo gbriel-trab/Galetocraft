@@ -25,8 +25,8 @@ Todo design passa por **homologação expressa do criador**. Propostas, Betas, r
   - `base/vigente/*.json`: tabelas `current_*`.
   - `base/artes/`: as 23 artes.
   - `base/fontes/`: documentos-fonte.
-  - Dados: 23 espécies, 690 vínculos de golpes, 33 regras, 23 artes, 13 vínculos hereditários, 22 pendências e 14 metadados.
-  - Regras incluídas: `nomenclatura`, `dano_v5_6`, `matriz_elemental`, `combate_universal`, `estados_negativos`, `climas`, `santuarios`, `captura`, `experiencia` e `treinador`.
+  - Dados (rev. 10): 23 espécies, 690 vínculos de golpes, 36 regras, 23 artes, 13 vínculos hereditários, 28 pendências e 14 metadados.
+  - Regras de jogo principais: `nomenclatura`, `dano_v5_6`, `matriz_elemental`, `combate_universal`, `estados_negativos`, `climas`, `santuarios`, `progressao`, `captura`, `experiencia`, `treinador`, `aprendizado`, `mundo_aparecimento` e `tempestade_de_areia`.
 - **Ler somente as tabelas `current_*`** (no SQLite montado, também as views `v_current_*`).
   - O `Galetocraft.sqlite` da revisão 2 no Release (235 tabelas, 67 views) é histórico.
   - A tabela `species` (12 linhas) e as demais tabelas estão marcadas como `HISTORICO_OU_EVIDENCIA`.
@@ -439,29 +439,42 @@ O relatório completo está em `docs/AUDITORIA_INCOERENCIAS.md`: 29 conflitos re
   - `bash gradlew build` gera `build/libs/galetocraft-0.1.0.jar`.
   - Nesta nuvem, o build exige o ambiente "Galetocraft" e o JDK 25 (`apt-get install openjdk-25-jdk-headless`).
   - O build passou em 18/11/2026, e o mod foi testado num servidor dedicado com `bash gradlew runServer --args=nogui`.
-- **O que está implementado:**
-  - **12 entidades**:
-    - O Pirococó tem classe própria, `PirococoEntity`.
+- **O que está implementado** (situação de 18/11/2026, base rev. 10; detalhe em `docs/PROGRESSO_DESENVOLVIMENTO.md`):
+  - **12 entidades** com modelo GeckoLib, LOD por distância (16/32/48 blocos) e brilho parcial por glowmask:
+    - O Pirococó tem classe própria, `PirococoEntity`, que herda de `GaloEntity`.
     - As outras 11 usam a classe genérica `GaloEntity`: Esporocó, Cocórak, Cocórion, Cocórvolt, Taturico, Axococó, Vagaló, Morcegalo, Espinhocó, Salambrasa e Renacocó.
-    - Comportamento: mobs neutros com ataque corpo a corpo e sons de galinha vanilla.
-    - Animações GeckoLib só de `idle` e `walk`.
-  - **Itens:** 12 ovos geradores.
-  - **Renderização:** `GaloRenderer` com LOD por distância (16/32/48 blocos) e uma camada de brilho parcial por glowmask.
-  - **Testes de cliente** (source set `gametest`): fotos do Pirococó, galeria e benchmark.
+    - Animações só de `idle` e `walk`; sons de galinha vanilla.
+  - **Galeto individual:** nível (1–70 nos selvagens), sexo e 6 IVs salvos na entidade; clicar com a mão vazia mostra a ficha.
+  - **Atributos** pela regra `progressao`: curva 1–49, HP nominal, IV/EV e peso; Vitalidade V5.6.1 no dano.
+  - **Rinha jogável** contra Galeto selvagem, com menu clicável no chat: Combate, Galetos, Mira, Guarda, Pena de Ritmo, Itens e Fugir. Com mais de 3 Galetos há escalação antes da Rinha.
+  - **Captura com a Pena de Captura:**
+    - no mundo (botão direito) e na Rinha (Itens → Pena);
+    - a Pena tem dono e versão, não fica no chão e volta ao dono;
+    - vem no kit de início, com a escolha de 1 dos 6 iniciais.
+  - **Treinador:** equipe de 5 e reservas salvas com o jogador; companheiro que segue o treinador; libertar.
+  - **Progressão do Galeto:**
+    - XP por Rinha vencida e subida de nível;
+    - golpes aprendidos por nível (as 23 espécies têm tabela) e troca de slots fora da Rinha;
+    - EV de combate.
+  - **Mundo:**
+    - aparecimento natural por bioma e horário, com limite de 6 selvagens por jogador;
+    - encontros raros de iniciais e Míticos;
+    - Quetzacocó com aviso global, que aguarda modelo;
+    - tempestade de areia nos desertos quando chove, com poeira, névoa e vento, e a Rinha começa com o clima.
+  - **Comandos:** `/galetocraft` `base | ficha | rinha | duelo | desafiar | acao | equipe | escalar | golpes | pena | inicial | companheiro | recolher | libertar | dar` (`dar`: só operadores).
+  - **Itens:** Pena de Captura (desenho provisório da pena vanilla) e 12 ovos geradores.
 - **Núcleo de regras** (`galetocraft/nucleo`, Java puro, embutido no jar):
-  - Implementa o Galetário com os dados da base, eficácia, progressão, dano V5.6, esquiva, Golpe Duplo, Mira, energia/Concentração/Pena, estados, climas e santuários, captura e XP.
-  - Inclui um motor de Rinha com IA básica e simulador.
-  - Tem 21 testes. O andamento fica em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
-- **Comandos no jogo:** `/galetocraft base | ficha <espécie> | rinha <a> <b> [nível] | duelo <a> <b> [rinhas]`.
-- **Galeto individual:** cada entidade tem nível (50), sexo e 6 IVs (1–40), salvos com ela. Clicar com a mão vazia mostra a ficha do indivíduo. Os IVs ainda não alteram os atributos.
-- **Rinha jogável:** contra Galeto selvagem, com `/galetocraft desafiar` e um menu clicável no chat (Combate, Galetos, Mira, Guarda, Pena de Ritmo, Itens, Fugir). Entram os 3 primeiros da equipe do treinador; sem Galetos, a equipe de teste.
-- **XP dos Cocorídeos:** Rinha vencida contra selvagem dá XP aos Galetos do treinador que entraram em campo (regra `experiencia`), com subida de nível pela curva oficial.
-- **Captura e treinador:** item Pena de Captura (`/galetocraft pena`), captura no mundo e na Rinha conforme a regra `captura`; equipe principal de 5 e reservas salvas com o jogador (`/galetocraft equipe`).
+  - Contém o Galetário e as regras de eficácia, progressão, dano V5.6 com Vitalidade, esquiva, Golpe Duplo, Mira, Energia, Concentração e Pena de Ritmo.
+  - Contém também estados, climas e santuários, captura, XP, EV, aprendizado e o motor de Rinha com IA básica e simulador.
+  - Tem 31 testes.
+- **Testes de cliente** (source set `gametest`, filtro `GALETO_TESTES`):
+  - fotos do Pirococó, galeria e benchmark;
+  - `rinha`, `captura`, `jornada` e `tempestade`, que jogam como um jogador de verdade.
 - **Ainda NÃO existe no mod:**
-  - Golpes próprios e dono do Galeto; tela própria da Rinha; Rinha entre jogadores.
-  - Galetário no jogo; aprendizado de golpes por nível.
-  - Passivas e efeitos especiais dos golpes.
-  - Blocos, spawn natural e sons próprios.
+  - Telas próprias da Rinha e do Galetário; Rinha entre jogadores.
+  - Passivas e efeitos especiais dos golpes; Mestres Elementais (golpes por treinamento).
+  - Alimentação (EV e peso); reprodução, Terreiro e Ninhos.
+  - Blocos e sons próprios; arte da Pena.
 - **Espécies sem entidade:** #002 Cocórrego, #013–#018 e #020–#023.
 
 ### Modelos (`modelos/`) e ferramentas (`ferramentas/`)
