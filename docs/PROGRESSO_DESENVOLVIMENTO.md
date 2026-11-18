@@ -169,9 +169,32 @@ O que ocorre de não implementado fica registrado no Histórico da Rinha.
 - **`RinhaTesteCliente`** continua passando, agora com a equipe de teste.
 - **Servidor dedicado** sobe com a base rev. 7.
 
+## 18/11/2026 — Fase 7 (parte 1): XP dos Cocorídeos por Rinha vencida
+
+- **Regra `experiencia` (v1260)**, completa na base, implementada sem mudanças:
+  - Só a Rinha vencida dá XP. Derrota, fuga e captura não dão.
+  - Cada oponente derrotado conta uma vez: `floor((25 + 15·L) × M_raridade × C_desafio × M_modo)`, com `C_desafio = max(0,25; min(1,50; 1 + 0,03·(L − P)))`. P é o maior nível entre os Galetos do treinador que entraram em campo.
+  - A soma é repartida entre os Galetos distintos que entraram em campo (mesmo sem golpear). O resto vai de 1 em 1, na ordem da primeira entrada. A reserva que não entrou não recebe.
+  - O Cocorídeo capturado começa com `T(nível)` de XP, sem extra.
+  - O nível sobe pela curva `T(N) = (N−1)³ + 10(N−1)²`. No nível 100 não entra XP nova.
+- **No núcleo:**
+  - A `Equipe` registra a ordem da primeira entrada em campo.
+  - `Premiacao.liquidar` calcula a XP de cada participante.
+  - `Experiencia.repartir` faz a divisão com o resto.
+- **No mod:**
+  - Cada Galeto guardado tem a sua XP.
+  - No fim de uma Rinha vencida contra selvagem, os Galetos do treinador que entraram em campo ganham a XP e sobem de nível, se for o caso, com mensagem no chat.
+  - A equipe de teste não ganha XP.
+  - `/galetocraft equipe` mostra a XP e quanto falta para o próximo nível.
+- **Testes:**
+  - Núcleo: 27 testes. Os novos cobrem a divisão do resto e a XP só para quem entrou em campo.
+  - Cliente: o `CapturaTesteCliente` vence uma Rinha com Vagaló e Taturico contra um Taturico selvagem e confere os 775 XP (388 + 387).
+- **Observação de balanceamento:** escolhendo golpes ao acaso, a dupla Vagaló + Taturico perdeu 5 de 6 Rinhas contra um Taturico selvagem guiado pela IA. Ainda não há passivas nem efeitos de golpes, e o HP é o provisório.
+- **Ainda falta:** golpes aprendidos por nível. A tabela de níveis não está na camada vigente da base, e a curva 1–49 continua pendente.
+
 ### Próximos passos (fase 6 em diante)
 1. Golpes próprios do Galeto individual (repertório aprendido) e sincronização com o cliente.
-2. XP dos Cocorídeos por Rinha vencida (regra `experiencia`) e aprendizado de golpes (depende da tabela de níveis, ainda fora da camada vigente).
+2. Aprendizado de golpes por nível (depende de migrar a tabela de níveis para a base).
 3. Passivas e efeitos dos golpes por família, a partir do texto oficial estruturado.
 4. Tela própria da Rinha e do Galetário, no lugar do chat.
 5. Rinha entre jogadores; soltar Galetos da equipe no mundo.

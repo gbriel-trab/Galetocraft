@@ -9,6 +9,8 @@ import br.galetocraft.nucleo.dados.Especie;
 import br.galetocraft.nucleo.dados.Galetario;
 import br.galetocraft.nucleo.dados.Golpe;
 import br.galetocraft.nucleo.regras.Energia;
+import br.galetocraft.nucleo.regras.Experiencia;
+import br.galetocraft.nucleo.rinha.Premiacao;
 import br.galetocraft.nucleo.regras.MiraAnatomica;
 import br.galetocraft.nucleo.regras.PenaDeRitmo;
 import br.galetocraft.nucleo.rinha.Combatente;
@@ -46,6 +48,7 @@ public final class GerenciadorRinhas {
 	/** Formato oficial da Rinha: 3v3. */
 	public static final int GALETOS_NA_RINHA = 3;
 	private static final Map<UUID, Sessao> SESSOES = new ConcurrentHashMap<>();
+	private static final Experiencia XP = new Experiencia(Galetario.padrao());
 
 	private GerenciadorRinhas() {
 	}
@@ -54,6 +57,8 @@ public final class GerenciadorRinhas {
 		final Rinha rinha;
 		final GaloEntity selvagem;
 		final IaBasica ia;
+		/** Ids dos Galetos do treinador na Rinha, na ordem da equipe; vazio com a equipe de teste (sem XP). */
+		List<UUID> galetosDoTreinador = List.of();
 		MiraAnatomica.Regiao mira = MiraAnatomica.Regiao.TRONCO;
 		MiraAnatomica.Regiao guarda;
 		boolean usarPena;
@@ -80,8 +85,11 @@ public final class GerenciadorRinhas {
 		Especie especieSelvagem = selvagem.fichaDaEspecie().orElseThrow();
 		Treinador treinador = ModAnexos.treinador(jogador);
 		List<Combatente> meus;
+		List<UUID> ids = List.of();
 		if (!treinador.equipe().isEmpty()) {
-			meus = treinador.equipe().stream().limit(GALETOS_NA_RINHA).map(x -> Combatente.padrao(x.ficha(), x.nivel())).toList();
+			List<GaletoGuardado> escalados = treinador.equipe().stream().limit(GALETOS_NA_RINHA).toList();
+			meus = escalados.stream().map(x -> Combatente.padrao(x.ficha(), x.nivel())).toList();
+			ids = escalados.stream().map(GaletoGuardado::id).toList();
 		} else {
 			meus = EquipesTemporarias.equipe(jogador).stream().map(e -> Combatente.padrao(e, GaloEntity.NIVEL_PADRAO)).toList();
 			jogador.displayClientMessage(Component.literal("Você ainda não tem Galetos: entra a equipe de teste (/galetocraft equipe teste).")
@@ -93,6 +101,7 @@ public final class GerenciadorRinhas {
 		r.permitirCaptura(Capturas.REGRAS);
 		selvagem.emRinha(true);
 		Sessao s = new Sessao(r, selvagem, semente);
+		s.galetosDoTreinador = ids;
 		SESSOES.put(jogador.getUUID(), s);
 		enviarHistorico(jogador, s);
 		enviarMenu(jogador, s);
@@ -233,10 +242,46 @@ public final class GerenciadorRinhas {
 			boolean venceu = s.rinha.vencedor().map(v -> v == s.rinha.equipeA()).orElse(false);
 			p.displayClientMessage(Component.literal(venceu ? "Você venceu a Rinha!" : "Você perdeu a Rinha.")
 					.withStyle(venceu ? ChatFormatting.GREEN : ChatFormatting.RED), false);
+			if (venceu)
+				premiar(p, s);
 			encerrar(p);
 		} else {
 			enviarMenu(p, s);
 		}
+	}
+
+	/** XP da Rinha vencida para os Galetos do treinador que entraram em campo (regra experiencia). */
+	private static void premiar(ServerPlayer p, Sessao s) {
+		if (s.galetosDoTreinador.isEmpty()) {
+			p.displayClientMessage(Component.literal("A equipe de teste não ganha XP.").withStyle(ChatFormatting.GRAY), false);
+			return;
+		}
+		Map<Integer, Long> xp;
+		try {
+			xp = Premiacao.liquidar(s.rinha, s.rinha.equipeA(), XP, Premiacao.PVE_SELVAGEM);
+		} catch (IllegalArgumentException semMultiplicador) {
+			p.displayClientMessage(Component.literal("Sem XP: " + semMultiplicador.getMessage()).withStyle(ChatFormatting.GRAY), false);
+			return;
+		}
+		Treinador t = ModAnexos.treinador(p);
+		for (Map.Entry<Integer, Long> e : xp.entrySet()) {
+			UUID id = s.galetosDoTreinador.get(e.getKey());
+			GaletoGuardado antes = null;
+			for (GaletoGuardado g : t.equipe())
+				if (g.id().equals(id)) antes = g;
+			for (GaletoGuardado g : t.reservas())
+				if (g.id().equals(id)) antes = g;
+			if (antes == null)
+				continue;
+			GaletoGuardado depois = antes.comXp(e.getValue());
+			t = t.atualizar(id, g -> depois);
+			p.displayClientMessage(Component.literal(antes.ficha().nome() + " ganhou " + (depois.xp() - antes.xp()) + " XP.")
+					.withStyle(ChatFormatting.AQUA), false);
+			if (depois.nivel() > antes.nivel())
+				p.displayClientMessage(Component.literal(antes.ficha().nome() + " subiu para o nível " + depois.nivel() + "!")
+						.withStyle(ChatFormatting.GOLD), false);
+		}
+		ModAnexos.salvar(p, t);
 	}
 
 	private static void enviarHistorico(ServerPlayer p, Sessao s) {

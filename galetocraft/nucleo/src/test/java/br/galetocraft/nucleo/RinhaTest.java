@@ -6,6 +6,9 @@ import br.galetocraft.nucleo.dados.Galetario;
 import br.galetocraft.nucleo.dados.Golpe;
 import br.galetocraft.nucleo.regras.Captura;
 import br.galetocraft.nucleo.regras.Energia;
+import br.galetocraft.nucleo.regras.Experiencia;
+import br.galetocraft.nucleo.rinha.Premiacao;
+import br.galetocraft.nucleo.rinha.IaBasica;
 import br.galetocraft.nucleo.rinha.Combatente;
 import br.galetocraft.nucleo.rinha.Decisao;
 import br.galetocraft.nucleo.rinha.Equipe;
@@ -14,6 +17,7 @@ import br.galetocraft.nucleo.rinha.Simulador;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -193,5 +197,52 @@ class RinhaTest {
 		t.rodada(capturar(5), Decisao.golpe(t.equipeB().ativo().golpes().get(0)));
 		assertFalse(t.capturado());
 		assertTrue(t.historico().stream().anyMatch(l -> l.contains("só é possível em Rinha contra Cocorídeo selvagem")));
+	}
+
+	// ---------------------------------------------------------------- XP dos Cocorídeos (regra experiencia)
+	@Test
+	void restoDaXpVaiNaOrdemDaPrimeiraEntrada() {
+		assertArrayEquals(new long[]{4, 3, 3}, Experiencia.repartir(10, 3));
+		assertArrayEquals(new long[]{1150}, Experiencia.repartir(1150, 1));
+		assertArrayEquals(new long[]{0, 0}, Experiencia.repartir(0, 2));
+	}
+
+	@Test
+	void xpDaRinhaVencidaVaiSoParaQuemEntrouEmCampo() {
+		Experiencia regras = new Experiencia(G);
+		int conferidas = 0;
+		for (long semente = 1; semente <= 40; semente++) {
+			// trio do treinador × Taturico selvagem; o treinador troca uma vez na 1ª rodada e depois só golpeia
+			Equipe a = trio("Treinador", 4, 1, 3), b = trio("Selvagem", 7);
+			Rinha r = new Rinha(G, a, b, semente);
+			r.permitirCaptura(new Captura(G));
+			IaBasica ia = new IaBasica(semente);
+			r.rodada(new Decisao(new Decisao.Trocar(1, false), null), ia.decidir(r, b, a));
+			while (!r.terminada()) {
+				Golpe g = r.golpesValidos(a).stream().filter(Golpe::danoDireto).findFirst().orElse(a.ativo().golpes().get(0));
+				r.rodada(Decisao.golpe(g), ia.decidir(r, b, a));
+			}
+			Map<Integer, Long> xp = Premiacao.liquidar(r, a, regras, Premiacao.PVE_SELVAGEM);
+			if (r.vencedor().orElse(null) != a) {
+				assertTrue(xp.isEmpty(), "derrota não dá XP");
+				continue;
+			}
+			conferidas++;
+			// Taturico nível 50, Comum, P = 50: floor((25 + 750) × 1 × 1 × 1) = 775
+			assertEquals(775, xp.values().stream().mapToLong(Long::longValue).sum());
+			assertEquals(a.participantes(), List.copyOf(xp.keySet()));
+			assertTrue(a.participantes().containsAll(List.of(0, 1)));
+			if (!a.participantes().contains(2))
+				assertFalse(xp.containsKey(2), "a reserva que não entrou não recebe");
+			if (a.participantes().size() == 2) {
+				assertEquals(388, xp.get(0));   // 775 = 388 + 387: o resto vai para quem entrou primeiro
+				assertEquals(387, xp.get(1));
+			} else {
+				assertEquals(List.of(259L, 258L, 258L), List.copyOf(xp.values()));
+			}
+		}
+		assertTrue(conferidas > 0);
+		// recompensa com desafio: oponente 10 níveis acima vale ×1,30; derrota/captura não liquidam
+		assertEquals((long) Math.floor((25 + 15 * 60) * 1.3), regras.recompensa(60, "Comum", 50, Premiacao.PVE_SELVAGEM));
 	}
 }

@@ -33,6 +33,19 @@ public final class Experiencia {
 		return xpTotal(nivel + 1) - xpTotal(nivel);
 	}
 
+	public static final int NIVEL_MAXIMO = 100;
+
+	/**
+	 * Reparte a XP entre os participantes: quociente inteiro para todos e 1 unidade do resto para cada um, na ordem
+	 * da primeira entrada em campo. A soma é conservada.
+	 */
+	public static long[] repartir(long total, int participantes) {
+		long[] parcelas = new long[participantes];
+		for (int i = 0; i < participantes; i++)
+			parcelas[i] = total / participantes + (i < total % participantes ? 1 : 0);
+		return parcelas;
+	}
+
 	public static int nivelPorXp(long xp) {
 		int n = 1;
 		while (n < 100 && xpTotal(n + 1) <= xp)

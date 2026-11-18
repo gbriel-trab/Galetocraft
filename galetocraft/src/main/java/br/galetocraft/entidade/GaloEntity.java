@@ -135,7 +135,7 @@ public class GaloEntity extends PathfinderMob implements GeoEntity {
 	public br.galetocraft.treinador.GaletoGuardado guardar() {
 		Especie e = fichaDaEspecie().orElseThrow();
 		return new br.galetocraft.treinador.GaletoGuardado(getUUID(), e.numero(), nivel(), String.valueOf(sexo()),
-				Arrays.stream(ivs()).boxed().toList());
+				Arrays.stream(ivs()).boxed().toList(), -1);   // XP inicial = T(nível), sem XP extra pela captura
 	}
 
 	/** Gera nível, sexo e IVs uma única vez (ao aparecer ou na primeira consulta de entidades antigas). */

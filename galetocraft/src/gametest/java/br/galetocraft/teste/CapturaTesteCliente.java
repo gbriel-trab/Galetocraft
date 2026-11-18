@@ -19,13 +19,16 @@ import net.minecraft.server.level.ServerPlayer;
  * falha, confere a espera de 20 s antes de tentar de novo;</li>
  * <li>confere o Taturico na equipe principal e os 115 XP da Pena (Comum nível 50);</li>
  * <li>na Rinha: desafia um Vagaló com o Taturico e usa Itens → Pena de Captura até capturar;</li>
- * <li>confere a equipe com os dois e a troca de ordem pelo botão "primeiro".</li>
+ * <li>confere a equipe com os dois e a troca de ordem pelo botão "primeiro";</li>
+ * <li>vence uma Rinha contra um Taturico selvagem e confere a XP: 775 no total (Comum nível 50, P = 50), repartida
+ * entre quem entrou em campo, somada à XP inicial T(50) = 141.659.</li>
  * </ol>
  * Grava o chat em {@code captura_teste.log}. Para rodar só ele: GALETO_TESTES=captura.
  */
 @SuppressWarnings("UnstableApiUsage")
 public class CapturaTesteCliente implements FabricClientGameTest {
 	private static final int MAX_TENTATIVAS = 12;
+	private static final long T50 = 141_659;   // (50−1)³ + 10·(50−1)²
 
 	@Override
 	public void runTest(ClientGameTestContext contexto) {
@@ -112,7 +115,33 @@ public class CapturaTesteCliente implements FabricClientGameTest {
 			Treinador t3 = servidor.computeOnServer(CapturaTesteCliente::treinador);
 			chat.exigir(t3.equipe().get(0).especie() == 9, "o botão primeiro não mudou a ordem");
 			contexto.takeScreenshot("captura_equipe");
-			chat.gravar("ok: mundo em " + tentativasMundo + " tentativa(s); Rinha em " + acoes + " ação(ões) e " + rinhas + " Rinha(s)");
+
+			// 6) XP por Rinha vencida
+			chat.exigir(t3.equipe().stream().allMatch(g -> g.xp() == T50), "a XP inicial do capturado deveria ser T(50)");
+			java.util.Random rng = new java.util.Random(7);
+			int vitorias = chat.contar("Você venceu a Rinha!"), rinhasXp = 0;
+			while (chat.contar("Você venceu a Rinha!") == vitorias && rinhasXp < 6) {
+				servidor.runCommand("summon galetocraft:taturico 0 -60 2 {Rotation:[180f,0f]}");
+				contexto.waitTicks(10);
+				int derrotas = chat.contar("Você perdeu a Rinha.");
+				chat.comando("galetocraft desafiar");
+				rinhasXp++;
+				int passos = 0;
+				while (chat.contar("Você venceu a Rinha!") == vitorias && chat.contar("Você perdeu a Rinha.") == derrotas && passos < 80) {
+					String concentracao = chat.botaoComRotulo("Concentração");
+					java.util.List<String> dano = chat.botoes("/galetocraft acao golpe ").stream().filter(g -> !g.equals(concentracao)).toList();
+					chat.comando(dano.isEmpty() ? concentracao : dano.get(rng.nextInt(dano.size())));
+					passos++;
+				}
+			}
+			chat.exigir(chat.contar("Você venceu a Rinha!") > vitorias, "não venceu a Rinha da XP em " + rinhasXp + " tentativas");
+			Treinador t4 = servidor.computeOnServer(CapturaTesteCliente::treinador);
+			long ganho = t4.equipe().stream().mapToLong(g -> g.xp() - T50).sum();
+			chat.exigir(ganho == 775, "XP total da vitória deveria ser 775, foi " + ganho + ": " + t4);
+			chat.exigir(chat.contem("ganhou") && chat.contem(" XP."), "faltou a mensagem de XP");
+			contexto.takeScreenshot("xp_vitoria");
+			chat.gravar("ok: mundo em " + tentativasMundo + " tentativa(s); Rinha em " + acoes + " ação(ões) e " + rinhas
+					+ " Rinha(s); XP 775 em " + rinhasXp + " Rinha(s)");
 		}
 	}
 

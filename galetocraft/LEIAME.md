@@ -41,7 +41,8 @@ Para abrir o jogo de teste já com o mod: `gradlew runClient`.
 2. **Captura no mundo:** com a Pena na mão, mire num Galeto a até 12 blocos e clique com o botão direito. Se falhar, ele resiste por 20 s (60 s se Lendário).
 3. **Rinha:** chegue a até 10 blocos de um Galeto e use `/galetocraft desafiar`. Entram os 3 primeiros da sua equipe. Sem Galetos, entra a equipe de teste (`/galetocraft equipe teste cocorrego pirococo esporoco`).
 4. Jogue clicando nos botões do chat: golpes (Combate), troca (Galetos), Mira, Guarda, Pena de Ritmo (depois de uma Concentração), Itens → Pena de Captura e Fugir.
-5. `/galetocraft equipe` mostra a equipe principal (até 5), as reservas e a Pena, com botões para guardar, chamar e pôr em primeiro.
+5. Vencer uma Rinha dá XP aos seus Galetos que entraram em campo; eles sobem de nível pela curva oficial.
+6. `/galetocraft equipe` mostra a equipe principal (até 5), as reservas, a XP de cada Galeto e a Pena, com botões para guardar, chamar e pôr em primeiro.
 
 Outros comandos: `/galetocraft ficha <espécie>`, `/galetocraft base`, `/galetocraft rinha <a> <b> [nível]` (Rinha simulada) e `/galetocraft duelo <a> <b> [rinhas]` (operadores). Clicar num Galeto com a mão vazia mostra a ficha dele.
 

@@ -69,6 +69,12 @@ public record Treinador(int penaXp, List<GaletoGuardado> equipe, List<GaletoGuar
 		return new Treinador(penaXp, e, reservas);
 	}
 
+	/** Aplica uma mudança ao Galeto com esse id, onde ele estiver (equipe ou reservas). */
+	public Treinador atualizar(java.util.UUID id, java.util.function.UnaryOperator<GaletoGuardado> f) {
+		return new Treinador(penaXp, equipe.stream().map(g -> g.id().equals(id) ? f.apply(g) : g).toList(),
+				reservas.stream().map(g -> g.id().equals(id) ? f.apply(g) : g).toList());
+	}
+
 	private static List<GaletoGuardado> mais(List<GaletoGuardado> lista, GaletoGuardado g) {
 		List<GaletoGuardado> l = new ArrayList<>(lista);
 		l.add(g);

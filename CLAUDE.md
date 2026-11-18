@@ -69,8 +69,9 @@ O fluxo completo está em `base/LEIA_ME.md`. Em resumo:
   - 12 entidades com IA neutra e LOD. Cada uma é um Galeto individual com nível, sexo e IVs salvos.
   - Comandos `/galetocraft base | ficha | rinha | duelo` (simulação), `desafiar | acao` (Rinha jogável contra Galeto selvagem, com menu clicável no chat), `equipe` (equipe do treinador) e `pena`.
   - Pena de Captura: captura no mundo (botão direito, 12 blocos, visão livre, espera após falha) e na Rinha (Itens → Pena de Captura). O capturado vai para a equipe principal (até 5) ou para as reservas, salvos com o jogador.
+  - XP dos Cocorídeos por Rinha vencida (regra `experiencia`), com subida de nível.
   - Testes de cliente `RinhaTesteCliente` e `CapturaTesteCliente`. Para rodar sem placa de vídeo: `GALETO_TESTES=rinha,captura LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a bash gradlew runClientGameTest`.
-- **Ainda falta:** golpes próprios do Galeto, tela própria da Rinha, Galetário no jogo, passivas e efeitos de golpes, XP dos Cocorídeos e reprodução. O roteiro está em `docs/ANALISE_DESENVOLVIMENTO.md` e o andamento em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
+- **Ainda falta:** golpes próprios do Galeto e aprendizado por nível, tela própria da Rinha, Galetário no jogo, passivas e efeitos de golpes, e reprodução. O roteiro está em `docs/ANALISE_DESENVOLVIMENTO.md` e o andamento em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
 - **Modelos:** rode `ferramentas/especies/<id>.py` e depois `ferramentas/exportar_especie.py <id>`, como descrito em `galetocraft/LEIAME.md`.
 - **Git LFS:** os arquivos de `modelos/*/revisao/` e os PNGs do benchmark estão no LFS. Nesta cópia há só ponteiros.
 

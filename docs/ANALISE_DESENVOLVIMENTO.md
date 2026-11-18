@@ -73,6 +73,7 @@ Situação das fases em 18/11:
 - 3 feita em parte: nível, sexo e IVs; faltam golpes próprios e sincronização.
 - 4 feita contra Galeto selvagem, com menu no chat; faltam a tela própria e a Rinha entre jogadores.
 - 5 feita: Pena de Captura, captura no mundo e na Rinha, equipe e reservas do treinador. Falta a tela do Galetário.
+- 7 feita em parte: XP por Rinha vencida e subida de nível. Falta o aprendizado de golpes por nível.
 | **5. Captura e treinador** | Item Pena, equipe de 5 + reservas, tela do Galetário | Fase 4 |
 | **6. Efeitos de golpes e passivas** | Efeitos estruturados por família, ganchos das passivas | Fase 4, decisão 4 |
 | **7. XP e aprendizado** | XP por Rinha vencida, golpes por nível, slots | Fase 4, decisão 2 |

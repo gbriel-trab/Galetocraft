@@ -2,6 +2,8 @@ package br.galetocraft.nucleo.rinha;
 
 import br.galetocraft.nucleo.regras.PenaDeRitmo;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +14,7 @@ public final class Equipe {
 	private final String nome;
 	private final List<Combatente> galetos;
 	private final PenaDeRitmo pena = new PenaDeRitmo();
+	private final List<Integer> participantes = new ArrayList<>();   // índices, na ordem da primeira entrada em campo
 	private int ativo;
 
 	public Equipe(String nome, List<Combatente> galetos) {
@@ -19,6 +22,12 @@ public final class Equipe {
 			throw new IllegalArgumentException("A equipe tem de 1 a 3 Galetos");
 		this.nome = nome;
 		this.galetos = List.copyOf(galetos);
+		participantes.add(0);
+	}
+
+	/** Índices dos Galetos que entraram em campo ao menos uma vez, na ordem da primeira entrada. */
+	public List<Integer> participantes() {
+		return Collections.unmodifiableList(participantes);
 	}
 
 	public String nome() { return nome; }
@@ -47,5 +56,7 @@ public final class Equipe {
 		ativo().sairDeCampo();
 		ativo = i;
 		ativo().entrarEmCampo();
+		if (!participantes.contains(i))
+			participantes.add(i);
 	}
 }

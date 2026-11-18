@@ -418,10 +418,11 @@ O relatório completo está em `docs/AUDITORIA_INCOERENCIAS.md`: 29 conflitos re
 - **Comandos no jogo:** `/galetocraft base | ficha <espécie> | rinha <a> <b> [nível] | duelo <a> <b> [rinhas]`.
 - **Galeto individual:** cada entidade tem nível (50), sexo e 6 IVs (1–40), salvos com ela. Clicar com a mão vazia mostra a ficha do indivíduo. Os IVs ainda não alteram os atributos.
 - **Rinha jogável:** contra Galeto selvagem, com `/galetocraft desafiar` e um menu clicável no chat (Combate, Galetos, Mira, Guarda, Pena de Ritmo, Itens, Fugir). Entram os 3 primeiros da equipe do treinador; sem Galetos, a equipe de teste.
+- **XP dos Cocorídeos:** Rinha vencida contra selvagem dá XP aos Galetos do treinador que entraram em campo (regra `experiencia`), com subida de nível pela curva oficial.
 - **Captura e treinador:** item Pena de Captura (`/galetocraft pena`), captura no mundo e na Rinha conforme a regra `captura`; equipe principal de 5 e reservas salvas com o jogador (`/galetocraft equipe`).
 - **Ainda NÃO existe no mod:**
   - Golpes próprios e dono do Galeto; tela própria da Rinha; Rinha entre jogadores.
-  - Galetário no jogo; XP dos Cocorídeos.
+  - Galetário no jogo; aprendizado de golpes por nível.
   - Passivas e efeitos especiais dos golpes.
   - Blocos, spawn natural e sons próprios.
 - **Espécies sem entidade:** #002 Cocórrego, #013–#018 e #020–#023.
