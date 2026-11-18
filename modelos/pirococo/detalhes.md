@@ -1,5 +1,7 @@
 # Pirococó (#001): detalhes da ficha RoosterTeca × modelo novo (`ferramentas/especies/pirococo.py`)
 
+> **Documento histórico (18/11/2026):** estas tabelas descrevem a série p (rodada p17), feita sobre a ficha da antiga RoosterTeca (hoje Galetário). O modelo vigente do Pirococó é a rodada **g09**, feita sobre a 3ª ficha do Galetário (`modelos/referencias/001_pirococo_g2_*`; gerador em `ferramentas/especies/pirococo.py`).
+
 Referência: SÓ a ficha RoosterTeca voxel (`001_pirococo_ficha`, `_vistas`, `_arte`, `_expressoes` neutra, `_detalhes`).
 A arte pintada extra foi descartada pelo dono e não entrou no modelo.
 Cores amostradas com PIL (média 5x5 ou 7x7 px). Status: ok / parcial / falta.

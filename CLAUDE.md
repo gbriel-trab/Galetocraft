@@ -31,6 +31,12 @@ Projeto de mod de Minecraft com criaturas chamadas Cocorídeos/Galetos, batalhas
   - Também são oficiais **Rinha** (a atividade; o botão continua "Combate"), **Cocorídeos/Galeto** e **Galeria**.
   - Use sempre o nome oficial em textos, interface e documentação.
   - Nomes antigos só ficam em caminhos, nomes de arquivo, tabelas, chaves JSON, IDs em minúsculas e citações históricas.
+- **Decisões do criador de 18/11/2026** (auditoria completa em `docs/AUDITORIA_INCOERENCIAS.md`):
+  - O mod é de **todos os direitos reservados**.
+  - **Lendário Original** é uma classe própria, fora da escala; o Quetzacocó soma 700.
+  - O par de gêmeos especiais Cocórion+Cocórvolt fica **inativo**.
+  - #007–#015 **não têm golpe hereditário**, por design.
+- **Pacote rev. 3 da base:** `docs/patches/rev3_coerencia_e_nomenclatura.json` reúne as correções de coerência e a nomenclatura. Foi testado, mas ainda não foi publicado na base principal. Até lá, a base do Release continua na revisão 2.
 - **Arquivos grandes do Release:** use HTTP Range para extrair um arquivo de um ZIP sem baixar o pacote inteiro. Os pacotes 01–13 têm cerca de 800 MB cada. Confira o SHA-256 contra `INVENTARIO_GALETOCRAFT.json`.
 
 ## Código

@@ -24,7 +24,7 @@ public final class ModEntidades {
 	private static final Map<EntityType<GaloEntity>, AttributeSupplier.Builder> ATRIBUTOS = new LinkedHashMap<>();
 	private static final List<EntityType<GaloEntity>> LISTA = new ArrayList<>();
 
-	/** #001 Pirococó: o galo-fênix das chamas (~2,45 blocos de altura, bem mais alto que um jogador; imune a fogo). */
+	/** #001 Pirococó: o galo-fênix das chamas (2,8 blocos de altura pela tabela oficial, bem mais alto que um jogador; imune a fogo). */
 	public static final EntityType<PirococoEntity> PIROCOCO = registrar("pirococo",
 			EntityType.Builder.of(PirococoEntity::new, MobCategory.CREATURE)
 					.sized(1.2f, 2.8f)
@@ -46,7 +46,7 @@ public final class ModEntidades {
 	public static final EntityType<GaloEntity> AXOCOCO = galo("axococo", 0.72f, 1.15f, false, 38, 0.26, 4);
 	/** #009 Vagaló, o galo-vaga-lume veloz. */
 	public static final EntityType<GaloEntity> VAGALO = galo("vagalo", 0.66f, 1.0f, false, 30, 0.33, 4);
-	/** #010 Morcegalo, o galo-morcego das sombras. */
+	/** #010 Morcegalo, o galo-morcego do sonar (elemento Ar). */
 	public static final EntityType<GaloEntity> MORCEGALO = galo("morcegalo", 0.78f, 1.2f, false, 34, 0.29, 6);
 	/** #011 Espinhocó, o galo-espinho da floresta. */
 	public static final EntityType<GaloEntity> ESPINHOCO = galo("espinhoco", 0.78f, 1.25f, false, 44, 0.24, 5);

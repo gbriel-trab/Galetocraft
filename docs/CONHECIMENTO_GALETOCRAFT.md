@@ -91,13 +91,17 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
   - #21 Veredito da Porta Fechada
   - #22 Ária da Maré Eterna
   - A compatibilidade entre espécies não está determinada.
+  - #007–#015 **não têm golpe hereditário, por design** (decisão do criador de 18/11/2026).
 - **Quetzacocó #023:**
   - Lendário Original, com o elemento exclusivo **Nexo** (V2.0).
+  - "Lendário Original" é uma **classe própria, fora da escala de raridades**. O total é definido pela ficha (700 no nível 50), por decisão do criador de 18/11/2026.
   - Passiva: na primeira entrada invoca Ventania sem gastar ação nem Energia. Com Ventania ativa, ganha +50 p.p. de Atq. Mágico, e seus golpes de Planta não sofrem a penalidade da Ventania.
   - Golpes próprios: Cataclismo Celeste (Ar), Eclosão das Mil Coroas (Planta, invoca Santuário das Raízes) e Ascensão do Nexo (+50 p.p. de Atq. Mágico e de Velocidade por uso).
   - Não reproduz.
 - **Wukocó #024** é apenas proposta.
-- **Artes vigentes:** 21 em `current_art`. Faltam #019 Renacocó e #020 Frankocó (pendência R12).
+- **Artes vigentes:** 21 em `current_art`.
+  - As artes de #019 Renacocó ("Renacocó com Face Azul Claro.png") e #020 Frankocó ("Ficha Oficial Frankocó #020.png") foram identificadas pelas fichas homologadas e copiadas para `modelos/referencias/`.
+  - Falta incluí-las na base por migração.
 
 ## 4. Elementos e eficácia
 
@@ -279,7 +283,8 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
   - Casais elegíveis: 0,4% de gêmeos comuns e 0,1% de gêmeos especiais por ovo.
   - Demais casais: 0,5% de gêmeos comuns e nenhuma chance de especiais.
   - Gêmeos têm os 6 IVs idênticos.
-  - Pares especiais conhecidos: Pirococó+Renacocó e Cocórion+Cocórvolt. O segundo par é impossível hoje, porque as duas espécies são 100% machos.
+  - Pares especiais conhecidos: Pirococó+Renacocó e Cocórion+Cocórvolt.
+  - Cocórion+Cocórvolt é um **par inativo**, porque as duas espécies são 100% machos. Ele fica registrado até a distribuição de sexo mudar (decisão do criador de 18/11/2026).
   - Os gatilhos dos gêmeos especiais estão pendentes.
 - **Herança de Bico:**
   - Se o pai é portador, o filhote herda com 100% de chance.
@@ -327,6 +332,10 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
   | Faísca | #006 Cocórvolt, #009 Vagaló |
   | Terreiro | variável |
 
+  - Valem as duplas da afinidade. A lista de 3 parceiros por Mestre da v1.1 é sugestão histórica.
+  - As contagens dos documentos de 10/11 ("11/12 espécies", "302 vínculos") também são históricas.
+  - Reavaliar os elencos com as espécies novas só com autorização do criador.
+
 - **Sistemas ligados aos Mestres:**
   - IA dos Mestres: demonstra o golpe na primeira oportunidade e depois se adapta taticamente.
   - Diário dos Mestres: 5 telas no Galetário.
@@ -334,7 +343,7 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 
 ## 9. Pendências reais (`current_issues` e limites declarados)
 
-- **Arte e modelo:** faltam as artes de #019 e #020 e o modelo r82 (R12).
+- **Arte e modelo (R12):** artes e modelo localizados. Falta só a migração das artes para `current_art`.
 - **Progressão:** a curva 1–49 e o HP de referência ainda são candidatos (R13).
 - **Migração para o mod:** está bloqueada no runtime (R14). O núcleo histórico tem 12 espécies, e 141 quarentenas técnicas foram preservadas.
 - **Golpes:** os 660 vínculos aprendíveis são "candidatos técnicos". Os IDs não são entidades executáveis aprovadas (R15).
@@ -348,15 +357,20 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
   - Integração automática a cada implementação (U05).
 - **Fora do `current_issues`:** fórmula de dano definitiva e runtime Fabric/GeckoLib.
 
-### Inconsistências encontradas nesta leitura (para conferir)
-- **Rótulo de nível — CORRIGIDO em 18/11/2026, com confirmação do criador:**
-  - A referência dos atributos-base é o **nível 50**.
-  - As 29 fichas oficiais que traziam o rótulo antigo "nível 100" ganharam cópias corrigidas em `docs/acervo_corrigido/`, com os números conferidos contra a base. Os detalhes estão em `docs/ERRATA_NIVEL_50.md`.
-  - Os originais do Release seguem preservados como histórico.
-  - Ao conferir uma ficha, use a cópia corrigida ou a base vigente.
-- **Total do Quetzacocó:** 700 no nível 50, acima da faixa Lendário (590–630). A raridade registrada é "Lendário Original", que não tem faixa definida na norma de progressão.
-- **Mestres Elementais:** os documentos de 10/11 citam "11/12 espécies" e "302 vínculos", números anteriores ao catálogo atual de 23 espécies. No v1.1, Braseiro aparece com Pirococó, Cocórak e Cocórion. Depois, o Elenco provisório definiu Pirococó e Salambrasa.
-- **Loader do mod:** as atas e os documentos dos Mestres falam em "Java/NeoForge", mas o código real usa **Fabric + GeckoLib**, como a base vigente também registra.
+### Incoerências: auditoria de 18/11/2026 (todas resolvidas)
+O relatório completo está em `docs/AUDITORIA_INCOERENCIAS.md`: 29 conflitos resolvidos na base, nos documentos e no repositório.
+
+- **Correções na base vigente:** estão no pacote `docs/patches/rev3_coerencia_e_nomenclatura.json` (revisão 2 → 3), já testado.
+  - Concentração V2.3 aplicada a todas as espécies.
+  - Texto canônico para os golpes básicos.
+  - Esquema comum para os golpes do #023.
+  - Pendências já resolvidas (R02, R09) marcadas assim nas atas.
+  - Decisões do criador registradas em `resolucoes_posteriores`.
+  - **Falta publicar o pacote na biblioteca do ChatGPT.**
+- **Rótulo de nível:** a referência é o nível 50. Use `docs/acervo_corrigido/` e veja `docs/ERRATA_NIVEL_50.md`.
+- **Plataforma:** **Fabric 1.21.11 + GeckoLib**. As menções a "NeoForge" nas atas estão obsoletas.
+- **Arte do Renacocó:** a oficial é "Renacocó com Face Azul Claro.png", como diz a ficha homologada. A citação da Memória Mestra está superada.
+- **Faíscocó:** a raridade é Raro. A legenda "Comum" na arte antiga está desatualizada, e a arte não foi alterada.
 
 ## 10. Repositório (código e modelos)
 
@@ -419,14 +433,14 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 - **Git LFS** cobre `modelos/*/revisao/**` (png, bbmodel, bak) e `benchmark/**/*.png`.
   - Nesta cópia há só ponteiros: 5.783 arquivos, cerca de 2,4 GB não baixados.
 
-### Pendências técnicas no repositório
-- **Licença:** o arquivo `LICENSE` é CC0, mas o `fabric.mod.json` declara "All-Rights-Reserved".
-- **Documentação desatualizada:**
-  - O `LEIAME.md` ainda descreve o fluxo antigo (`pirococo6.py` com `exportar_geckolib.py`).
-  - O `teste.log` é antigo.
-  - Alguns comentários e logs do Pirococó e do Vagaló descrevem versões anteriores.
-- **Glowmasks vazias:** Axococó, Cocórion, Espinhocó e Taturico. Por inferência a partir do código, a camada de brilho redesenha o modelo inteiro sem necessidade nesses casos.
-- **Propriedade intelectual:** a pasta `galos_monstro/` (protótipo fora do mod) se declara inspirada em Pokémon. Convém não levá-la para o jogo.
+### Situação técnica do repositório
+- **Licença:** **todos os direitos reservados** (`LICENSE` e `fabric.mod.json`), por decisão do criador de 18/11/2026.
+- **Documentação:** o `LEIAME.md` e a descrição do mod foram atualizados (12 espécies e fluxo atual), e os comentários desatualizados foram corrigidos. O `teste.log` é um registro antigo de execução.
+- **`lod_log.txt` do Pirococó e do Vagaló:** as contagens são antigas. Regenere com `lod_auto.py` na próxima reexportação, porque o script também muda o `lods.json`.
+- **Glowmasks vazias:** Axococó, Cocórion, Espinhocó e Taturico. Por inferência a partir do código, a camada de brilho redesenha o modelo inteiro à toa nesses casos. É um problema de desempenho, e a correção exige mudar o código e testar no jogo.
+- **Originalidade:**
+  - A pasta `galos_monstro/` (protótipo fora do mod) se declara inspirada em Pokémon. Convém não levá-la para o jogo.
+  - A arte oficial do Renacocó cita "Marco" e "Estilo Ikki", personagens de outras franquias. Ela só muda com autorização do criador.
 
 ## 11. Acervo do Release `acervo-documental-2026-11-17`
 

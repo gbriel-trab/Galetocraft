@@ -40,7 +40,7 @@ A versão em formato de máquina está em `ferramentas/acervo/nomenclatura_ofici
 ## Base vigente: atualização preparada, ainda não publicada
 
 - **O que muda:** a base `Galetocraft.sqlite` (revisão 2) ainda usa "Tontura" no texto de efeito de 2 golpes do #013 Quartzaló: Concentração e Faíscas do Geodo.
-- **O pacote de atualização:** `docs/patches/rev3_nomenclatura_tonto.json`, no formato do atualizador oficial (`Atualizar_Galetocraft.py`).
+- **O pacote de atualização:** `docs/patches/rev3_coerencia_e_nomenclatura.json`, que também traz as correções da auditoria (ver `docs/AUDITORIA_INCOERENCIAS.md`), no formato do atualizador oficial (`Atualizar_Galetocraft.py`).
 - **Teste:** foi aplicado numa cópia da base.
   - A revisão passou de 2 para 3, com `integrity_check = ok`, nenhuma violação de chave estrangeira e o registro gravado em `current_journal`.
   - Nenhum "Tontura" sobrou nos textos.
