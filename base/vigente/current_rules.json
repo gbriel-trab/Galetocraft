@@ -23,7 +23,7 @@
      "Lendário": 135,
      "Divino": 200
     },
-    "incremento_forca_por_evolucao": 0.15,
+    "incremento_forca_por_evolucao": null,
     "divisor_dificuldade_nivel": 60.0,
     "coeficiente_bonus_hp_rinha": 1.5,
     "incremento_xp_por_nivel_alvo": 2,
@@ -31,7 +31,7 @@
     "nivel_pena_max": 5,
     "nivel_alvo_min": 1,
     "nivel_alvo_max": 100,
-    "formula_forca_pena": "F = 1 + 0.15 * (nivel_pena - 1)",
+    "formula_forca_pena": "F pelo nível da Pena (tabela niveis_pena, reforço v1258): 1.00 / 1.30 / 1.65 / 2.05 / 2.50",
     "formula_dificuldade_nivel": "D = 1 + (nivel_alvo - 1) / 60",
     "formula_hp_rinha": "H = 1 + 1.5 * (1 - hp_atual / hp_maximo)",
     "formula_probabilidade": "P(%) = 100 * forca / (forca + D)",
@@ -49,7 +49,8 @@
     "fonte_documento": "Galetocraft_Proposta_Final_Capturas_Progressao_Pena_Mais_Dificil_2026-11-12.md",
     "sha256_documento": "35fac1ba755c5b0aaf7daafc3a40ea405f58126ecb5d23f62800ef546d52fd85",
     "fonte_aprovacao": "Aprovo oficialmente o balanceamento final de capturas contido no documento Galetocraft_Proposta_Final_Capturas_Progressao_Pena_Mais_Dificil_2026-11-12.md, incluindo a progressão mais difícil da Pena de Captura com custos de 1.000, 3.000, 7.000 e 15.000 XP por evolução, total de 26.000 XP, além das fórmulas de captura e XP descritas no documento. Preserve todas as regras homologadas anteriormente, registre em nova versão do banco SQLite, audite e apresente o sistema de capturas finalizado.",
-    "data_aprovacao": "2026-11-12"
+    "data_aprovacao": "2026-11-12",
+    "formula_forca_pena_superada": "F = 1 + 0.15 * (nivel_pena - 1), da Proposta Final de 12/11 (1.00 / 1.15 / 1.30 / 1.45 / 1.60); substituída pelo reforço dos níveis homologado na Beta 1.2.58"
    },
    "modalidades": [
     {
@@ -68,12 +69,13 @@
      "alcance_maximo_blocos": 12,
      "exige_visao_livre": 1,
      "inicio_sem_enfraquecimento": null,
-     "falha_permite_tentar_novamente_sem_cooldown": 1,
+     "falha_permite_tentar_novamente_sem_cooldown": 0,
      "falha_rinha_continua": null,
      "sucesso_rinha_encerra": null,
      "adversario_pendente_age_na_ordem": null,
      "status": "oficial_homologado",
-     "fonte_aprovacao": "Aprovo oficialmente o balanceamento final de capturas contido no documento Galetocraft_Proposta_Final_Capturas_Progressao_Pena_Mais_Dificil_2026-11-12.md, incluindo a progressão mais difícil da Pena de Captura com custos de 1.000, 3.000, 7.000 e 15.000 XP por evolução, total de 26.000 XP, além das fórmulas de captura e XP descritas no documento. Preserve todas as regras homologadas anteriormente, registre em nova versão do banco SQLite, audite e apresente o sistema de capturas finalizado."
+     "fonte_aprovacao": "Aprovo oficialmente o balanceamento final de capturas contido no documento Galetocraft_Proposta_Final_Capturas_Progressao_Pena_Mais_Dificil_2026-11-12.md, incluindo a progressão mais difícil da Pena de Captura com custos de 1.000, 3.000, 7.000 e 15.000 XP por evolução, total de 26.000 XP, além das fórmulas de captura e XP descritas no documento. Preserve todas as regras homologadas anteriormente, registre em nova versão do banco SQLite, audite e apresente o sistema de capturas finalizado.",
+     "espera_apos_falha": "ver cooldown_falha_mundo (Beta 1.2.59): 20 s de Comum a Mítico, 60 s para Lendário"
     },
     {
      "modalidade": "rinha",

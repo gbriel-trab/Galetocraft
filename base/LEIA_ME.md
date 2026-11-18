@@ -10,11 +10,12 @@
 | `artes/` | As 23 artes oficiais do Galetário (`current_art`). O SHA-256 de cada uma é conferido |
 | `fontes/` | Documentos-fonte embutidos na base (`current_sources`) |
 
-**Revisão atual: 6.**
+**Revisão atual: 7.**
 - rev. 3: correções de coerência e nomenclatura oficial.
 - rev. 4: nova governança, artes #019 e #020 e regra de nomenclatura.
 - rev. 5: regras oficiais de combate, captura e XP migradas do histórico, incluindo o dano V5.6.
 - rev. 6: golpes próprios de #001–#011 completados com a ficha original.
+- rev. 7: regra de captura sem os dois campos da proposta superada (força da Pena pela tabela do reforço v1258 e espera após falha no mundo da v1259).
 
 O histórico de cada revisão fica em `vigente/current_journal.json`, e os pacotes aplicados ficam em `docs/patches/`.
 
