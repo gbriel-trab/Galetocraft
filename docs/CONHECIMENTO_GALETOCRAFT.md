@@ -1,6 +1,6 @@
 # Galetocraft — Base de conhecimento consolidada
 
-> Resumo de referência montado em 18/11/2026 a partir de: base vigente (hoje em `base/vigente/`, revisão 6; até a rev. 2 era o `Galetocraft.sqlite`, SHA-256 `9dd2253d…5aa3c`), Release `acervo-documental-2026-11-17` (inventário de 1.636 arquivos), documentos oficiais dos sistemas e código deste repositório.
+> Resumo de referência montado em 18/11/2026 a partir de: base vigente (hoje em `base/vigente/`, revisão 7; até a rev. 2 era o `Galetocraft.sqlite`, SHA-256 `9dd2253d…5aa3c`), Release `acervo-documental-2026-11-17` (inventário de 1.636 arquivos), documentos oficiais dos sistemas e código deste repositório.
 > **Este arquivo é um resumo, não uma fonte de verdade.** Em qualquer conflito, vale a camada `current_*` / `v_current_*` do banco vigente.
 
 ## 1. O que é o projeto
@@ -47,6 +47,7 @@ Todo design passa por **homologação expressa do criador**. Propostas, Betas, r
   - rev. 4 (18/11): nova governança (base no repositório, sob o Claude), artes #019/#020 em `current_art`, regra `nomenclatura`, R12 e U05 resolvidas.
   - rev. 5 (18/11): regras oficiais de combate, captura, XP e treinador migradas do histórico para `current_rules`; o dano V5.6 entrou na base.
   - rev. 6 (18/11): 32 golpes próprios de #001–#011 completados com a ficha original protegida (categoria, elemento, estado aplicado, efeito estruturado).
+  - rev. 7 (18/11): regra `captura` coerente. A força da Pena segue a tabela do reforço v1258 (a fórmula `1 + 0,15·(nível−1)` ficou registrada como superada) e a modalidade "mundo" passou a indicar a espera após falha da v1259.
 
 ## 3. Espécies vigentes (atributos no nível 50)
 
@@ -231,9 +232,12 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 
   "Super Raro" é uma classe histórica e não faz parte da escala atual. "Divino" não tem total homologado.
 
-> As regras de captura, XP, nutrição, treinador e itens desta seção estão em tabelas técnicas das Betas 1.2.x. O banco as marca como **históricas**. A única leitura vigente de captura é `v_current_captura`, que contém só o cooldown.
+> Captura, XP e treinador estão em `current_rules` desde a revisão 5 (migrados das Betas 1.2.x). Nutrição e itens continuam só nas tabelas históricas.
 
-- **Captura com a Pena** (item de captura com 5 níveis):
+- **Captura com a Pena de Captura** (pena com rubi no centro; uma por treinador, não consumível, 5 níveis):
+  - No mundo: mirar e usar o botão direito, sem arremesso; 12 blocos em qualquer nível; linha de visão livre; resultado imediato; Feixe do Rubi só no sucesso; na falha o Cocorídeo segue normalmente.
+  - Na Rinha contra selvagem: Itens → Pena de Captura, desde a 1ª rodada; consome a ação do treinador; falha não encerra a Rinha e o selvagem age se a ação dele estiver pendente na ordem normal; sucesso encerra na hora.
+  - O capturado vai para a equipe principal (até 5) ou para as reservas (sem limite).
   - Multiplicador F por nível: 1,0 / 1,3 / 1,65 / 2,05 / 2,5.
   - XP para subir de nível: 1.000 / 3.000 / 7.000 / 15.000.
   - Lendário exige Pena nível 5.
@@ -252,7 +256,9 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
     | Lendário | 0,14 |
     | Divino | 0,05 |
 
-  - Cooldown após falha: 20 s (60 s para Lendário), compartilhado entre jogadores.
+  - Espera após falha no mundo: 20 s (60 s para Lendário), por Cocorídeo e compartilhada entre jogadores. Na Rinha não há espera.
+  - XP da Pena por captura: `XP_base(raridade) + 2·nível_alvo` (Comum 15 … Lendário 135); excedente reaproveitado; sem XP nova no nível 5.
+  - Pendentes: como o treinador recebe a Pena, receita, aparência; tentativa contra alvo inelegível; Divino e Lendário Original.
 - **Treinador:** equipe principal de até 5 Cocorídeos e reservas ilimitadas. O Cocorídeo capturado vai para a reserva se a equipe estiver cheia.
 - **XP dos Cocorídeos (V1.260):**
   - XP total para o nível N: `T(N) = (N−1)³ + 10(N−1)²`.
@@ -411,10 +417,11 @@ O relatório completo está em `docs/AUDITORIA_INCOERENCIAS.md`: 29 conflitos re
   - Tem 21 testes. O andamento fica em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
 - **Comandos no jogo:** `/galetocraft base | ficha <espécie> | rinha <a> <b> [nível] | duelo <a> <b> [rinhas]`.
 - **Galeto individual:** cada entidade tem nível (50), sexo e 6 IVs (1–40), salvos com ela. Clicar com a mão vazia mostra a ficha do indivíduo. Os IVs ainda não alteram os atributos.
-- **Rinha jogável:** contra Galeto selvagem, com `/galetocraft equipe` e `/galetocraft desafiar` e um menu clicável no chat (Combate, Galetos, Mira, Guarda, Pena de Ritmo, Itens desativado, Fugir). A equipe do jogador ainda é temporária.
+- **Rinha jogável:** contra Galeto selvagem, com `/galetocraft desafiar` e um menu clicável no chat (Combate, Galetos, Mira, Guarda, Pena de Ritmo, Itens, Fugir). Entram os 3 primeiros da equipe do treinador; sem Galetos, a equipe de teste.
+- **Captura e treinador:** item Pena de Captura (`/galetocraft pena`), captura no mundo e na Rinha conforme a regra `captura`; equipe principal de 5 e reservas salvas com o jogador (`/galetocraft equipe`).
 - **Ainda NÃO existe no mod:**
   - Golpes próprios e dono do Galeto; tela própria da Rinha; Rinha entre jogadores.
-  - Captura, treinador e Galetário no jogo.
+  - Galetário no jogo; XP dos Cocorídeos.
   - Passivas e efeitos especiais dos golpes.
   - Blocos, spawn natural e sons próprios.
 - **Espécies sem entidade:** #002 Cocórrego, #013–#018 e #020–#023.

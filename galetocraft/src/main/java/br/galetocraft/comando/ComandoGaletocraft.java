@@ -1,6 +1,13 @@
 package br.galetocraft.comando;
 
+import br.galetocraft.captura.Capturas;
 import br.galetocraft.entidade.GaloEntity;
+import br.galetocraft.registro.ModAnexos;
+import br.galetocraft.registro.ModItens;
+import br.galetocraft.treinador.Treinador;
+import net.minecraft.network.chat.ClickEvent;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.item.ItemStack;
 import br.galetocraft.nucleo.dados.Atributo;
 import br.galetocraft.nucleo.dados.Especie;
 import br.galetocraft.nucleo.dados.Galetario;
@@ -40,9 +47,13 @@ import java.util.stream.Collectors;
  * <li>{@code /galetocraft ficha <espécie>}: ficha vigente (número ou nome sem acento, ex.: 22 ou sirenoco).</li>
  * <li>{@code /galetocraft rinha <espécie> <espécie> [nível]}: Rinha 1×1 simulada pelo motor, com o Histórico da Rinha.</li>
  * <li>{@code /galetocraft duelo <espécie> <espécie> [rinhas]}: taxa de vitórias em N Rinhas simuladas (operadores).</li>
- * <li>{@code /galetocraft equipe [a] [b] [c]}: mostra ou define a equipe de teste do jogador (até haver captura).</li>
+ * <li>{@code /galetocraft equipe}: equipe principal (até 5), reservas e Pena de Captura do treinador, com botões
+ * para guardar, chamar e pôr em primeiro (os três primeiros vão para a Rinha).</li>
+ * <li>{@code /galetocraft equipe teste <a> [b] [c]}: equipe de teste, usada só enquanto o treinador não tem Galetos.</li>
+ * <li>{@code /galetocraft pena}: entrega a Pena de Captura, se o jogador não tiver uma, e mostra o nível dela.</li>
  * <li>{@code /galetocraft desafiar}: começa uma Rinha contra o Galeto selvagem mais próximo (até 10 blocos).</li>
- * <li>{@code /galetocraft acao ...}: ações do menu clicável da Rinha (golpe, trocar, mira, guarda, pena, fugir).</li>
+ * <li>{@code /galetocraft acao ...}: ações do menu clicável da Rinha (golpe, trocar, mira, guarda, pena, itens,
+ * capturar, fugir).</li>
  * </ul>
  * A Rinha simulada usa a IA básica dos dois lados. Passivas e efeitos especiais dos golpes ainda não estão no motor.
  */
@@ -67,9 +78,17 @@ public final class ComandoGaletocraft {
 										.then(Commands.argument("nivel", IntegerArgumentType.integer(50, 100))
 												.executes(c -> rinha(c, IntegerArgumentType.getInteger(c, "nivel")))))))
 				.then(Commands.literal("equipe").executes(ComandoGaletocraft::mostrarEquipe)
-						.then(Commands.argument("a", StringArgumentType.word()).suggests(ESPECIES).executes(c -> definirEquipe(c, 1))
-								.then(Commands.argument("b", StringArgumentType.word()).suggests(ESPECIES).executes(c -> definirEquipe(c, 2))
-										.then(Commands.argument("c", StringArgumentType.word()).suggests(ESPECIES).executes(c -> definirEquipe(c, 3))))))
+						.then(Commands.literal("teste").executes(ComandoGaletocraft::mostrarEquipeTeste)
+								.then(Commands.argument("a", StringArgumentType.word()).suggests(ESPECIES).executes(c -> definirEquipe(c, 1))
+										.then(Commands.argument("b", StringArgumentType.word()).suggests(ESPECIES).executes(c -> definirEquipe(c, 2))
+												.then(Commands.argument("c", StringArgumentType.word()).suggests(ESPECIES).executes(c -> definirEquipe(c, 3))))))
+						.then(Commands.literal("guardar").then(Commands.argument("i", IntegerArgumentType.integer(0))
+								.executes(c -> mexerNaEquipe(c, (t, i) -> t.guardar(i), true))))
+						.then(Commands.literal("chamar").then(Commands.argument("i", IntegerArgumentType.integer(0))
+								.executes(c -> mexerNaEquipe(c, (t, i) -> t.chamar(i), false))))
+						.then(Commands.literal("primeiro").then(Commands.argument("i", IntegerArgumentType.integer(0))
+								.executes(c -> mexerNaEquipe(c, (t, i) -> t.primeiro(i), true)))))
+				.then(Commands.literal("pena").executes(ComandoGaletocraft::pena))
 				.then(Commands.literal("desafiar").executes(ComandoGaletocraft::desafiar))
 				.then(Commands.literal("acao")
 						.then(Commands.literal("golpe").then(Commands.argument("i", IntegerArgumentType.integer(0, 4))
@@ -81,6 +100,8 @@ public final class ComandoGaletocraft {
 						.then(Commands.literal("guarda").then(Commands.argument("regiao", StringArgumentType.word()).suggests(REGIOES)
 								.executes(c -> acao(c, p -> GerenciadorRinhas.guarda(p, regiao(c).orElse(null))))))
 						.then(Commands.literal("pena").executes(c -> acao(c, GerenciadorRinhas::alternarPena)))
+						.then(Commands.literal("itens").executes(c -> acao(c, GerenciadorRinhas::alternarItens)))
+						.then(Commands.literal("capturar").executes(c -> acao(c, GerenciadorRinhas::capturar)))
 						.then(Commands.literal("fugir").executes(c -> acao(c, GerenciadorRinhas::fugir))))
 				.then(Commands.literal("duelo").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
 						.then(Commands.argument("a", StringArgumentType.word()).suggests(ESPECIES)
@@ -148,8 +169,69 @@ public final class ComandoGaletocraft {
 
 	private static int mostrarEquipe(CommandContext<CommandSourceStack> c) throws CommandSyntaxException {
 		ServerPlayer p = c.getSource().getPlayerOrException();
-		enviar(c, Component.literal("Sua equipe de teste: " + EquipesTemporarias.equipe(p).stream().map(Especie::nome)
-				.collect(Collectors.joining(", ")) + " (nível 50, golpes de origem)").withStyle(ChatFormatting.GOLD));
+		Treinador t = ModAnexos.treinador(p);
+		enviar(c, Component.literal("Equipe principal (" + t.equipe().size() + "/" + Treinador.EQUIPE_MAXIMA
+				+ "; os 3 primeiros vão para a Rinha):").withStyle(ChatFormatting.GOLD));
+		if (t.equipe().isEmpty())
+			enviar(c, Component.literal("  vazia — capture Galetos com a Pena de Captura (/galetocraft pena)").withStyle(ChatFormatting.GRAY));
+		for (int i = 0; i < t.equipe().size(); i++) {
+			MutableComponent linha = Component.literal("  " + (i + 1) + ". " + t.equipe().get(i).resumo() + " ").withStyle(ChatFormatting.WHITE);
+			if (i > 0)
+				linha.append(botao("primeiro", "/galetocraft equipe primeiro " + i, ChatFormatting.AQUA));
+			linha.append(botao("guardar", "/galetocraft equipe guardar " + i, ChatFormatting.YELLOW));
+			enviar(c, linha);
+		}
+		enviar(c, Component.literal("Reservas (" + t.reservas().size() + "):").withStyle(ChatFormatting.GOLD));
+		for (int i = 0; i < t.reservas().size(); i++) {
+			MutableComponent linha = Component.literal("  " + t.reservas().get(i).resumo() + " ").withStyle(ChatFormatting.GRAY);
+			if (!t.equipeCheia())
+				linha.append(botao("chamar", "/galetocraft equipe chamar " + i, ChatFormatting.GREEN));
+			enviar(c, linha);
+		}
+		enviar(c, Capturas.estadoPena(p));
+		return 1;
+	}
+
+	private interface Mudanca {
+		Treinador aplicar(Treinador t, int i);
+	}
+
+	private static int mexerNaEquipe(CommandContext<CommandSourceStack> c, Mudanca m, boolean naEquipe) throws CommandSyntaxException {
+		ServerPlayer p = c.getSource().getPlayerOrException();
+		if (GerenciadorRinhas.emRinha(p)) {
+			c.getSource().sendFailure(Component.literal("Não dá para mexer na equipe durante uma Rinha."));
+			return 0;
+		}
+		Treinador t = ModAnexos.treinador(p);
+		int i = IntegerArgumentType.getInteger(c, "i");
+		if (i >= (naEquipe ? t.equipe().size() : t.reservas().size()) || (!naEquipe && t.equipeCheia())) {
+			c.getSource().sendFailure(Component.literal(!naEquipe && t.equipeCheia() ? "A equipe principal está cheia." : "Posição inválida."));
+			return 0;
+		}
+		ModAnexos.salvar(p, m.aplicar(t, i));
+		return mostrarEquipe(c);
+	}
+
+	private static int pena(CommandContext<CommandSourceStack> c) throws CommandSyntaxException {
+		ServerPlayer p = c.getSource().getPlayerOrException();
+		if (!Capturas.temPena(p)) {
+			p.getInventory().add(new ItemStack(ModItens.PENA_DE_CAPTURA));
+			enviar(c, Component.literal("Você recebeu a Pena de Captura. Mire num Cocorídeo selvagem e use o botão direito.")
+					.withStyle(ChatFormatting.GREEN));
+		}
+		enviar(c, Capturas.estadoPena(p));
+		return 1;
+	}
+
+	private static MutableComponent botao(String texto, String comando, ChatFormatting cor) {
+		return Component.literal("[" + texto + "] ").withStyle(st -> st.withColor(cor).withClickEvent(new ClickEvent.RunCommand(comando)));
+	}
+
+	private static int mostrarEquipeTeste(CommandContext<CommandSourceStack> c) throws CommandSyntaxException {
+		ServerPlayer p = c.getSource().getPlayerOrException();
+		enviar(c, Component.literal("Equipe de teste: " + EquipesTemporarias.equipe(p).stream().map(Especie::nome)
+				.collect(Collectors.joining(", ")) + " (nível 50, golpes de origem; usada só enquanto você não tem Galetos)")
+				.withStyle(ChatFormatting.GOLD));
 		return 1;
 	}
 
@@ -163,7 +245,7 @@ public final class ComandoGaletocraft {
 			lista.add(e.get());
 		}
 		EquipesTemporarias.definir(p, lista);
-		return mostrarEquipe(c);
+		return mostrarEquipeTeste(c);
 	}
 
 	private static int desafiar(CommandContext<CommandSourceStack> c) throws CommandSyntaxException {

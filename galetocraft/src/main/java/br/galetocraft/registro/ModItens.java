@@ -19,6 +19,10 @@ public final class ModItens {
 	public static final Item OVO_PIROCOCO = registrar("pirococo_spawn_egg",
 			SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntidades.PIROCOCO));
 
+	/** Pena de Captura: um instrumento por treinador, não consumível. */
+	public static final Item PENA_DE_CAPTURA = registrar("pena_de_captura", br.galetocraft.captura.PenaDeCapturaItem::new,
+			new Item.Properties().stacksTo(1));
+
 	/** Ovos geradores das outras espécies ("&lt;id&gt;_spawn_egg"), na ordem de {@link ModEntidades#GALOS}. */
 	public static final List<Item> OVOS_GALOS;
 

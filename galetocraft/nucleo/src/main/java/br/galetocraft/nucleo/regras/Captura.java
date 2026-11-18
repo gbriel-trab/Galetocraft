@@ -23,10 +23,11 @@ public final class Captura {
 	private final Map<String, Double> fatorRaridade = new HashMap<>();
 	private final Map<String, Integer> xpBaseRaridade = new HashMap<>();
 	private final Map<Integer, Double> fatorPena = new HashMap<>();
+	private final java.util.TreeMap<Integer, Integer> nivelPorXp = new java.util.TreeMap<>();   // XP acumulada → nível
 	private final Map<String, Double> fatorEstado = new HashMap<>();
 	private final Map<String, Integer> cooldown = new HashMap<>();
 	private final double divisorNivel, coeficienteHp;
-	private final int xpPorNivelAlvo, nivelPenaLendario;
+	private final int xpPorNivelAlvo, nivelPenaLendario, alcanceMundo;
 
 	public Captura(Galetario g) {
 		JsonObject c = g.regraObjeto("captura");
@@ -39,6 +40,7 @@ public final class Captura {
 		for (JsonElement n : c.getAsJsonArray("niveis_pena")) {
 			JsonObject o = n.getAsJsonObject();
 			fatorPena.put(o.get("nivel_pena").getAsInt(), o.get("fator_forca").getAsDouble());
+			nivelPorXp.put(o.get("xp_acumulada").getAsInt(), o.get("nivel_pena").getAsInt());
 		}
 		for (JsonElement s : c.getAsJsonArray("fatores_estado_rinha")) {
 			JsonObject o = s.getAsJsonObject();
@@ -49,6 +51,13 @@ public final class Captura {
 			cooldown.put(o.get("raridade").getAsString(), o.get("espera_segundos").isJsonNull() ? null : o.get("espera_segundos").getAsInt());
 		}
 		nivelPenaLendario = c.getAsJsonObject("lendarios").get("nivel_minimo_pena").getAsInt();
+		int alcance = 0;
+		for (JsonElement m : c.getAsJsonArray("modalidades")) {
+			JsonObject o = m.getAsJsonObject();
+			if (o.get("modalidade").getAsString().equals("mundo_direto"))
+				alcance = o.get("alcance_maximo_blocos").getAsInt();
+		}
+		alcanceMundo = alcance;
 	}
 
 	/**
@@ -87,6 +96,33 @@ public final class Captura {
 	/** XP ganha pela Pena numa captura: {@code XP_base(raridade) + 2·nível_alvo}. */
 	public int xpPena(String raridade, int nivelAlvo) {
 		return xpBaseRaridade.get(raridadeCaptura(raridade)) + xpPorNivelAlvo * nivelAlvo;
+	}
+
+	/** Alcance máximo da captura direta no mundo, em blocos (12, igual nos 5 níveis da Pena). */
+	public int alcanceMundo() {
+		return alcanceMundo;
+	}
+
+	/** Nível da Pena de Captura (1–5) pela XP acumulada: 0 / 1.000 / 4.000 / 11.000 / 26.000. */
+	public int nivelPena(int xpAcumulada) {
+		return nivelPorXp.floorEntry(Math.max(0, xpAcumulada)).getValue();
+	}
+
+	public int nivelPenaMaximo() {
+		return nivelPorXp.lastEntry().getValue();
+	}
+
+	/** XP acumulada para chegar ao nível da Pena. */
+	public int xpParaNivelPena(int nivel) {
+		return nivelPorXp.entrySet().stream().filter(e -> e.getValue() == nivel).findFirst().orElseThrow().getKey();
+	}
+
+	/**
+	 * XP da Pena depois de uma captura bem-sucedida: a XP excedente é reaproveitada (uma captura pode render várias
+	 * evoluções) e, com a Pena no nível 5, não entra XP nova (a já existente é preservada).
+	 */
+	public int somarXpPena(int xpAcumulada, int ganho) {
+		return nivelPena(xpAcumulada) >= nivelPenaMaximo() ? xpAcumulada : xpAcumulada + ganho;
 	}
 
 	/** Espera após falha no mundo, em segundos (20 de Comum a Mítico; 60 para Lendário). */

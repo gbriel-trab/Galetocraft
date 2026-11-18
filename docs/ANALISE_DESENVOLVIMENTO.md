@@ -13,7 +13,8 @@ O design está muito à frente do código. A base documenta 23 espécies, 268 go
 > A coluna "No mod hoje" mostra a situação do início de 18/11. Desde então:
 > - os sistemas 3 a 12, 17 e 19 ganharam implementação no núcleo de regras;
 > - o sistema 2 ganhou nível, sexo e IVs por indivíduo (fase 3);
-> - a Rinha ficou jogável contra Galeto selvagem, com menu clicável no chat (fase 4, sistemas 4 a 12 e 16).
+> - a Rinha ficou jogável contra Galeto selvagem, com menu clicável no chat (fase 4, sistemas 4 a 12 e 16);
+> - a captura com a Pena (mundo e Rinha) e a equipe do treinador entraram no jogo (fase 5, sistemas 17 e 18).
 >
 > O detalhe está em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
 
@@ -67,7 +68,11 @@ Legenda do design: ✅ homologado · 🟡 parcial (só parte homologada, ou no h
 | **3. Galeto individual no mod** | Espécie, nível, IV, sexo, golpes e dono na entidade; atributos vindos da base; `/galeto info` | Fase 1 (e as decisões 1–3 para números finais) |
 | **4. Rinha mínima jogável** | Rinha 1v1 → 3v3 contra Galeto selvagem ou jogador, por comando e tela simples, com o motor do núcleo | Fases 1 e 3 |
 
-Situação das fases em 18/11: 1 e 2 concluídas; 3 feita em parte (nível, sexo e IVs; faltam golpes próprios, dono e sincronização); 4 feita contra Galeto selvagem, com menu no chat (faltam a tela própria e a Rinha entre jogadores).
+Situação das fases em 18/11:
+- 1 e 2 concluídas.
+- 3 feita em parte: nível, sexo e IVs; faltam golpes próprios e sincronização.
+- 4 feita contra Galeto selvagem, com menu no chat; faltam a tela própria e a Rinha entre jogadores.
+- 5 feita: Pena de Captura, captura no mundo e na Rinha, equipe e reservas do treinador. Falta a tela do Galetário.
 | **5. Captura e treinador** | Item Pena, equipe de 5 + reservas, tela do Galetário | Fase 4 |
 | **6. Efeitos de golpes e passivas** | Efeitos estruturados por família, ganchos das passivas | Fase 4, decisão 4 |
 | **7. XP e aprendizado** | XP por Rinha vencida, golpes por nível, slots | Fase 4, decisão 2 |

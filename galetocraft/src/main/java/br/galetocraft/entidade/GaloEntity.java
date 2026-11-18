@@ -68,6 +68,7 @@ public class GaloEntity extends PathfinderMob implements GeoEntity {
 	private char sexo = '?';
 	private int[] ivs = new int[0];
 	private boolean emRinha;
+	private long esperaCapturaAte;   // tempo do jogo (ticks) até o fim da resistência após captura falha no mundo
 
 	public GaloEntity(EntityType<? extends GaloEntity> tipo, Level mundo) {
 		super(tipo, mundo);
@@ -120,6 +121,23 @@ public class GaloEntity extends PathfinderMob implements GeoEntity {
 		setNoAi(v);
 	}
 
+	/** Ticks de jogo que ainda faltam para a espera de captura no mundo terminar (0 = livre). */
+	public long esperaCaptura() {
+		return Math.max(0, esperaCapturaAte - level().getGameTime());
+	}
+
+	/** Inicia a espera após uma captura falha no mundo: vale para todos os jogadores. */
+	public void iniciarEsperaCaptura(int segundos) {
+		esperaCapturaAte = level().getGameTime() + segundos * 20L;
+	}
+
+	/** Dados do indivíduo para guardar com o treinador depois da captura. */
+	public br.galetocraft.treinador.GaletoGuardado guardar() {
+		Especie e = fichaDaEspecie().orElseThrow();
+		return new br.galetocraft.treinador.GaletoGuardado(getUUID(), e.numero(), nivel(), String.valueOf(sexo()),
+				Arrays.stream(ivs()).boxed().toList());
+	}
+
 	/** Gera nível, sexo e IVs uma única vez (ao aparecer ou na primeira consulta de entidades antigas). */
 	private void garantirIndividuo(RandomSource rng) {
 		if (nivel > 0)
@@ -148,6 +166,7 @@ public class GaloEntity extends PathfinderMob implements GeoEntity {
 		saida.putIntArray("galeto_ivs", ivs);
 		// a Rinha não sobrevive ao salvamento: o Galeto volta com a IA ligada (ver readAdditionalSaveData)
 		saida.putBoolean("galeto_em_rinha", emRinha);
+		saida.putLong("galeto_espera_captura", esperaCapturaAte);
 	}
 
 	@Override
@@ -159,6 +178,7 @@ public class GaloEntity extends PathfinderMob implements GeoEntity {
 		ivs = entrada.getIntArray("galeto_ivs").orElse(new int[0]);
 		if (ivs.length != Atributo.values().length)
 			nivel = 0;   // dados incompletos: gera de novo na próxima consulta
+		esperaCapturaAte = entrada.getLongOr("galeto_espera_captura", 0L);
 		if (entrada.getBooleanOr("galeto_em_rinha", false))
 			setNoAi(false);   // salvo no meio de uma Rinha (as sessões ficam só na memória do servidor)
 	}

@@ -8,6 +8,7 @@ import br.galetocraft.nucleo.dados.Golpe;
 import br.galetocraft.nucleo.regras.Ambiente;
 import br.galetocraft.nucleo.regras.DanoV56;
 import br.galetocraft.nucleo.regras.Eficacia;
+import br.galetocraft.nucleo.regras.Captura;
 import br.galetocraft.nucleo.regras.Energia;
 import br.galetocraft.nucleo.regras.Estados;
 import br.galetocraft.nucleo.regras.MiraAnatomica;
@@ -54,6 +55,9 @@ public final class Rinha {
 	private Ambiente.Santuario santuario;
 	private int santuarioRestante;
 	private int rodada;
+	private Captura captura;          // não nulo só em Rinha contra Cocorídeo selvagem (equipe B)
+	private boolean capturado;
+	private double ultimaChanceCaptura = Double.NaN;
 
 	public Rinha(Galetario g, Equipe a, Equipe b, long semente) {
 		this.eficacia = new Eficacia(g);
@@ -75,7 +79,31 @@ public final class Rinha {
 	Eficacia eficacia() { return eficacia; }
 
 	public boolean terminada() {
-		return a.derrotada() || b.derrotada() || rodada >= LIMITE_RODADAS;
+		return capturado || a.derrotada() || b.derrotada() || rodada >= LIMITE_RODADAS;
+	}
+
+	/**
+	 * Marca a Rinha como contra Cocorídeo selvagem (a equipe B), o que permite à equipe A tentar a captura.
+	 * Regra captura, modalidade Rinha: tentativa desde o primeiro turno, sem enfraquecimento prévio; consome a ação
+	 * do treinador; falha não encerra a Rinha e o selvagem age se a ação dele ainda estiver pendente; sucesso encerra
+	 * imediatamente; sem espera adicional.
+	 */
+	public void permitirCaptura(Captura regras) {
+		this.captura = regras;
+	}
+
+	public boolean capturaPermitida() {
+		return captura != null;
+	}
+
+	/** Verdadeiro se a Rinha terminou com a captura do selvagem. */
+	public boolean capturado() {
+		return capturado;
+	}
+
+	/** Chance (%) da última tentativa de captura, ou NaN se não houve tentativa. */
+	public double ultimaChanceCaptura() {
+		return ultimaChanceCaptura;
 	}
 
 	/** Vencedor, ou vazio em empate ou Rinha em andamento. */
@@ -119,14 +147,19 @@ public final class Rinha {
 		ordenarPorVelocidade(trocas);
 		for (Lado l : trocas)
 			trocar(l.eu, (Decisao.Trocar) l.minha.acao());
-		// 2) golpes, por Velocidade efetiva (empate 50/50)
-		List<Lado> golpes = new ArrayList<>(lados.stream().filter(l -> l.minha.acao() instanceof Decisao.UsarGolpe).toList());
-		ordenarPorVelocidade(golpes);
-		for (Lado l : golpes) {
+		// 2) golpes e capturas, por Velocidade efetiva (empate 50/50); a captura ocupa o lugar do treinador na ordem
+		List<Lado> acoes = new ArrayList<>(lados.stream().filter(l -> !(l.minha.acao() instanceof Decisao.Trocar)).toList());
+		ordenarPorVelocidade(acoes);
+		for (Lado l : acoes) {
 			if (terminada())
 				break;
-			usarGolpe(l.eu, l.oponente, (Decisao.UsarGolpe) l.minha.acao(), l.dele.guarda());
+			if (l.minha.acao() instanceof Decisao.Capturar cap)
+				capturar(l.eu, l.oponente, cap);
+			else
+				usarGolpe(l.eu, l.oponente, (Decisao.UsarGolpe) l.minha.acao(), l.dele.guarda());
 		}
+		if (capturado)
+			return;                                                   // o sucesso encerra a Rinha imediatamente
 		fimDaRodada();
 	}
 
@@ -157,6 +190,24 @@ public final class Rinha {
 				c.energia(Energia.somar(c.energia(), Energia.REGENERACAO));   // reserva também regenera 20
 			}
 		}
+	}
+
+	private void capturar(Equipe eu, Equipe op, Decisao.Capturar cap) {
+		Combatente alvo = op.ativo();
+		if (captura == null || eu != a) {
+			registrar(eu.nome() + ": captura só é possível em Rinha contra Cocorídeo selvagem");
+			return;
+		}
+		String raridade = alvo.especie().raridade();
+		if (!captura.elegivel(raridade, cap.nivelPena())) {
+			registrar(eu.nome() + ": " + alvo.nome() + " não pode ser capturado com a Pena de Captura nível " + cap.nivelPena());
+			return;
+		}
+		String estado = alvo.estado() == null ? null : alvo.estado().nome();
+		ultimaChanceCaptura = captura.chancePercentual(Captura.Modalidade.RINHA, raridade, cap.nivelPena(), alvo.nivel(),
+				alvo.hp(), alvo.hpMax(), estado);
+		capturado = rng.nextDouble() * 100 < ultimaChanceCaptura;
+		registrar(eu.nome() + " usa a Pena de Captura em " + alvo.nome() + (capturado ? ": capturado!" : ": a captura falhou"));
 	}
 
 	private void trocar(Equipe e, Decisao.Trocar t) {

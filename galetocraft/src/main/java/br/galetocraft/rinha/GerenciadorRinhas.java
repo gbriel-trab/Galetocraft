@@ -1,6 +1,10 @@
 package br.galetocraft.rinha;
 
+import br.galetocraft.captura.Capturas;
 import br.galetocraft.entidade.GaloEntity;
+import br.galetocraft.registro.ModAnexos;
+import br.galetocraft.treinador.GaletoGuardado;
+import br.galetocraft.treinador.Treinador;
 import br.galetocraft.nucleo.dados.Especie;
 import br.galetocraft.nucleo.dados.Galetario;
 import br.galetocraft.nucleo.dados.Golpe;
@@ -30,14 +34,17 @@ import java.util.concurrent.ConcurrentHashMap;
  * Rinhas jogáveis contra Galetos selvagens, com o motor do núcleo e um menu clicável no chat.
  * <p>
  * O menu segue a padronização das interfaces da Rinha: Galetos / Combate / Itens / Fugir, além das escolhas
- * secretas da Mira Anatômica (região mirada e Guarda) e da Pena de Ritmo. Os Itens aparecem desativados porque
- * os itens da Rinha ainda são candidatos.
+ * secretas da Mira Anatômica (região mirada e Guarda) e da Pena de Ritmo. Em Itens fica só a Pena de Captura: os
+ * itens segurados da Rinha ainda são candidatos.
  * <p>
- * Até existir captura e equipe persistente, a equipe do jogador é a equipe temporária de
- * {@link EquipesTemporarias}, no nível 50, com os 5 golpes de origem.
+ * A equipe do jogador são os 3 primeiros da equipe principal do treinador (com os 5 golpes de origem, até existir
+ * o repertório do indivíduo). Sem Galetos capturados, entra a equipe de teste de {@link EquipesTemporarias}.
+ * Itens → Pena de Captura tenta capturar o selvagem (regra captura, modalidade Rinha).
  */
 public final class GerenciadorRinhas {
 	public static final double DISTANCIA_MAXIMA = 32.0;
+	/** Formato oficial da Rinha: 3v3. */
+	public static final int GALETOS_NA_RINHA = 3;
 	private static final Map<UUID, Sessao> SESSOES = new ConcurrentHashMap<>();
 
 	private GerenciadorRinhas() {
@@ -50,6 +57,7 @@ public final class GerenciadorRinhas {
 		MiraAnatomica.Regiao mira = MiraAnatomica.Regiao.TRONCO;
 		MiraAnatomica.Regiao guarda;
 		boolean usarPena;
+		boolean mostrarItens;
 		int historicoEnviado;
 
 		Sessao(Rinha rinha, GaloEntity selvagem, long semente) {
@@ -63,15 +71,26 @@ public final class GerenciadorRinhas {
 		return SESSOES.containsKey(p.getUUID());
 	}
 
-	/** Começa uma Rinha entre a equipe temporária do jogador e o Galeto selvagem. */
+	/**
+	 * Começa uma Rinha entre o treinador e o Galeto selvagem. Vão para a Rinha os 3 primeiros da equipe principal
+	 * (formato 3v3); sem Galetos capturados, vai a equipe de teste.
+	 */
 	public static void iniciar(ServerPlayer jogador, GaloEntity selvagem) {
 		Galetario g = Galetario.padrao();
-		List<Especie> equipe = EquipesTemporarias.equipe(jogador);
 		Especie especieSelvagem = selvagem.fichaDaEspecie().orElseThrow();
-		List<Combatente> meus = equipe.stream().map(e -> Combatente.padrao(e, GaloEntity.NIVEL_PADRAO)).toList();
+		Treinador treinador = ModAnexos.treinador(jogador);
+		List<Combatente> meus;
+		if (!treinador.equipe().isEmpty()) {
+			meus = treinador.equipe().stream().limit(GALETOS_NA_RINHA).map(x -> Combatente.padrao(x.ficha(), x.nivel())).toList();
+		} else {
+			meus = EquipesTemporarias.equipe(jogador).stream().map(e -> Combatente.padrao(e, GaloEntity.NIVEL_PADRAO)).toList();
+			jogador.displayClientMessage(Component.literal("Você ainda não tem Galetos: entra a equipe de teste (/galetocraft equipe teste).")
+					.withStyle(ChatFormatting.GRAY), false);
+		}
 		long semente = jogador.level().getGameTime() ^ selvagem.getUUID().getLeastSignificantBits();
 		Rinha r = new Rinha(g, new Equipe(jogador.getName().getString(), meus),
 				new Equipe("Selvagem", List.of(Combatente.padrao(especieSelvagem, selvagem.nivel()))), semente);
+		r.permitirCaptura(Capturas.REGRAS);
 		selvagem.emRinha(true);
 		Sessao s = new Sessao(r, selvagem, semente);
 		SESSOES.put(jogador.getUUID(), s);
@@ -136,6 +155,34 @@ public final class GerenciadorRinhas {
 		enviarMenu(p, s);
 	}
 
+	/** Botão Itens: mostra ou esconde a lista de itens da Rinha (por enquanto, só a Pena de Captura). */
+	public static void alternarItens(ServerPlayer p) {
+		Sessao s = sessao(p);
+		if (s == null) return;
+		s.mostrarItens = !s.mostrarItens;
+		enviarMenu(p, s);
+	}
+
+	/** Itens → Pena de Captura: tentativa de captura do selvagem; consome a ação do treinador. */
+	public static void capturar(ServerPlayer p) {
+		Sessao s = sessao(p);
+		if (s == null) return;
+		if (!Capturas.temPena(p)) {
+			p.displayClientMessage(Component.literal("Você não tem a Pena de Captura (/galetocraft pena).").withStyle(ChatFormatting.RED), false);
+			return;
+		}
+		int nivel = Capturas.nivelPena(p);
+		Especie alvo = s.rinha.equipeB().ativo().especie();
+		if (!Capturas.REGRAS.elegivel(alvo.raridade(), nivel)) {
+			p.displayClientMessage(Component.literal(alvo.nome() + " (" + alvo.raridade() + ") não pode ser capturado com a Pena de Captura nível "
+					+ nivel + ".").withStyle(ChatFormatting.RED), false);
+			return;
+		}
+		s.mostrarItens = false;
+		s.usarPena = false;
+		jogar(p, s, new Decisao(new Decisao.Capturar(nivel), s.guarda));
+	}
+
 	public static void fugir(ServerPlayer p) {
 		Sessao s = sessao(p);
 		if (s == null) return;
@@ -177,7 +224,12 @@ public final class GerenciadorRinhas {
 		Decisao dele = s.ia.decidir(s.rinha, s.rinha.equipeB(), s.rinha.equipeA());
 		s.rinha.rodada(minha, dele);
 		enviarHistorico(p, s);
-		if (s.rinha.terminada()) {
+		if (s.rinha.capturado()) {
+			GaletoGuardado capturado = s.selvagem.guardar();
+			SESSOES.remove(p.getUUID());
+			s.selvagem.discard();
+			Capturas.registrarCaptura(p, capturado);
+		} else if (s.rinha.terminada()) {
 			boolean venceu = s.rinha.vencedor().map(v -> v == s.rinha.equipeA()).orElse(false);
 			p.displayClientMessage(Component.literal(venceu ? "Você venceu a Rinha!" : "Você perdeu a Rinha.")
 					.withStyle(venceu ? ChatFormatting.GREEN : ChatFormatting.RED), false);
@@ -240,9 +292,18 @@ public final class GerenciadorRinhas {
 			fim.append(botao(s.usarPena ? "Pena de Ritmo: SIM" : "Pena de Ritmo: não", "/galetocraft acao pena",
 					Component.literal("Usa a Pena na próxima ação: Canto Ofensivo (golpe), de Suporte ou de Revezamento (troca)"),
 					s.usarPena ? ChatFormatting.LIGHT_PURPLE : ChatFormatting.GRAY));
-		fim.append(botao("Itens", null, Component.literal("Itens da Rinha ainda não homologados"), ChatFormatting.DARK_GRAY));
+		boolean podeItens = s.rinha.capturaPermitida() && Capturas.temPena(p);
+		fim.append(botao("Itens", podeItens ? "/galetocraft acao itens" : null,
+				Component.literal(podeItens ? "Itens da Rinha: Pena de Captura" : "Nenhum item disponível (/galetocraft pena)"),
+				podeItens ? (s.mostrarItens ? ChatFormatting.YELLOW : ChatFormatting.GREEN) : ChatFormatting.DARK_GRAY));
 		fim.append(botao("Fugir", "/galetocraft acao fugir", Component.literal("Encerra a Rinha"), ChatFormatting.RED));
 		p.displayClientMessage(fim, false);
+
+		if (s.mostrarItens && podeItens)
+			p.displayClientMessage(Component.literal("Itens: ").withStyle(ChatFormatting.GOLD)
+					.append(botao("Pena de Captura nível " + Capturas.nivelPena(p), "/galetocraft acao capturar",
+							Component.literal("Tenta capturar " + ele.nome() + ". Consome a ação; HP menor, Sono e Paralisia ajudam."),
+							ChatFormatting.LIGHT_PURPLE)), false);
 	}
 
 	private static String estado(Combatente c) {

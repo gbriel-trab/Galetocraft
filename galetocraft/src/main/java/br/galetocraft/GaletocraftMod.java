@@ -2,6 +2,7 @@ package br.galetocraft;
 
 import br.galetocraft.comando.ComandoGaletocraft;
 import br.galetocraft.nucleo.dados.Galetario;
+import br.galetocraft.registro.ModAnexos;
 import br.galetocraft.registro.ModEntidades;
 import br.galetocraft.registro.ModItens;
 import net.fabricmc.api.ModInitializer;
@@ -28,6 +29,7 @@ public class GaletocraftMod implements ModInitializer {
 	public void onInitialize() {
 		ModEntidades.registrar();
 		ModItens.registrar();
+		ModAnexos.registrar();
 
 		// os ovos dos galos aparecem na aba de ovos geradores do modo criativo
 		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS)
@@ -35,6 +37,7 @@ public class GaletocraftMod implements ModInitializer {
 					entradas.accept(ModItens.OVO_PIROCOCO);
 					ModItens.OVOS_GALOS.forEach(entradas::accept);
 				});
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entradas -> entradas.accept(ModItens.PENA_DE_CAPTURA));
 
 		// núcleo de regras: carrega a base vigente embutida (espécies, golpes e regras)
 		Galetario galetario = Galetario.padrao();

@@ -11,7 +11,7 @@ import br.galetocraft.nucleo.regras.PenaDeRitmo;
  */
 public record Decisao(Acao acao, MiraAnatomica.Regiao guarda) {
 
-	public sealed interface Acao permits UsarGolpe, Trocar {
+	public sealed interface Acao permits UsarGolpe, Trocar, Capturar {
 	}
 
 	/**
@@ -25,6 +25,13 @@ public record Decisao(Acao acao, MiraAnatomica.Regiao guarda) {
 
 	/** Troca voluntária: consome a ação e tem prioridade sobre golpes. */
 	public record Trocar(int indice, boolean cantoRevezamento) implements Acao {
+	}
+
+	/**
+	 * Tentativa de captura do Cocorídeo selvagem com a Pena de Captura (Itens → Pena de Captura).
+	 * Consome a ação do treinador e é resolvida na ordem regular dos turnos.
+	 */
+	public record Capturar(int nivelPena) implements Acao {
 	}
 
 	public static Decisao golpe(Golpe g) {

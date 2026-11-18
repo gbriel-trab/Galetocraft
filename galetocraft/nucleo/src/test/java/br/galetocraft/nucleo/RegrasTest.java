@@ -246,4 +246,24 @@ class RegrasTest {
 		assertEquals(0.25, Experiencia.fatorDesafio(1, 100), 1e-12);
 		assertThrows(IllegalArgumentException.class, () -> x.recompensa(50, "Lendário Original", 50, "PvE_selvagem"));
 	}
+
+	@Test
+	void penaDeCapturaEvoluiPelaXpAcumulada() {
+		Captura c = new Captura(Galetario.padrao());
+		assertEquals(1, c.nivelPena(0));
+		assertEquals(1, c.nivelPena(999));
+		assertEquals(2, c.nivelPena(1000));
+		assertEquals(3, c.nivelPena(4000));
+		assertEquals(4, c.nivelPena(11000));
+		assertEquals(5, c.nivelPena(26000));
+		assertEquals(26000, c.xpParaNivelPena(5));
+		// excedente reaproveitado e várias evoluções numa captura
+		assertEquals(4100, c.somarXpPena(900, 3200));
+		assertEquals(3, c.nivelPena(c.somarXpPena(900, 3200)));
+		// no nível 5 não entra XP nova; a excedente fica
+		assertEquals(26050, c.somarXpPena(25990, 60));
+		assertEquals(26050, c.somarXpPena(26050, 500));
+		// XP por captura: base da raridade + 2 × nível do alvo (Comum nível 50 = 115)
+		assertEquals(115, c.xpPena("Comum", 50));
+	}
 }

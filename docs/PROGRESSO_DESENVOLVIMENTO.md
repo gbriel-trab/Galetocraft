@@ -110,9 +110,68 @@ O que ocorre de não implementado fica registrado no Histórico da Rinha.
   - Para rodar só este teste nesta nuvem, sem placa de vídeo: `GALETO_TESTES=rinha LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a bash gradlew runClientGameTest`. Os prints ficam em `build/run/clientGameTest/screenshots/`.
   - O filtro `GALETO_TESTES` (`pirococo`, `galeria`, `rinha`) vale para os três testes de cliente. Em renderização por software, a galeria em 1920×1080 passa do tempo limite de carregamento do mundo.
 
-### Próximos passos (fase 5 em diante)
-1. Item Pena e captura (no mundo e na Rinha), equipe do treinador persistente e Galetário dentro do jogo.
-2. Golpes próprios do Galeto individual e sincronização com o cliente.
+## 18/11/2026 — Fase 5: captura com a Pena e equipe do treinador
+
+### Fonte das regras
+- **Regra `captura` da base**, conferida com as 18 homologações da Pena no acervo, de 11 e 12/11 (pacote 11), e com a homologação final da Beta 1.2.59.
+- **Revisão 7 da base** (`docs/patches/rev7_captura_coerencia.json`): a regra trazia dois campos da proposta já superada.
+  - A fórmula `F = 1 + 0,15·(nível−1)` foi trocada pela tabela do reforço v1258: 1,00 / 1,30 / 1,65 / 2,05 / 2,50.
+  - O indicador "retentativa sem espera" do mundo foi para 0, como a própria v1259 registra.
+
+### Pena de Captura (item `galetocraft:pena_de_captura`)
+- **O instrumento:** um por treinador, não consumível, sem arremesso.
+- **Nível e XP ficam com o treinador,** não com o item. A Pena evolui pela XP acumulada: 1.000 / 4.000 / 11.000 / 26.000.
+- **XP por captura:** `XP_base(raridade) + 2·nível`. Uma captura pode render várias evoluções e o excedente é reaproveitado. No nível 5 não entra XP nova.
+- **Provisório, até o criador decidir:**
+  - O jogador recebe a Pena com `/galetocraft pena` (ou no criativo, aba de ferramentas).
+  - O desenho é o da pena vanilla, como marcador.
+
+### Captura no mundo
+- **Como funciona:**
+  - Mira no Cocorídeo e usa o botão direito com a Pena na mão.
+  - Alcance de 12 blocos, lido da base. Um bloco sólido no caminho impede a tentativa.
+  - O resultado sai na hora: `P = 100·R·F/(R·F + D)`.
+- **No sucesso:** aparece o Feixe do Rubi simplificado (uma linha de partículas cor de rubi) e o Cocorídeo sai do mundo.
+- **Na falha:** o Cocorídeo segue normalmente e resiste por 20 s (60 s se Lendário). A espera vale para todos os jogadores.
+
+### Captura na Rinha
+- **Como se usa:** o botão Itens do menu passa a valer em Rinha contra selvagem quando o jogador tem a Pena. Itens → Pena de Captura faz a tentativa.
+- **No motor do núcleo (`Decisao.Capturar`):**
+  - A tentativa consome a ação do treinador e entra na ordem normal de Velocidade.
+  - A força é `R·F·H·S`, com HP, Sono e Paralisia.
+  - Na falha, a Rinha continua e o selvagem age se ainda tiver ação pendente.
+  - No sucesso, a Rinha termina na hora, sem fim de rodada.
+  - Sem espera adicional.
+- **Captura não é vitória:** o motor registra `capturado()`, e `vencedor()` fica vazio.
+
+### Treinador
+- **Onde fica:** salvo com o jogador (Fabric Data Attachment), inclusive depois da morte.
+- **Equipe principal:** até 5, número lido da regra `treinador`.
+- **Reservas:** sem limite.
+- **Destino do capturado:** a equipe, se houver vaga; senão, as reservas.
+- **Na Rinha:** entram os 3 primeiros da equipe. Sem nenhum Galeto, entra a equipe de teste (`/galetocraft equipe teste <a> [b] [c]`).
+- **`/galetocraft equipe`:** lista equipe, reservas e Pena, com botões provisórios (a regra não define o procedimento):
+  - **guardar:** da equipe para as reservas.
+  - **chamar:** das reservas para a equipe.
+  - **primeiro:** põe o Galeto no topo da ordem.
+
+### Decisões provisórias de implementação (sem regra homologada)
+- **Alvo inelegível** (Lendário sem Pena 5, Lendário Original): a tentativa não começa e não consome a ação.
+- **Galeto em Rinha:** não pode ser alvo da captura no mundo.
+- **Posição da captura na rodada:** a regra só diz que o adversário age "na ordem regular". O motor põe a captura no lugar do Galeto do treinador, pela Velocidade.
+
+### Testes
+- **Núcleo:** 25 testes. Os novos cobrem captura na Rinha (fórmula com HP, sucesso encerra, falha continua, ordem por Velocidade, elegibilidade) e evolução e XP da Pena.
+- **Cliente (`CapturaTesteCliente`):** joga com o botão direito de verdade.
+  - Resultado em 18/11, no mundo: a 1ª tentativa falhou, a espera de 20 s foi conferida e a 2ª capturou o Taturico (+115 XP).
+  - Na Rinha, com o Taturico: o Vagaló, mais rápido, agiu antes; a 1ª captura falhou e a 2ª capturou (+115 XP, total 230).
+  - O botão "primeiro" reordenou a equipe.
+- **`RinhaTesteCliente`** continua passando, agora com a equipe de teste.
+- **Servidor dedicado** sobe com a base rev. 7.
+
+### Próximos passos (fase 6 em diante)
+1. Golpes próprios do Galeto individual (repertório aprendido) e sincronização com o cliente.
+2. XP dos Cocorídeos por Rinha vencida (regra `experiencia`) e aprendizado de golpes (depende da tabela de níveis, ainda fora da camada vigente).
 3. Passivas e efeitos dos golpes por família, a partir do texto oficial estruturado.
-4. Tela própria da Rinha, no lugar do menu do chat.
-5. Rinha entre jogadores.
+4. Tela própria da Rinha e do Galetário, no lugar do chat.
+5. Rinha entre jogadores; soltar Galetos da equipe no mundo.

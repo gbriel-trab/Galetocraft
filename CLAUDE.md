@@ -10,7 +10,7 @@ Projeto de mod de Minecraft com criaturas chamadas Cocorídeos/Galetos, batalhas
 
 ## Fonte de verdade
 
-- **Base vigente:** `base/vigente/*.json`, com artes em `base/artes/` e fontes em `base/fontes/`. Revisão atual: **6**. Manual em `base/LEIA_ME.md`.
+- **Base vigente:** `base/vigente/*.json`, com artes em `base/artes/` e fontes em `base/fontes/`. Revisão atual: **7**. Manual em `base/LEIA_ME.md`.
 - **Ferramenta:** `python ferramentas/base/galetobase.py` com os comandos `validar`, `ficha --especie N`, `atualizar --pacote`, `migrar --pacote` e `montar`.
 - **Toda mudança na base** segue estes passos:
   1. Escrever um pacote em `docs/patches/` com `expected_revision`, `reason` e `evidence`.
@@ -67,9 +67,10 @@ O fluxo completo está em `base/LEIA_ME.md`. Em resumo:
   - O motor da Rinha fica em `br.galetocraft.nucleo.rinha`.
 - **Implementado no mod:**
   - 12 entidades com IA neutra e LOD. Cada uma é um Galeto individual com nível, sexo e IVs salvos.
-  - Comandos `/galetocraft base | ficha | rinha | duelo` (simulação) e `equipe | desafiar | acao` (Rinha jogável contra Galeto selvagem, com menu clicável no chat).
-  - Teste de cliente `RinhaTesteCliente`. Para rodar sem placa de vídeo: `GALETO_TESTES=rinha LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a bash gradlew runClientGameTest`.
-- **Ainda falta:** golpes próprios e dono do Galeto, tela própria da Rinha, captura e treinador, passivas e efeitos de golpes, e reprodução. O roteiro está em `docs/ANALISE_DESENVOLVIMENTO.md` e o andamento em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
+  - Comandos `/galetocraft base | ficha | rinha | duelo` (simulação), `desafiar | acao` (Rinha jogável contra Galeto selvagem, com menu clicável no chat), `equipe` (equipe do treinador) e `pena`.
+  - Pena de Captura: captura no mundo (botão direito, 12 blocos, visão livre, espera após falha) e na Rinha (Itens → Pena de Captura). O capturado vai para a equipe principal (até 5) ou para as reservas, salvos com o jogador.
+  - Testes de cliente `RinhaTesteCliente` e `CapturaTesteCliente`. Para rodar sem placa de vídeo: `GALETO_TESTES=rinha,captura LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a bash gradlew runClientGameTest`.
+- **Ainda falta:** golpes próprios do Galeto, tela própria da Rinha, Galetário no jogo, passivas e efeitos de golpes, XP dos Cocorídeos e reprodução. O roteiro está em `docs/ANALISE_DESENVOLVIMENTO.md` e o andamento em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
 - **Modelos:** rode `ferramentas/especies/<id>.py` e depois `ferramentas/exportar_especie.py <id>`, como descrito em `galetocraft/LEIAME.md`.
 - **Git LFS:** os arquivos de `modelos/*/revisao/` e os PNGs do benchmark estão no LFS. Nesta cópia há só ponteiros.
 
