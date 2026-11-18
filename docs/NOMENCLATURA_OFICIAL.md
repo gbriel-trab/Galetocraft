@@ -37,16 +37,13 @@ A versão em formato de máquina está em `ferramentas/acervo/nomenclatura_ofici
 - **Documentação e código do repositório:** `docs/CONHECIMENTO_GALETOCRAFT.md`, `CLAUDE.md`, `docs/ERRATA_NIVEL_50.md` e o comentário em `ModEntidades.java`.
 - **Originais do Release:** não foram alterados e seguem como histórico.
 
-## Base vigente: atualização preparada, ainda não publicada
+## Base vigente: publicada
 
-- **O que muda:** a base `Galetocraft.sqlite` (revisão 2) ainda usa "Tontura" no texto de efeito de 2 golpes do #013 Quartzaló: Concentração e Faíscas do Geodo.
-- **O pacote de atualização:** `docs/patches/rev3_coerencia_e_nomenclatura.json`, que também traz as correções da auditoria (ver `docs/AUDITORIA_INCOERENCIAS.md`), no formato do atualizador oficial (`Atualizar_Galetocraft.py`).
-- **Teste:** foi aplicado numa cópia da base.
-  - A revisão passou de 2 para 3, com `integrity_check = ok`, nenhuma violação de chave estrangeira e o registro gravado em `current_journal`.
-  - Nenhum "Tontura" sobrou nos textos.
+- **Revisão 3:** a nomenclatura foi aplicada aos textos da base, junto com as correções da auditoria (`docs/patches/rev3_coerencia_e_nomenclatura.json`).
+  - "Tontura" virou "Tonto" no efeito de 2 golpes do #013 Quartzaló: Concentração e Faíscas do Geodo.
   - Os campos técnicos (`status_nucleo`, chaves) foram mantidos.
-- **Falta publicar:** a cópia principal da base fica na biblioteca do ChatGPT, então a publicação precisa ser feita lá, no mesmo Library ID. Não foi criada nenhuma base paralela.
-- **Regra de nomenclatura dentro da base:** registrá-la como uma regra nova em `current_rules` exige o procedimento de migração completa, porque o atualizador só altera registros que já existem.
+- **Revisão 4:** a nomenclatura passou a ser uma regra própria da base, `current_rules` → `nomenclatura` (`docs/patches/rev4_governanca_artes_nomenclatura.json`).
+- **Onde está a base:** desde 18/11/2026 ela fica no repositório (`base/vigente/`), mantida pelo Claude com `ferramentas/base/galetobase.py`.
 
 ## Para reaplicar em outros documentos
 

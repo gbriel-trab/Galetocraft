@@ -1,6 +1,6 @@
 # Galetocraft — Base de conhecimento consolidada
 
-> Resumo de referência montado em 18/11/2026 a partir de: banco vigente `Galetocraft.sqlite` (revisão interna 2, SHA-256 `9dd2253d…5aa3c`), Release `acervo-documental-2026-11-17` (inventário de 1.636 arquivos), documentos oficiais dos sistemas e código deste repositório.
+> Resumo de referência montado em 18/11/2026 a partir de: base vigente (hoje em `base/vigente/`, revisão 4; até a rev. 2 era o `Galetocraft.sqlite`, SHA-256 `9dd2253d…5aa3c`), Release `acervo-documental-2026-11-17` (inventário de 1.636 arquivos), documentos oficiais dos sistemas e código deste repositório.
 > **Este arquivo é um resumo, não uma fonte de verdade.** Em qualquer conflito, vale a camada `current_*` / `v_current_*` do banco vigente.
 
 ## 1. O que é o projeto
@@ -18,24 +18,32 @@ Todo design passa por **homologação expressa do criador**. Propostas, Betas, r
 
 ## 2. Fonte de verdade e governança
 
-- **Banco único vigente:** `Galetocraft/Base_Atual/Galetocraft.sqlite`, que está no pacote `Galetocraft_00_Base_Vigente.zip` do Release.
-  - Dados: 23 espécies, 690 vínculos de golpes, 22 regras, 21 artes, 13 vínculos hereditários e 22 pendências.
-  - Estrutura: 235 tabelas, 67 views, `PRAGMA integrity_check = ok`.
-- **Ler somente `current_*` e `v_current_*`.**
-  - A tabela `species` (12 linhas) é legada.
-  - As outras 286 tabelas estão marcadas em `object_registry` como `HISTORICO_OU_EVIDENCIA`.
+- **Responsável:** desde 18/11/2026 o **Claude** cuida de todo o projeto, por decisão do criador.
+  - O ChatGPT serve só para gerar imagens.
+  - O criador continua aprovando tudo que vira oficial.
+- **Base única vigente:** fica em `base/` deste repositório. O manual está em `base/LEIA_ME.md`.
+  - `base/vigente/*.json`: tabelas `current_*`.
+  - `base/artes/`: as 23 artes.
+  - `base/fontes/`: documentos-fonte.
+  - Dados: 23 espécies, 690 vínculos de golpes, 23 regras (incluindo `nomenclatura`), 23 artes, 13 vínculos hereditários, 22 pendências e 14 metadados.
+- **Ler somente as tabelas `current_*`** (no SQLite montado, também as views `v_current_*`).
+  - O `Galetocraft.sqlite` da revisão 2 no Release (235 tabelas, 67 views) é histórico.
+  - A tabela `species` (12 linhas) e as demais tabelas estão marcadas como `HISTORICO_OU_EVIDENCIA`.
+  - O comando `montar` junta o histórico com a camada vigente do repositório.
 - **Precedência:** decisão expressa mais recente por campo > ficha homologada > cópia histórica. Datas de backup não revogam decisões.
 - **`runtime_validado = false`** em tudo. A base é documental: nada nela prova que a regra esteja implementada ou testada no Minecraft.
-- **Atualização:** usar `Atualizar_Galetocraft.py banco.sqlite patch.json`.
-  - O patch precisa de `expected_revision`, `reason`, `evidence` e `operations`.
-  - Só altera registros que já existem em `current_species`, `current_rules`, `current_moves`, `current_issues`, `current_heranca` e `current_galeria`.
-  - Cada alteração incrementa a revisão e grava em `current_journal`.
-  - Espécie nova, migração ou arte nova exige procedimento completo validado.
-  - Não criar "Beta 1.8" nem outra base ativa.
-- **Origem da gestão:** o projeto foi conduzido em conversas no ChatGPT, com Library IDs de arquivos, auditoria horária e backup diário. O Release do GitHub é uma fotografia de 17/11/2026, não uma sincronização automática.
+- **Atualização:** pelo `ferramentas/base/galetobase.py`.
+  - `atualizar --pacote` altera registros existentes, no mesmo formato do antigo `Atualizar_Galetocraft.py`.
+  - `migrar --pacote` insere registros novos e altera metadados.
+  - Todo pacote precisa de `expected_revision`, `reason` e `evidence`, valida a base inteira, incrementa a revisão e grava em `current_journal`.
+  - Os pacotes ficam em `docs/patches/`, e cada revisão é um commit.
+  - Não criar outra base ativa.
+- **Origem da gestão:** até 17/11/2026 o projeto foi conduzido em conversas no ChatGPT, com Library IDs, auditoria horária e backup diário. O Release do GitHub guarda essa fotografia.
 - **Histórico de revisões:**
   - rev. 1 (17/11): unificação autorizada.
   - rev. 2 (17/11): `v_current_pares_reproducao` passou a usar `current_galeria`.
+  - rev. 3 (18/11): correções de coerência (Concentração V2.3 em todas as espécies, golpes básicos, esquema do #023, pendências resolvidas, decisões do criador) e nomenclatura oficial (Tonto).
+  - rev. 4 (18/11): nova governança (base no repositório, sob o Claude), artes #019/#020 em `current_art`, regra `nomenclatura`, R12 e U05 resolvidas.
 
 ## 3. Espécies vigentes (atributos no nível 50)
 
@@ -99,9 +107,8 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
   - Golpes próprios: Cataclismo Celeste (Ar), Eclosão das Mil Coroas (Planta, invoca Santuário das Raízes) e Ascensão do Nexo (+50 p.p. de Atq. Mágico e de Velocidade por uso).
   - Não reproduz.
 - **Wukocó #024** é apenas proposta.
-- **Artes vigentes:** 21 em `current_art`.
-  - As artes de #019 Renacocó ("Renacocó com Face Azul Claro.png") e #020 Frankocó ("Ficha Oficial Frankocó #020.png") foram identificadas pelas fichas homologadas e copiadas para `modelos/referencias/`.
-  - Falta incluí-las na base por migração.
+- **Artes vigentes:** 23 em `current_art`, uma por espécie, guardadas em `base/artes/`.
+  - #019 Renacocó ("Renacocó com Face Azul Claro.png") e #020 Frankocó ("Ficha Oficial Frankocó #020.png") entraram na revisão 4.
 
 ## 4. Elementos e eficácia
 
@@ -343,7 +350,7 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 
 ## 9. Pendências reais (`current_issues` e limites declarados)
 
-- **Arte e modelo (R12):** artes e modelo localizados. Falta só a migração das artes para `current_art`.
+- **Arte e modelo (R12):** resolvido na revisão 4.
 - **Progressão:** a curva 1–49 e o HP de referência ainda são candidatos (R13).
 - **Migração para o mod:** está bloqueada no runtime (R14). O núcleo histórico tem 12 espécies, e 141 quarentenas técnicas foram preservadas.
 - **Golpes:** os 660 vínculos aprendíveis são "candidatos técnicos". Os IDs não são entidades executáveis aprovadas (R15).
@@ -354,19 +361,18 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 - **Quetzacocó:** falta distribuir os 30 golpes por nível e treino (U03).
 - **Outros:**
   - Maestria Elemental: texto integral não recuperado (U04).
-  - Integração automática a cada implementação (U05).
+  - Integração da base com a implementação (U05): resolvida pela governança (base e código no mesmo repositório). Falta só um CI de validação quando o mod passar a ler a base.
 - **Fora do `current_issues`:** fórmula de dano definitiva e runtime Fabric/GeckoLib.
 
 ### Incoerências: auditoria de 18/11/2026 (todas resolvidas)
 O relatório completo está em `docs/AUDITORIA_INCOERENCIAS.md`: 29 conflitos resolvidos na base, nos documentos e no repositório.
 
-- **Correções na base vigente:** estão no pacote `docs/patches/rev3_coerencia_e_nomenclatura.json` (revisão 2 → 3), já testado.
+- **Correções na base vigente:** estão no pacote `docs/patches/rev3_coerencia_e_nomenclatura.json`, **publicado na revisão 3**.
   - Concentração V2.3 aplicada a todas as espécies.
   - Texto canônico para os golpes básicos.
   - Esquema comum para os golpes do #023.
   - Pendências já resolvidas (R02, R09) marcadas assim nas atas.
   - Decisões do criador registradas em `resolucoes_posteriores`.
-  - **Falta publicar o pacote na biblioteca do ChatGPT.**
 - **Rótulo de nível:** a referência é o nível 50. Use `docs/acervo_corrigido/` e veja `docs/ERRATA_NIVEL_50.md`.
 - **Plataforma:** **Fabric 1.21.11 + GeckoLib**. As menções a "NeoForge" nas atas estão obsoletas.
 - **Arte do Renacocó:** a oficial é "Renacocó com Face Azul Claro.png", como diz a ficha homologada. A citação da Memória Mestra está superada.

@@ -1,0 +1,163 @@
+[
+ {
+  "numero": 1,
+  "filename": "Galetocraft_Galetario_001_Pirococo_Visual_Oficial_2026-11-15.png",
+  "sha256": "127ca9760e15ce9b53ebd7f25c58b9d4eb36eabf80d63fbb34ee68cf3ef297c1",
+  "source_ref": "piro_ata / libfile_714541f34e4c81918f387ebcedf5c3fc",
+  "arquivo": "artes/Galetocraft_Galetario_001_Pirococo_Visual_Oficial_2026-11-15.png"
+ },
+ {
+  "numero": 2,
+  "filename": "002_Galetocraft_Galetario_002_Cocorrego_Visual_Oficial_2026-11-13.png",
+  "sha256": "e95112398ae3f9e8b7fd9b6e04cd566dd12b2ffc8e2e80dd932d6b585dbcf40d",
+  "source_ref": "Beta 1.5 / homologação visual 13/11/2026",
+  "arquivo": "artes/002_Galetocraft_Galetario_002_Cocorrego_Visual_Oficial_2026-11-13.png"
+ },
+ {
+  "numero": 3,
+  "filename": "003_Galetocraft_Galetario_003_Esporoco_Visual_Oficial_2026-11-13.png",
+  "sha256": "87fda6aabb3bbdbfda9e26aec5b775d56a5aaf58c9011d9ec0adc85a2f5d6235",
+  "source_ref": "Beta 1.5 / homologação visual 13/11/2026",
+  "arquivo": "artes/003_Galetocraft_Galetario_003_Esporoco_Visual_Oficial_2026-11-13.png"
+ },
+ {
+  "numero": 4,
+  "filename": "004_Galetocraft_Galetario_004_Cocorak_Visual_Oficial_2026-11-13.png",
+  "sha256": "7aa8fe7899c8f1e660fa6cd1df17644786b9983297be18a743ab71b7859941ef",
+  "source_ref": "Beta 1.5 / homologação visual 13/11/2026",
+  "arquivo": "artes/004_Galetocraft_Galetario_004_Cocorak_Visual_Oficial_2026-11-13.png"
+ },
+ {
+  "numero": 5,
+  "filename": "005_Galetocraft_Galetario_005_Cocorion_Visual_Oficial_2026-11-13.png",
+  "sha256": "161472b24c60a13022ddbd4aabecb6bbc3845be2f899941e57ca66f61aa1a928",
+  "source_ref": "Beta 1.5 / homologação visual 13/11/2026",
+  "arquivo": "artes/005_Galetocraft_Galetario_005_Cocorion_Visual_Oficial_2026-11-13.png"
+ },
+ {
+  "numero": 6,
+  "filename": "006_Galetocraft_Galetario_006_Cocorvolt_Visual_Oficial_2026-11-14.png",
+  "sha256": "55fb3df54fb4883635ecdab69df3ba9388185a405d6e6b109f08cd8ce7b6817b",
+  "source_ref": "Biblioteca /Galetocraft/Galetario/Visual_006_Cocorvolt_Oficial / homologação exclusiva",
+  "arquivo": "artes/006_Galetocraft_Galetario_006_Cocorvolt_Visual_Oficial_2026-11-14.png"
+ },
+ {
+  "numero": 7,
+  "filename": "007_007_Taturico_Arte_Com_Logo_Oficial.png",
+  "sha256": "996e077bd7336ebbdd4345cd8bff946caffe9f9a8c5f00506eb2f610f16c5929",
+  "source_ref": "Pacote 15 Artes Com Logo Oficial / 12/11/2026",
+  "arquivo": "artes/007_007_Taturico_Arte_Com_Logo_Oficial.png"
+ },
+ {
+  "numero": 8,
+  "filename": "008_008_Axococo_Arte_Com_Logo_Oficial.png",
+  "sha256": "7c44a373f89607498386a18bafdcd46837eb822348598bb08f2e237f5ca2638b",
+  "source_ref": "Pacote 15 Artes Com Logo Oficial / 12/11/2026",
+  "arquivo": "artes/008_008_Axococo_Arte_Com_Logo_Oficial.png"
+ },
+ {
+  "numero": 9,
+  "filename": "009_009_Vagalo_Arte_Com_Logo_Oficial.png",
+  "sha256": "57fc68b43aa8e7e7f395e0ddc1e952fd72987eea77dda97fb7efd16eb932c475",
+  "source_ref": "Pacote 15 Artes Com Logo Oficial / 12/11/2026",
+  "arquivo": "artes/009_009_Vagalo_Arte_Com_Logo_Oficial.png"
+ },
+ {
+  "numero": 10,
+  "filename": "010_010_Morcegalo_Arte_Com_Logo_Oficial.png",
+  "sha256": "03f6f8344c367f1e616f30c991a92770a16eef393cdea5b20f63d8d7f1f81a1a",
+  "source_ref": "Pacote 15 Artes Com Logo Oficial / 12/11/2026",
+  "arquivo": "artes/010_010_Morcegalo_Arte_Com_Logo_Oficial.png"
+ },
+ {
+  "numero": 11,
+  "filename": "011_011_Espinhoco_Arte_Com_Logo_Oficial.png",
+  "sha256": "72950d14d7384de90b922c6caa66181734f0244211aa14235b13088bcb010a2a",
+  "source_ref": "Pacote 15 Artes Com Logo Oficial / 12/11/2026",
+  "arquivo": "artes/011_011_Espinhoco_Arte_Com_Logo_Oficial.png"
+ },
+ {
+  "numero": 12,
+  "filename": "012_012_Salambrasa_Arte_Com_Logo_Oficial.png",
+  "sha256": "477bd30130182d7cbd13c14c31ee3469ffe6cf3adf58f3bfd8751a3a0b39991e",
+  "source_ref": "Pacote 15 Artes Com Logo Oficial / 12/11/2026",
+  "arquivo": "artes/012_012_Salambrasa_Arte_Com_Logo_Oficial.png"
+ },
+ {
+  "numero": 13,
+  "filename": "013_013_Quartzalo_Arte_Com_Logo_Oficial.png",
+  "sha256": "b5d2f408ae67b502d862a440003ce8603fd8f455a44e0074487a816243e936ca",
+  "source_ref": "Pacote 15 Artes Com Logo Oficial / 12/11/2026",
+  "arquivo": "artes/013_013_Quartzalo_Arte_Com_Logo_Oficial.png"
+ },
+ {
+  "numero": 14,
+  "filename": "014_014_Carangoco_Arte_Com_Logo_Oficial.png",
+  "sha256": "87a98b87d707c6009c0323379cff26f0b7b9765918e980f9b2ae85857ee1b709",
+  "source_ref": "Pacote 15 Artes Com Logo Oficial / 12/11/2026",
+  "arquivo": "artes/014_014_Carangoco_Arte_Com_Logo_Oficial.png"
+ },
+ {
+  "numero": 15,
+  "filename": "015_015_Faiscoco_Arte_Com_Logo_Oficial.png",
+  "sha256": "cbb5ea9a81389881173c15d469d2174b7cdd084bcabe70bc32a5aa1c70391e62",
+  "source_ref": "Pacote 15 Artes Com Logo Oficial / 12/11/2026",
+  "arquivo": "artes/015_015_Faiscoco_Arte_Com_Logo_Oficial.png"
+ },
+ {
+  "numero": 16,
+  "filename": "016_ficha_voxel_do_libelocó_016.png",
+  "sha256": "ecb03272e18a257d79297d303b38f58e34343bf08ed2ba1eb631611afaa1a2b2",
+  "source_ref": "Homologação 016-018 12/11/2026 (arte oficial intacta)",
+  "arquivo": "artes/016_ficha_voxel_do_libelocó_016.png"
+ },
+ {
+  "numero": 17,
+  "filename": "017_ficha_do_castorocó_017.png",
+  "sha256": "e9de693f8a320485fabbe0908a1c08e085ffb56b1613fdc6abe714e3535276cc",
+  "source_ref": "Homologação 016-018 12/11/2026 (arte oficial intacta)",
+  "arquivo": "artes/017_ficha_do_castorocó_017.png"
+ },
+ {
+  "numero": 18,
+  "filename": "018_ficha_oficial_do_mariposocó_018.png",
+  "sha256": "f221c62cb5018b9ebe0ebde209d1ecf0f4534ac1c27180cc7bd10e89b9af2cd6",
+  "source_ref": "Homologação 016-018 12/11/2026 (arte oficial intacta)",
+  "arquivo": "artes/018_ficha_oficial_do_mariposocó_018.png"
+ },
+ {
+  "numero": 19,
+  "filename": "Renacocó com Face Azul Claro.png",
+  "arquivo": "artes/Renacocó com Face Azul Claro.png",
+  "sha256": "a02914205da47b361e4318d0c20856db6c5422d20d94af4369cdc492cbdf018c",
+  "source_ref": "Galetario_019_Renacoco_OFICIAL_2026-11-12 (imagem_oficial_biblioteca), BAL 12/11 e R5.3; acervo pacote 13; incorporada em 18/11/2026"
+ },
+ {
+  "numero": 20,
+  "filename": "Ficha Oficial Frankocó #020.png",
+  "arquivo": "artes/Ficha Oficial Frankocó #020.png",
+  "sha256": "4790f440dff7f8d491d2de63f0488e88e1292c05695505bc910da27e26125611",
+  "source_ref": "Galetario_020_Frankoco_OFICIAL_2026-11-12 (arte oficial de referência); acervo pacote 01; incorporada em 18/11/2026"
+ },
+ {
+  "numero": 21,
+  "filename": "021_Cabacoco_021_Arte_Oficial_APROVADA_2026-11-12.png",
+  "sha256": "6f38aa6c1dc5185dbd4c0da4e71a6e34a87dcbe890c5f547924a6677815c1259",
+  "source_ref": "Biblioteca /Galetocraft/Galetario/Artes_Com_Logo_20261112",
+  "arquivo": "artes/021_Cabacoco_021_Arte_Oficial_APROVADA_2026-11-12.png"
+ },
+ {
+  "numero": 22,
+  "filename": "022_Sirenoco_022_Arte_Oficial_APROVADA_2026-11-13.png",
+  "sha256": "912ec1e89baa0c5e3bb654eeef90c0ee870973ad81971418a45677c69bb15072",
+  "source_ref": "Beta 1.5 / aprovação #022 em 13/11/2026",
+  "arquivo": "artes/022_Sirenoco_022_Arte_Oficial_APROVADA_2026-11-13.png"
+ },
+ {
+  "numero": 23,
+  "filename": "Quetzacoco_023_Arte_Visual_Oficial_2026-11-16.png",
+  "sha256": "dc4436714594bbcd8c34b2481b2e1a4f585721d28dab75dcc261df3c58a417c0",
+  "source_ref": "libfile_ff88923e86208191abebc7526dbfe07d; homologação 16/11",
+  "arquivo": "artes/Quetzacoco_023_Arte_Visual_Oficial_2026-11-16.png"
+ }
+]

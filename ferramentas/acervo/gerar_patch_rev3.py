@@ -7,8 +7,9 @@ entram em um campo novo, "resolucoes_posteriores".
 
 Uso:
   python gerar_patch_rev3.py --base Galetocraft.sqlite --saida docs/patches/rev3_coerencia_e_nomenclatura.json
-Depois, aplicar na base principal com:
-  python Atualizar_Galetocraft.py Galetocraft.sqlite rev3_coerencia_e_nomenclatura.json
+Aplicado em 18/11/2026 na base do repositório com:
+  python ferramentas/base/galetobase.py atualizar --pacote docs/patches/rev3_coerencia_e_nomenclatura.json
+(O pacote também é compatível com o Atualizar_Galetocraft.py original, sobre o SQLite da revisão 2.)
 """
 import argparse, json, os, sqlite3, sys
 

@@ -1,0 +1,36 @@
+{
+  "project": "Galetocraft",
+  "entry": "#023",
+  "name": "Quetzacocó",
+  "title": "O Soberano das Tempestades Verdejantes",
+  "status": "OFICIAL — arte visual homologada",
+  "date": "2026-11-16",
+  "source_artwork": "ficha_oficial_do_quetzacocó_lendário.png",
+  "official_artwork": "Quetzacoco_023_Arte_Visual_Oficial_2026-11-16.png",
+  "sha256": "dc4436714594bbcd8c34b2481b2e1a4f585721d28dab75dcc261df3c58a417c0",
+  "pixel_dimensions": [
+    1448,
+    1086
+  ],
+  "approved_by": "Criador do Galetocraft — confirmação expressa: 'Oficialize ele e exclua todos os outros'",
+  "rarity": "Lendário",
+  "elements_official": [
+    "Ar",
+    "Planta",
+    "Nexo"
+  ],
+  "visual_features": [
+    "Cabeça de Cocorídeo com bico dourado, crista ornamental multicolorida e olhos luminosos",
+    "Corpo longo serpentino com cauda em espiral",
+    "Duas asas grandes e simétricas com plumagem voxel em verde, vermelho, creme e turquesa",
+    "Duas pernas com garras, sob a parte inferior frontal do corpo",
+    "Ornamentos cerimoniais dourados e gemas esmeralda",
+    "Inscrições geométricas luminosas de Nexo no corpo, nas asas e na cauda",
+    "Prancha Galetário com quatro vistas de referência, expressões, detalhes e paleta"
+  ],
+  "scope": "Aprovação exclusivamente visual; não significa que exista modelo Blockbench, GeckoLib ou arquivo de entidade implementado.",
+  "logo": "Logo GALETO CRAFT e identificação GALETÁRIO presentes na arte. Identidade pixel a pixel com arquivo mestre do logo não verificada.",
+  "supersedes": "Todas as propostas e homologações visuais anteriores do Quetzacocó #023.",
+  "preserve": "A tipagem Nexo V2.0 aprovada e os demais sistemas oficiais não são alterados.",
+  "library_target": "/Galetocraft/Galetario/Visual_023_Quetzacoco_Oficial"
+}

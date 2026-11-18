@@ -18,3 +18,6 @@ __pycache__/
 Thumbs.db
 desktop.ini
 *.DS_Store
+
+# SQLite completo gerado por ferramentas/base/galetobase.py montar (derivado; não versionar)
+*.sqlite

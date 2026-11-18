@@ -1,0 +1,93 @@
+[
+ {
+  "especie": 1,
+  "golpe": "Ave Fênix",
+  "id_documental": "ave_fenix",
+  "fonte": "hereditary_move_links",
+  "compatibilidade_outras_especies": "NAO_DETERMINADA_ENTRE_ESPECIES"
+ },
+ {
+  "especie": 2,
+  "golpe": "Punho da Fortaleza",
+  "id_documental": "punho_da_fortaleza",
+  "fonte": "hereditary_move_links",
+  "compatibilidade_outras_especies": "NAO_DETERMINADA_ENTRE_ESPECIES"
+ },
+ {
+  "especie": 3,
+  "golpe": "Jardim da Discórdia",
+  "id_documental": "jardim_da_discordia",
+  "fonte": "hereditary_move_links",
+  "compatibilidade_outras_especies": "NAO_DETERMINADA_ENTRE_ESPECIES"
+ },
+ {
+  "especie": 4,
+  "golpe": "Sepultamento do Deserto",
+  "id_documental": "sepultamento_do_deserto",
+  "fonte": "hereditary_move_links",
+  "compatibilidade_outras_especies": "NAO_DETERMINADA_ENTRE_ESPECIES"
+ },
+ {
+  "especie": 5,
+  "golpe": "Julgamento dos Céus",
+  "id_documental": "julgamento_dos_ceus",
+  "fonte": "hereditary_move_links",
+  "compatibilidade_outras_especies": "NAO_DETERMINADA_ENTRE_ESPECIES"
+ },
+ {
+  "especie": 6,
+  "golpe": "Julgamento dos Raios",
+  "id_documental": "julgamento_dos_raios",
+  "fonte": "hereditary_move_links",
+  "compatibilidade_outras_especies": "NAO_DETERMINADA_ENTRE_ESPECIES"
+ },
+ {
+  "especie": 16,
+  "golpe": "Espiral de Monção",
+  "id_documental": "gc016o005",
+  "fonte": "gc161_galetario.ficha_json marcador explícito",
+  "compatibilidade_outras_especies": "NAO_DETERMINADA_ENTRE_ESPECIES"
+ },
+ {
+  "especie": 17,
+  "golpe": "Arrebento de Raiz-Pedra",
+  "id_documental": "gc017o005",
+  "fonte": "gc161_galetario.ficha_json marcador explícito",
+  "compatibilidade_outras_especies": "NAO_DETERMINADA_ENTRE_ESPECIES"
+ },
+ {
+  "especie": 18,
+  "golpe": "Floração da Fornalha",
+  "id_documental": "gc018o005",
+  "fonte": "gc161_galetario.ficha_json marcador explícito",
+  "compatibilidade_outras_especies": "NAO_DETERMINADA_ENTRE_ESPECIES"
+ },
+ {
+  "especie": 19,
+  "golpe": "Juramento da Fênix",
+  "id_documental": "gc019o005",
+  "fonte": "gc161_galetario.ficha_json marcador explícito",
+  "compatibilidade_outras_especies": "NAO_DETERMINADA_ENTRE_ESPECIES"
+ },
+ {
+  "especie": 20,
+  "golpe": "Coração da Última Tempestade",
+  "id_documental": "gc020o005",
+  "fonte": "gc161_galetario.ficha_json marcador explícito",
+  "compatibilidade_outras_especies": "NAO_DETERMINADA_ENTRE_ESPECIES"
+ },
+ {
+  "especie": 21,
+  "golpe": "Veredito da Porta Fechada",
+  "id_documental": "gc021o005",
+  "fonte": "gc161_galetario.ficha_json marcador explícito",
+  "compatibilidade_outras_especies": "NAO_DETERMINADA_ENTRE_ESPECIES"
+ },
+ {
+  "especie": 22,
+  "golpe": "Ária da Maré Eterna",
+  "id_documental": "ORIG_ARIA",
+  "fonte": "gc161_galetario.ficha_json marcador explícito",
+  "compatibilidade_outras_especies": "NAO_DETERMINADA_ENTRE_ESPECIES"
+ }
+]

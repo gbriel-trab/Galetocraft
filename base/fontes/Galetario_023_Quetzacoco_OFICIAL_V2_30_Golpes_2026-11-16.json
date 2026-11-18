@@ -1,0 +1,460 @@
+{
+  "projeto": "Galetocraft",
+  "numero": 23,
+  "nome": "Quetzacocó",
+  "epiteto": "O Soberano das Tempestades Verdejantes",
+  "data_homologacao_geral": "2026-11-16",
+  "status_design": "OFICIAL — ficha-base de espécie completa e homologada pelo criador",
+  "status_tecnico": "NÃO comprovada a implementação no runtime Minecraft/Fabric/NeoForge/GeckoLib, nem a migração para banco jogável",
+  "raridade": "Lendário Original",
+  "elementos": [
+    "Ar",
+    "Planta",
+    "Nexo"
+  ],
+  "elemento_exclusivo": "Nexo",
+  "funcao": "Atacante mágico lendário, domínio climático e fortalecimento gradual",
+  "pontos_base_nivel_50": 700,
+  "atributos_base_nivel_50": {
+    "HP": 130,
+    "Ataque Físico": 60,
+    "Defesa Física": 110,
+    "Ataque Mágico": 170,
+    "Defesa Mágica": 120,
+    "Velocidade": 110
+  },
+  "atributos_projetados_nivel_100": {
+    "HP": 195,
+    "Ataque Físico": 90,
+    "Defesa Física": 165,
+    "Ataque Mágico": 255,
+    "Defesa Mágica": 180,
+    "Velocidade": 165
+  },
+  "pontos_projetados_nivel_100": 1050,
+  "peso": {
+    "natural_kg": 180,
+    "faixa_tecnica_80pct_kg": 144,
+    "faixa_tecnica_150pct_kg": 270,
+    "pode_ultrapassar_150pct_por_alimentacao": true
+  },
+  "porte_visual": "Gigante; corpo serpentino alongado, asas monumentais, cauda volumosa; não estabelecer dimensões em blocos sem homologação.",
+  "passiva": {
+    "nome_de_catalogo": "Soberania dos Ventos Eternos",
+    "efeito_de_entrada": "Ao entrar em campo pela primeira vez na Rinha, invoca Ventania gratuitamente, sem gastar ação nem Energia, no limite universal de uma invocação por passiva por galeto por Rinha.",
+    "clima_invocado": "Ventania",
+    "duracao_clima": "Indeterminada: até outro Clima substituir ou a Rinha terminar. Não termina apenas por troca ou saída do Quetzacocó.",
+    "bonus_proprio_ataque_magico": "Enquanto Ventania está ativa, +50 pontos percentuais ao Ataque Mágico de referência do Quetzacocó; soma-se aditivamente aos +50 p.p. por uso da Ascensão do Nexo.",
+    "excecao_propria_planta": "Durante Ventania, os movimentos de Planta usados pelo Quetzacocó NÃO sofrem a penalidade global de -25% de dano Planta; essa exceção não se aplica a outros galetos e não dá bônus ofensivo próprio adicional.",
+    "efeitos_universais_do_clima": "Enquanto Ventania: +25% dano de golpes Ar para qualquer atacante; +10% Defesa Mágica de galetos ativos Ar; -25% dano de golpes Planta de outros atacantes (exceto Quetzacocó).",
+    "substituicao": "Outra invocação válida de Clima substitui Ventania. Se Ventania voltar a ser Clima atual, o +50% Ataque Mágico da passiva volta a vigorar enquanto o galeto estiver ativo. A invocação gratuita de entrada não se reinicia ao reentrar na mesma Rinha.",
+    "coexiste_com_santuario": true
+  },
+  "golpes_equipados_iniciais": [
+    {
+      "slot": 1,
+      "nome": "Crina Poderosa",
+      "elemento": "Neutro",
+      "categoria": "Mágico",
+      "poder_base": 40,
+      "energia": 0,
+      "efeito": "Ataque básico mágico, sem efeito próprio adicional.",
+      "origem": "Golpe básico compartilhado; equipagem inicial consolidada."
+    },
+    {
+      "slot": 2,
+      "nome": "Concentração",
+      "elemento": "Sem elemento",
+      "categoria": "Suporte",
+      "poder_base": null,
+      "energia": 0,
+      "efeito": "Em execução válida, recupera +35 de Energia (além dos +20 universais no início de cada turno próprio, teto 100); 40% de chance de remover um estado negativo persistente; gera Pena de Ritmo da equipe conforme V2.3, não acumulável.",
+      "origem": "Mecânica universal Concentração V2.3 homologada em 13/11/2026."
+    },
+    {
+      "slot": 3,
+      "nome": "Cataclismo Celeste",
+      "elemento": "Ar",
+      "categoria": "Mágico",
+      "poder_base": 120,
+      "energia": 65,
+      "efeito": "Ruptura Atmosférica: enquanto Ventania está ativa, o PRIMEIRO acerto válido da ação ignora 10% da Defesa Mágica efetiva do alvo; não aplica essa penetração ao segundo acerto. Sem Ventania não ignora defesa.",
+      "origem": "Golpe original #023, homologado."
+    },
+    {
+      "slot": 4,
+      "nome": "Eclosão das Mil Coroas",
+      "versao": "2.0",
+      "elemento": "Planta",
+      "categoria": "Mágico",
+      "poder_base": 110,
+      "energia": 55,
+      "efeito": "Ao causar dano direto efetivo a pelo menos um alvo na ação, invoca Santuário das Raízes por 4 rodadas APÓS concluir a resolução da ação. Invoca apenas uma vez por ação; sem dano efetivo, não invoca. O próprio golpe ativador não recebe retroativamente o bônus do Santuário.",
+      "origem": "Golpe original #023, homologado. Exceção própria à ativação genérica do Santuário via suporte; custa apenas 55 Energia e uma ação ofensiva, não exige custo nem ação extra."
+    },
+    {
+      "slot": 5,
+      "nome": "Ascensão do Nexo",
+      "versao": "2.0",
+      "elemento": "Nexo",
+      "categoria": "Mágico",
+      "poder_base": 40,
+      "energia": 60,
+      "efeito": "Após execução válida, acrescenta +50 pontos percentuais ao Ataque Mágico e +50 pontos percentuais à Velocidade, sempre sobre os atributos de referência. Repetições somam linearmente +50 p.p. por uso, sem empilhamento exponencial e sem teto específico de ativações aprovado. Uma aplicação por ação válida, não por acerto; não retroage ao dano da própria ação. Bônus perduram até saída de campo/derrota.",
+      "origem": "Golpe original #023, homologado com correção explícita para incrementos de 50 em 50 pontos percentuais."
+    }
+  ],
+  "santuario_das_raizes": {
+    "duracao_rodadas": 4,
+    "bonus_dano_golpes_planta_pct": 15,
+    "cura_fim_rodada_ativos_planta_pct_hpmax": 4,
+    "ambos_lados": true,
+    "um_santuario_por_vez": true,
+    "coexiste_com_clima": true
+  },
+  "ascensao_nexo_regra_calculo": {
+    "n": "Número de execuções válidas de Ascensão do Nexo durante a permanência em campo",
+    "ataque_magico_relativo_com_ventania": "1 + 0.5*n + 0.5",
+    "ataque_magico_relativo_sem_ventania": "1 + 0.5*n",
+    "velocidade_relativa": "1 + 0.5*n",
+    "sem_crescimento_exponencial": true,
+    "limite_proprio_ativacoes": null
+  },
+  "eficacia_elemental_defensiva": {
+    "Fogo": 2,
+    "Água": 0.5,
+    "Planta": 0.5,
+    "Terra": 0.5,
+    "Ar": 1,
+    "Elétrico": 2,
+    "Nexo": 2
+  },
+  "eficacia_ofensiva_nexo": {
+    "Fogo": 2,
+    "Água": 1,
+    "Planta": 1,
+    "Terra": 1,
+    "Ar": 2,
+    "Elétrico": 0.5,
+    "Nexo": 1
+  },
+  "reproducao": {
+    "pode_reproduzir": false,
+    "regra": "Todos os Lendários Originais são inelegíveis para reprodução, como pai ou mãe, independente de parceiro. Não geram ovos, descendentes, nem herança genética. A proibição não se estende automaticamente aos Míticos promovidos a Lendário."
+  },
+  "arte_oficial": {
+    "arquivo": "/Galetocraft/Galetario/Visual_023_Quetzacoco_Oficial/Quetzacoco_023_Arte_Visual_Oficial_2026-11-16.png",
+    "sha256_fonte_documental": "dc4436714594bbcd8c34b2481b2e1a4f585721d28dab75dcc261df3c58a417c0",
+    "dimensoes_px": [
+      1448,
+      1086
+    ],
+    "preservar_intacta": true
+  },
+  "escala_lendarios": {
+    "lendario_original_referencia_base_50": 700,
+    "mitico_ascendido_lendario_referencia_base_50": 610,
+    "evolucao_mitico_lendario_automatica": false
+  },
+  "pendencias_de_producao_sem_desfazer_homologacao": [
+    "Integração e testes no mod Minecraft e no banco jogável não atestados",
+    "Dimensões/hitbox em blocos e modelo 3D GeckoLib não atestados",
+    "Testes de balanceamento em Rinhas com Ascensão do Nexo sem limite específico de acúmulo",
+    "Parâmetros de aparição no mundo e condições de obtenção do Lendário Original não definidos nesta ficha",
+    "Distribuição por nível e treinamento dos 25 golpes aprendíveis ainda não definida/homologada"
+  ],
+  "fontes_documentais_de_referencia": {
+    "artwork": "/Galetocraft/Galetario/Visual_023_Quetzacoco_Oficial/Quetzacoco_023_Arte_Visual_Oficial_2026-11-16.png",
+    "artwork_sha256": "dc4436714594bbcd8c34b2481b2e1a4f585721d28dab75dcc261df3c58a417c0",
+    "nexo": "Galetocraft_023_Quetzacoco_Nexo_V2_0_Homologacao_2026-11-15.md",
+    "ventania": "Galetocraft_Climas_Oficiais_v1_9_2.md",
+    "santuario": "Galetocraft_Santuarios_Oficiais_v1_9_3.md",
+    "concentracao": "Galetocraft_Ata_Homologacao_Concentracao_V2_3_2026-11-13.md",
+    "invocacoes": "Galetocraft_Regras_Trocas_Invocacoes_v1_9_8.md",
+    "progressao": "Galetocraft_Progressao_Nivel50_V1_Homologacao_Oficial.md"
+  },
+  "nota_integridade": "Homologação documental consolidada da conversa de 16/11/2026; não altera ficheiros históricos existentes nem confirma compilação ou migração de sistema.",
+  "data_homologacao_galolpeteca": "2026-11-16",
+  "status_repertorio": "OFICIAL — 5 originais + 25 aprendíveis homologados, total 30; níveis/treinamentos pendentes",
+  "fonte_25_aprendiveis_oficiais": "GalolpeTeca_023_Quetzacoco_30_Golpes_OFICIAL_2026-11-16.json",
+  "golpes_aprendiveis": [
+    {
+      "ordem": 1,
+      "id_catalogo": "G062",
+      "nome": "Sopro Circular",
+      "elemento": "Ar",
+      "categoria": "mágico",
+      "poder_base": 40,
+      "energia": 0,
+      "efeito_oficial_literal": "Quando Ventania estiver ativa, projétil básico tem poder 55 em vez de 40; caso contrário permanece básico sem efeito.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 2,
+      "id_catalogo": "G063",
+      "nome": "Assobio Rasante",
+      "elemento": "Ar",
+      "categoria": "mágico",
+      "poder_base": 65,
+      "energia": 25,
+      "efeito_oficial_literal": "Após causar dano reduz Ataque Mágico em 8% por 2 ações; se o alvo estiver sob uma proteção de Suporte, a redução é de 12% por apenas 1 ação.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 3,
+      "id_catalogo": "G064",
+      "nome": "Espinho de Pressão",
+      "elemento": "Ar",
+      "categoria": "mágico",
+      "poder_base": 85,
+      "energia": 35,
+      "efeito_oficial_literal": "Se uma esquiva completa do usuário ocorreu no turno anterior, poder 105 em vez de 85; não concede esquiva nova.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 4,
+      "id_catalogo": "G065",
+      "nome": "Cone de Vácuo",
+      "elemento": "Ar",
+      "categoria": "mágico",
+      "poder_base": 105,
+      "energia": 50,
+      "efeito_oficial_literal": "Após dano reduz Velocidade do alvo em 12% por 2 ações; sob Ventania, em vez disso recupera 10 de energia própria e reduz Velocidade em 8% por 1 ação.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 5,
+      "id_catalogo": "G066",
+      "nome": "Aurora do Zênite",
+      "elemento": "Ar",
+      "categoria": "mágico",
+      "poder_base": 130,
+      "energia": 70,
+      "efeito_oficial_literal": "Se o alvo recebeu um segundo golpe desde sua última ação, poder 150 em vez de 130; caso contrário, 10% de chance de Tonto após dano.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 6,
+      "id_catalogo": "G067",
+      "nome": "Assobio dos Quatro Ventos",
+      "elemento": "Ar",
+      "categoria": "suporte",
+      "poder_base": null,
+      "energia": 30,
+      "efeito_oficial_literal": "Invoca Ventania por 4 rodadas; se substituir Tempestade de Areia, o usuário recebe +10% de Velocidade até sua próxima ação.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 7,
+      "id_catalogo": "G068",
+      "nome": "Corrente de Evasão",
+      "elemento": "Ar",
+      "categoria": "suporte",
+      "poder_base": null,
+      "energia": 35,
+      "efeito_oficial_literal": "Concede +8 pontos percentuais de esquiva ao usuário por suas próximas 2 ações; se esquivar efetivamente de um golpe, recupera 12 de energia após a ação ofensiva adversária, uma vez.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 8,
+      "id_catalogo": "G069",
+      "nome": "Túnel de Retorno",
+      "elemento": "Ar",
+      "categoria": "suporte",
+      "poder_base": null,
+      "energia": 35,
+      "efeito_oficial_literal": "Troca por aliado da reserva, concedendo-lhe +15% de Velocidade por suas próximas 2 ações; se ele estiver Paralisado, concede somente +10% e não remove a Paralisia.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 9,
+      "id_catalogo": "G070",
+      "nome": "Redemoinho de Penas",
+      "elemento": "Ar",
+      "categoria": "suporte",
+      "poder_base": null,
+      "energia": 45,
+      "efeito_oficial_literal": "Instala armadilha persistente que reduz o Ataque Físico do entrante voluntário em 12% por 2 ações; sob Ventania reduz em 15% por 1 ação, sem acumular.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 10,
+      "id_catalogo": "G135",
+      "nome": "Vácuo de Eco",
+      "elemento": "Ar",
+      "categoria": "Suporte",
+      "poder_base": null,
+      "energia": 65,
+      "efeito_oficial_literal": "Exige Ventania ativa; reduz Defesa Mágica do alvo em 25% por 1 ação; se ele já teve esquiva completa neste turno, a redução dura 2 ações.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 11,
+      "id_catalogo": "G034",
+      "nome": "Semente Atirada",
+      "elemento": "Planta",
+      "categoria": "mágico",
+      "poder_base": 40,
+      "energia": 0,
+      "efeito_oficial_literal": "Se Santuário das Raízes estiver ativo, concede 5 de energia ao usuário após causar dano; caso contrário, ataque mágico básico normal.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 12,
+      "id_catalogo": "G035",
+      "nome": "Perfume Ácido",
+      "elemento": "Planta",
+      "categoria": "mágico",
+      "poder_base": 60,
+      "energia": 25,
+      "efeito_oficial_literal": "Após dano tem 20% de Envenenamento; se o alvo estiver sob Santuário das Raízes e já Envenenado, em vez disso reduz Ataque Mágico em 8% por 1 ação.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 13,
+      "id_catalogo": "G036",
+      "nome": "Néctar Corrosivo",
+      "elemento": "Planta",
+      "categoria": "mágico",
+      "poder_base": 80,
+      "energia": 40,
+      "efeito_oficial_literal": "Após causar dano reduz Defesa Mágica em 12% por 2 ações; se atingir alvo com bônus positivo de Defesa Mágica, remove primeiro o bônus mais recente, sem aplicar a redução.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 14,
+      "id_catalogo": "G037",
+      "nome": "Espiral de Clorofila",
+      "elemento": "Planta",
+      "categoria": "mágico",
+      "poder_base": 100,
+      "energia": 45,
+      "efeito_oficial_literal": "Se o usuário curou um aliado da reserva desde sua última ação, poder 120 em vez de 100; de outro modo, concede 8 de energia ao usuário após dano sob Santuário das Raízes.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 15,
+      "id_catalogo": "G038",
+      "nome": "Chuva de Folhas-Lança",
+      "elemento": "Planta",
+      "categoria": "mágico",
+      "poder_base": 125,
+      "energia": 75,
+      "efeito_oficial_literal": "Após causar dano, 20% de Envenenamento; se já estiver Envenenado, transfere uma redução temporária de Ataque Mágico do usuário para o alvo, caso exista, sem duplicá-la.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 16,
+      "id_catalogo": "G040",
+      "nome": "Armadilha de Pólen",
+      "elemento": "Planta",
+      "categoria": "suporte",
+      "poder_base": null,
+      "energia": 45,
+      "efeito_oficial_literal": "Instala armadilha persistente que reduz o Ataque Mágico do entrante voluntário em 12% por suas 2 próximas ações; se já estiver Envenenado, reduz 18% em vez disso, sem acumular.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 17,
+      "id_catalogo": "G041",
+      "nome": "Fotossíntese de Poleiro",
+      "elemento": "Planta",
+      "categoria": "suporte",
+      "poder_base": null,
+      "energia": 45,
+      "efeito_oficial_literal": "Cura 20% do HP máximo de um aliado vivo; no Santuário das Raízes, cura também 5% do HP máximo do usuário ativo quando o alvo for outro aliado.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 18,
+      "id_catalogo": "G133",
+      "nome": "Pólen Desarmônico",
+      "elemento": "Planta",
+      "categoria": "Suporte",
+      "poder_base": null,
+      "energia": 45,
+      "efeito_oficial_literal": "Reduz Defesa Mágica do alvo em 18% por 2 ações; se Santuário das Raízes estiver ativo, cura 5% do HP máximo do usuário ao aplicar a redução, uma vez.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 19,
+      "id_catalogo": "G138",
+      "nome": "Raízes na Espora",
+      "elemento": "Planta",
+      "categoria": "Suporte",
+      "poder_base": null,
+      "energia": 55,
+      "efeito_oficial_literal": "Exige Santuário das Raízes ativo; reduz Velocidade do alvo em 22% por 1 ação; se houver armadilha no lado dele, duração sobe para 2 ações, sem adicionar cargas de armadilha.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 20,
+      "id_catalogo": "G021",
+      "nome": "Orvalho Cortante",
+      "elemento": "Água",
+      "categoria": "mágico",
+      "poder_base": 60,
+      "energia": 20,
+      "efeito_oficial_literal": "Após causar dano, se Chuva estiver ativa recupera 8 de energia; se não estiver, reduz Defesa Mágica inimiga em 6% até a próxima ação do alvo.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 21,
+      "id_catalogo": "G028",
+      "nome": "Banho Reparador",
+      "elemento": "Água",
+      "categoria": "suporte",
+      "poder_base": null,
+      "energia": 40,
+      "efeito_oficial_literal": "Cura 20% do HP máximo de um aliado vivo, inclusive reserva; se o alvo estiver com menos de 30% do HP, acrescenta mais 5%, uma única vez.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 22,
+      "id_catalogo": "G050",
+      "nome": "Ondulação Rochosa",
+      "elemento": "Terra",
+      "categoria": "mágico",
+      "poder_base": 85,
+      "energia": 35,
+      "efeito_oficial_literal": "Quando o alvo possui Velocidade superior à do usuário, poder 100 em vez de 85; após dano, retira 5 pontos de energia do alvo.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 23,
+      "id_catalogo": "G079",
+      "nome": "Rede de Relâmpagos",
+      "elemento": "Elétrico",
+      "categoria": "mágico",
+      "poder_base": 105,
+      "energia": 45,
+      "efeito_oficial_literal": "Se o alvo já sofreu redução de Velocidade, poder 125 em vez de 105; se não, 15% de chance de Paralisia após dano.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 24,
+      "id_catalogo": "G093",
+      "nome": "Grito Harmônico",
+      "elemento": "Neutro",
+      "categoria": "mágico",
+      "poder_base": 90,
+      "energia": 40,
+      "efeito_oficial_literal": "Após causar dano reduz Ataque Mágico em 12% por 1 ação; se Ventania estiver ativa, a redução passa para 8% por 2 ações.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    },
+    {
+      "ordem": 25,
+      "id_catalogo": "G141",
+      "nome": "Dissipação Absoluta",
+      "elemento": "Neutro",
+      "categoria": "Suporte",
+      "poder_base": null,
+      "energia": 35,
+      "efeito_oficial_literal": "Remove todos os bônus temporários positivos de atributos do inimigo ativo; se remover pelo menos 2 efeitos distintos, recupera 8 de energia própria após execução; não remove clima, Santuário, armadilhas, passivas ou equipamentos.",
+      "status_vinculo_especie": "OFICIAL_HOMOLOGADO_EM_2026-11-16"
+    }
+  ],
+  "quantidade_golpes_catalogados": 30,
+  "quantidade_golpes_aprendiveis_homologados": 25,
+  "historico_revisao": "V2 acrescenta os 25 vínculos homologados em 16/11/2026, conservando intacta a ficha-base e seu documento anterior."
+}

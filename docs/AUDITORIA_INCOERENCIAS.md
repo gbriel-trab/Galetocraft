@@ -22,7 +22,7 @@ A auditoria foi pedida pelo criador em 18/11/2026: encontrar e resolver todas as
 
 | Área | Conflitos | Resolvidos | Onde |
 |---|---:|---:|---|
-| Base vigente | 14 | 14 | Pacote `docs/patches/rev3_coerencia_e_nomenclatura.json` (74 operações). Testado; falta publicar |
+| Base vigente | 14 | 14 | Pacote `docs/patches/rev3_coerencia_e_nomenclatura.json` (74 operações). Publicado na revisão 3 |
 | Documentos do acervo | 9 | 9 | Cópias corrigidas, decisões registradas e base de conhecimento |
 | Repositório | 6 | 6 | Arquivos alterados neste commit |
 
@@ -101,15 +101,9 @@ O pacote foi gerado por `ferramentas/acervo/gerar_patch_rev3.py` e aplicado com 
 - **Maestria Elemental:** texto integral não recuperado (U04).
 - **Mestres:** reavaliar os elencos com as espécies novas. Isso só pode ser feito com autorização do criador.
 - **Renacocó:** altura definitiva (a atual, 2,5, é provisória).
-- **Migrações da base:** incluir as artes #019 e #020 em `current_art` e registrar a regra de nomenclatura dentro da base.
 - **Implementação no mod:** Rinha, captura, golpes, elementos e reprodução (R14).
 
-## Como publicar a revisão 3 da base
+## Publicação
 
-A cópia principal da base fica na biblioteca do ChatGPT (mesmo Library ID). Lá, rode:
-
-```
-python Atualizar_Galetocraft.py Galetocraft.sqlite rev3_coerencia_e_nomenclatura.json
-```
-
-O pacote recusa a aplicação se a base não estiver na revisão 2.
+- **Revisão 3:** o pacote foi aplicado em 18/11/2026 na base vigente, que agora fica no repositório (`base/vigente/`, com `ferramentas/base/galetobase.py atualizar`).
+- **Revisão 4:** a migração seguinte incluiu as artes #019 e #020 em `current_art` e registrou a regra de nomenclatura (`docs/patches/rev4_governanca_artes_nomenclatura.json`).

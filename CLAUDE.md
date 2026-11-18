@@ -2,22 +2,27 @@
 
 Projeto de mod de Minecraft com criaturas chamadas Cocorídeos/Galetos, batalhas por turnos (Rinhas), captura, reprodução e Mestres Elementais. Fale com o usuário em português do Brasil.
 
-## Regras de trabalho
+## Papel
 
-- **Fonte de verdade única:** `Galetocraft/Base_Atual/Galetocraft.sqlite`, que está em `Galetocraft_00_Base_Vigente.zip` no Release `acervo-documental-2026-11-17`.
-  - Ler apenas `current_*` e `v_current_*`.
-  - A tabela `species` e as demais tabelas são histórico.
-  - A exportação `DADOS_VIGENTES_CONSULTA.json` do mesmo Release é derivada e serve para consulta rápida.
-- **Nada é oficial sem aprovação expressa do criador.** Propostas, Betas, ramos R e estudos ficam separados e não são promovidos por inferência. Não inventar atributos, golpes, artes nem parâmetros ausentes.
-- **"Homologado" não significa "implementado".** Tudo no banco tem `runtime_validado = false`. Diga sempre se uma regra está só documentada ou se foi verificada no código.
-- **Para alterar a base:**
-  - Usar `Atualizar_Galetocraft.py` com `expected_revision`, fonte e evidência.
-  - Nunca criar outra base ativa, como uma "Beta 1.8".
-  - Registro novo exige migração completa validada.
-- **Atributos-base são do nível 50**, confirmado pelo criador.
-  - O rótulo "nível 100" em fichas antigas é um erro de rótulo: os números são os mesmos.
-  - Para conferir fichas, use `docs/acervo_corrigido/` e veja `docs/ERRATA_NIVEL_50.md`.
-- **Nomenclatura oficial** (desde 18/11/2026; ver `docs/NOMENCLATURA_OFICIAL.md`):
+- **Desde 18/11/2026 o Claude é o responsável por todo o projeto**, por decisão do criador: base de dados, regras, documentação, modelos e código do mod.
+- **O ChatGPT serve apenas para gerar imagens.** Não existe mais base nem auditoria no ChatGPT.
+- **O criador continua sendo quem aprova.** Nada vira oficial sem aprovação expressa dele. O Claude propõe, confere, registra e implementa.
+
+## Fonte de verdade
+
+- **Base vigente:** `base/vigente/*.json`, com artes em `base/artes/` e fontes em `base/fontes/`. Revisão atual: **4**. Manual em `base/LEIA_ME.md`.
+- **Ferramenta:** `python ferramentas/base/galetobase.py` com os comandos `validar`, `ficha --especie N`, `atualizar --pacote`, `migrar --pacote` e `montar`.
+- **Toda mudança na base** segue estes passos:
+  1. Escrever um pacote em `docs/patches/` com `expected_revision`, `reason` e `evidence`.
+  2. Aplicar com `atualizar`, para registros que já existem, ou `migrar`, para registros novos ou metadados.
+  3. Rodar `validar`.
+  4. Fazer o commit.
+
+  Nunca edite os JSON à mão, nunca crie outra base ativa e não invente atributos, golpes, artes nem parâmetros.
+- **Histórico:** o `Galetocraft.sqlite` da revisão 2 no Release `acervo-documental-2026-11-17` (pacote 00) e todo o acervo são históricos, preservados sem alteração. Use `montar` para gerar o SQLite completo (histórico + vigente). Os arquivos `*.sqlite` não são versionados.
+- **"Homologado" não significa "implementado".** Tudo tem `runtime_validado = false`. Diga sempre se uma regra está só documentada ou se foi verificada no código.
+- **Atributos-base são do nível 50.** O rótulo "nível 100" em fichas antigas é erro de rótulo. Para conferir fichas, use `docs/acervo_corrigido/` (ver `docs/ERRATA_NIVEL_50.md`).
+- **Nomenclatura oficial** (regra `nomenclatura` na base; ver `docs/NOMENCLATURA_OFICIAL.md`):
 
   | Nome oficial | Nome antigo |
   |---|---|
@@ -28,23 +33,34 @@ Projeto de mod de Minecraft com criaturas chamadas Cocorídeos/Galetos, batalhas
   | Ave Fênix | Tricrina Infernal |
   | Histórico da Rinha | Diário de Batalha |
 
-  - Também são oficiais **Rinha** (a atividade; o botão continua "Combate"), **Cocorídeos/Galeto** e **Galeria**.
-  - Use sempre o nome oficial em textos, interface e documentação.
-  - Nomes antigos só ficam em caminhos, nomes de arquivo, tabelas, chaves JSON, IDs em minúsculas e citações históricas.
-- **Decisões do criador de 18/11/2026** (auditoria completa em `docs/AUDITORIA_INCOERENCIAS.md`):
-  - O mod é de **todos os direitos reservados**.
-  - **Lendário Original** é uma classe própria, fora da escala; o Quetzacocó soma 700.
-  - O par de gêmeos especiais Cocórion+Cocórvolt fica **inativo**.
-  - #007–#015 **não têm golpe hereditário**, por design.
-- **Pacote rev. 3 da base:** `docs/patches/rev3_coerencia_e_nomenclatura.json` reúne as correções de coerência e a nomenclatura. Foi testado, mas ainda não foi publicado na base principal. Até lá, a base do Release continua na revisão 2.
-- **Arquivos grandes do Release:** use HTTP Range para extrair um arquivo de um ZIP sem baixar o pacote inteiro. Os pacotes 01–13 têm cerca de 800 MB cada. Confira o SHA-256 contra `INVENTARIO_GALETOCRAFT.json`.
+  - Também são oficiais **Rinha** (o botão continua "Combate"), **Cocorídeos/Galeto** e **Galeria**.
+  - Nomes antigos só aparecem em caminhos, arquivos, tabelas, chaves JSON, IDs em minúsculas e citações históricas.
+- **Decisões do criador de 18/11/2026** (ver `docs/AUDITORIA_INCOERENCIAS.md`):
+  - O mod é de todos os direitos reservados.
+  - "Lendário Original" é uma classe própria, fora da escala; o Quetzacocó soma 700.
+  - O par de gêmeos Cocórion+Cocórvolt fica inativo.
+  - #007–#015 não têm golpe hereditário, por design.
+
+## Imagens (ChatGPT)
+
+O fluxo completo está em `base/LEIA_ME.md`. Em resumo:
+1. Eu preparo o pedido com os dados da ficha vigente.
+2. O criador gera a imagem no ChatGPT e me envia.
+3. Eu confiro espécie, textos impressos, nomenclatura, originalidade (sem personagens de outras franquias) e SHA-256.
+4. A imagem só entra em `current_art` ou em `modelos/referencias/` depois da aprovação expressa do criador, por migração.
+
+## Acervo do Release
+
+- Para extrair um arquivo de um ZIP sem baixar o pacote inteiro (cerca de 800 MB cada), use HTTP Range.
+- Confira o SHA-256 contra `INVENTARIO_GALETOCRAFT.json`.
+- Ferramentas em `ferramentas/acervo/`: correção do nível 50, aplicação da nomenclatura e gerador do pacote rev. 3.
 
 ## Código
 
 - **Mod:** fica em `galetocraft/` e usa Fabric 1.21.11 com GeckoLib 5.4.5. Para compilar, rodar `gradlew build`; o Gradle precisa de JDK 25.
-- **Implementado:** só 12 entidades exibidas com IA neutra e LOD.
+- **Implementado:** 12 entidades exibidas com IA neutra e LOD.
 - **Não implementado:** Rinha, captura, golpes, elementos e reprodução.
-- **Modelos:** o fluxo atual é rodar `ferramentas/especies/<id>.py` e depois `ferramentas/exportar_especie.py <id>`. O `LEIAME.md` ainda descreve o fluxo antigo.
+- **Modelos:** rode `ferramentas/especies/<id>.py` e depois `ferramentas/exportar_especie.py <id>`, como descrito em `galetocraft/LEIAME.md`.
 - **Git LFS:** os arquivos de `modelos/*/revisao/` e os PNGs do benchmark estão no LFS. Nesta cópia há só ponteiros.
 
 ## Conhecimento consolidado
