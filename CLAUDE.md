@@ -14,6 +14,10 @@ guia antes de criar, refazer ou revisar qualquer modelo. Resumo:
 - Modele em pose neutra; a postura vem do `parado`. Animações obrigatórias: parado, andar e piscar (pálpebra
   escondida); recomendadas: grito e dormir.
 - Confira com `python ferramentas/analisar_geo.py MODELO.geo.json TEXTURA.png --anim ANIM.json --estilo`.
+- **Método de trabalho:** `modelos/COMO_MODELAR_COM_CLAUDE.md`. Modele com `/effort high` e em laço com portões:
+  bloqueio, ossos, bordas, textura e animação. A cada volta, gere a folha de vistas, responda às perguntas do crítico
+  e use um subagente crítico sem o raciocínio do autor. Cite pelo nome os anti-padrões a evitar e volte para a
+  rodada anterior se a nota cair.
 - **Galetos novos partem de UMA ilustração no estilo da arte oficial dos Pokémon** (guia, seção 13): pose neutra
   com as proporções da arte, cores por `cobble_base.rampa_da_arte()`, animação `render` que recria a pose da
   arte, conferida com `ferramentas/comparar_arte.py` (IoU ≥ 60%). Exemplo: `referencias/blaziken_arte_para_modelo.md`.
