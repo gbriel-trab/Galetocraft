@@ -12,7 +12,7 @@ técnicas aplicáveis aos Cocorídeos, em especial ao Pirococó (#001). Feito em
 ## Resumo: o que vale levar para o Galetocraft
 1. **Orçamento enxuto:** o Blaziken tem quase a mesma altura do Pirococó no jogo (2,90 x 2,80 blocos), mas
    usa **127 cubos e 470 faces** com textura **256x128**. O Pirococó usa **404 cubos e 2.313 faces** (4,9x mais)
-   com textura 512x512. Os Cocorídeos vão de 687 (Taturicó) a 2.744 faces (Renacocó).
+   com textura 512x512. Os Cocorídeos vão de 687 (Taturico) a 2.744 faces (Renacocó).
 2. **Planos de espessura 0 fazem o detalhe:** 57% dos cubos do Blaziken são planos (2 faces em vez de 6):
    penas, chamas, sobrancelhas, olhos, pálpebras, garras, unhas e franjas dos pés. O Pirococó não tem nenhum plano.
 3. **Pose de modelagem neutra, postura na animação:** o modelo é feito em pose T, com as pernas juntas. A
@@ -86,7 +86,7 @@ curva `symmetrical_wide` (entrada e saída suaves). Retrato: escala 2,06; perfil
 | altura no jogo, pose parada | 0,89 | 1,68 | **2,90** | 2,88 | 2,80 |
 
 A complexidade cresce com a evolução: 57 → 72 → 127 cubos. Mesmo no topo, o Blaziken fica abaixo do Cocorídeo
-mais leve (Taturicó, 120 cubos e 687 faces), porque metade dos cubos dele são planos.
+mais leve (Taturico, 120 cubos e 687 faces), porque metade dos cubos dele são planos.
 
 ### Esqueleto (resumido)
 ```

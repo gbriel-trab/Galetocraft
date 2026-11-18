@@ -7,9 +7,12 @@ Lê a geometria, a textura e (opcional) o arquivo de animações e gera:
   - vistas_<anim>.png   as mesmas vistas com a pose de uma animação no instante t (Molang avaliado);
   - uv_mapa.png         a textura com o retângulo de UV de cada face por cima.
 
+  - "Conferência do estilo": os 15 critérios de modelos/GUIA_ESTILO.md (padrão Cobblemon dos Cocorídeos).
+
 Uso:
   python analisar_geo.py MODELO.geo.json TEXTURA.png [--anim ARQ.animation.json] [--pose NOME[@t] ...]
                          [--saida PASTA] [--escala-jogo N]
+  python analisar_geo.py MODELO.geo.json TEXTURA.png --anim ARQ.animation.json --estilo   (só a conferência)
 
 Convenções (as mesmas do Blockbench ao importar Bedrock): X espelhado; pivô do osso = [-x, y, z];
 rotação do osso e do cubo = [-rx, -ry, rz]; cubo: from = [-(x + w), y, z]; animação: rotação [-rx, -ry, rz]
@@ -394,6 +397,97 @@ def arvore(geo):
 
 
 # ----------------------------------------------------------------------------------------------------------------
+# Conferência do estilo (modelos/GUIA_ESTILO.md). Os números vêm de 78 modelos do Cobblemon 1.8.4.
+# ----------------------------------------------------------------------------------------------------------------
+#  altura no jogo até (blocos): (cubos alvo, cubos teto, faces alvo, faces teto, textura alvo, área máx., cores teto)
+ORCAMENTO = [
+    (1.0, (40, 75, 160, 270, "64x64", 64 * 64, 35)),
+    (2.0, (70, 110, 300, 520, "128x64 ou 128x128", 128 * 128, 40)),
+    (3.0, (100, 145, 410, 530, "256x128 ou 256x256", 256 * 256, 55)),
+    (99.0, (110, 270, 450, 600, "256x256", 256 * 256, 64)),
+]
+ALIAS_ANIM = {"parado": ("ground_idle", "idle"), "andar": ("ground_walk", "walk"), "piscar": ("blink",),
+              "grito": ("cry",), "dormir": ("sleep",)}
+
+
+def _lum(p):
+    return 0.299 * p[..., 0] + 0.587 * p[..., 1] + 0.114 * p[..., 2]
+
+
+def textura_estilo(geo, tex):
+    """Mosqueado e luz pintada, medidos nas faces de cubos com lados >= 4 texels.
+    ruido = fração de pares de pixels vizinhos com cor diferente; luz = média de |tampa - lados| e |fundo - lados|."""
+    th, tw = tex.shape[:2]
+    ruido, luz = [], []
+    for o in geo["ossos"]:
+        for c in o.get("cubes", []):
+            if min(c["size"]) < 4: continue
+            L = {}
+            for face, (u1, v1, u2, v2) in _uv_faces(c)[0].items():
+                a, b = sorted((u1, u2)); e, f = sorted((v1, v2))
+                a, b, e, f = (int(round(x)) for x in (a, b, e, f))
+                if a < 0 or e < 0 or b > tw or f > th or b - a < 4 or f - e < 4: continue
+                reg = tex[e:f, a:b]
+                if (reg[..., 3] == 0).mean() > 0.2: continue
+                cor = reg[..., :3]
+                ruido.append((np.abs(cor[:, 1:] - cor[:, :-1]).sum(-1) > 0).mean())
+                L[face] = _lum(reg).mean()
+            lados = [L[k] for k in ("north", "south", "east", "west") if k in L]
+            if lados and "up" in L and "down" in L:
+                m = np.mean(lados); luz.append((abs(L["up"] - m) + abs(L["down"] - m)) / 2)
+    return (float(np.median(ruido)) if ruido else None), (float(np.median(luz)) if luz else None)
+
+
+def conferir_estilo(geo, tex, dados, anims=None, escala_jogo=1.0):
+    """[(critério, alvo, valor medido, ok)] contra o guia de estilo."""
+    e = estatisticas(geo, tex)
+    lo, hi = limites(dados)
+    alt = (hi[1] - min(lo[1], 0)) * escala_jogo / 16
+    _, (c_alvo, c_teto, f_alvo, f_teto, t_alvo, t_area, cor_teto) = next(x for x in ORCAMENTO if alt <= x[0])
+    nfaces = len(dados[0]); tw, th = e["textura"]
+    ruido, luz = textura_estilo(geo, tex)
+    nomes = {o["name"] for o in geo["ossos"]}
+    infl = [abs(c.get("inflate", 0)) for o in geo["ossos"] for c in o.get("cubes", [])]
+    linhas = [
+        ("UV de caixa (1 texel = 1 unidade)", "100% dos cubos", f"{e['cubos'] - e['uv_por_face']}/{e['cubos']}", e["uv_por_face"] == 0),
+        ("tamanhos inteiros", "0 fracionados", str(e["tamanho_fracionado"]), e["tamanho_fracionado"] == 0),
+        (f"cubos (altura {alt:.2f} bl)", f"~{c_alvo}, teto {c_teto}", str(e["cubos"]), e["cubos"] <= c_teto),
+        ("faces desenhadas", f"~{f_alvo}, teto {f_teto}", str(nfaces), nfaces <= f_teto),
+        ("textura", t_alvo, f"{tw}x{th}", tw * th <= t_area),
+        ("cores na textura", f"até {cor_teto}", str(e["cores"]), e["cores"] <= cor_teto),
+        ("planos (espessura 0)", "20% a 75% dos cubos", f"{100 * e['planos'] / max(e['cubos'], 1):.0f}%",
+         0.20 <= e["planos"] / max(e["cubos"], 1) <= 0.75),
+        ("cubos girados no próprio pivô", "até 23% (gire o osso)", f"{100 * e['cubos_girados'] / max(e['cubos'], 1):.0f}%",
+         e["cubos_girados"] / max(e["cubos"], 1) <= 0.23),
+        ("inflate", "até 0,1 (desempate, não volume)", f"máx. {max(infl, default=0):g}", max(infl, default=0) <= 0.1),
+        ("mosqueado da textura", "0,25 a 0,65 dos vizinhos diferem", "—" if ruido is None else f"{ruido:.2f}",
+         ruido is not None and 0.25 <= ruido <= 0.65),
+        ("luz pintada (tampa/fundo x lados)", "até 16 de luminância", "—" if luz is None else f"{luz:.1f}",
+         luz is not None and luz <= 16),
+        ("pálpebra para piscar", "osso eyelid/palpebra", "sim" if any("eyelid" in n or "palpebra" in n for n in nomes) else "não",
+         any("eyelid" in n or "palpebra" in n for n in nomes)),
+    ]
+    if anims is not None:
+        tem = lambda chave: any(k.split(".")[-1] in ALIAS_ANIM[chave] for k in anims)
+        faltam = [k for k in ("parado", "andar", "piscar") if not tem(k)]
+        recom = [k for k in ("grito", "dormir") if not tem(k)]
+        linhas.append(("animações obrigatórias", "parado, andar (ou andar procedural no código), piscar",
+                       "faltam: " + ", ".join(faltam) if faltam else "ok", not faltam))
+        linhas.append(("animações recomendadas", "grito, dormir", "faltam: " + ", ".join(recom) if recom else "ok", not recom))
+        orf = sorted({b for a in anims.values() for b in a.get("bones", {})} - nomes)
+        linhas.append(("ossos animados existem", "todos", "faltam: " + ", ".join(orf) if orf else "ok", not orf))
+    return linhas
+
+
+def texto_estilo(linhas):
+    ok = sum(1 for *_, b in linhas if b)
+    L = ["## Conferência do estilo (`modelos/GUIA_ESTILO.md`)", "", f"**{ok} de {len(linhas)} critérios atendidos.**", "",
+         "| critério | alvo | medido | ok |", "|---|---|---|---|"]
+    L += [f"| {c} | {a} | {v} | {'✔' if b else '✘'} |" for c, a, v, b in linhas]
+    return "\n".join(L) + "\n"
+
+
+# ----------------------------------------------------------------------------------------------------------------
 # Imagens
 # ----------------------------------------------------------------------------------------------------------------
 VISTAS = [("frente", 0, -5), ("lado", 90, -5), ("trás", 180, -5), ("3/4", 35, -12)]
@@ -486,15 +580,24 @@ def main():
     ap.add_argument("--saida", default="analise_geo")
     ap.add_argument("--escala-jogo", type=float, help="escala aplicada no jogo (ex.: baseScale do Cobblemon)")
     ap.add_argument("--escala", type=float, default=8, help="pixels por unidade nas vistas")
+    ap.add_argument("--estilo", action="store_true", help="só confere o modelo contra modelos/GUIA_ESTILO.md (sem imagens)")
     a = ap.parse_args()
     if a.pose and not a.anim:
         ap.error("--pose precisa de --anim")
 
-    saida = Path(a.saida); saida.mkdir(parents=True, exist_ok=True)
     geo = carregar_geo(a.modelo); tex = carregar_textura(a.textura)
     repouso = faces(geo, tex)
     anims = json.loads(Path(a.anim).read_text(encoding="utf-8"))["animations"] if a.anim else None
-    texto = relatorio(geo, tex, repouso, anims, a.escala_jogo)
+    estilo = conferir_estilo(geo, tex, repouso, anims, a.escala_jogo or 1.0)
+    if a.estilo:
+        ok = sum(1 for *_, b in estilo if b)
+        print(f"{Path(a.modelo).name}: {ok}/{len(estilo)} critérios do guia de estilo")
+        for c, alvo, v, b in estilo:
+            print(f"  {'ok ' if b else 'NÃO'}  {c}: {v}  (alvo: {alvo})")
+        return
+
+    saida = Path(a.saida); saida.mkdir(parents=True, exist_ok=True)
+    texto = relatorio(geo, tex, repouso, anims, a.escala_jogo) + "\n" + texto_estilo(estilo)
     folha_vistas(repouso, a.escala, "pose de modelagem (repouso)").save(saida / "vistas_repouso.png")
     mapa_uv(geo, a.textura).save(saida / "uv_mapa.png")
     medidas = []

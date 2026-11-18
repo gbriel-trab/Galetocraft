@@ -1,5 +1,10 @@
 # Refazer uma espécie rejeitada pelo dono
 
+> **Desde 18/11/2026, o padrão visual é `modelos/GUIA_ESTILO.md` (estilo Cobblemon).** As regras de fidelidade,
+> rosto e olhar abaixo continuam valendo. As regras técnicas sobre textura chapada, placas finas e volumes
+> arredondados foram revistas na seção 9 do guia, que mantém o motivo de cada uma (nada de "papel" nem de
+> "quadradão").
+
 O dono viu a versão anterior no jogo (`modelos/fotos_jogo/<id>_jogo.png`) e disse que ela ficou **estranha**. Ele
 pediu para refazer **mais fiel à ficha**. O Cocórak e a Vagaló foram aceitos: veja `modelos/fotos_jogo/vagalo_jogo.png`
 e `cocorak_jogo.png`.

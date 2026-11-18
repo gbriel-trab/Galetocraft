@@ -1,5 +1,10 @@
 # Briefing: modelar uma criatura do Galetocraft (mesmo procedimento do Pirococó)
 
+> **Desde 18/11/2026, o padrão visual é `modelos/GUIA_ESTILO.md` (estilo Cobblemon).** Leia o guia antes deste
+> briefing. Onde as regras técnicas daqui conflitam com ele, vale o guia: orçamento, tamanho da textura, UV de
+> caixa, planos, luz pintada e volumes arredondados (seção 9 do guia). O resto continua valendo: procedimento,
+> fidelidade à ficha, nomes de ossos e critérios do revisor.
+
 ## Objetivo
 Escrever `ferramentas/especies/<id>.py`, um gerador em Python que constrói a criatura da ficha como modelo
 Minecraft Java (cubos do Blockbench, formato Bedrock, para o GeckoLib) com textura pintada em 3D. O alvo é ficar
