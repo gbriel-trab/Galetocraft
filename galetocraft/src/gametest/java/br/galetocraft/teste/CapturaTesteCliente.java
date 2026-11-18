@@ -20,8 +20,10 @@ import net.minecraft.server.level.ServerPlayer;
  * <li>confere o Taturico na equipe principal e os 115 XP da Pena (Comum nível 50);</li>
  * <li>na Rinha: desafia um Vagaló com o Taturico e usa Itens → Pena de Captura até capturar;</li>
  * <li>confere a equipe com os dois e a troca de ordem pelo botão "primeiro";</li>
- * <li>vence uma Rinha contra um Taturico selvagem e confere a XP: 775 no total (Comum nível 50, P = 50), repartida
- * entre quem entrou em campo, somada à XP inicial T(50) = 141.659.</li>
+ * <li>vence uma Rinha contra um Taturico selvagem de nível 20 (curva 1–49) usando sempre o golpe mais forte e confere
+ * a XP: floor((25 + 15·20) × 0,25) = 81 no total (fator de desafio no mínimo, P = 50), repartida entre quem entrou em
+ * campo, somada à XP inicial T(50) = 141.659;</li>
+ * <li>troca um golpe equipado pelo botão de {@code /galetocraft golpes} e confere que ele aparece no menu da Rinha.</li>
  * </ol>
  * Grava o chat em {@code captura_teste.log}. Para rodar só ele: GALETO_TESTES=captura.
  */
@@ -121,27 +123,45 @@ public class CapturaTesteCliente implements FabricClientGameTest {
 			java.util.Random rng = new java.util.Random(7);
 			int vitorias = chat.contar("Você venceu a Rinha!"), rinhasXp = 0;
 			while (chat.contar("Você venceu a Rinha!") == vitorias && rinhasXp < 6) {
-				servidor.runCommand("summon galetocraft:taturico 0 -60 2 {Rotation:[180f,0f]}");
+				servidor.runCommand("summon galetocraft:taturico 0 -60 2 {Rotation:[180f,0f],galeto_nivel:20,galeto_sexo:\"M\",galeto_ivs:[I;20,20,20,20,20,20]}");
 				contexto.waitTicks(10);
 				int derrotas = chat.contar("Você perdeu a Rinha.");
 				chat.comando("galetocraft desafiar");
 				rinhasXp++;
 				int passos = 0;
 				while (chat.contar("Você venceu a Rinha!") == vitorias && chat.contar("Você perdeu a Rinha.") == derrotas && passos < 80) {
-					String concentracao = chat.botaoComRotulo("Concentração");
-					java.util.List<String> dano = chat.botoes("/galetocraft acao golpe ").stream().filter(g -> !g.equals(concentracao)).toList();
-					chat.comando(dano.isEmpty() ? concentracao : dano.get(rng.nextInt(dano.size())));
+					chat.comando(chat.golpeMaisForte());
 					passos++;
 				}
 			}
 			chat.exigir(chat.contar("Você venceu a Rinha!") > vitorias, "não venceu a Rinha da XP em " + rinhasXp + " tentativas");
 			Treinador t4 = servidor.computeOnServer(CapturaTesteCliente::treinador);
 			long ganho = t4.equipe().stream().mapToLong(g -> g.xp() - T50).sum();
-			chat.exigir(ganho == 775, "XP total da vitória deveria ser 775, foi " + ganho + ": " + t4);
+			chat.exigir(chat.contem("Selvagem (Taturico)") && chat.contem("Taturico Nv20"), "o selvagem de nível 20 não apareceu na Rinha");
+			chat.exigir(ganho == 81, "XP total da vitória deveria ser 81, foi " + ganho + ": " + t4);
 			chat.exigir(chat.contem("ganhou") && chat.contem(" XP."), "faltou a mensagem de XP");
 			contexto.takeScreenshot("xp_vitoria");
+
+			// 7) slots de golpes: troca pelo botão e uso na Rinha seguinte
+			chat.comando("galetocraft golpes 0");
+			chat.exigir(chat.contem("Golpes de Vagaló Nv50 — slots livres"), "a tela de golpes não apareceu");
+			java.util.List<String> trocas = chat.botoes("/galetocraft golpes 0 trocar ");
+			chat.exigir(!trocas.isEmpty(), "sem botões de troca de golpe");
+			chat.comando(trocas.get(0));
+			String texto = chat.texto();
+			java.util.regex.Matcher m = java.util.regex.Pattern.compile("\\n([^\\n]+) equipado no slot (\\d)\\.").matcher(texto);
+			chat.exigir(m.find(), "a troca de golpe não foi confirmada");
+			String novoGolpe = m.group(1);
+			Treinador t5 = servidor.computeOnServer(CapturaTesteCliente::treinador);
+			chat.exigir(t5.equipe().get(0).equipados().contains(novoGolpe), "o golpe não ficou salvo: " + t5.equipe().get(0).equipados());
+			contexto.takeScreenshot("golpes_troca");
+			servidor.runCommand("summon galetocraft:taturico 0 -60 2 {Rotation:[180f,0f]}");
+			contexto.waitTicks(10);
+			chat.comando("galetocraft desafiar");
+			chat.exigir(chat.botoes("/galetocraft acao golpe ").size() > 0 && chat.contem("[" + novoGolpe), "o golpe novo não aparece no menu da Rinha");
+			chat.comando("galetocraft acao fugir");
 			chat.gravar("ok: mundo em " + tentativasMundo + " tentativa(s); Rinha em " + acoes + " ação(ões) e " + rinhas
-					+ " Rinha(s); XP 775 em " + rinhasXp + " Rinha(s)");
+					+ " Rinha(s); XP 81 em " + rinhasXp + " Rinha(s); golpe trocado: " + novoGolpe);
 		}
 	}
 

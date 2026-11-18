@@ -192,9 +192,70 @@ O que ocorre de não implementado fica registrado no Histórico da Rinha.
 - **Observação de balanceamento:** escolhendo golpes ao acaso, a dupla Vagaló + Taturico perdeu 5 de 6 Rinhas contra um Taturico selvagem guiado pela IA. Ainda não há passivas nem efeitos de golpes, e o HP é o provisório.
 - **Ainda falta:** golpes aprendidos por nível. A tabela de níveis não está na camada vigente da base, e a curva 1–49 continua pendente.
 
+## 18/11/2026 — Pendências resolvidas com os dados mais recentes (base rev. 8)
+
+Instrução do criador: "Resolve esses problemas todos com base nos dados mais recentes que temos disponíveis".
+
+### Pesquisa
+- **Corpus:** os 909 documentos de texto do acervo (pacotes 01 a 14) e as tabelas do `Galetocraft.sqlite` rev. 2.
+- **O que cada achado registra:** data, status (homologado, candidato ou proposta), fonte e trecho literal.
+- **Pacote:** `docs/patches/rev8_resolucoes.json`, gerado por `ferramentas/base/gerar_rev8_resolucoes.py`.
+
+### Resolvido com dado
+
+| Pendência | Dado mais recente adotado | Fonte |
+|---|---|---|
+| Energia da Ave Fênix | **E100**, sem mudança: o E50 é anterior à Energia V4 | Energia V4 homologada em 11/11; reafirmada de 12 a 15/11 |
+| Curva dos níveis 1–49 | `A50 × (49 + 3(L−1))/196` | Norma R5.4 (14/11), reafirmada na R5.5 (15/11) |
+| HP efetivo | HP nominal: 10 no nível 1, `ceil(1,5·HP50)` no 50 e `ceil(1,5·HP50·(L+50)/100)` até o 100 | R5.4; origem do 1,5× e do 10 na Combate v1.0 (08/11) |
+| Vitalidade V5.6.1 | `Fvit = clamp((HP_ref/HPmax)^0,2; 0,8; 1,0)` no dano, com `HP_ref = floor(1,05 × HP_n(L; 80))` | Fórmula homologada em 13/11; HP_ref da R5.4 (tabela de 100 níveis conferida, sem divergência) |
+| IV, EV e peso | nominal → `floor(A × (1 + (0,25·IV + 0,5·√EV)/100))` → peso V1.2 (half-up, mínimo 1) | IV/EV oficiais (08/11); Peso V1.2 (09/11); cadeia da R5.4 |
+| Golpes por nível | regra `aprendizado`: 15 por nível e 15 por treinamento | Grades de #001–#012 (Beta 1.2.61, 12/11), #019, #020, #021 (12/11) e #022 (13/11) |
+| Slots de golpes | 5 equipados, Concentração fixa, 4 slots livres depois dos 5 de origem, desequipados conservados, nada equipado sozinho, retrodesbloqueio na captura | Quatro Slots v2 (10/11); Beta 1.2.61 |
+| Desempate de trocas com Velocidade igual | sorteio 50/50 | Extensão da regra oficial de desempate (09/11) |
+| Espécie repetida no trio | permitida | Formato oficial dos Mestres (10/11): 3 Galetos de 2 espécies |
+| Precisão própria dos golpes | 100% para todos | Nenhuma fonte tem precisão por golpe; a ideia "Ataques de Precisão" não foi aprovada |
+| Posição da captura na rodada | na vez do treinador, pela Velocidade do Galeto ativo | Homologação v1252 ("depende de sua posição na ordem regular") |
+| Alvo inelegível | a tentativa não começa e não gasta a ação | Proposta do auditor na Auditoria de Capturas 1.2.58 (12/11) |
+| Alvo da captura | só Cocorídeo selvagem fora de Rinha | Homologações da Pena; Reprodução Etapa 01 (16/11) |
+
+- **Conciliação das grades #001–#012:** as grades de 12/11 usam o repertório anterior à Reforma Integral.
+  - Ficaram vazios 9 marcos, porque o golpe saiu do repertório vigente.
+  - Os golpes vigentes sem marco passaram a ser aprendidos por treinamento.
+  - O detalhe por espécie está em `aprendizado.conciliacao_001_012`.
+
+### Sem nenhum dado no acervo (registrado em `current_issues`, U07–U12)
+- **U07 — Spawn:** só existem habitats narrativos de #010 e #016–#018 e a regra "Divinos não aparecem naturalmente".
+- **U08 — Pena de Captura:** obtenção, recuperação e arte. `nome_exato` e `design_exato` estão NULL na base.
+- **U09 — Escalação da Rinha e gerenciamento da equipe.**
+- **U10 — Galeto do treinador no mundo:** soltar e recolher.
+- **U11 — Aprendizado de #013–#018.** O #023 continua em U03.
+- **U12 — EV:** faixas de dificuldade no nível 50 e ganhos de EV em combate e treino.
+
+No mod, esses pontos continuam com as soluções provisórias já descritas. Nada foi inventado.
+
+### Implementação
+- **Núcleo:**
+  - `Progressao` (curva 1–49, HP nominal, IV/EV, peso, HP_ref, Vitalidade).
+  - `Individuo` (IVs, EVs e peso do Galeto).
+  - `Aprendizado` (tabelas, marcos, slots).
+  - `DanoV56` com a Vitalidade.
+- **Mod:**
+  - Os Galetos do treinador lutam com seus IVs, EVs, peso e golpes equipados.
+  - Os selvagens lutam com seus IVs e só com os golpes que já aprenderam no nível deles.
+  - Ao subir de nível, o chat avisa os golpes aprendidos.
+  - `/galetocraft golpes <n>` troca os slots fora da Rinha.
+- **Testes:**
+  - Núcleo: 30 testes, incluindo os 100 níveis de HP_ref conferidos contra a tabela da R5.4.
+  - `CapturaTesteCliente`: vence um Taturico de nível 20 (81 XP, fator de desafio mínimo) e troca um golpe pelo botão do chat, que aparece no menu da Rinha seguinte.
+- **Duração das Rinhas** (simulação de 200 Rinhas por confronto):
+  - 1×1 com 10 pares: de 2,86 para 3,05 rodadas em média (+7%).
+  - 3×3: de 11,95 para 12,61 rodadas (+5,5%).
+  - As Rinhas continuam curtas. Faltam as passivas e os efeitos dos golpes.
+
 ### Próximos passos (fase 6 em diante)
-1. Golpes próprios do Galeto individual (repertório aprendido) e sincronização com o cliente.
-2. Aprendizado de golpes por nível (depende de migrar a tabela de níveis para a base).
+1. Mestres Elementais (golpes por treinamento) e sincronização com o cliente.
+2. Alimentação (EV e peso) quando as faixas de EV estiverem recalibradas (U12).
 3. Passivas e efeitos dos golpes por família, a partir do texto oficial estruturado.
 4. Tela própria da Rinha e do Galetário, no lugar do chat.
 5. Rinha entre jogadores; soltar Galetos da equipe no mundo.

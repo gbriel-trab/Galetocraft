@@ -1,6 +1,6 @@
 # Galetocraft — Base de conhecimento consolidada
 
-> Resumo de referência montado em 18/11/2026 a partir de: base vigente (hoje em `base/vigente/`, revisão 7; até a rev. 2 era o `Galetocraft.sqlite`, SHA-256 `9dd2253d…5aa3c`), Release `acervo-documental-2026-11-17` (inventário de 1.636 arquivos), documentos oficiais dos sistemas e código deste repositório.
+> Resumo de referência montado em 18/11/2026 a partir de: base vigente (hoje em `base/vigente/`, revisão 8; até a rev. 2 era o `Galetocraft.sqlite`, SHA-256 `9dd2253d…5aa3c`), Release `acervo-documental-2026-11-17` (inventário de 1.636 arquivos), documentos oficiais dos sistemas e código deste repositório.
 > **Este arquivo é um resumo, não uma fonte de verdade.** Em qualquer conflito, vale a camada `current_*` / `v_current_*` do banco vigente.
 
 ## 1. O que é o projeto
@@ -47,6 +47,7 @@ Todo design passa por **homologação expressa do criador**. Propostas, Betas, r
   - rev. 4 (18/11): nova governança (base no repositório, sob o Claude), artes #019/#020 em `current_art`, regra `nomenclatura`, R12 e U05 resolvidas.
   - rev. 5 (18/11): regras oficiais de combate, captura, XP e treinador migradas do histórico para `current_rules`; o dano V5.6 entrou na base.
   - rev. 6 (18/11): 32 golpes próprios de #001–#011 completados com a ficha original protegida (categoria, elemento, estado aplicado, efeito estruturado).
+  - rev. 8 (18/11): pendências resolvidas com os dados mais recentes do acervo, por instrução do criador. Entraram: curva 1–49, HP nominal e de referência, Vitalidade V5.6.1, IV/EV/peso, regra `aprendizado` (16 espécies), desempate de trocas, trio com espécie repetida, precisão base de 100%, posição da captura, alvo inelegível e alvo válido. As pendências sem dado ficaram registradas (U07–U12).
   - rev. 7 (18/11): regra `captura` coerente. A força da Pena segue a tabela do reforço v1258 (a fórmula `1 + 0,15·(nível−1)` ficou registrada como superada) e a modalidade "mundo" passou a indicar a espera após falha da v1259.
 
 ## 3. Espécies vigentes (atributos no nível 50)
@@ -144,7 +145,16 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 
 ### Formato, energia e golpes equipados
 - **Formato oficial:** 3v3, com 1 Cocorídeo ativo por lado e 2 na reserva.
-- **Golpes equipados:** 5 por Cocorídeo. Concentração é obrigatória; os outros 4 são escolhidos.
+- **Golpes equipados:** 5 por Cocorídeo. Concentração é obrigatória e fixa; os outros 4 são escolhidos.
+  - Os 4 slots se liberam quando os 5 golpes de origem estão desbloqueados (Quatro Slots v2). A troca é fora da Rinha (decisão de 18/11).
+  - Golpes desequipados continuam aprendidos; nada é equipado sozinho.
+- **Aprendizado (regra `aprendizado`, rev. 8):**
+  - 15 golpes por nível (os 5 de origem incluídos, nos marcos 1, 1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 44, 47 e 50) e 15 por treinamento com os Mestres.
+  - Na captura, todos os golpes por nível até o nível atual já vêm aprendidos.
+  - Tabelas de 16 espécies: #001–#012 (grades de 12/11, conciliadas com o repertório vigente), #019, #020, #021 e #022.
+  - Sem dado no acervo: #013–#018 (U11) e #023 (U03). Essas espécies ficam só com os 5 golpes de origem.
+- **Desempates e trio (rev. 8):** trocas simultâneas com Velocidade igual seguem o sorteio 50/50 oficial; o trio pode repetir espécie (os trios oficiais dos Mestres têm 2 espécies para 3 Galetos).
+- **Precisão (rev. 8):** nenhum golpe tem precisão própria em fonte alguma; a precisão original de todos é 100%.
 - **Energia:**
   - Teto de 100.
   - Todo Galeto entra em campo com 100, em qualquer tipo de entrada.
@@ -211,7 +221,8 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 - `D_base = HPmax_defensor × Poder/400 × (Ataque/max(1, Defesa))^0,7`, contínuo até o fim.
 - Arredondamento para cima uma única vez por acerto; acerto válido não anulado causa no mínimo 1.
 - **Ordem dos modificadores:** eficácia → bônus de dano (soma dos percentuais) → Guarda, Exposição ou Ruptura (teto ×1,40) → Defesa Especial (−75%) → maior redução da mesma classe.
-- **Pendente:** HP efetivo e "Resistência por Vitalidade V5.6.1". Até a decisão, o núcleo usa como HP máximo a progressão do atributo HP, arredondada para cima.
+- **Resistência por Vitalidade V5.6.1** (fórmula homologada em 13/11; HP de referência adotado em 18/11): `Fvit = clamp((HP_ref(L)/HPmax_defensor)^0,2; 0,8; 1,0)` multiplica o dano. Galetos com HP acima da referência do nível recebem até 20% menos dano.
+- **HP de referência:** `HP_ref(L) = floor(1,05 × HP_n(L; HP50 = 80))`, ou 10 / 67 / 126 / 157 / 189 nos níveis 1 / 25 / 50 / 75 / 100.
 - **Esquiva universal:** `clamp(7,5 + 5·(Vd−Va)/(Vd+Va), 5, 10)%`.
 
 ## 6. Progressão, captura, XP e outros sistemas
@@ -219,7 +230,12 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 - **Progressão de atributos (Nível 50 V1):**
   - O nível 50 é a referência.
   - Entre os níveis 50 e 100: `A(L) = A50 × (L+50)/100`. No nível 100, o atributo vale 1,5 × o do nível 50.
-  - A curva dos níveis 1–49 está pendente.
+  - **Níveis 1–49** (norma R5.4, adotada em 18/11): `A(L) = A50 × (49 + 3(L−1))/196`, de 25% no nível 1 a 98,47% no 49.
+  - **HP nominal** (R5.4, adotado em 18/11): 10 no nível 1; `ceil(1,5·HP50)` no 50; `ceil(1,5·HP50·(L+50)/100)` de 50 a 100; interpolação `round_half_up` entre 1 e 49.
+  - **IV e EV:** `floor(A_n × (1 + (0,25·IV + 0,5·√EV)/100))`. IV de 1 a 40, EV sem teto.
+  - **Peso V1.2:** aplicado por último, sobre HP, defesas e Velocidade (ataques não mudam), com `r = peso/peso natural` de 0,8 a 1,5. O Galeto nasce com r = 1.
+  - Exemplo: Taturico nível 50 com IV 20, EV 0 e peso neutro tem HP 134.
+  - Pendente: recalibrar as faixas de dificuldade de EV para os totais do nível 50 (U12).
 - **Faixas de total no nível 50 por raridade:**
 
   | Raridade | Faixa | Referência |
@@ -363,7 +379,7 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 ## 9. Pendências reais (`current_issues` e limites declarados)
 
 - **Arte e modelo (R12):** resolvido na revisão 4.
-- **Progressão:** a curva 1–49 e o HP de referência ainda são candidatos (R13).
+- **Progressão:** resolvida na revisão 8 (R13). A curva 1–49, o HP nominal e o HP de referência da R5.4 foram adotados por decisão do criador em 18/11.
 - **Migração para o mod:** está bloqueada no runtime (R14). O núcleo histórico tem 12 espécies, e 141 quarentenas técnicas foram preservadas.
 - **Golpes:** os 660 vínculos aprendíveis são "candidatos técnicos". Os IDs não são entidades executáveis aprovadas (R15).
 - **Reprodução:**
@@ -371,6 +387,13 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
   - A Herança de Bico entre espécies está pendente (U01).
   - As etapas 03, 05 e 06 estão incompletas (U02). A Etapa 07 V1.1 é design aprovado.
 - **Quetzacocó:** falta distribuir os 30 golpes por nível e treino (U03).
+- **Sem nenhum dado no acervo** (registradas na revisão 8 com status `PENDENTE_SEM_DADO`):
+  - U07: aparecimento no mundo (biomas, frequência, nível dos selvagens).
+  - U08: como o treinador recebe e recupera a Pena de Captura, e a arte dela.
+  - U09: quais 3 dos 5 entram na Rinha, quem começa e como trocar com as reservas.
+  - U10: como o Galeto do treinador sai para o mundo e volta.
+  - U11: aprendizado de #013–#018.
+  - U12: faixas de dificuldade de EV no nível 50 e ganhos de EV em combate e treino.
 - **Outros:**
   - Maestria Elemental: texto integral não recuperado (U04).
   - Integração da base com a implementação (U05): resolvida pela governança (base e código no mesmo repositório). Falta só um CI de validação quando o mod passar a ler a base.

@@ -88,7 +88,7 @@ public final class GerenciadorRinhas {
 		List<UUID> ids = List.of();
 		if (!treinador.equipe().isEmpty()) {
 			List<GaletoGuardado> escalados = treinador.equipe().stream().limit(GALETOS_NA_RINHA).toList();
-			meus = escalados.stream().map(x -> Combatente.padrao(x.ficha(), x.nivel())).toList();
+			meus = escalados.stream().map(GaletoGuardado::combatente).toList();
 			ids = escalados.stream().map(GaletoGuardado::id).toList();
 		} else {
 			meus = EquipesTemporarias.equipe(jogador).stream().map(e -> Combatente.padrao(e, GaloEntity.NIVEL_PADRAO)).toList();
@@ -97,7 +97,8 @@ public final class GerenciadorRinhas {
 		}
 		long semente = jogador.level().getGameTime() ^ selvagem.getUUID().getLeastSignificantBits();
 		Rinha r = new Rinha(g, new Equipe(jogador.getName().getString(), meus),
-				new Equipe("Selvagem", List.of(Combatente.padrao(especieSelvagem, selvagem.nivel()))), semente);
+				new Equipe("Selvagem", List.of(new Combatente(especieSelvagem, selvagem.nivel(),
+						GaletoGuardado.APRENDIZADO.equipamentoInicial(especieSelvagem, selvagem.nivel()), selvagem.individuo()))), semente);
 		r.permitirCaptura(Capturas.REGRAS);
 		selvagem.emRinha(true);
 		Sessao s = new Sessao(r, selvagem, semente);
@@ -277,9 +278,15 @@ public final class GerenciadorRinhas {
 			t = t.atualizar(id, g -> depois);
 			p.displayClientMessage(Component.literal(antes.ficha().nome() + " ganhou " + (depois.xp() - antes.xp()) + " XP.")
 					.withStyle(ChatFormatting.AQUA), false);
-			if (depois.nivel() > antes.nivel())
+			if (depois.nivel() > antes.nivel()) {
 				p.displayClientMessage(Component.literal(antes.ficha().nome() + " subiu para o nível " + depois.nivel() + "!")
 						.withStyle(ChatFormatting.GOLD), false);
+				List<String> novos = GaletoGuardado.APRENDIZADO.novos(antes.ficha(), antes.nivel(), depois.nivel()).stream()
+						.map(br.galetocraft.nucleo.dados.Golpe::nome).toList();
+				if (!novos.isEmpty())
+					p.displayClientMessage(Component.literal(antes.ficha().nome() + " aprendeu: " + String.join(", ", novos)
+							+ " (equipe em /galetocraft golpes)").withStyle(ChatFormatting.GOLD), false);
+			}
 		}
 		ModAnexos.salvar(p, t);
 	}

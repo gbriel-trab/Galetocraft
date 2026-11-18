@@ -4,7 +4,11 @@ import br.galetocraft.captura.Capturas;
 import br.galetocraft.entidade.GaloEntity;
 import br.galetocraft.registro.ModAnexos;
 import br.galetocraft.registro.ModItens;
+import br.galetocraft.treinador.GaletoGuardado;
 import br.galetocraft.treinador.Treinador;
+import br.galetocraft.nucleo.dados.Golpe;
+import br.galetocraft.nucleo.regras.Aprendizado;
+import net.minecraft.network.chat.HoverEvent;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.ItemStack;
@@ -51,6 +55,8 @@ import java.util.stream.Collectors;
  * para guardar, chamar e pôr em primeiro (os três primeiros vão para a Rinha).</li>
  * <li>{@code /galetocraft equipe teste <a> [b] [c]}: equipe de teste, usada só enquanto o treinador não tem Galetos.</li>
  * <li>{@code /galetocraft pena}: entrega a Pena de Captura, se o jogador não tiver uma, e mostra o nível dela.</li>
+ * <li>{@code /galetocraft golpes <n>}: golpes equipados e aprendidos do n-ésimo Galeto da equipe, com botões para trocar
+ * os slots livres (regra aprendizado: Concentração fixa, fora da Rinha, depois dos 5 golpes de origem).</li>
  * <li>{@code /galetocraft desafiar}: começa uma Rinha contra o Galeto selvagem mais próximo (até 10 blocos).</li>
  * <li>{@code /galetocraft acao ...}: ações do menu clicável da Rinha (golpe, trocar, mira, guarda, pena, itens,
  * capturar, fugir).</li>
@@ -89,6 +95,9 @@ public final class ComandoGaletocraft {
 						.then(Commands.literal("primeiro").then(Commands.argument("i", IntegerArgumentType.integer(0))
 								.executes(c -> mexerNaEquipe(c, (t, i) -> t.primeiro(i), true)))))
 				.then(Commands.literal("pena").executes(ComandoGaletocraft::pena))
+				.then(Commands.literal("golpes").then(Commands.argument("g", IntegerArgumentType.integer(0)).executes(ComandoGaletocraft::mostrarGolpes)
+						.then(Commands.literal("trocar").then(Commands.argument("slot", IntegerArgumentType.integer(0, 4))
+								.then(Commands.argument("golpe", IntegerArgumentType.integer(0)).executes(ComandoGaletocraft::trocarGolpe))))))
 				.then(Commands.literal("desafiar").executes(ComandoGaletocraft::desafiar))
 				.then(Commands.literal("acao")
 						.then(Commands.literal("golpe").then(Commands.argument("i", IntegerArgumentType.integer(0, 4))
@@ -176,6 +185,7 @@ public final class ComandoGaletocraft {
 			enviar(c, Component.literal("  vazia — capture Galetos com a Pena de Captura (/galetocraft pena)").withStyle(ChatFormatting.GRAY));
 		for (int i = 0; i < t.equipe().size(); i++) {
 			MutableComponent linha = Component.literal("  " + (i + 1) + ". " + t.equipe().get(i).resumo() + " ").withStyle(ChatFormatting.WHITE);
+			linha.append(botao("golpes", "/galetocraft golpes " + i, ChatFormatting.LIGHT_PURPLE));
 			if (i > 0)
 				linha.append(botao("primeiro", "/galetocraft equipe primeiro " + i, ChatFormatting.AQUA));
 			linha.append(botao("guardar", "/galetocraft equipe guardar " + i, ChatFormatting.YELLOW));
@@ -210,6 +220,85 @@ public final class ComandoGaletocraft {
 		}
 		ModAnexos.salvar(p, m.aplicar(t, i));
 		return mostrarEquipe(c);
+	}
+
+	private static int mostrarGolpes(CommandContext<CommandSourceStack> c) throws CommandSyntaxException {
+		ServerPlayer p = c.getSource().getPlayerOrException();
+		Treinador t = ModAnexos.treinador(p);
+		int i = IntegerArgumentType.getInteger(c, "g");
+		if (i >= t.equipe().size()) {
+			c.getSource().sendFailure(Component.literal("Não há Galeto na posição " + (i + 1) + " da equipe."));
+			return 0;
+		}
+		GaletoGuardado g = t.equipe().get(i);
+		Especie e = g.ficha();
+		Aprendizado ap = GaletoGuardado.APRENDIZADO;
+		boolean livres = ap.origemCompleta(e, g.nivel());
+		enviar(c, Component.literal("Golpes de " + e.nome() + " Nv" + g.nivel() + (livres ? " — slots livres (exceto a Concentração)"
+				: " — os slots se liberam depois dos 5 golpes de origem")).withStyle(ChatFormatting.GOLD));
+		List<Golpe> equipados = g.golpesEquipados();
+		MutableComponent linhaEq = Component.literal("Equipados: ").withStyle(ChatFormatting.GOLD);
+		for (int s = 0; s < equipados.size(); s++) {
+			Golpe x = equipados.get(s);
+			linhaEq.append(Component.literal("[" + (s + 1) + " " + x.nome() + (x.concentracao() ? " (fixa)" : "") + "] ")
+					.withStyle(st -> st.withColor(ChatFormatting.GREEN).withHoverEvent(new HoverEvent.ShowText(Component.literal(descricao(x))))));
+		}
+		enviar(c, linhaEq);
+		List<Golpe> aprendidos = g.aprendidos();
+		enviar(c, Component.literal("Aprendidos (" + aprendidos.size() + "):").withStyle(ChatFormatting.GOLD));
+		for (int j = 0; j < aprendidos.size(); j++) {
+			Golpe x = aprendidos.get(j);
+			if (equipados.contains(x))
+				continue;
+			MutableComponent l = Component.literal("  " + x.nome() + " ").withStyle(st -> st.withColor(ChatFormatting.WHITE)
+					.withHoverEvent(new HoverEvent.ShowText(Component.literal(descricao(x)))));
+			if (livres)
+				for (int s = 0; s < equipados.size(); s++)
+					if (!equipados.get(s).concentracao())
+						l.append(botao("→" + (s + 1), "/galetocraft golpes " + i + " trocar " + s + " " + j, ChatFormatting.AQUA));
+			enviar(c, l);
+		}
+		if (!ap.temTabela(e))
+			enviar(c, Component.literal("Sem tabela de aprendizado no acervo para " + e.nome() + ": só os 5 golpes de origem.").withStyle(ChatFormatting.GRAY));
+		else
+			enviar(c, Component.literal(ap.porTreinamento(e).size() + " golpes se aprendem com os Mestres Elementais (ainda não implementados).")
+					.withStyle(ChatFormatting.GRAY));
+		return 1;
+	}
+
+	private static int trocarGolpe(CommandContext<CommandSourceStack> c) throws CommandSyntaxException {
+		ServerPlayer p = c.getSource().getPlayerOrException();
+		if (GerenciadorRinhas.emRinha(p)) {
+			c.getSource().sendFailure(Component.literal("Os golpes só se trocam fora da Rinha."));
+			return 0;
+		}
+		Treinador t = ModAnexos.treinador(p);
+		int i = IntegerArgumentType.getInteger(c, "g"), slot = IntegerArgumentType.getInteger(c, "slot"), j = IntegerArgumentType.getInteger(c, "golpe");
+		if (i >= t.equipe().size()) {
+			c.getSource().sendFailure(Component.literal("Posição inválida."));
+			return 0;
+		}
+		GaletoGuardado g = t.equipe().get(i);
+		List<Golpe> aprendidos = g.aprendidos();
+		if (j >= aprendidos.size()) {
+			c.getSource().sendFailure(Component.literal("Golpe inválido."));
+			return 0;
+		}
+		try {
+			GaletoGuardado novo = g.comGolpeNoSlot(slot, aprendidos.get(j));
+			ModAnexos.salvar(p, t.atualizar(g.id(), x -> novo));
+			enviar(c, Component.literal(aprendidos.get(j).nome() + " equipado no slot " + (slot + 1) + ".").withStyle(ChatFormatting.GREEN));
+		} catch (IllegalArgumentException ex) {
+			c.getSource().sendFailure(Component.literal(ex.getMessage()));
+			return 0;
+		}
+		return mostrarGolpes(c);
+	}
+
+	private static String descricao(Golpe g) {
+		String s = g.elemento().nome() + " · " + g.categoria().name().toLowerCase(Locale.ROOT)
+				+ (g.poder() == null ? "" : " · Poder " + g.poder()) + " · Energia " + g.energia();
+		return g.efeito() == null ? s : s + "\n" + g.efeito();
 	}
 
 	private static int pena(CommandContext<CommandSourceStack> c) throws CommandSyntaxException {

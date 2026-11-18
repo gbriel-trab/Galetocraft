@@ -73,6 +73,38 @@ final class ChatTeste {
 		c.getSiblings().forEach(f -> coletar(f, prefixo, saida));
 	}
 
+	/**
+	 * Botão de golpe com maior Poder (lido da dica do botão) na última linha "Combate:"; sem golpe de dano
+	 * disponível, o botão da Concentração.
+	 */
+	String golpeMaisForte() {
+		synchronized (mensagens) {
+			for (int i = mensagens.size() - 1; i >= 0; i--) {
+				Component m = mensagens.get(i);
+				if (!m.getString().startsWith("Combate:"))
+					continue;
+				String melhor = null, concentracao = null;
+				int maior = -1;
+				for (Component f : m.getSiblings()) {
+					if (!(f.getStyle().getClickEvent() instanceof ClickEvent.RunCommand rc) || !rc.command().startsWith("/galetocraft acao golpe "))
+						continue;
+					if (f.getString().contains("Concentração"))
+						concentracao = rc.command();
+					if (f.getStyle().getHoverEvent() instanceof net.minecraft.network.chat.HoverEvent.ShowText dica) {
+						java.util.regex.Matcher p = java.util.regex.Pattern.compile("Poder (\\d+)").matcher(dica.value().getString());
+						if (p.find() && Integer.parseInt(p.group(1)) > maior) {
+							maior = Integer.parseInt(p.group(1));
+							melhor = rc.command();
+						}
+					}
+				}
+				return melhor != null ? melhor : concentracao;
+			}
+		}
+		exigir(false, "menu de Combate ausente");
+		return null;
+	}
+
 	/** Comando do botão cujo texto contém o rótulo, na última mensagem que o tem. */
 	String botaoComRotulo(String rotulo) {
 		synchronized (mensagens) {

@@ -30,12 +30,18 @@ class RinhaTest {
 
 	@Test
 	void combatenteNoNivel50UsaOsAtributosBase() {
+		// indivíduo de referência (IV 20, EV 0, peso neutro): HP nominal ceil(1,5 × 100) = 150, × 1,05 = 157
 		Combatente c = Combatente.padrao(G.especie(22), 50);
-		assertEquals(100, c.hpMax());
+		assertEquals(157, c.hpMax());
 		assertEquals(Energia.ENTRADA, c.energia());
 		assertEquals(5, c.golpes().size());
 		Combatente c100 = Combatente.padrao(G.especie(22), 100);
-		assertEquals(150, c100.hpMax());
+		assertEquals(236, c100.hpMax());   // ceil(2,25 × 100) = 225, × 1,05 = 236,25
+		// IVs mínimos e peso alto: HP 150 × 1,0025 → 150, × 1,05 (r = 1,5) → 158 (157,5 com empate para cima)
+		int[] um = {1, 1, 1, 1, 1, 1};
+		Combatente pesado = Combatente.padrao(G.especie(22), 50, new br.galetocraft.nucleo.rinha.Individuo(um, new double[6], 1.5));
+		assertEquals(158, pesado.hpMax());
+		assertEquals(Math.round(95 * 1.0025 * 0.75), (long) pesado.atributo(br.galetocraft.nucleo.dados.Atributo.VELOCIDADE));
 		assertThrows(IllegalArgumentException.class, () -> new Combatente(G.especie(22), 50, List.of(G.especie(22).golpe("Crina Poderosa"))));
 	}
 

@@ -54,7 +54,7 @@ import java.util.Optional;
  * <li>IVs: inteiros de 1 a 40, uniformes, como os IVs não herdados da reprodução.</li>
  * <li>Nível: 50. As regras de aparecimento e a curva 1–49 ainda não foram definidas.</li>
  * </ul>
- * Os IVs ainda não alteram os atributos: a fórmula de IV, EV e peso com a norma do nível 50 está pendente.
+ * Os atributos seguem a regra progressao (rev. 8): nominal no nível → IV/EV → peso.
  * Clicar com a mão vazia mostra a ficha do indivíduo.
  * <p>
  * Comportamento no mundo: neutro, passeia, olha os jogadores e revida quando é atacado.
@@ -131,11 +131,17 @@ public class GaloEntity extends PathfinderMob implements GeoEntity {
 		esperaCapturaAte = level().getGameTime() + segundos * 20L;
 	}
 
+	/** Dados individuais para a Rinha: os IVs da criatura, EV 0 e peso neutro (spawn_ratio 1,0 da V1.2). */
+	public br.galetocraft.nucleo.rinha.Individuo individuo() {
+		return br.galetocraft.nucleo.rinha.Individuo.novo(ivs());
+	}
+
 	/** Dados do indivíduo para guardar com o treinador depois da captura. */
 	public br.galetocraft.treinador.GaletoGuardado guardar() {
 		Especie e = fichaDaEspecie().orElseThrow();
-		return new br.galetocraft.treinador.GaletoGuardado(getUUID(), e.numero(), nivel(), String.valueOf(sexo()),
-				Arrays.stream(ivs()).boxed().toList(), -1);   // XP inicial = T(nível), sem XP extra pela captura
+		// XP inicial = T(nível), sem XP extra; golpes por nível já aprendidos (retrodesbloqueio); EV 0; peso neutro
+		return br.galetocraft.treinador.GaletoGuardado.capturado(getUUID(), e.numero(), nivel(), String.valueOf(sexo()),
+				Arrays.stream(ivs()).boxed().toList());
 	}
 
 	/** Gera nível, sexo e IVs uma única vez (ao aparecer ou na primeira consulta de entidades antigas). */
@@ -203,7 +209,8 @@ public class GaloEntity extends PathfinderMob implements GeoEntity {
 			case 'F' -> "♀";
 			default -> "";
 		};
-		int hp = Progressao.hpMaximoProvisorio(e.atributo(Atributo.HP), nivel());
+		// HP final: HP nominal do nível com o IV de HP (EV 0 e peso neutro ao aparecer)
+		int hp = Progressao.atributoFinal(Atributo.HP, e.atributo(Atributo.HP), nivel(), ivs()[Atributo.HP.ordinal()], 0, Progressao.PESO_NEUTRO);
 		return Component.literal(String.format("#%03d %s %s Nv%d · HP %d · %s · IVs %s", e.numero(), e.nome(), simbolo, nivel(),
 						hp, e.raridade(), Arrays.toString(ivs())))
 				.withStyle(ChatFormatting.GOLD);

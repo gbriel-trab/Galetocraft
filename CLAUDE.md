@@ -10,7 +10,7 @@ Projeto de mod de Minecraft com criaturas chamadas Cocorídeos/Galetos, batalhas
 
 ## Fonte de verdade
 
-- **Base vigente:** `base/vigente/*.json`, com artes em `base/artes/` e fontes em `base/fontes/`. Revisão atual: **7**. Manual em `base/LEIA_ME.md`.
+- **Base vigente:** `base/vigente/*.json`, com artes em `base/artes/` e fontes em `base/fontes/`. Revisão atual: **8**. Manual em `base/LEIA_ME.md`.
 - **Ferramenta:** `python ferramentas/base/galetobase.py` com os comandos `validar`, `ficha --especie N`, `atualizar --pacote`, `migrar --pacote` e `montar`.
 - **Toda mudança na base** segue estes passos:
   1. Escrever um pacote em `docs/patches/` com `expected_revision`, `reason` e `evidence`.
@@ -71,7 +71,10 @@ O fluxo completo está em `base/LEIA_ME.md`. Em resumo:
   - Pena de Captura: captura no mundo (botão direito, 12 blocos, visão livre, espera após falha) e na Rinha (Itens → Pena de Captura). O capturado vai para a equipe principal (até 5) ou para as reservas, salvos com o jogador.
   - XP dos Cocorídeos por Rinha vencida (regra `experiencia`), com subida de nível.
   - Testes de cliente `RinhaTesteCliente` e `CapturaTesteCliente`. Para rodar sem placa de vídeo: `GALETO_TESTES=rinha,captura LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a bash gradlew runClientGameTest`.
-- **Ainda falta:** golpes próprios do Galeto e aprendizado por nível, tela própria da Rinha, Galetário no jogo, passivas e efeitos de golpes, e reprodução. O roteiro está em `docs/ANALISE_DESENVOLVIMENTO.md` e o andamento em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
+  - Atributos pela regra `progressao` (rev. 8): curva 1–49, HP nominal, IV/EV e peso; Vitalidade V5.6.1 no dano.
+  - Aprendizado de golpes por nível e slots (`/galetocraft golpes`), pela regra `aprendizado`.
+- **Ainda falta:** tela própria da Rinha, Galetário no jogo, Mestres (golpes por treinamento), passivas e efeitos de golpes, alimentação (EV e peso) e reprodução.
+- **Pendências sem nenhum dado no acervo** (`current_issues` U07–U12): spawn, obtenção e arte da Pena, escalação e gerenciamento da equipe, Galeto do treinador no mundo, aprendizado de #013–#018 e faixas de EV. Não inventar; pedir a decisão ao criador. O roteiro está em `docs/ANALISE_DESENVOLVIMENTO.md` e o andamento em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
 - **Modelos:** rode `ferramentas/especies/<id>.py` e depois `ferramentas/exportar_especie.py <id>`, como descrito em `galetocraft/LEIAME.md`.
 - **Git LFS:** os arquivos de `modelos/*/revisao/` e os PNGs do benchmark estão no LFS. Nesta cópia há só ponteiros.
 

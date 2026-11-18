@@ -39,7 +39,8 @@ public final class DanoV56 {
 	public static Resultado calcular(Entrada e) {
 		if (e.anulado)
 			return new Resultado(BigDecimal.ZERO, BigDecimal.ZERO, 0);
-		BigDecimal base = base(e.hpMaxDefensor, e.poder, e.ataque, e.defesa).multiply(e.fracaoAcerto, MC);
+		BigDecimal base = base(e.hpMaxDefensor, e.poder, e.ataque, e.defesa).multiply(e.fracaoAcerto, MC)
+				.multiply(BigDecimal.valueOf(e.vitalidade), MC);
 		BigDecimal d = base.multiply(BigDecimal.valueOf(e.eficacia), MC);
 		BigDecimal bonus = e.bonusPercentual;
 		if (e.cantoOfensivo)
@@ -67,6 +68,7 @@ public final class DanoV56 {
 
 	/** Dados de um acerto. Ataque e defesa já são os efetivos do par físico ou mágico do golpe. */
 	public static final class Entrada {
+		private double vitalidade = 1.0;
 		final int hpMaxDefensor;
 		final double poder, ataque, defesa;
 		double eficacia = 1.0;
@@ -85,6 +87,9 @@ public final class DanoV56 {
 		}
 
 		public Entrada eficacia(double v) { eficacia = v; return this; }
+
+		/** Resistência por Vitalidade V5.6.1 do defensor (0,8 a 1,0; padrão 1). */
+		public Entrada vitalidade(double fvit) { vitalidade = fvit; return this; }
 
 		/** Segundo acerto convencional: 50% da base. */
 		public Entrada segundoAcerto() { fracaoAcerto = new BigDecimal("0.5"); return this; }

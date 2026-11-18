@@ -50,14 +50,17 @@ Legenda do design: ✅ homologado · 🟡 parcial (só parte homologada, ou no h
 
 ## 3. O que trava a implementação (decisões do criador)
 
-1. **HP efetivo e "Resistência por Vitalidade V5.6.1":** a base registra que o parâmetro está pendente.
-   - O dano V5.6 usa o HP máximo do defensor, então o motor precisa de um HP máximo.
-   - Proposta até a decisão: HP máximo = progressão do atributo HP (`ceil(HP50×(L+50)/100)`), igual ao que as fichas já usam no nível 100 (`ceil(1,5×HP)`), com fator de Vitalidade 1.
-2. **Curva dos níveis 1–49:** sem ela, Galetos abaixo do nível 50 não têm atributos oficiais.
-3. **IV, EV e peso nos atributos sob a norma do nível 50:** a fórmula antiga (`nível/100 × (base+IV+0,5√EV)`, IV 1–20) foi superada e a nova não foi escrita.
+> Situação em 18/11, depois da revisão 8 da base:
+> - Os itens 1, 2, 3 e 6 foram resolvidos com os dados mais recentes do acervo, por instrução do criador, e implementados no núcleo.
+> - O item 5 não tem nenhum dado no acervo (U07).
+> - O item 4 continua sendo trabalho de estruturação.
+
+1. ~~**HP efetivo e "Resistência por Vitalidade V5.6.1"**~~: resolvido na rev. 8 (HP nominal e HP de referência da R5.4; Vitalidade multiplica o dano).
+2. ~~**Curva dos níveis 1–49**~~: resolvido na rev. 8 (norma R5.4).
+3. ~~**IV, EV e peso nos atributos**~~: resolvido na rev. 8 (nominal → IV/EV com floor → peso V1.2 com half-up).
 4. **Efeitos dos golpes em linguagem natural:** estruturá-los é tradução fiel do texto, mas casos ambíguos vão precisar de confirmação.
-5. **Spawn no mundo:** onde e com que frequência cada espécie aparece.
-6. **Desempate de trocas simultâneas** com Velocidade igual, e se o trio pode repetir espécie.
+5. **Spawn no mundo:** onde e com que frequência cada espécie aparece. Sem nenhum dado no acervo (U07).
+6. ~~**Desempate de trocas simultâneas e espécie repetida no trio**~~: resolvido na rev. 8 (sorteio 50/50; repetição permitida).
 
 ## 4. Roteiro
 

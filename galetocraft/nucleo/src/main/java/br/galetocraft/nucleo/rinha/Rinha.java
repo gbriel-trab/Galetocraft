@@ -13,6 +13,7 @@ import br.galetocraft.nucleo.regras.Energia;
 import br.galetocraft.nucleo.regras.Estados;
 import br.galetocraft.nucleo.regras.MiraAnatomica;
 import br.galetocraft.nucleo.regras.PenaDeRitmo;
+import br.galetocraft.nucleo.regras.Progressao;
 import br.galetocraft.nucleo.regras.Velocidade;
 import com.google.gson.JsonElement;
 
@@ -366,6 +367,7 @@ public final class Rinha {
 		double defesa = alvo.atributo(cat.defesa()) * (1 + ambiente.bonusDefesa(clima, alvo.especie().elementos(), cat.defesa()));
 		DanoV56.Entrada e = new DanoV56.Entrada(alvo.hpMax(), g.poder(), c.atributo(cat.ataque()), defesa)
 				.eficacia(eficacia.multiplicador(g.elemento(), alvo.especie().elementos()))
+				.vitalidade(Progressao.vitalidade(alvo.nivel(), alvo.hpMax()))
 				.bonus(ambiente.bonusDano(clima, santuario, g.elemento()))
 				.guarda(guarda);
 		if (!primeiro)

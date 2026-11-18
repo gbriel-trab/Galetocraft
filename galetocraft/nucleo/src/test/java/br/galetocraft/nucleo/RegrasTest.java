@@ -108,8 +108,50 @@ class RegrasTest {
 		assertEquals(0, new BigDecimal("85").compareTo(Progressao.atributo(85, 50)));
 		assertEquals(0, new BigDecimal("127.5").compareTo(Progressao.atributo(85, 100)));
 		assertEquals(0, new BigDecimal("106.25").compareTo(Progressao.atributo(85, 75)));
-		assertEquals(128, Progressao.hpMaximoProvisorio(85, 100));   // ficha do Taturico: ceil(1,5 × 85)
-		assertThrows(UnsupportedOperationException.class, () -> Progressao.atributo(85, 49));
+		// níveis 1–49 (R5.4): 25% no 1, 121/196 no 25, 193/196 no 49
+		assertEquals(0, new BigDecimal("21.25").compareTo(Progressao.atributo(85, 1)));
+		assertEquals(0, Progressao.atributo(196, 25).compareTo(new BigDecimal("121")));
+		assertEquals(0, Progressao.atributo(196, 49).compareTo(new BigDecimal("193")));
+		assertThrows(IllegalArgumentException.class, () -> Progressao.atributo(85, 0));
+		assertThrows(IllegalArgumentException.class, () -> Progressao.atributo(85, 101));
+	}
+
+	@Test
+	void hpNominalEReferenciaDaVitalidade() {
+		// HP nominal (R5.4): 10 no nível 1, ceil(1,5 × HP50) no 50, ceil(2,25 × HP50) no 100
+		assertEquals(10, Progressao.hpNominal(85, 1));
+		assertEquals(128, Progressao.hpNominal(85, 50));      // Taturico: ceil(127,5)
+		assertEquals(192, Progressao.hpNominal(85, 100));     // ceil(191,25)
+		assertEquals(120, Progressao.hpNominal(80, 50));
+		// HP_ref = floor(1,05 × HP_n(L; 80)): valores da tabela gc54_curva_niveis (R5.4)
+		assertEquals(10, Progressao.hpReferencia(1));
+		assertEquals(67, Progressao.hpReferencia(25));
+		assertEquals(126, Progressao.hpReferencia(50));
+		assertEquals(157, Progressao.hpReferencia(75));
+		assertEquals(189, Progressao.hpReferencia(100));
+		// Vitalidade V5.6.1: HP abaixo da referência não reduz; o máximo de redução é 20%
+		assertEquals(1.0, Progressao.vitalidade(50, 100));
+		assertEquals(Math.pow(126.0 / 252, 0.2), Progressao.vitalidade(50, 252), 1e-12);
+		assertEquals(0.8, Progressao.vitalidade(50, 5000));
+	}
+
+	@Test
+	void ivEvEPeso() {
+		// IV 20 = +5%; EV 100 = +5%; floor no fim
+		assertEquals(84, Progressao.comIvEv(new BigDecimal("80"), 20, 0));
+		assertEquals(88, Progressao.comIvEv(new BigDecimal("80"), 20, 100));
+		assertEquals(85, Progressao.comIvEv(new BigDecimal("85"), 1, 0));       // 85,2125 → 85
+		// peso V1.2: r = 1,5 → HP +5%, defesas +7,5%, Velocidade −25%; r = 0,8 → HP −8%, defesas −10%, Velocidade +4%
+		assertEquals(105, Progressao.comPeso(100, Atributo.HP, 1.5));
+		assertEquals(108, Progressao.comPeso(100, Atributo.DEFESA_FISICA, 1.5));   // 107,5 → 108 (empate para cima)
+		assertEquals(75, Progressao.comPeso(100, Atributo.VELOCIDADE, 1.5));
+		assertEquals(92, Progressao.comPeso(100, Atributo.HP, 0.8));
+		assertEquals(90, Progressao.comPeso(100, Atributo.DEFESA_MAGICA, 0.8));
+		assertEquals(104, Progressao.comPeso(100, Atributo.VELOCIDADE, 0.8));
+		assertEquals(100, Progressao.comPeso(100, Atributo.ATAQUE_FISICO, 1.5));    // ataques não mudam
+		assertEquals(1, Progressao.comPeso(1, Atributo.VELOCIDADE, 1.5));          // mínimo 1
+		// cadeia completa: Taturico nível 50, IV 20, EV 0, peso neutro → HP 134 (128 × 1,05 = 134,4)
+		assertEquals(134, Progressao.atributoFinal(Atributo.HP, 85, 50, 20, 0, 1.0));
 	}
 
 	@Test
@@ -265,5 +307,35 @@ class RegrasTest {
 		assertEquals(26050, c.somarXpPena(26050, 500));
 		// XP por captura: base da raridade + 2 × nível do alvo (Comum nível 50 = 115)
 		assertEquals(115, c.xpPena("Comum", 50));
+	}
+
+	@Test
+	void aprendizadoPorNivelESlots() {
+		Galetario g = Galetario.padrao();
+		br.galetocraft.nucleo.regras.Aprendizado ap = new br.galetocraft.nucleo.regras.Aprendizado(g);
+		Especie piro = g.especie(1);
+		assertTrue(ap.temTabela(piro));
+		assertEquals(30, ap.tabela(piro).size());
+		assertEquals(15, ap.porNivel(piro, 50).size());                 // 15 por nível, origem incluída
+		assertEquals(15, ap.porTreinamento(piro).size());
+		assertTrue(ap.porNivel(piro, 50).contains(piro.golpe("Ave Fênix")));
+		assertFalse(ap.porNivel(piro, 49).contains(piro.golpe("Ave Fênix")));   // hereditário no nível 50
+		assertTrue(ap.origemCompleta(piro, 50));
+		assertFalse(ap.origemCompleta(piro, 49));
+		assertEquals(piro.originais(), ap.equipamentoInicial(piro, 50));
+		assertEquals(2, ap.porNivel(piro, 1).size());                   // nível 1: básico + Concentração
+		// #022 Sirenocó: marcos homologados em 13/11; #013 sem tabela: só os 5 de origem
+		assertEquals(15, ap.porNivel(g.especie(22), 50).size());
+		assertFalse(ap.temTabela(g.especie(13)));
+		assertEquals(g.especie(13).originais(), ap.porNivel(g.especie(13), 50));
+		// slots: Concentração fixa, só golpes aprendidos
+		List<Golpe> origem = piro.originais();
+		Golpe conc = origem.stream().filter(Golpe::concentracao).findFirst().orElseThrow();
+		Golpe porNivel = ap.porNivel(piro, 50).stream().filter(x -> !origem.contains(x)).findFirst().orElseThrow();
+		ap.validarEquipamento(piro, 50, List.of(conc, porNivel), List.of());
+		assertThrows(IllegalArgumentException.class, () -> ap.validarEquipamento(piro, 50, List.of(porNivel), List.of()));
+		Golpe treino = ap.porTreinamento(piro).get(0);
+		assertThrows(IllegalArgumentException.class, () -> ap.validarEquipamento(piro, 50, List.of(conc, treino), List.of()));
+		ap.validarEquipamento(piro, 50, List.of(conc, treino), List.of(treino));
 	}
 }

@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * Um Galeto dentro da Rinha: atributos no nível, HP, Energia, estado, golpes equipados e medidores da Mira.
- * Atributos no nível pela Norma Nível 50 V1; IV, EV e peso ainda não entram (integração pendente na base).
+ * Atributos finais pela {@link Progressao}: nominal no nível → IV/EV → peso (congelado durante a Rinha).
  */
 public final class Combatente {
 	public static final int GOLPES_EQUIPADOS = 5;
@@ -24,6 +24,7 @@ public final class Combatente {
 	private final int nivel;
 	private final List<Golpe> golpes;
 	private final Map<Atributo, Double> atributos = new EnumMap<>(Atributo.class);
+	private final Individuo individuo;
 	private final int hpMax;
 	private int hp;
 	private int energia = Energia.ENTRADA;
@@ -37,6 +38,10 @@ public final class Combatente {
 	private boolean entrouNestaRodada;
 
 	public Combatente(Especie especie, int nivel, List<Golpe> golpesEquipados) {
+		this(especie, nivel, golpesEquipados, Individuo.REFERENCIA);
+	}
+
+	public Combatente(Especie especie, int nivel, List<Golpe> golpesEquipados, Individuo individuo) {
 		if (golpesEquipados.isEmpty() || golpesEquipados.size() > GOLPES_EQUIPADOS)
 			throw new IllegalArgumentException("De 1 a 5 golpes equipados");
 		if (golpesEquipados.stream().noneMatch(Golpe::concentracao))
@@ -44,18 +49,26 @@ public final class Combatente {
 		this.especie = especie;
 		this.nivel = nivel;
 		this.golpes = List.copyOf(golpesEquipados);
+		this.individuo = individuo;
 		for (Atributo a : Atributo.values())
-			atributos.put(a, Progressao.atributo(especie.atributo(a), nivel).doubleValue());
-		this.hpMax = Progressao.hpMaximoProvisorio(especie.atributo(Atributo.HP), nivel);
+			atributos.put(a, (double) Progressao.atributoFinal(a, especie.atributo(a), nivel, individuo.iv(a), individuo.ev(a), individuo.razaoPeso()));
+		this.hpMax = atributos.get(Atributo.HP).intValue();
 		this.hp = hpMax;
 		for (MiraAnatomica.Regiao r : MiraAnatomica.Regiao.values())
 			mira.put(r, new MiraAnatomica.Medidor());
 	}
 
-	/** Os 5 golpes de origem (Concentração + básico + 3 próprios), equipamento inicial padrão. */
+	/** Os 5 golpes de origem (Concentração + básico + 3 próprios), com o indivíduo de referência. */
 	public static Combatente padrao(Especie especie, int nivel) {
 		return new Combatente(especie, nivel, especie.originais());
 	}
+
+	/** Os 5 golpes de origem com os IVs, EVs e peso do indivíduo. */
+	public static Combatente padrao(Especie especie, int nivel, Individuo individuo) {
+		return new Combatente(especie, nivel, especie.originais(), individuo);
+	}
+
+	public Individuo individuo() { return individuo; }
 
 	public Especie especie() { return especie; }
 	public int nivel() { return nivel; }
