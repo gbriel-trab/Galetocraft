@@ -1,11 +1,23 @@
 package br.galetocraft.entidade;
 
+import br.galetocraft.nucleo.dados.Atributo;
+import br.galetocraft.nucleo.dados.Especie;
+import br.galetocraft.nucleo.dados.Galetario;
+import br.galetocraft.nucleo.regras.Progressao;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
@@ -16,6 +28,9 @@ import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animatable.manager.AnimatableManager;
@@ -23,16 +38,36 @@ import software.bernie.geckolib.animation.AnimationController;
 import software.bernie.geckolib.animation.RawAnimation;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import java.text.Normalizer;
+import java.util.Arrays;
+import java.util.Locale;
+import java.util.Optional;
+
 /**
- * Galo genérico do Galetocraft: serve para todas as espécies que (por enquanto) só têm modelo, animações e atributos
- * próprios. O id da espécie vem do tipo da entidade (galetocraft:&lt;id&gt;) e escolhe as animações
- * "animation.&lt;id&gt;.idle" e "animation.&lt;id&gt;.walk" em geckolib/animations/entity/&lt;id&gt;.animation.json
+ * Galo do Galetocraft, base de todas as espécies. O id da espécie vem do tipo da entidade (galetocraft:&lt;id&gt;)
+ * e escolhe as animações "animation.&lt;id&gt;.idle" e "animation.&lt;id&gt;.walk"
  * (geradas por ferramentas/exportar_especie.py).
  * <p>
- * Comportamento igual ao do Pirococó: neutro, passeia e olha os jogadores, revida quando é atacado.
+ * <b>Galeto individual:</b> cada criatura tem nível, sexo e os 6 IVs, salvos com a entidade.
+ * <ul>
+ * <li>Sexo: sorteado pela distribuição da espécie no Galetário (Galeria).</li>
+ * <li>IVs: inteiros de 1 a 40, uniformes, como os IVs não herdados da reprodução.</li>
+ * <li>Nível: 50. As regras de aparecimento e a curva 1–49 ainda não foram definidas.</li>
+ * </ul>
+ * Os IVs ainda não alteram os atributos: a fórmula de IV, EV e peso com a norma do nível 50 está pendente.
+ * Clicar com a mão vazia mostra a ficha do indivíduo.
+ * <p>
+ * Comportamento no mundo: neutro, passeia, olha os jogadores e revida quando é atacado.
  */
 public class GaloEntity extends PathfinderMob implements GeoEntity {
+	public static final int NIVEL_PADRAO = Progressao.NIVEL_REFERENCIA;
+	public static final int IV_MINIMO = 1, IV_MAXIMO = 40;
+
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+	private int nivel;            // 0 = ainda não gerado
+	private char sexo = '?';
+	private int[] ivs = new int[0];
+	private boolean emRinha;
 
 	public GaloEntity(EntityType<? extends GaloEntity> tipo, Level mundo) {
 		super(tipo, mundo);
@@ -49,6 +84,109 @@ public class GaloEntity extends PathfinderMob implements GeoEntity {
 	/** Id da espécie (o caminho do id do tipo: "esporoco", "cocorak"...). */
 	public String especie() {
 		return BuiltInRegistries.ENTITY_TYPE.getKey(getType()).getPath();
+	}
+
+	/** Ficha da espécie no Galetário (o id sem acento casa com o nome oficial: "sirenoco" → Sirenocó). */
+	public Optional<Especie> fichaDaEspecie() {
+		return Galetario.padrao().especies().stream().filter(e -> semAcento(e.nome()).equals(especie())).findFirst();
+	}
+
+	private static String semAcento(String s) {
+		return Normalizer.normalize(s, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase(Locale.ROOT);
+	}
+
+	public int nivel() {
+		garantirIndividuo(getRandom());
+		return nivel;
+	}
+
+	public char sexo() {
+		garantirIndividuo(getRandom());
+		return sexo;
+	}
+
+	public int[] ivs() {
+		garantirIndividuo(getRandom());
+		return ivs.clone();
+	}
+
+	public boolean emRinha() {
+		return emRinha;
+	}
+
+	/** Durante a Rinha o Galeto fica parado (sem IA) e não revida no mundo. */
+	public void emRinha(boolean v) {
+		emRinha = v;
+		setNoAi(v);
+	}
+
+	/** Gera nível, sexo e IVs uma única vez (ao aparecer ou na primeira consulta de entidades antigas). */
+	private void garantirIndividuo(RandomSource rng) {
+		if (nivel > 0)
+			return;
+		nivel = NIVEL_PADRAO;
+		Optional<Especie> e = fichaDaEspecie();
+		Double machos = e.map(Especie::probabilidadeMacho).orElse(null);
+		sexo = machos == null ? '-' : (rng.nextDouble() < machos ? 'M' : 'F');
+		ivs = new int[Atributo.values().length];
+		for (int i = 0; i < ivs.length; i++)
+			ivs[i] = IV_MINIMO + rng.nextInt(IV_MAXIMO - IV_MINIMO + 1);
+	}
+
+	@Override
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor mundo, DifficultyInstance dificuldade, EntitySpawnReason motivo, SpawnGroupData dados) {
+		garantirIndividuo(mundo.getRandom());
+		return super.finalizeSpawn(mundo, dificuldade, motivo, dados);
+	}
+
+	@Override
+	protected void addAdditionalSaveData(ValueOutput saida) {
+		super.addAdditionalSaveData(saida);
+		garantirIndividuo(getRandom());
+		saida.putInt("galeto_nivel", nivel);
+		saida.putString("galeto_sexo", String.valueOf(sexo));
+		saida.putIntArray("galeto_ivs", ivs);
+		// a Rinha não sobrevive ao salvamento: o Galeto volta com a IA ligada (ver readAdditionalSaveData)
+		saida.putBoolean("galeto_em_rinha", emRinha);
+	}
+
+	@Override
+	protected void readAdditionalSaveData(ValueInput entrada) {
+		super.readAdditionalSaveData(entrada);
+		nivel = entrada.getIntOr("galeto_nivel", 0);
+		String s = entrada.getStringOr("galeto_sexo", "?");
+		sexo = s.isEmpty() ? '?' : s.charAt(0);
+		ivs = entrada.getIntArray("galeto_ivs").orElse(new int[0]);
+		if (ivs.length != Atributo.values().length)
+			nivel = 0;   // dados incompletos: gera de novo na próxima consulta
+		if (entrada.getBooleanOr("galeto_em_rinha", false))
+			setNoAi(false);   // salvo no meio de uma Rinha (as sessões ficam só na memória do servidor)
+	}
+
+	@Override
+	protected InteractionResult mobInteract(Player jogador, InteractionHand mao) {
+		if (!jogador.getItemInHand(mao).isEmpty())
+			return super.mobInteract(jogador, mao);
+		if (!level().isClientSide())
+			jogador.displayClientMessage(fichaDoIndividuo(), false);
+		return InteractionResult.SUCCESS;
+	}
+
+	/** Linha de ficha do indivíduo: espécie, nível, sexo, HP no nível e IVs. */
+	public Component fichaDoIndividuo() {
+		Optional<Especie> op = fichaDaEspecie();
+		if (op.isEmpty())
+			return Component.literal(especie() + ": espécie fora do Galetário vigente");
+		Especie e = op.get();
+		String simbolo = switch (sexo()) {
+			case 'M' -> "♂";
+			case 'F' -> "♀";
+			default -> "";
+		};
+		int hp = Progressao.hpMaximoProvisorio(e.atributo(Atributo.HP), nivel());
+		return Component.literal(String.format("#%03d %s %s Nv%d · HP %d · %s · IVs %s", e.numero(), e.nome(), simbolo, nivel(),
+						hp, e.raridade(), Arrays.toString(ivs())))
+				.withStyle(ChatFormatting.GOLD);
 	}
 
 	@Override

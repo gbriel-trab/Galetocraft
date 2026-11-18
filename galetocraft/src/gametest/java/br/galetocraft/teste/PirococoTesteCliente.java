@@ -13,7 +13,7 @@ import net.minecraft.sounds.SoundSource;
 public class PirococoTesteCliente implements FabricClientGameTest {
 	@Override
 	public void runTest(ClientGameTestContext contexto) {
-		if (System.getenv("GALETO_BENCH") != null)
+		if (System.getenv("GALETO_BENCH") != null || Testes.pular("pirococo"))
 			return;   // no modo benchmark só roda o PirococoBenchmark
 		contexto.runOnClient(mc -> mc.options.getSoundSourceOptionInstance(SoundSource.MASTER).set(0.0));   // sem som
 

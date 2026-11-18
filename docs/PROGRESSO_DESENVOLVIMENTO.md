@@ -63,8 +63,56 @@ O que ocorre de não implementado fica registrado no Histórico da Rinha.
 - **Ave Fênix:** a base vigente tem custo de Energia 100, mas a "GalolpeTeca Hereditária Atualizada", no acervo, diz 50. Precisa de verificação de fonte e data antes de mexer.
 - **Velocidade das Rinhas:** com o dano V5.6 e o HP provisório, as Rinhas simuladas acabam em poucas rodadas (Cocórak × Taturico: 3,2 rodadas em média). Isso confirma o alerta da própria especificação V5.6 de que golpes fortes derrubam com um ou dois acertos. Avaliar quando a Vitalidade V5.6.1 e as passivas existirem.
 
-### Próximos passos (fase 3 em diante)
-1. Galeto individual na entidade: espécie, nível, sexo, IVs e golpes persistidos; atributos vindos do núcleo.
-2. Rinha jogável contra um Galeto selvagem, com menu clicável no chat (Galetos / Combate / Itens / Fugir) e depois uma tela própria.
-3. Item Pena e captura, equipe do treinador e Galetário dentro do jogo.
-4. Passivas e efeitos dos golpes por família, a partir do texto oficial estruturado.
+## 18/11/2026 — Fases 3 e 4: Galeto individual e Rinha jogável
+
+### Fase 3 — Galeto individual (`GaloEntity`)
+- **Cada criatura é um indivíduo** com nível, sexo e os 6 IVs, salvos com a entidade (`galeto_nivel`, `galeto_sexo`, `galeto_ivs`).
+  - Sexo: sorteado pela distribuição da espécie no Galetário (Galeria). O Quetzacocó não tem sexo.
+  - IVs: inteiros de 1 a 40, uniformes, como os IVs não herdados da reprodução.
+  - Nível: 50 para todos, porque a curva 1–49 e as regras de aparecimento estão pendentes.
+  - Entidades antigas, salvas antes desta versão, ganham os dados na primeira consulta.
+- **O Pirococó** passou a herdar de `GaloEntity` e ganhou os mesmos dados.
+- **Clicar com a mão vazia** mostra a ficha do indivíduo no chat. Exemplo: `#007 Taturico ♀ Nv50 · HP 85 · Comum · IVs [...]`.
+- **Os IVs ainda não alteram os atributos:** a fórmula de IV, EV e peso com a norma do nível 50 está pendente (decisão 3 da análise).
+- **Ainda falta:** golpes próprios do indivíduo, dono e sincronização com o cliente. Por enquanto, a Rinha usa os 5 golpes de origem.
+
+### Fase 4 — Rinha jogável contra Galeto selvagem
+- **Como jogar:**
+  1. `/galetocraft equipe <a> [b] [c]` define a equipe de teste, de 1 a 3 espécies no nível 50. O padrão é Pirococó, Cocórrego e Esporocó. Sem argumentos, mostra a equipe.
+  2. Perto de um Galeto (até 10 blocos), `/galetocraft desafiar` começa a Rinha contra o mais próximo.
+  3. O menu aparece no chat, com botões clicáveis:
+
+     | Linha | Botões |
+     |---|---|
+     | Estado | HP e Energia dos dois Galetos ativos, e o estado negativo |
+     | Combate | Os 5 golpes, com o custo de Energia. Os golpes sem Energia ficam cinza. Passar o mouse mostra elemento, categoria, poder e efeito |
+     | Galetos | Troca voluntária para outro Galeto da equipe |
+     | Mira | Região mirada (precisão da região) |
+     | Guarda | Neutra ou uma região |
+     | Pena de Ritmo | Só aparece depois de uma Concentração. Usa o Canto Ofensivo num golpe de dano, o de Suporte nos outros golpes e o de Revezamento na troca |
+     | Itens | Desativado: os itens da Rinha ainda são candidatos |
+     | Fugir | Encerra a Rinha |
+
+  4. Cada clique é uma ação. A IA básica escolhe a ação do selvagem, o motor do núcleo resolve a rodada e o Histórico da Rinha aparece no chat.
+- **Regras da sessão:**
+  - O Galeto selvagem fica parado, sem IA, durante a Rinha e volta ao normal no fim.
+  - Um Galeto em Rinha não pode ser desafiado por outro jogador.
+  - A Rinha termina com vitória, derrota, fuga, saída do jogador do servidor, desligamento do servidor ou distância maior que 32 blocos.
+  - Se o mundo for salvo no meio de uma Rinha, o Galeto volta com a IA ligada.
+  - A equipe de teste fica só na memória do servidor, até existirem captura e equipe do treinador.
+- **Ajustes no núcleo:**
+  - As regiões da Mira têm nome para o jogador: Cabeça/crina, Asas, Pernas/garras e Tronco.
+  - O Canto de Suporte aparece no Histórico da Rinha, com o custo antes e depois.
+- **Teste automático no cliente** (`RinhaTesteCliente`):
+  - Joga uma Rinha inteira como um jogador: define a equipe, desafia um Taturico, muda Mira e Guarda, concentra, usa a Pena e clica nos golpes do menu até o fim.
+  - Confere que o Taturico fica parado na Rinha e volta a ter IA depois.
+  - Resultado em 18/11: vitória em 14 ações, com Canto de Suporte (custo 45 → 30) e Ruptura na Cabeça/crina.
+  - Para rodar só este teste nesta nuvem, sem placa de vídeo: `GALETO_TESTES=rinha LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a bash gradlew runClientGameTest`. Os prints ficam em `build/run/clientGameTest/screenshots/`.
+  - O filtro `GALETO_TESTES` (`pirococo`, `galeria`, `rinha`) vale para os três testes de cliente. Em renderização por software, a galeria em 1920×1080 passa do tempo limite de carregamento do mundo.
+
+### Próximos passos (fase 5 em diante)
+1. Item Pena e captura (no mundo e na Rinha), equipe do treinador persistente e Galetário dentro do jogo.
+2. Golpes próprios do Galeto individual e sincronização com o cliente.
+3. Passivas e efeitos dos golpes por família, a partir do texto oficial estruturado.
+4. Tela própria da Rinha, no lugar do menu do chat.
+5. Rinha entre jogadores.

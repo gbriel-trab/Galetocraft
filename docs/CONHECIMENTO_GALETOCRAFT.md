@@ -410,8 +410,10 @@ O relatório completo está em `docs/AUDITORIA_INCOERENCIAS.md`: 29 conflitos re
   - Inclui um motor de Rinha com IA básica e simulador.
   - Tem 21 testes. O andamento fica em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
 - **Comandos no jogo:** `/galetocraft base | ficha <espécie> | rinha <a> <b> [nível] | duelo <a> <b> [rinhas]`.
+- **Galeto individual:** cada entidade tem nível (50), sexo e 6 IVs (1–40), salvos com ela. Clicar com a mão vazia mostra a ficha do indivíduo. Os IVs ainda não alteram os atributos.
+- **Rinha jogável:** contra Galeto selvagem, com `/galetocraft equipe` e `/galetocraft desafiar` e um menu clicável no chat (Combate, Galetos, Mira, Guarda, Pena de Ritmo, Itens desativado, Fugir). A equipe do jogador ainda é temporária.
 - **Ainda NÃO existe no mod:**
-  - Galeto individual (nível, IV, golpes) e Rinha jogável com interface.
+  - Golpes próprios e dono do Galeto; tela própria da Rinha; Rinha entre jogadores.
   - Captura, treinador e Galetário no jogo.
   - Passivas e efeitos especiais dos golpes.
   - Blocos, spawn natural e sons próprios.

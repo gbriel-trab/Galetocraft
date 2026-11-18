@@ -65,8 +65,11 @@ O fluxo completo está em `base/LEIA_ME.md`. Em resumo:
 - **Núcleo de regras:** `galetocraft/nucleo`, em Java puro, embutido no jar.
   - Lê os dados de `nucleo/src/main/resources/galetocraft/dados/`, gerados por `python ferramentas/base/exportar_para_mod.py`. Rodar o exportador de novo depois de cada revisão da base.
   - O motor da Rinha fica em `br.galetocraft.nucleo.rinha`.
-- **Implementado no mod:** 12 entidades exibidas com IA neutra e LOD, mais os comandos `/galetocraft base | ficha | rinha | duelo`.
-- **Ainda falta:** Galeto individual, Rinha jogável com interface, captura, passivas e efeitos de golpes, e reprodução. O roteiro está em `docs/ANALISE_DESENVOLVIMENTO.md` e o andamento em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
+- **Implementado no mod:**
+  - 12 entidades com IA neutra e LOD. Cada uma é um Galeto individual com nível, sexo e IVs salvos.
+  - Comandos `/galetocraft base | ficha | rinha | duelo` (simulação) e `equipe | desafiar | acao` (Rinha jogável contra Galeto selvagem, com menu clicável no chat).
+  - Teste de cliente `RinhaTesteCliente`. Para rodar sem placa de vídeo: `GALETO_TESTES=rinha LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a bash gradlew runClientGameTest`.
+- **Ainda falta:** golpes próprios e dono do Galeto, tela própria da Rinha, captura e treinador, passivas e efeitos de golpes, e reprodução. O roteiro está em `docs/ANALISE_DESENVOLVIMENTO.md` e o andamento em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
 - **Modelos:** rode `ferramentas/especies/<id>.py` e depois `ferramentas/exportar_especie.py <id>`, como descrito em `galetocraft/LEIAME.md`.
 - **Git LFS:** os arquivos de `modelos/*/revisao/` e os PNGs do benchmark estão no LFS. Nesta cópia há só ponteiros.
 

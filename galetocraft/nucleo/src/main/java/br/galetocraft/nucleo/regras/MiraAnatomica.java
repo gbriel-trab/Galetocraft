@@ -23,11 +23,13 @@ public final class MiraAnatomica {
 	public static final int DURACAO_RUPTURA = 2;
 
 	public enum Regiao {
-		CABECA_CRINA(0.78, 1.10, -0.45, Atributo.ATAQUE_MAGICO),
-		ASAS(0.86, 1.00, -0.40, Atributo.VELOCIDADE),
-		PERNAS_GARRAS(0.90, 1.00, -0.45, Atributo.ATAQUE_FISICO),
-		TRONCO(1.00, 0.55, -0.30, Atributo.DEFESA_FISICA, Atributo.DEFESA_MAGICA);
+		CABECA_CRINA("Cabeça/crina", 0.78, 1.10, -0.45, Atributo.ATAQUE_MAGICO),
+		ASAS("Asas", 0.86, 1.00, -0.40, Atributo.VELOCIDADE),
+		PERNAS_GARRAS("Pernas/garras", 0.90, 1.00, -0.45, Atributo.ATAQUE_FISICO),
+		TRONCO("Tronco", 1.00, 0.55, -0.30, Atributo.DEFESA_FISICA, Atributo.DEFESA_MAGICA);
 
+		/** Nome da região como aparece para o jogador. */
+		public final String nome;
 		/** Multiplicador da precisão original do golpe. */
 		public final double precisao;
 		public final double fatorPressao;
@@ -35,7 +37,8 @@ public final class MiraAnatomica {
 		public final double variacaoRuptura;
 		public final List<Atributo> atributosRuptura;
 
-		Regiao(double precisao, double fatorPressao, double variacaoRuptura, Atributo... atributos) {
+		Regiao(String nome, double precisao, double fatorPressao, double variacaoRuptura, Atributo... atributos) {
+			this.nome = nome;
 			this.precisao = precisao;
 			this.fatorPressao = fatorPressao;
 			this.variacaoRuptura = variacaoRuptura;

@@ -194,8 +194,10 @@ public final class Rinha {
 			return;
 		}
 		c.energia(c.energia() - custo);
-		if (cantoSuporte)
+		if (cantoSuporte) {
 			eu.pena().consumir();
+			registrar(c.nome() + " usa o Canto de Suporte da Pena de Ritmo: custo de " + g.nome() + " " + g.energia() + " → " + custo);
+		}
 		if (c.estado() == EstadoNegativo.TONTO && rng.nextDouble() < Estados.TONTO_FALHA) {
 			if (g.danoDireto()) {
 				// metade do dano que o golpe causaria no alvo
@@ -266,7 +268,7 @@ public final class Rinha {
 			int p = MiraAnatomica.pressao(retirado, alvo.hpMax(), regiao, guarda, canto);
 			if (alvo.medidor(regiao).somar(p) && !alvo.derrotado()) {
 				alvo.romper(regiao);
-				registrar("  Ruptura em " + regiao + " de " + alvo.nome());
+				registrar("  Ruptura em " + regiao.nome + " de " + alvo.nome());
 			}
 		}
 		substituirSeDerrotado(op);

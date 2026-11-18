@@ -2,7 +2,7 @@
 
 Cocorídeos para o Minecraft **1.21.11**. O mod traz 12 espécies do Galetário com modelos GeckoLib: #001 Pirococó, #003 Esporocó, #004 Cocórak, #005 Cocórion, #006 Cocórvolt, #007 Taturico, #008 Axococó, #009 Vagaló, #010 Morcegalo, #011 Espinhocó, #012 Salambrasa e #019 Renacocó.
 
-Por enquanto as criaturas só aparecem por ovo gerador ou `/summon`. A Rinha, a captura, os golpes e a reprodução ainda não estão implementados; as regras deles estão documentadas na base vigente (ver `../docs/CONHECIMENTO_GALETOCRAFT.md`).
+Por enquanto as criaturas só aparecem por ovo gerador ou `/summon`. Cada uma é um Galeto individual, com nível, sexo e IVs. Já dá para jogar uma Rinha contra um Galeto selvagem (veja abaixo). A captura, os efeitos especiais dos golpes, as passivas e a reprodução ainda não estão implementados; as regras deles estão documentadas na base vigente (ver `../docs/CONHECIMENTO_GALETOCRAFT.md`).
 
 Licença: todos os direitos reservados (ver `LICENSE`).
 
@@ -36,13 +36,28 @@ Para abrir o jogo de teste já com o mod: `gradlew runClient`.
    - **GeckoLib** (Fabric) 5.4.5 para 1.21.11
 3. No jogo, os **ovos geradores** das 12 espécies ficam na aba de ovos geradores do modo criativo.
 
+## Jogar uma Rinha (versão de teste)
+1. Defina a equipe de teste, de 1 a 3 espécies no nível 50: `/galetocraft equipe cocorrego pirococo esporoco`. Sem argumentos, o comando mostra a equipe atual.
+2. Chegue a até 10 blocos de um Galeto e use `/galetocraft desafiar`.
+3. Jogue clicando nos botões do chat: golpes (Combate), troca (Galetos), Mira, Guarda, Pena de Ritmo (depois de uma Concentração) e Fugir.
+
+Outros comandos: `/galetocraft ficha <espécie>`, `/galetocraft base`, `/galetocraft rinha <a> <b> [nível]` (Rinha simulada) e `/galetocraft duelo <a> <b> [rinhas]` (operadores). Clicar num Galeto com a mão vazia mostra a ficha dele.
+
+## Testes
+- Regras (núcleo): `gradlew :nucleo:test`.
+- Testes no cliente: `gradlew runClientGameTest`. A variável `GALETO_TESTES` escolhe quais rodam (`pirococo`, `galeria`, `rinha`); sem ela, rodam todos. O `rinha` joga uma Rinha inteira pelos botões do chat.
+- Sem placa de vídeo (Linux): `GALETO_TESTES=rinha LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a bash gradlew runClientGameTest`.
+
 ## Onde fica cada coisa
 `<id>` é o nome técnico da espécie: `pirococo`, `esporoco`, `cocorak`, `cocorion`, `cocorvolt`, `taturico`, `axococo`, `vagalo`, `morcegalo`, `espinhoco`, `salambrasa` ou `renacoco`.
 
 | O quê | Arquivo |
 |---|---|
 | Comportamento do Pirococó | `src/main/java/br/galetocraft/entidade/PirococoEntity.java` |
-| Comportamento das demais espécies | `src/main/java/br/galetocraft/entidade/GaloEntity.java` |
+| Comportamento das demais espécies e dados do Galeto individual | `src/main/java/br/galetocraft/entidade/GaloEntity.java` |
+| Comandos `/galetocraft` | `src/main/java/br/galetocraft/comando/ComandoGaletocraft.java` |
+| Rinha jogável (sessões e menu do chat) | `src/main/java/br/galetocraft/rinha/` |
+| Regras do jogo (núcleo em Java puro) e dados da base | `nucleo/` |
 | Registro das criaturas, da caixa de colisão, da vida, da velocidade e do dano | `src/main/java/br/galetocraft/registro/ModEntidades.java` |
 | Registro dos ovos | `src/main/java/br/galetocraft/registro/` |
 | Desenho, LOD e brilho | `src/client/java/br/galetocraft/client/` (`GaloRenderer`, `BrilhoParcialGeoLayer`) |

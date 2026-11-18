@@ -6,6 +6,9 @@ import br.galetocraft.registro.ModEntidades;
 import br.galetocraft.registro.ModItens;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import br.galetocraft.rinha.GerenciadorRinhas;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -36,6 +39,9 @@ public class GaletocraftMod implements ModInitializer {
 		// núcleo de regras: carrega a base vigente embutida (espécies, golpes e regras)
 		Galetario galetario = Galetario.padrao();
 		CommandRegistrationCallback.EVENT.register((dispatcher, acesso, ambiente) -> ComandoGaletocraft.registrar(dispatcher));
+		// Rinha em andamento termina se o jogador sair do servidor
+		ServerPlayConnectionEvents.DISCONNECT.register((conexao, servidor) -> GerenciadorRinhas.encerrar(conexao.getPlayer().getUUID()));
+		ServerLifecycleEvents.SERVER_STOPPING.register(servidor -> GerenciadorRinhas.encerrarTodas());
 
 		LOGGER.info("Galetocraft carregado: {} galos prontos! Base vigente rev. {} com {} espécies.",
 				1 + ModEntidades.GALOS.size(), galetario.revisaoBase(), galetario.especies().size());
