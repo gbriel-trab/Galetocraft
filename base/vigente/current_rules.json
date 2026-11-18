@@ -1,5 +1,2565 @@
 [
  {
+  "id": "aprendizado",
+  "payload_json": {
+   "status": "OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18",
+   "aprovacao": "Instrução expressa do criador em 18/11/2026: \"Resolve esses problemas todos com base nos dados mais recentes que temos disponíveis\".",
+   "politica": {
+    "maximo_golpes_equipados": 5,
+    "concentracao_fixa": true,
+    "conserva_golpes_desequipados": true,
+    "equipa_automaticamente_apos_desbloqueio": false,
+    "retrodesbloqueio_por_nivel_na_captura": true,
+    "golpes_por_nivel_incluindo_origem": 15,
+    "golpes_por_treinamento_mestres": 15,
+    "troca_de_slots": "depois de desbloquear os 5 golpes de origem, o treinador troca qualquer golpe equipado, exceto a Concentração, por outro já aprendido (Regra Oficial dos Quatro Slots v2, 10/11)",
+    "momento_da_troca": "fora da Rinha, por comando do treinador; a regra dos Quatro Slots não definiu o momento e a Beta 1.2.61 diz que nada é substituído sem comando do treinador; OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18",
+    "fonte_aprovacao_politica": "Aprovo oficialmente, na íntegra, as 11 grades de aprendizado por nível e treinamento especial contidas no documento Galetocraft_Proposta_Grades_Treinamento_11_Cocorideos_Beta_1.2.60_2026-11-12.md, inclusive os marcos de desbloqueio dos cinco golpes originais, o aprendizado retroativo por nível e a preservação dos golpes aprendidos. Preserve integralmente os repertórios, a programação da Salambrasa #012, Concentração fixa, IVs, EVs, XP, capturas e todas as regras anteriores. Registre em nova versão incremental do banco SQLite e execute auditoria independente de conformidade, balanceamento e integridade. Não invente requisitos ou custos dos mestres."
+   },
+   "marcos_por_nivel": [
+    1,
+    1,
+    5,
+    9,
+    13,
+    17,
+    21,
+    25,
+    29,
+    33,
+    37,
+    41,
+    44,
+    47,
+    50
+   ],
+   "tabelas": {
+    "1": [
+     {
+      "nome": "Concentração",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Crina Poderosa",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Faísca de Terreiro",
+      "metodo": "nivel",
+      "nivel": 5
+     },
+     {
+      "nome": "Chamado do Meio-Dia",
+      "metodo": "nivel",
+      "nivel": 9
+     },
+     {
+      "nome": "Sopro de Cinzas",
+      "metodo": "nivel",
+      "nivel": 13
+     },
+     {
+      "nome": "Cocócombustão",
+      "metodo": "nivel",
+      "nivel": 17
+     },
+     {
+      "nome": "Rosácea de Fagulhas",
+      "metodo": "nivel",
+      "nivel": 21
+     },
+     {
+      "nome": "Retorno de Cinzas",
+      "metodo": "nivel",
+      "nivel": 25
+     },
+     {
+      "nome": "Assobio Rasante",
+      "metodo": "nivel",
+      "nivel": 29
+     },
+     {
+      "nome": "Reacender",
+      "metodo": "nivel",
+      "nivel": 33
+     },
+     {
+      "nome": "Penas de Brasa",
+      "metodo": "nivel",
+      "nivel": 37
+     },
+     {
+      "nome": "Coração de Fornalha",
+      "metodo": "nivel",
+      "nivel": 41
+     },
+     {
+      "nome": "Grito Harmônico",
+      "metodo": "nivel",
+      "nivel": 44
+     },
+     {
+      "nome": "Estouro de Magma",
+      "metodo": "nivel",
+      "nivel": 47
+     },
+     {
+      "nome": "Ave Fênix",
+      "metodo": "nivel",
+      "nivel": 50
+     },
+     {
+      "nome": "Assobio dos Quatro Ventos",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Aurora do Zênite",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Brilho de Carvão",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Cinza Desarmadora",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Cinza nos Olhos",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Cinzas da Discórdia",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Coração de Duas Chamas",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Cuidado de Plumagem",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Espora Incandescente",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Fornalha Resguardada",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Manto da Fornalha",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pena de Eco",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Redemoinho de Penas",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Sopro Circular",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Tempestade Interior",
+      "metodo": "treinamento"
+     }
+    ],
+    "2": [
+     {
+      "nome": "Concentração",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Garra Afiada",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Gota Disparada",
+      "metodo": "nivel",
+      "nivel": 5
+     },
+     {
+      "nome": "Névoa Protetora",
+      "metodo": "nivel",
+      "nivel": 9
+     },
+     {
+      "nome": "Cauda de Ressaca",
+      "metodo": "nivel",
+      "nivel": 13
+     },
+     {
+      "nome": "Revide das Marés",
+      "metodo": "nivel",
+      "nivel": 17
+     },
+     {
+      "nome": "Pancada de Maré",
+      "metodo": "nivel",
+      "nivel": 21
+     },
+     {
+      "nome": "Banho Reparador",
+      "metodo": "nivel",
+      "nivel": 25
+     },
+     {
+      "nome": "Coluna de Espuma",
+      "metodo": "nivel",
+      "nivel": 29
+     },
+     {
+      "nome": "Muralha Escavada",
+      "metodo": "nivel",
+      "nivel": 33
+     },
+     {
+      "nome": "Prisão Abissal",
+      "metodo": "nivel",
+      "nivel": 37
+     },
+     {
+      "nome": "Açoite de Corredeira",
+      "metodo": "nivel",
+      "nivel": 41
+     },
+     {
+      "nome": "Quebra-Cais",
+      "metodo": "nivel",
+      "nivel": 47
+     },
+     {
+      "nome": "Punho da Fortaleza",
+      "metodo": "nivel",
+      "nivel": 50
+     },
+     {
+      "nome": "Banho Sereno",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Bico de Marola",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Canto das Nuvens",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Coluna de Guarda",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Couraça do Subsolo",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Cuidado de Plumagem",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Fôlego de Ressaca",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Marreta de Barro",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Maré de Retirada",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pedra de Revezamento",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pisada de Lastro",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Pressão do Manancial",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Redemoinho Exaustivo",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Terreiro Purificado",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Tsunami de Bolhas",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Vórtice Azul",
+      "metodo": "treinamento"
+     }
+    ],
+    "3": [
+     {
+      "nome": "Concentração",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Crina Poderosa",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Semente Atirada",
+      "metodo": "nivel",
+      "nivel": 5
+     },
+     {
+      "nome": "Casca Compartilhada",
+      "metodo": "nivel",
+      "nivel": 9
+     },
+     {
+      "nome": "Perfume Ácido",
+      "metodo": "nivel",
+      "nivel": 13
+     },
+     {
+      "nome": "Esporos Venenosos",
+      "metodo": "nivel",
+      "nivel": 17
+     },
+     {
+      "nome": "Hino das Raízes",
+      "metodo": "nivel",
+      "nivel": 21
+     },
+     {
+      "nome": "Néctar Corrosivo",
+      "metodo": "nivel",
+      "nivel": 25
+     },
+     {
+      "nome": "Armadilha de Pólen",
+      "metodo": "nivel",
+      "nivel": 29
+     },
+     {
+      "nome": "Fotossíntese de Poleiro",
+      "metodo": "nivel",
+      "nivel": 33
+     },
+     {
+      "nome": "Pólen Revigorante",
+      "metodo": "nivel",
+      "nivel": 37
+     },
+     {
+      "nome": "Espiral de Clorofila",
+      "metodo": "nivel",
+      "nivel": 41
+     },
+     {
+      "nome": "Seiva de Ferro",
+      "metodo": "nivel",
+      "nivel": 44
+     },
+     {
+      "nome": "Chuva de Folhas-Lança",
+      "metodo": "nivel",
+      "nivel": 47
+     },
+     {
+      "nome": "Jardim da Discórdia",
+      "metodo": "nivel",
+      "nivel": 50
+     },
+     {
+      "nome": "Assobio dos Quatro Ventos",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Banho Reparador",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Banho Sereno",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Canto das Nuvens",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Casco de Bromélia",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Espinho de Revezamento",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Gota Disparada",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Névoa Protetora",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Orvalho Cortante",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pétalas de Conquista",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pólen Desarmônico",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Raízes na Espora",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Resina nas Articulações",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Seiva de Retaguarda",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Vinha Antirrasante",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     }
+    ],
+    "4": [
+     {
+      "nome": "Concentração",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Garra Afiada",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Chute de Cascalho",
+      "metodo": "nivel",
+      "nivel": 5
+     },
+     {
+      "nome": "Tambor da Areia",
+      "metodo": "nivel",
+      "nivel": 9
+     },
+     {
+      "nome": "Marreta de Barro",
+      "metodo": "nivel",
+      "nivel": 13
+     },
+     {
+      "nome": "Punho das Dunas",
+      "metodo": "nivel",
+      "nivel": 17
+     },
+     {
+      "nome": "Cabeçada de Basalto",
+      "metodo": "nivel",
+      "nivel": 21
+     },
+     {
+      "nome": "Muralha Escavada",
+      "metodo": "nivel",
+      "nivel": 25
+     },
+     {
+      "nome": "Pisão Sísmico",
+      "metodo": "nivel",
+      "nivel": 33
+     },
+     {
+      "nome": "Prisão das Areias",
+      "metodo": "nivel",
+      "nivel": 37
+     },
+     {
+      "nome": "Lança de Obsidiana",
+      "metodo": "nivel",
+      "nivel": 41
+     },
+     {
+      "nome": "Sepultamento do Deserto",
+      "metodo": "nivel",
+      "nivel": 50
+     },
+     {
+      "nome": "Areia nos Encaixes",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Brasa de Rebate",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Cinzel Quebra-Manto",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Coluna de Guarda",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Espora Incandescente",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Fissura Absoluta",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Forja das Esporas",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Fúria da Bigorna",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Galope de Carvão",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Garra Vulcânica",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Ninho de Pedregulhos",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pedra da Impaciência",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Pedra de Revezamento",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pisada de Lastro",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Quebra-Forja",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Quebra-Ímpeto",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Rugido de Sufoco",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Trono de Cascalho",
+      "metodo": "treinamento"
+     }
+    ],
+    "5": [
+     {
+      "nome": "Concentração",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Garra Afiada",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Asa Riscante",
+      "metodo": "nivel",
+      "nivel": 5
+     },
+     {
+      "nome": "Assobio dos Quatro Ventos",
+      "metodo": "nivel",
+      "nivel": 9
+     },
+     {
+      "nome": "Pluma de Corte",
+      "metodo": "nivel",
+      "nivel": 13
+     },
+     {
+      "nome": "Lâminas de Vento",
+      "metodo": "nivel",
+      "nivel": 17
+     },
+     {
+      "nome": "Bicada Turbilhão",
+      "metodo": "nivel",
+      "nivel": 21
+     },
+     {
+      "nome": "Corrente de Evasão",
+      "metodo": "nivel",
+      "nivel": 25
+     },
+     {
+      "nome": "Espora de Cobre",
+      "metodo": "nivel",
+      "nivel": 29
+     },
+     {
+      "nome": "Rasgo de Altitude",
+      "metodo": "nivel",
+      "nivel": 33
+     },
+     {
+      "nome": "Dança dos Vendavais",
+      "metodo": "nivel",
+      "nivel": 37
+     },
+     {
+      "nome": "Passo de Vendaval",
+      "metodo": "nivel",
+      "nivel": 41
+     },
+     {
+      "nome": "Queda do Falcão",
+      "metodo": "nivel",
+      "nivel": 44
+     },
+     {
+      "nome": "Caçada Cortavento",
+      "metodo": "nivel",
+      "nivel": 47
+     },
+     {
+      "nome": "Julgamento dos Céus",
+      "metodo": "nivel",
+      "nivel": 50
+     },
+     {
+      "nome": "Bicada Elétrica",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Cascata de Centelhas",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Dança do Zênite",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Espora Incandescente",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Giro de Esporas",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Investida do Dínamo",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Passo Firme",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Patada Rasteira",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pena de Eco",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Pluma Vazia",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Rasante do Azarão",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Redemoinho de Penas",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Rugido de Sufoco",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Túnel de Retorno",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Vórtice de Passagem",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     }
+    ],
+    "6": [
+     {
+      "nome": "Concentração",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Crina Poderosa",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Arco de Faísca",
+      "metodo": "nivel",
+      "nivel": 5
+     },
+     {
+      "nome": "Cântico dos Condutores",
+      "metodo": "nivel",
+      "nivel": 9
+     },
+     {
+      "nome": "Pulso Condutor",
+      "metodo": "nivel",
+      "nivel": 13
+     },
+     {
+      "nome": "Estalo Voltaico",
+      "metodo": "nivel",
+      "nivel": 17
+     },
+     {
+      "nome": "Círculo Voltaico",
+      "metodo": "nivel",
+      "nivel": 21
+     },
+     {
+      "nome": "Bateria Compartilhada",
+      "metodo": "nivel",
+      "nivel": 25
+     },
+     {
+      "nome": "Assobio Rasante",
+      "metodo": "nivel",
+      "nivel": 29
+     },
+     {
+      "nome": "Rede de Relâmpagos",
+      "metodo": "nivel",
+      "nivel": 33
+     },
+     {
+      "nome": "Palma Celeste",
+      "metodo": "nivel",
+      "nivel": 37
+     },
+     {
+      "nome": "Foco Centelhante",
+      "metodo": "nivel",
+      "nivel": 41
+     },
+     {
+      "nome": "Ruptura de Alta Tensão",
+      "metodo": "nivel",
+      "nivel": 44
+     },
+     {
+      "nome": "Descarga Sináptica",
+      "metodo": "nivel",
+      "nivel": 47
+     },
+     {
+      "nome": "Julgamento dos Raios",
+      "metodo": "nivel",
+      "nivel": 50
+     },
+     {
+      "nome": "Apagão de Circuitos",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Assobio dos Quatro Ventos",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Aurora do Zênite",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Bicada Elétrica",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Campo de Centelhas",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Coluna de Espuma",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Cone de Vácuo",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Escudo Galvânico",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Ferrugem de Espora",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pena de Eco",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Pico Voltaico",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Rede de Estática",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Sopro Circular",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Tempestade Interior",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Vórtice Azul",
+      "metodo": "treinamento"
+     }
+    ],
+    "7": [
+     {
+      "nome": "Concentração",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Garra Afiada",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Chute de Cascalho",
+      "metodo": "nivel",
+      "nivel": 5
+     },
+     {
+      "nome": "Tambor da Areia",
+      "metodo": "nivel",
+      "nivel": 9
+     },
+     {
+      "nome": "Marreta de Barro",
+      "metodo": "nivel",
+      "nivel": 13
+     },
+     {
+      "nome": "Impacto Blindado",
+      "metodo": "nivel",
+      "nivel": 17
+     },
+     {
+      "nome": "Casca Compartilhada",
+      "metodo": "nivel",
+      "nivel": 21
+     },
+     {
+      "nome": "Cabeçada de Basalto",
+      "metodo": "nivel",
+      "nivel": 25
+     },
+     {
+      "nome": "Muralha Escavada",
+      "metodo": "nivel",
+      "nivel": 29
+     },
+     {
+      "nome": "Guarda do Tatu",
+      "metodo": "nivel",
+      "nivel": 37
+     },
+     {
+      "nome": "Couraça do Subsolo",
+      "metodo": "nivel",
+      "nivel": 41
+     },
+     {
+      "nome": "Lança de Obsidiana",
+      "metodo": "nivel",
+      "nivel": 47
+     },
+     {
+      "nome": "Coro das Dunas",
+      "metodo": "nivel",
+      "nivel": 50
+     },
+     {
+      "nome": "Areia nos Encaixes",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Arranco de Tronco",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Broca de Raiz",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Casco de Bromélia",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Cauda de Ressaca",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Chicotada de Talos",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Cinzel Quebra-Manto",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Coluna de Guarda",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Lodo Pressurizado",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Ninho de Pedregulhos",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pedra da Impaciência",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Pedra de Revezamento",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pisada de Lastro",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Pisão Sísmico",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Tremor de Cristal",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Trono de Cascalho",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Vinha Antirrasante",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     }
+    ],
+    "8": [
+     {
+      "nome": "Concentração",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Crina Poderosa",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Gota Disparada",
+      "metodo": "nivel",
+      "nivel": 5
+     },
+     {
+      "nome": "Canto das Nuvens",
+      "metodo": "nivel",
+      "nivel": 9
+     },
+     {
+      "nome": "Orvalho Cortante",
+      "metodo": "nivel",
+      "nivel": 13
+     },
+     {
+      "nome": "Estalo das Brânquias",
+      "metodo": "nivel",
+      "nivel": 17
+     },
+     {
+      "nome": "Névoa Protetora",
+      "metodo": "nivel",
+      "nivel": 21
+     },
+     {
+      "nome": "Coluna de Espuma",
+      "metodo": "nivel",
+      "nivel": 25
+     },
+     {
+      "nome": "Banho Reparador",
+      "metodo": "nivel",
+      "nivel": 29
+     },
+     {
+      "nome": "Perfume Ácido",
+      "metodo": "nivel",
+      "nivel": 33
+     },
+     {
+      "nome": "Elo Regenerativo",
+      "metodo": "nivel",
+      "nivel": 37
+     },
+     {
+      "nome": "Fotossíntese de Poleiro",
+      "metodo": "nivel",
+      "nivel": 41
+     },
+     {
+      "nome": "Vórtice Azul",
+      "metodo": "nivel",
+      "nivel": 44
+     },
+     {
+      "nome": "Dilúvio Branquial",
+      "metodo": "nivel",
+      "nivel": 50
+     },
+     {
+      "nome": "Açoite de Corredeira",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Banho Sereno",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Bico de Marola",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Casca Compartilhada",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Cauda de Ressaca",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Fôlego de Ressaca",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Hino das Raízes",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Maré de Retirada",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pancada de Maré",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Pressão do Manancial",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Quebra-Cais",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Redemoinho Exaustivo",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Seiva de Retaguarda",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Semente Atirada",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Sopro Circular",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Tsunami de Bolhas",
+      "metodo": "treinamento"
+     }
+    ],
+    "9": [
+     {
+      "nome": "Concentração",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Garra Afiada",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Cântico dos Condutores",
+      "metodo": "nivel",
+      "nivel": 9
+     },
+     {
+      "nome": "Relé Luminoso",
+      "metodo": "nivel",
+      "nivel": 17
+     },
+     {
+      "nome": "Corrente de Evasão",
+      "metodo": "nivel",
+      "nivel": 21
+     },
+     {
+      "nome": "Pulso Condutor",
+      "metodo": "nivel",
+      "nivel": 25
+     },
+     {
+      "nome": "Bateria Compartilhada",
+      "metodo": "nivel",
+      "nivel": 29
+     },
+     {
+      "nome": "Cortina Cintilante",
+      "metodo": "nivel",
+      "nivel": 37
+     },
+     {
+      "nome": "Campo de Centelhas",
+      "metodo": "nivel",
+      "nivel": 41
+     },
+     {
+      "nome": "Rede de Estática",
+      "metodo": "nivel",
+      "nivel": 47
+     },
+     {
+      "nome": "Choque Estático",
+      "metodo": "nivel",
+      "nivel": 50
+     },
+     {
+      "nome": "Apagão de Circuitos",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Arco de Faísca",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Armadilha de Pólen",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Asa Riscante",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Assobio Rasante",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Assobio dos Quatro Ventos",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Aurora do Zênite",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Círculo Voltaico",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Descarga Sináptica",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Escudo Galvânico",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Ferrugem de Espora",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Foco Centelhante",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Passo de Vendaval",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pluma Vazia",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Rede de Relâmpagos",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Redemoinho de Penas",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Sopro Circular",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Túnel de Retorno",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Vórtice de Passagem",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     }
+    ],
+    "10": [
+     {
+      "nome": "Concentração",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Garra Afiada",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Asa Riscante",
+      "metodo": "nivel",
+      "nivel": 5
+     },
+     {
+      "nome": "Assobio dos Quatro Ventos",
+      "metodo": "nivel",
+      "nivel": 9
+     },
+     {
+      "nome": "Pluma de Corte",
+      "metodo": "nivel",
+      "nivel": 13
+     },
+     {
+      "nome": "Rasante Ressonante",
+      "metodo": "nivel",
+      "nivel": 17
+     },
+     {
+      "nome": "Assobio Rasante",
+      "metodo": "nivel",
+      "nivel": 21
+     },
+     {
+      "nome": "Corrente de Evasão",
+      "metodo": "nivel",
+      "nivel": 25
+     },
+     {
+      "nome": "Bicada Turbilhão",
+      "metodo": "nivel",
+      "nivel": 29
+     },
+     {
+      "nome": "Grito Harmônico",
+      "metodo": "nivel",
+      "nivel": 33
+     },
+     {
+      "nome": "Ruído Branco",
+      "metodo": "nivel",
+      "nivel": 37
+     },
+     {
+      "nome": "Passo de Vendaval",
+      "metodo": "nivel",
+      "nivel": 41
+     },
+     {
+      "nome": "Rasgo de Altitude",
+      "metodo": "nivel",
+      "nivel": 44
+     },
+     {
+      "nome": "Vácuo de Eco",
+      "metodo": "nivel",
+      "nivel": 47
+     },
+     {
+      "nome": "Colapso Sonoro",
+      "metodo": "nivel",
+      "nivel": 50
+     },
+     {
+      "nome": "Armadilha de Pólen",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Cocoricó Desafiador",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Cone de Vácuo",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Círculo Voltaico",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Eco do Cocoricó",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Espinho de Pressão",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pena de Eco",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Pluma Vazia",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Pulso Condutor",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Rasante do Azarão",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Redemoinho de Penas",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Ruído de Barragem",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Sopro Circular",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Túnel de Retorno",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Vórtice de Passagem",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     }
+    ],
+    "11": [
+     {
+      "nome": "Concentração",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Garra Afiada",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Chicotada de Talos",
+      "metodo": "nivel",
+      "nivel": 5
+     },
+     {
+      "nome": "Casca Compartilhada",
+      "metodo": "nivel",
+      "nivel": 9
+     },
+     {
+      "nome": "Ferrão de Trepadeira",
+      "metodo": "nivel",
+      "nivel": 13
+     },
+     {
+      "nome": "Espinho Venenoso",
+      "metodo": "nivel",
+      "nivel": 17
+     },
+     {
+      "nome": "Arranco de Tronco",
+      "metodo": "nivel",
+      "nivel": 21
+     },
+     {
+      "nome": "Hino das Raízes",
+      "metodo": "nivel",
+      "nivel": 25
+     },
+     {
+      "nome": "Armadilha de Pólen",
+      "metodo": "nivel",
+      "nivel": 29
+     },
+     {
+      "nome": "Tesoura de Folhas",
+      "metodo": "nivel",
+      "nivel": 33
+     },
+     {
+      "nome": "Armadilha de Cipós",
+      "metodo": "nivel",
+      "nivel": 37
+     },
+     {
+      "nome": "Ninho de Pedregulhos",
+      "metodo": "nivel",
+      "nivel": 41
+     },
+     {
+      "nome": "Broca de Raiz",
+      "metodo": "nivel",
+      "nivel": 44
+     },
+     {
+      "nome": "Resina nas Articulações",
+      "metodo": "nivel",
+      "nivel": 47
+     },
+     {
+      "nome": "Rajada de Espinhos",
+      "metodo": "nivel",
+      "nivel": 50
+     },
+     {
+      "nome": "Cabeçada de Basalto",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Casco de Bromélia",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Chute de Cascalho",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Cinzel Quebra-Manto",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Cipó Descascador",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Coluna de Guarda",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Couraça do Subsolo",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Espinho de Revezamento",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Marreta de Barro",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Muralha Escavada",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pisada de Lastro",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Pisão Sísmico",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Raízes na Espora",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Terreiro Purificado",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Vinha Antirrasante",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     }
+    ],
+    "12": [
+     {
+      "nome": "Concentração",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Garra Afiada",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Bico de Brasas",
+      "metodo": "nivel",
+      "nivel": 5
+     },
+     {
+      "nome": "Chute de Cascalho",
+      "metodo": "nivel",
+      "nivel": 9
+     },
+     {
+      "nome": "Espora Incandescente",
+      "metodo": "nivel",
+      "nivel": 13
+     },
+     {
+      "nome": "Dentada de Carvão",
+      "metodo": "nivel",
+      "nivel": 17
+     },
+     {
+      "nome": "Chamado do Meio-Dia",
+      "metodo": "nivel",
+      "nivel": 25
+     },
+     {
+      "nome": "Marreta de Barro",
+      "metodo": "nivel",
+      "nivel": 29
+     },
+     {
+      "nome": "Galope de Carvão",
+      "metodo": "nivel",
+      "nivel": 33
+     },
+     {
+      "nome": "Armadura de Brasa",
+      "metodo": "nivel",
+      "nivel": 37
+     },
+     {
+      "nome": "Forja das Esporas",
+      "metodo": "nivel",
+      "nivel": 41
+     },
+     {
+      "nome": "Cabeçada de Basalto",
+      "metodo": "nivel",
+      "nivel": 44
+     },
+     {
+      "nome": "Reacender",
+      "metodo": "nivel",
+      "nivel": 47
+     },
+     {
+      "nome": "Arrasto Magmático",
+      "metodo": "nivel",
+      "nivel": 50
+     },
+     {
+      "nome": "Brasa de Rebate",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Choque de Ombros",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Cinza nos Olhos",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Cinzas da Discórdia",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Cinzel Quebra-Manto",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Couraça do Subsolo",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Fornalha Resguardada",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Garra Vulcânica",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Lança de Obsidiana",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Lodo Pressurizado",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Muralha Escavada",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pisada de Lastro",
+      "metodo": "treinamento",
+      "sem_marco_na_grade": true
+     },
+     {
+      "nome": "Pisão Sísmico",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Quebra-Forja",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Retorno de Cinzas",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Tambor da Areia",
+      "metodo": "treinamento"
+     }
+    ],
+    "19": [
+     {
+      "nome": "Concentração",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Garra Afiada",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Bico Luminar",
+      "metodo": "nivel",
+      "nivel": 5
+     },
+     {
+      "nome": "Refúgio do Manto",
+      "metodo": "nivel",
+      "nivel": 9
+     },
+     {
+      "nome": "Asa da Aurora",
+      "metodo": "nivel",
+      "nivel": 13
+     },
+     {
+      "nome": "Alvorada Purificadora",
+      "metodo": "nivel",
+      "nivel": 17
+     },
+     {
+      "nome": "Chama Reparadora",
+      "metodo": "nivel",
+      "nivel": 21
+     },
+     {
+      "nome": "Rasante Pacificador",
+      "metodo": "nivel",
+      "nivel": 25
+     },
+     {
+      "nome": "Ninho das Cinzas",
+      "metodo": "nivel",
+      "nivel": 29
+     },
+     {
+      "nome": "Investida das Três Caudas",
+      "metodo": "nivel",
+      "nivel": 33
+     },
+     {
+      "nome": "Fogo de Amparo",
+      "metodo": "nivel",
+      "nivel": 37
+     },
+     {
+      "nome": "Toque da Brasa",
+      "metodo": "nivel",
+      "nivel": 41
+     },
+     {
+      "nome": "Asas da Vigília",
+      "metodo": "nivel",
+      "nivel": 44
+     },
+     {
+      "nome": "Coro das Três Chamas",
+      "metodo": "nivel",
+      "nivel": 47
+     },
+     {
+      "nome": "Juramento da Fênix",
+      "metodo": "nivel",
+      "nivel": 50
+     },
+     {
+      "nome": "Brasa Compartilhada",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Brisa Despertadora",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Chicote da Aurora",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Chute dos Céus",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Cinza da Trégua",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Corte do Manto",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Descanso na Brasa",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Escolta das Nuvens",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Garra do Recomeço",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Guarda da Primeira Luz",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Ninho de Passagem",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Oração do Retorno",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pacto da Retomada",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Passo do Peregrino",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Rastro das Caudas",
+      "metodo": "treinamento"
+     }
+    ],
+    "20": [
+     {
+      "nome": "Concentração",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Garra Afiada",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Bico de Bobina",
+      "metodo": "nivel",
+      "nivel": 5
+     },
+     {
+      "nome": "Ombreira de Cascalho",
+      "metodo": "nivel",
+      "nivel": 9
+     },
+     {
+      "nome": "Martelo de Estratos",
+      "metodo": "nivel",
+      "nivel": 13
+     },
+     {
+      "nome": "Costura Tectônica",
+      "metodo": "nivel",
+      "nivel": 17
+     },
+     {
+      "nome": "Chassi de Argila",
+      "metodo": "nivel",
+      "nivel": 21
+     },
+     {
+      "nome": "Pisada de Ancoragem",
+      "metodo": "nivel",
+      "nivel": 25
+     },
+     {
+      "nome": "Rebitagem de Emergência",
+      "metodo": "nivel",
+      "nivel": 29
+     },
+     {
+      "nome": "Trava de Indução",
+      "metodo": "nivel",
+      "nivel": 33
+     },
+     {
+      "nome": "Curto Galvânico",
+      "metodo": "nivel",
+      "nivel": 37
+     },
+     {
+      "nome": "Colisão de Pedreira",
+      "metodo": "nivel",
+      "nivel": 41
+     },
+     {
+      "nome": "Descarga Depuradora",
+      "metodo": "nivel",
+      "nivel": 44
+     },
+     {
+      "nome": "Sinal de Revezamento",
+      "metodo": "nivel",
+      "nivel": 47
+     },
+     {
+      "nome": "Coração da Última Tempestade",
+      "metodo": "nivel",
+      "nivel": 50
+     },
+     {
+      "nome": "Arco de Interferência",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Asa Desparafusadora",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Bobina de Reserva",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Campo de Fendas",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Captador de Faíscas",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Choque dos Rebites",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Circuito Auxiliar",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Fivelas de Reserva",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Garra de Escória",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Ombro de Cascalho",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Polaridade de Retorno",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Punho dos Rebites",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Selo Antissutura",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Soltura de Engrenagens",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Ímã de Retenção",
+      "metodo": "treinamento"
+     }
+    ],
+    "21": [
+     {
+      "nome": "Concentração",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Crina Poderosa",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Perfume Ácido",
+      "metodo": "nivel",
+      "nivel": 5
+     },
+     {
+      "nome": "Resina nas Articulações",
+      "metodo": "nivel",
+      "nivel": 9
+     },
+     {
+      "nome": "Lodo Pressurizado",
+      "metodo": "nivel",
+      "nivel": 13
+     },
+     {
+      "nome": "Sussurro do Assoalho",
+      "metodo": "nivel",
+      "nivel": 17
+     },
+     {
+      "nome": "Armadilha de Pólen",
+      "metodo": "nivel",
+      "nivel": 21
+     },
+     {
+      "nome": "Néctar Corrosivo",
+      "metodo": "nivel",
+      "nivel": 25
+     },
+     {
+      "nome": "Pólen Desarmônico",
+      "metodo": "nivel",
+      "nivel": 29
+     },
+     {
+      "nome": "Pedra da Impaciência",
+      "metodo": "nivel",
+      "nivel": 33
+     },
+     {
+      "nome": "Pátio Sem Saída",
+      "metodo": "nivel",
+      "nivel": 37
+     },
+     {
+      "nome": "Fenda da Garganta",
+      "metodo": "nivel",
+      "nivel": 41
+     },
+     {
+      "nome": "Ninho de Pedregulhos",
+      "metodo": "nivel",
+      "nivel": 44
+     },
+     {
+      "nome": "Quebra-Ímpeto",
+      "metodo": "nivel",
+      "nivel": 47
+     },
+     {
+      "nome": "Veredito da Porta Fechada",
+      "metodo": "nivel",
+      "nivel": 50
+     },
+     {
+      "nome": "Assobio Rasante",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Aurora do Zênite",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Chuva de Folhas-Lança",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Cocoricó Desafiador",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Cone de Vácuo",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Dissipação Absoluta",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Erupção de Geodo",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Espiral de Clorofila",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Grito Harmônico",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Hino das Raízes",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Ondulação Rochosa",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Seiva de Ferro",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Silêncio do Selo",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Sopro de Cinzas",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Tambor da Areia",
+      "metodo": "treinamento"
+     }
+    ],
+    "22": [
+     {
+      "nome": "Concentração",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Crina Poderosa",
+      "metodo": "nivel",
+      "nivel": 1
+     },
+     {
+      "nome": "Gota Disparada",
+      "metodo": "nivel",
+      "nivel": 5
+     },
+     {
+      "nome": "Sopro Circular",
+      "metodo": "nivel",
+      "nivel": 9
+     },
+     {
+      "nome": "Canto das Nuvens",
+      "metodo": "nivel",
+      "nivel": 13
+     },
+     {
+      "nome": "Arpejo da Ressaca",
+      "metodo": "nivel",
+      "nivel": 17
+     },
+     {
+      "nome": "Orvalho Cortante",
+      "metodo": "nivel",
+      "nivel": 21
+     },
+     {
+      "nome": "Assobio Rasante",
+      "metodo": "nivel",
+      "nivel": 25
+     },
+     {
+      "nome": "Névoa Protetora",
+      "metodo": "nivel",
+      "nivel": 29
+     },
+     {
+      "nome": "Grito Harmônico",
+      "metodo": "nivel",
+      "nivel": 33
+     },
+     {
+      "nome": "Contraponto dos Ventos",
+      "metodo": "nivel",
+      "nivel": 37
+     },
+     {
+      "nome": "Coluna de Espuma",
+      "metodo": "nivel",
+      "nivel": 41
+     },
+     {
+      "nome": "Assobio dos Quatro Ventos",
+      "metodo": "nivel",
+      "nivel": 44
+     },
+     {
+      "nome": "Cone de Vácuo",
+      "metodo": "nivel",
+      "nivel": 47
+     },
+     {
+      "nome": "Ária da Maré Eterna",
+      "metodo": "nivel",
+      "nivel": 50
+     },
+     {
+      "nome": "Aurora do Zênite",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Banho Reparador",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Corrente de Evasão",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Espinho de Pressão",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Maré da Consciência",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pluma Vazia",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Pressão do Manancial",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Redemoinho Exaustivo",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Redemoinho de Penas",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Ruído de Barragem",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Terreiro Purificado",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Tsunami de Bolhas",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Vácuo de Eco",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Véu de Maré",
+      "metodo": "treinamento"
+     },
+     {
+      "nome": "Vórtice Azul",
+      "metodo": "treinamento"
+     }
+    ]
+   },
+   "conciliacao_001_012": {
+    "regra": "as grades homologadas em 12/11 usam o repertório anterior à Reforma Integral; vale o repertório vigente: marco cujo golpe saiu do repertório fica vazio, e golpe vigente sem marco é aprendido por treinamento",
+    "detalhe": {
+     "1": {
+      "marcos_sem_golpe_vigente": [],
+      "golpes_vigentes_sem_marco_vao_para_treinamento": [
+       "Cinza Desarmadora",
+       "Fornalha Resguardada",
+       "Brilho de Carvão",
+       "Aurora do Zênite",
+       "Redemoinho de Penas",
+       "Pena de Eco"
+      ]
+     },
+     "2": {
+      "marcos_sem_golpe_vigente": [
+       {
+        "nivel": 44,
+        "golpe_da_fonte": "Véu de Maré"
+       }
+      ],
+      "golpes_vigentes_sem_marco_vao_para_treinamento": [
+       "Bico de Marola",
+       "Fôlego de Ressaca",
+       "Redemoinho Exaustivo",
+       "Banho Sereno",
+       "Pressão do Manancial",
+       "Pisada de Lastro",
+       "Coluna de Guarda"
+      ]
+     },
+     "3": {
+      "marcos_sem_golpe_vigente": [],
+      "golpes_vigentes_sem_marco_vao_para_treinamento": [
+       "Espinho de Revezamento",
+       "Seiva de Retaguarda",
+       "Vinha Antirrasante",
+       "Casco de Bromélia",
+       "Banho Sereno",
+       "Assobio dos Quatro Ventos"
+      ]
+     },
+     "4": {
+      "marcos_sem_golpe_vigente": [
+       {
+        "nivel": 29,
+        "golpe_da_fonte": "Choque de Ombros"
+       },
+       {
+        "nivel": 44,
+        "golpe_da_fonte": "Impacto de Peito"
+       },
+       {
+        "nivel": 47,
+        "golpe_da_fonte": "Investida de Terreiro"
+       }
+      ],
+      "golpes_vigentes_sem_marco_vao_para_treinamento": [
+       "Pisada de Lastro",
+       "Coluna de Guarda",
+       "Cinzel Quebra-Manto",
+       "Pedra da Impaciência",
+       "Brasa de Rebate",
+       "Forja das Esporas",
+       "Rugido de Sufoco"
+      ]
+     },
+     "5": {
+      "marcos_sem_golpe_vigente": [],
+      "golpes_vigentes_sem_marco_vao_para_treinamento": [
+       "Pluma Vazia",
+       "Vórtice de Passagem",
+       "Pena de Eco",
+       "Rasante do Azarão"
+      ]
+     },
+     "6": {
+      "marcos_sem_golpe_vigente": [],
+      "golpes_vigentes_sem_marco_vao_para_treinamento": [
+       "Assobio dos Quatro Ventos",
+       "Tempestade Interior",
+       "Pena de Eco",
+       "Bicada Elétrica"
+      ]
+     },
+     "7": {
+      "marcos_sem_golpe_vigente": [
+       {
+        "nivel": 33,
+        "golpe_da_fonte": "Choque de Ombros"
+       }
+      ],
+      "golpes_vigentes_sem_marco_vao_para_treinamento": [
+       "Tremor de Cristal",
+       "Pisada de Lastro",
+       "Coluna de Guarda",
+       "Cinzel Quebra-Manto",
+       "Pedra da Impaciência",
+       "Arranco de Tronco",
+       "Broca de Raiz",
+       "Casco de Bromélia",
+       "Vinha Antirrasante",
+       "Lodo Pressurizado"
+      ]
+     },
+     "8": {
+      "marcos_sem_golpe_vigente": [
+       {
+        "nivel": 47,
+        "golpe_da_fonte": "Véu de Maré"
+       }
+      ],
+      "golpes_vigentes_sem_marco_vao_para_treinamento": [
+       "Bico de Marola",
+       "Pancada de Maré",
+       "Açoite de Corredeira",
+       "Quebra-Cais",
+       "Fôlego de Ressaca",
+       "Redemoinho Exaustivo",
+       "Banho Sereno",
+       "Pressão do Manancial",
+       "Seiva de Retaguarda",
+       "Sopro Circular"
+      ]
+     },
+     "9": {
+      "marcos_sem_golpe_vigente": [
+       {
+        "nivel": 5,
+        "golpe_da_fonte": "Bicada Elétrica"
+       },
+       {
+        "nivel": 13,
+        "golpe_da_fonte": "Espora de Cobre"
+       }
+      ],
+      "golpes_vigentes_sem_marco_vao_para_treinamento": [
+       "Arco de Faísca",
+       "Círculo Voltaico",
+       "Rede de Relâmpagos",
+       "Foco Centelhante",
+       "Descarga Sináptica",
+       "Apagão de Circuitos",
+       "Sopro Circular",
+       "Assobio Rasante",
+       "Aurora do Zênite",
+       "Assobio dos Quatro Ventos",
+       "Pluma Vazia",
+       "Vórtice de Passagem"
+      ]
+     },
+     "10": {
+      "marcos_sem_golpe_vigente": [],
+      "golpes_vigentes_sem_marco_vao_para_treinamento": [
+       "Pluma Vazia",
+       "Vórtice de Passagem",
+       "Pena de Eco",
+       "Rasante do Azarão",
+       "Cocoricó Desafiador",
+       "Círculo Voltaico",
+       "Armadilha de Pólen"
+      ]
+     },
+     "11": {
+      "marcos_sem_golpe_vigente": [],
+      "golpes_vigentes_sem_marco_vao_para_treinamento": [
+       "Espinho de Revezamento",
+       "Vinha Antirrasante",
+       "Casco de Bromélia",
+       "Pisão Sísmico",
+       "Pisada de Lastro",
+       "Coluna de Guarda",
+       "Cinzel Quebra-Manto"
+      ]
+     },
+     "12": {
+      "marcos_sem_golpe_vigente": [
+       {
+        "nivel": 21,
+        "golpe_da_fonte": "Patada Rasteira"
+       }
+      ],
+      "golpes_vigentes_sem_marco_vao_para_treinamento": [
+       "Brasa de Rebate",
+       "Fornalha Resguardada",
+       "Lança de Obsidiana",
+       "Pisada de Lastro",
+       "Cinzel Quebra-Manto"
+      ]
+     }
+    }
+   },
+   "cobertura": {
+    "com_tabela": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     19,
+     20,
+     21,
+     22
+    ],
+    "sem_dado_no_acervo": [
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     23
+    ]
+   },
+   "fontes": [
+    {
+     "arquivo": "Galetocraft_Homologacao_Grades_Aprendizado_Beta_1.2.61_2026-11-12.md",
+     "especies": "001–012",
+     "sha256": "07c97743f0275080647924a158f8ccecb9c94514d2b7991b6e2711bbd080dd0b",
+     "tabela": "v_gc54_aprendizado_completo_v1261"
+    },
+    {
+     "arquivo": "Progressao_019_Renacoco_15_Niveis_15_Treinamento_2026-11-12.json",
+     "especies": "019",
+     "sha256": "2171d0116bcda59f7688126272ac4159f5fd5fa90e78b11603d4bb4342f5c451",
+     "status_na_fonte": "DISTRIBUICAO_DE_PROGRESSAO_PREPARADA_A_PEDIDO_DO_CRIADOR"
+    },
+    {
+     "arquivo": "Galetario_020_Frankoco_OFICIAL_2026-11-12.md",
+     "especies": "020",
+     "sha256": "8249779559a02ad1975f155b18acb4aab366724dfabb6c5b8eead6913285e30e"
+    },
+    {
+     "arquivo": "Galetario_021_Cabacoco_OFICIAL_2026-11-12.md",
+     "especies": "021",
+     "sha256": "16b430179f3839fb4240a02482473d5c59da942df73be30060268476c187077c"
+    },
+    {
+     "tabela": "gc53_aprendizado_022",
+     "especies": "022",
+     "trecho": "homologacao integral #022 13/11/2026"
+    },
+    {
+     "arquivo": "Galetocraft_Regra_Oficial_Personalizacao_Quatro_Slots_v2.md",
+     "data": "2026-11-10",
+     "sha256": "a9535a2a5f9a2e3b500532f1ce49e85397f825ec911106ea6f4fda7601bcab41"
+    }
+   ]
+  },
+  "source_ref": "Beta 1.2.61 (12/11), fichas #019–#022 e Quatro Slots v2",
+  "status": "OFICIAL_DOCUMENTAL"
+ },
+ {
   "id": "captura",
   "payload_json": {
    "parametros": {
@@ -98,7 +2658,9 @@
      "sucesso_rinha_encerra": 1,
      "adversario_pendente_age_na_ordem": 1,
      "status": "oficial_homologado",
-     "fonte_aprovacao": "Aprovo oficialmente o balanceamento final de capturas contido no documento Galetocraft_Proposta_Final_Capturas_Progressao_Pena_Mais_Dificil_2026-11-12.md, incluindo a progressão mais difícil da Pena de Captura com custos de 1.000, 3.000, 7.000 e 15.000 XP por evolução, total de 26.000 XP, além das fórmulas de captura e XP descritas no documento. Preserve todas as regras homologadas anteriormente, registre em nova versão do banco SQLite, audite e apresente o sistema de capturas finalizado."
+     "fonte_aprovacao": "Aprovo oficialmente o balanceamento final de capturas contido no documento Galetocraft_Proposta_Final_Capturas_Progressao_Pena_Mais_Dificil_2026-11-12.md, incluindo a progressão mais difícil da Pena de Captura com custos de 1.000, 3.000, 7.000 e 15.000 XP por evolução, total de 26.000 XP, além das fórmulas de captura e XP descritas no documento. Preserve todas as regras homologadas anteriormente, registre em nova versão do banco SQLite, audite e apresente o sistema de capturas finalizado.",
+     "posicao_na_rodada": "na vez do treinador, pela Velocidade do Galeto ativo dele (ordem regular: trocas, depois ações por Velocidade, empate 50/50); OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18",
+     "fonte_posicao": "captura_pena_rinha_falha_acao_adversario_v1252: \"depende de sua posição na ordem regular e de haver uma ação pendente\""
     }
    ],
    "fatores_estado_rinha": [
@@ -175,7 +2737,7 @@
     "outras_raridades_sem_nova_restricao": 1,
     "nao_garante_sucesso": 1,
     "sem_alterar_xp_evolucao": 1,
-    "comportamento_tentativa_inelegivel": null,
+    "comportamento_tentativa_inelegivel": "tentativa indisponível: não começa, não consome ação nem gera espera, com aviso ao treinador; vale para Lendário sem Pena 5 e para classes sem fator de captura (Lendário Original, Divino); proposta do auditor na Auditoria Geral de Capturas 1.2.58 (12/11), adotada: OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18",
     "efeitos_adicionais": null,
     "probabilidades_adicionais": null,
     "descricao": "A Pena nivel 5 e o requisito para capturar Cocorideos de raridade Lendario nas duas modalidades, mantendo chance probabilistica e sem garantir sucesso; nenhum requisito novo criado para Mitico/Divino ou outras raridades.",
@@ -221,7 +2783,15 @@
      "espera_compartilhada_entre_treinadores": 1
     }
    ],
-   "migrado_em": "2026-11-18"
+   "migrado_em": "2026-11-18",
+   "alvo_valido": {
+    "regra": "somente Cocorídeo selvagem que não esteja em Rinha; Galetos de treinador não são alvo",
+    "evidencia": [
+     "todas as homologações da Pena tratam de \"Cocorídeo selvagem\" (Betas 1.2.33 a 1.2.59)",
+     "Reprodução Etapa 01 (16/11): indivíduos não podem ser usados simultaneamente em Terreiros ou Rinhas"
+    ],
+    "status": "OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18"
+   }
   },
   "source_ref": "captura_* v1256, v1258 e v1259 (histórico rev. 2, oficial_homologado/oficial_vigente)",
   "status": "OFICIAL_DOCUMENTAL"
@@ -351,7 +2921,7 @@
     "voluntarias_prioridade_absoluta": true,
     "ordem_resolucao_voluntarias_simultaneas": "velocidade_galo_ativo_mais_rapido_sai_primeiro",
     "entradas_durante_trocas_simultaneas": "entrou_substituto_ativa_passiva_antes_da_proxima_troca",
-    "criterio_desempate_trocas_voluntarias_mesma_velocidade": "pendente_aprovacao"
+    "criterio_desempate_trocas_voluntarias_mesma_velocidade": "sorteio 50/50 a cada rodada — extensão da regra oficial desempate_velocidade (Balanceamento v1.1, 09/11); OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18"
    },
    "desempate_velocidade": {
     "velocidade_igual_sorteio_50_50_nova_rodada": true
@@ -372,7 +2942,7 @@
     "negative_status_suspended_in_reserve": true,
     "temporary_stat_modifiers_removed_on_leaving_field": true,
     "ko_all_three_to_win": true,
-    "species_duplicate_policy": "PENDENTE - hipótese de simulação: distintas dentro de cada trio",
+    "species_duplicate_policy": "permitida: o formato oficial dos Mestres (10/11) tem trios de 3 Galetos com 2 espécies; a hipótese \"distintas\" era só de simulação; OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18",
     "team_lead_selection_policy": "PENDENTE - hipótese de simulação: aleatória",
     "strategy_AI_not_part_of_official_game_rules": true,
     "simultaneous_swaps_order": "comparar_velocidade_do_galo_ativo_origem; mais_veloz_sai_primeiro",
@@ -398,7 +2968,8 @@
    "hp": {
     "entre_niveis": "pendente_especificacao",
     "nivel_1": 10,
-    "nivel_100": "ceil(1.5 * hp_base)"
+    "nivel_100": "ceil(1.5 * hp_base)",
+    "por_nivel_rev8": "ver progressao.norma_atributos_rev8 (HP_n e IV/EV/peso)"
    },
    "superados_nao_vigentes": {
     "dano_basico": "substituído por dano_v5_6",
@@ -407,7 +2978,13 @@
     "atributos": "fórmula antiga (nível/100, IV 1–20) substituída pela progressao (nível 50); IV 1–40; integração de IV/EV/peso PENDENTE",
     "raridade_mitica_total_pontos": "substituído pela escala da progressao (Mítico 550 no nível 50)"
    },
-   "migrado_em": "2026-11-18"
+   "migrado_em": "2026-11-18",
+   "precisao_golpes": {
+    "precisao_original": 1.0,
+    "regra": "todos os golpes têm precisão original de 100%; a Mira multiplica essa precisão e a esquiva universal se aplica",
+    "evidencia": "nenhuma tabela, catálogo ou ficha traz precisão por golpe; a ideia #03 \"Ataques de Precisão\" não foi aprovada",
+    "status": "OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18"
+   }
   },
   "source_ref": "combat_rules (histórico rev. 2, oficial): energia, esquiva_universal, golpes_multiplos, trocas, desempate_velocidade, modificadores_temporarios, equipes_padrao_3v3, ordem_trocas_e_invocacoes_simultaneas, hp",
   "status": "OFICIAL_DOCUMENTAL"
@@ -613,7 +3190,24 @@
     "canto_ofensivo": 45
    },
    "substitui": "combat_rules.dano_basico e combat_rules.dano_elemental (registros históricos preservados)",
-   "vitalidade_v5_6_1": "PENDENTE — HP efetivo e Resistência por Vitalidade dependem de parâmetro ainda não definido",
+   "vitalidade_v5_6_1": {
+    "formula": "Fvit = clamp((HP_ref(L)/HPmax_defensor)^0,2; 0,8; 1,0), L = nível do defensor",
+    "aplicacao": "multiplica D_base: dano = ceil(HPmax × Poder/400 × (A/D)^0,7 × Fvit × eficácia × modificadores)",
+    "efeito": "Galetos com HP acima da referência do nível recebem até 20% menos dano; abaixo dela, nenhum efeito",
+    "hp_referencia": "progressao.norma_atributos_rev8.hp_referencia",
+    "status": "fórmula homologada em 13/11 (V5.6.1); HP_ref da R5.4 adotado por decisão do criador em 18/11",
+    "fontes": [
+     {
+      "tabela": "gc52_regras VITALIDADE_V5_6_1",
+      "trecho": "clamp((HP_ref(nivel)/HPmax_efetivo)^0.2,0.8,1.0)"
+     },
+     {
+      "tabela": "gc54_normas VITALIDADE e DANO",
+      "trecho": "ceil(HPmax_def*(Poder/400)*(Atq/Def)^0.7*Fvit*tipagem*modificadores_efetivos)"
+     }
+    ],
+    "aprovacao": "Instrução expressa do criador em 18/11/2026: \"Resolve esses problemas todos com base nos dados mais recentes que temos disponíveis\"."
+   },
    "migrado_em": "2026-11-18"
   },
   "source_ref": "Galetocraft_Dano_V5_6_Especificacao_Tecnica_2026-11-13.md (acervo, pacote 11)",
@@ -1660,8 +4254,8 @@
   "id": "progressao",
   "payload_json": {
    "norma_integral": {
-    "abaixo_50": "PENDENTE_DE_ESPECIFICACAO; nenhuma curva antiga automaticamente homologada",
-    "arredondamento_inteiro": "PENDENTE_DE_HOMOLOGACAO; valores exatos racionais sao a fonte de verdade e estudos podem usar piso explicito como convencao experimental",
+    "abaixo_50": "ver norma_atributos_rev8 (curva R5.4 adotada em 18/11)",
+    "arredondamento_inteiro": "ver norma_atributos_rev8.ordem (floor em IV/EV; half-up no peso)",
     "conflitos": {
      "iniciais_001_006": "36 CAMPOS NAO RESOLVIDOS; salvar ambas fontes sem selecao",
      "integracao": "NAO COMPROVADA",
@@ -1681,10 +4275,10 @@
      "sqlite_r5_sha256": "c0af0fe0a9749fb953aa0abee97ace9f7923b042f54abfbb1c3086c9797ee9bc"
     },
     "formula": "A_exato(L)=A50*(L+50)/100 para 50<=L<=100",
-    "hp_efetivo": "DEPENDENTE_DE_REGRA_PROPRIA_PREEXISTENTE_NAO_REINTERPRETAR_COMO_HP_BASE",
-    "ivs_evs": "NAO_MODIFICADOS",
+    "hp_efetivo": "ver norma_atributos_rev8 (HP nominal R5.4 adotado em 18/11)",
+    "ivs_evs": "ver norma_atributos_rev8.iv_ev",
     "nivel_100_fator": "3/2",
-    "peso": "NAO_MODIFICADO",
+    "peso": "ver norma_atributos_rev8.peso",
     "projeto": "Galetocraft",
     "raridades": [
      {
@@ -1747,6 +4341,559 @@
      },
      "decisao": "Decisão expressa do criador em 18/11/2026 (auditoria de incoerências)"
     }
+   },
+   "norma_atributos_rev8": {
+    "status": "OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18",
+    "aprovacao": "Instrução expressa do criador em 18/11/2026: \"Resolve esses problemas todos com base nos dados mais recentes que temos disponíveis\".",
+    "atributos_1_49": "A(L) = A50 × (49 + 3(L−1))/196, 1 ≤ L ≤ 49 (25% no nível 1; 98,47% no 49)",
+    "atributos_50_100": "A(L) = A50 × (L+50)/100 (Nível 50 V1, homologada em 13/11)",
+    "hp_nominal_1_49": "HP_n(L) = round_half_up(10 + (ceil(1,5·HP50) − 10)·(L−1)/49)",
+    "hp_nominal_50_100": "HP_n(L) = ceil(1,5·HP50·(L+50)/100)",
+    "hp_origem": "Combate v1.0 (08/11, aprovado): HP 10 no nível 1 e 1,5 × o HP-base; norma R5.4 completa a interpolação",
+    "iv_ev": "A = floor(A_n × (1 + (0,25·IV + 0,5·√EV)/100)); IV de 1 a 40; EV sem teto (oficial desde 08/11)",
+    "peso": "depois de IV/EV, multiplicador do Peso V1.2 com r = peso/peso natural (0,8–1,5; nasce com r = 1): r ≥ 1: HP 1+0,10(r−1), defesas 1+0,15(r−1), Velocidade 1−0,50(r−1); r < 1: HP 1+0,40(r−1), defesas 1+0,50(r−1), Velocidade 1−0,20(r−1); ataques sem efeito; inteiro mais próximo, empate para cima, mínimo 1; peso congelado na Rinha",
+    "ordem": [
+     "valor nominal no nível (HP pela fórmula própria)",
+     "IV/EV com floor",
+     "peso com half-up e mínimo 1"
+    ],
+    "hp_referencia": "HP_ref(L) = floor(1,05 × HP_n(L; HP50 = 80)) — IV 20, EV 0, peso neutro",
+    "curva_niveis": [
+     {
+      "nivel": 1,
+      "fator": "1/4",
+      "hp_ref": 10
+     },
+     {
+      "nivel": 2,
+      "fator": "13/49",
+      "hp_ref": 12
+     },
+     {
+      "nivel": 3,
+      "fator": "55/196",
+      "hp_ref": 14
+     },
+     {
+      "nivel": 4,
+      "fator": "29/98",
+      "hp_ref": 17
+     },
+     {
+      "nivel": 5,
+      "fator": "61/196",
+      "hp_ref": 19
+     },
+     {
+      "nivel": 6,
+      "fator": "16/49",
+      "hp_ref": 22
+     },
+     {
+      "nivel": 7,
+      "fator": "67/196",
+      "hp_ref": 24
+     },
+     {
+      "nivel": 8,
+      "fator": "5/14",
+      "hp_ref": 27
+     },
+     {
+      "nivel": 9,
+      "fator": "73/196",
+      "hp_ref": 29
+     },
+     {
+      "nivel": 10,
+      "fator": "19/49",
+      "hp_ref": 31
+     },
+     {
+      "nivel": 11,
+      "fator": "79/196",
+      "hp_ref": 33
+     },
+     {
+      "nivel": 12,
+      "fator": "41/98",
+      "hp_ref": 36
+     },
+     {
+      "nivel": 13,
+      "fator": "85/196",
+      "hp_ref": 38
+     },
+     {
+      "nivel": 14,
+      "fator": "22/49",
+      "hp_ref": 40
+     },
+     {
+      "nivel": 15,
+      "fator": "13/28",
+      "hp_ref": 43
+     },
+     {
+      "nivel": 16,
+      "fator": "47/98",
+      "hp_ref": 46
+     },
+     {
+      "nivel": 17,
+      "fator": "97/196",
+      "hp_ref": 48
+     },
+     {
+      "nivel": 18,
+      "fator": "25/49",
+      "hp_ref": 50
+     },
+     {
+      "nivel": 19,
+      "fator": "103/196",
+      "hp_ref": 52
+     },
+     {
+      "nivel": 20,
+      "fator": "53/98",
+      "hp_ref": 55
+     },
+     {
+      "nivel": 21,
+      "fator": "109/196",
+      "hp_ref": 57
+     },
+     {
+      "nivel": 22,
+      "fator": "4/7",
+      "hp_ref": 59
+     },
+     {
+      "nivel": 23,
+      "fator": "115/196",
+      "hp_ref": 61
+     },
+     {
+      "nivel": 24,
+      "fator": "59/98",
+      "hp_ref": 65
+     },
+     {
+      "nivel": 25,
+      "fator": "121/196",
+      "hp_ref": 67
+     },
+     {
+      "nivel": 26,
+      "fator": "31/49",
+      "hp_ref": 69
+     },
+     {
+      "nivel": 27,
+      "fator": "127/196",
+      "hp_ref": 71
+     },
+     {
+      "nivel": 28,
+      "fator": "65/98",
+      "hp_ref": 74
+     },
+     {
+      "nivel": 29,
+      "fator": "19/28",
+      "hp_ref": 76
+     },
+     {
+      "nivel": 30,
+      "fator": "34/49",
+      "hp_ref": 78
+     },
+     {
+      "nivel": 31,
+      "fator": "139/196",
+      "hp_ref": 80
+     },
+     {
+      "nivel": 32,
+      "fator": "71/98",
+      "hp_ref": 84
+     },
+     {
+      "nivel": 33,
+      "fator": "145/196",
+      "hp_ref": 86
+     },
+     {
+      "nivel": 34,
+      "fator": "37/49",
+      "hp_ref": 88
+     },
+     {
+      "nivel": 35,
+      "fator": "151/196",
+      "hp_ref": 90
+     },
+     {
+      "nivel": 36,
+      "fator": "11/14",
+      "hp_ref": 93
+     },
+     {
+      "nivel": 37,
+      "fator": "157/196",
+      "hp_ref": 95
+     },
+     {
+      "nivel": 38,
+      "fator": "40/49",
+      "hp_ref": 97
+     },
+     {
+      "nivel": 39,
+      "fator": "163/196",
+      "hp_ref": 99
+     },
+     {
+      "nivel": 40,
+      "fator": "83/98",
+      "hp_ref": 102
+     },
+     {
+      "nivel": 41,
+      "fator": "169/196",
+      "hp_ref": 105
+     },
+     {
+      "nivel": 42,
+      "fator": "43/49",
+      "hp_ref": 107
+     },
+     {
+      "nivel": 43,
+      "fator": "25/28",
+      "hp_ref": 109
+     },
+     {
+      "nivel": 44,
+      "fator": "89/98",
+      "hp_ref": 112
+     },
+     {
+      "nivel": 45,
+      "fator": "181/196",
+      "hp_ref": 114
+     },
+     {
+      "nivel": 46,
+      "fator": "46/49",
+      "hp_ref": 116
+     },
+     {
+      "nivel": 47,
+      "fator": "187/196",
+      "hp_ref": 118
+     },
+     {
+      "nivel": 48,
+      "fator": "95/98",
+      "hp_ref": 121
+     },
+     {
+      "nivel": 49,
+      "fator": "193/196",
+      "hp_ref": 123
+     },
+     {
+      "nivel": 50,
+      "fator": "1/1",
+      "hp_ref": 126
+     },
+     {
+      "nivel": 51,
+      "fator": "101/100",
+      "hp_ref": 128
+     },
+     {
+      "nivel": 52,
+      "fator": "51/50",
+      "hp_ref": 129
+     },
+     {
+      "nivel": 53,
+      "fator": "103/100",
+      "hp_ref": 130
+     },
+     {
+      "nivel": 54,
+      "fator": "26/25",
+      "hp_ref": 131
+     },
+     {
+      "nivel": 55,
+      "fator": "21/20",
+      "hp_ref": 132
+     },
+     {
+      "nivel": 56,
+      "fator": "53/50",
+      "hp_ref": 134
+     },
+     {
+      "nivel": 57,
+      "fator": "107/100",
+      "hp_ref": 135
+     },
+     {
+      "nivel": 58,
+      "fator": "27/25",
+      "hp_ref": 136
+     },
+     {
+      "nivel": 59,
+      "fator": "109/100",
+      "hp_ref": 137
+     },
+     {
+      "nivel": 60,
+      "fator": "11/10",
+      "hp_ref": 138
+     },
+     {
+      "nivel": 61,
+      "fator": "111/100",
+      "hp_ref": 140
+     },
+     {
+      "nivel": 62,
+      "fator": "28/25",
+      "hp_ref": 141
+     },
+     {
+      "nivel": 63,
+      "fator": "113/100",
+      "hp_ref": 142
+     },
+     {
+      "nivel": 64,
+      "fator": "57/50",
+      "hp_ref": 143
+     },
+     {
+      "nivel": 65,
+      "fator": "23/20",
+      "hp_ref": 144
+     },
+     {
+      "nivel": 66,
+      "fator": "29/25",
+      "hp_ref": 147
+     },
+     {
+      "nivel": 67,
+      "fator": "117/100",
+      "hp_ref": 148
+     },
+     {
+      "nivel": 68,
+      "fator": "59/50",
+      "hp_ref": 149
+     },
+     {
+      "nivel": 69,
+      "fator": "119/100",
+      "hp_ref": 150
+     },
+     {
+      "nivel": 70,
+      "fator": "6/5",
+      "hp_ref": 151
+     },
+     {
+      "nivel": 71,
+      "fator": "121/100",
+      "hp_ref": 153
+     },
+     {
+      "nivel": 72,
+      "fator": "61/50",
+      "hp_ref": 154
+     },
+     {
+      "nivel": 73,
+      "fator": "123/100",
+      "hp_ref": 155
+     },
+     {
+      "nivel": 74,
+      "fator": "31/25",
+      "hp_ref": 156
+     },
+     {
+      "nivel": 75,
+      "fator": "5/4",
+      "hp_ref": 157
+     },
+     {
+      "nivel": 76,
+      "fator": "63/50",
+      "hp_ref": 159
+     },
+     {
+      "nivel": 77,
+      "fator": "127/100",
+      "hp_ref": 160
+     },
+     {
+      "nivel": 78,
+      "fator": "32/25",
+      "hp_ref": 161
+     },
+     {
+      "nivel": 79,
+      "fator": "129/100",
+      "hp_ref": 162
+     },
+     {
+      "nivel": 80,
+      "fator": "13/10",
+      "hp_ref": 163
+     },
+     {
+      "nivel": 81,
+      "fator": "131/100",
+      "hp_ref": 165
+     },
+     {
+      "nivel": 82,
+      "fator": "33/25",
+      "hp_ref": 166
+     },
+     {
+      "nivel": 83,
+      "fator": "133/100",
+      "hp_ref": 168
+     },
+     {
+      "nivel": 84,
+      "fator": "67/50",
+      "hp_ref": 169
+     },
+     {
+      "nivel": 85,
+      "fator": "27/20",
+      "hp_ref": 170
+     },
+     {
+      "nivel": 86,
+      "fator": "34/25",
+      "hp_ref": 172
+     },
+     {
+      "nivel": 87,
+      "fator": "137/100",
+      "hp_ref": 173
+     },
+     {
+      "nivel": 88,
+      "fator": "69/50",
+      "hp_ref": 174
+     },
+     {
+      "nivel": 89,
+      "fator": "139/100",
+      "hp_ref": 175
+     },
+     {
+      "nivel": 90,
+      "fator": "7/5",
+      "hp_ref": 176
+     },
+     {
+      "nivel": 91,
+      "fator": "141/100",
+      "hp_ref": 178
+     },
+     {
+      "nivel": 92,
+      "fator": "71/50",
+      "hp_ref": 179
+     },
+     {
+      "nivel": 93,
+      "fator": "143/100",
+      "hp_ref": 180
+     },
+     {
+      "nivel": 94,
+      "fator": "36/25",
+      "hp_ref": 181
+     },
+     {
+      "nivel": 95,
+      "fator": "29/20",
+      "hp_ref": 182
+     },
+     {
+      "nivel": 96,
+      "fator": "73/50",
+      "hp_ref": 184
+     },
+     {
+      "nivel": 97,
+      "fator": "147/100",
+      "hp_ref": 185
+     },
+     {
+      "nivel": 98,
+      "fator": "37/25",
+      "hp_ref": 186
+     },
+     {
+      "nivel": 99,
+      "fator": "149/100",
+      "hp_ref": 187
+     },
+     {
+      "nivel": 100,
+      "fator": "3/2",
+      "hp_ref": 189
+     }
+    ],
+    "pendente": "faixas de dificuldade de EV recalibradas para os totais do nível 50 (a V1.2 usa os totais antigos)",
+    "fontes": [
+     {
+      "tabela": "gc54_normas (Galetocraft.sqlite rev. 2)",
+      "status_na_fonte": {
+       "ATRIBUTOS_1_49": "PADRAO_ADOTADO_CANDIDATA_R54",
+       "HP_1_49": "PADRAO_ADOTADO_CANDIDATA_R54",
+       "HP_50_100": "PADRAO_ADOTADO_CANDIDATA_R54",
+       "HP_REF_1_100": "PADRAO_ADOTADO_CANDIDATA_R54",
+       "IV_EV": "OFICIAL_ANTERIOR",
+       "PESO": "OFICIAL_ANTERIOR"
+      }
+     },
+     {
+      "arquivo": "RELATORIO_GERAL_CONSOLIDACAO_R5_4.md",
+      "data": "2026-11-14",
+      "sha256": "6db6e418c2468c060d71e11691980887b4975b214e882a2849182608323edc74"
+     },
+     {
+      "arquivo": "RELATORIO_GERAL_AUDITORIA_R55_2026-11-15.md",
+      "data": "2026-11-15",
+      "sha256": "23a3a4f877e2c08a9f4a9936280b6e4938806fe2008f09b1d56f7906bdf86ba4",
+      "trecho": "Curva 1–49 e HPref dos 100 níveis adotados na linha candidata R5.4"
+     },
+     {
+      "arquivo": "Galetocraft_Relatorio_Peso_Alimentacao_v1_2.md",
+      "data": "2026-11-09",
+      "sha256": "1a50dab07d3311f6dd9b96bd9e0968db0db3626282d2a4f15f9536381ad4485a"
+     },
+     {
+      "registro": "gc161_decisoes_index beta0:ev_system (OFICIAL_APROVADO, 08/11)",
+      "trecho": "EVs independentes e sem teto; bônus de EV 0,5×√EV; IV 0,25% por ponto"
+     }
+    ]
    }
   },
   "source_ref": "gc161r_sources:progressao",
@@ -2004,7 +5151,7 @@
     "limite_numerico_reservas": null,
     "procedimento_troca_equipe_reservas": null,
     "interface_gerenciamento": null,
-    "regra_duplicatas": null,
+    "regra_duplicatas": "permitidas (mesma evidência de combate_universal.equipes_3v3); OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18",
     "formula_captura": null,
     "chance_captura_json": null,
     "experiencia_pena_json": null,

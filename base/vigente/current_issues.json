@@ -86,9 +86,9 @@
  {
   "id": "R13",
   "assunto": "Curva1-49 e HP de referencia",
-  "status": "CANDIDATA_NAO_PROMOVIDA",
-  "evidencia": "gc54_normas distingue padroes candidatos e normas oficiais",
-  "proximo_passo": "Resolver norma final sem promover parametros experimentais"
+  "status": "RESOLVIDO",
+  "evidencia": "Normas R5.4 (curva 1–49, HP nominal, HP_ref) adotadas em 18/11; ver progressao.norma_atributos_rev8",
+  "proximo_passo": "Nenhum; recalibrar só as faixas de EV (U12)"
  },
  {
   "id": "R14",
@@ -101,8 +101,8 @@
   "id": "R15",
   "assunto": "Catalogo de golpes e marcos",
   "status": "RECONCILIADO_COMO_CANDIDATA",
-  "evidencia": "660 vinculos, 5+25 por especie e332 marcos na R55",
-  "proximo_passo": "IDs tecnicos nao sao entidades executaveis aprovadas"
+  "evidencia": "660 vinculos, 5+25 por especie e332 marcos na R55; rev. 8: tabelas de aprendizado de 16 espécies na regra aprendizado",
+  "proximo_passo": "Golpes aprendíveis seguem sem efeito executável aprovado; aprendizado de #013–#018 e #023 sem dado (U11, U03)"
  },
  {
   "id": "R16",
@@ -129,7 +129,7 @@
   "id": "U03",
   "assunto": "Aprendizagem #023",
   "status": "PENDENTE",
-  "evidencia": "Escopo não resolvido por esta consolidação",
+  "evidencia": "Ficha #023 de 16/11: \"Pendente, não homologado nesta etapa: níveis e meios específicos de aprendizagem\"; nada mais novo no acervo",
   "proximo_passo": "Distribuir níveis e treinamento mediante decisão;30golpes já homologados."
  },
  {
@@ -152,5 +152,47 @@
   "status": "PENDENTE",
   "evidencia": "Escopo não resolvido por esta consolidação",
   "proximo_passo": "Preservar40/18min e30/5/10/10%; recuperar regras detalhadas de detecção."
+ },
+ {
+  "id": "U07",
+  "assunto": "Aparecimento no mundo (spawn)",
+  "status": "PENDENTE_SEM_DADO",
+  "evidencia": "Nenhuma regra de bioma, frequência, grupo, horário ou nível dos selvagens no acervo; só habitats narrativos de #010 e #016–#018 e \"Divinos não aparecem naturalmente\" (09/11)",
+  "proximo_passo": "Decidir biomas, pesos e faixas de nível por espécie"
+ },
+ {
+  "id": "U08",
+  "assunto": "Pena de Captura: obtenção e aparência",
+  "status": "PENDENTE_SEM_DADO",
+  "evidencia": "Oficial: pena com rubi central, uma por treinador, não consumível; nome_exato, design_exato, obtenção, recuperação, perda e receita são NULL (v1216)",
+  "proximo_passo": "Decidir como o treinador recebe e recupera a Pena; gerar a arte no ChatGPT"
+ },
+ {
+  "id": "U09",
+  "assunto": "Gerenciamento da equipe e escalação da Rinha",
+  "status": "PENDENTE_SEM_DADO",
+  "evidencia": "procedimento_troca_equipe_reservas, interface_gerenciamento e team_lead_selection_policy sem definição (hipótese de simulação: aleatória)",
+  "proximo_passo": "Decidir quais 3 dos 5 entram na Rinha, quem começa e como trocar com as reservas"
+ },
+ {
+  "id": "U10",
+  "assunto": "Galeto do treinador no mundo",
+  "status": "PENDENTE_SEM_DADO",
+  "evidencia": "Reprodução Etapa 01 e Peso V1.2 pressupõem Galetos do treinador no mundo, mas não há regra para soltar/recolher",
+  "proximo_passo": "Decidir como o Galeto sai da equipe para o mundo e volta"
+ },
+ {
+  "id": "U11",
+  "assunto": "Aprendizado de #013–#018",
+  "status": "PENDENTE_SEM_DADO",
+  "evidencia": "Nenhuma grade por nível ou treinamento no acervo; a ficha do #013 proíbe inventar nível de aprendizado",
+  "proximo_passo": "Distribuir os 30 golpes de cada espécie (15 por nível, 15 por treinamento)"
+ },
+ {
+  "id": "U12",
+  "assunto": "Faixas de dificuldade de EV",
+  "status": "PENDENTE_SEM_DADO",
+  "evidencia": "A V1.2 dobra o custo a cada 50% da soma de base \"no nível 100\" (totais antigos, 850 no Mítico); não há versão no nível 50",
+  "proximo_passo": "Recalibrar as faixas para os totais do nível 50 e definir os ganhos de EV em combate e treino"
  }
 ]
