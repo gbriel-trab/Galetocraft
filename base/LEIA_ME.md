@@ -10,9 +10,11 @@
 | `artes/` | As 23 artes oficiais do Galetário (`current_art`). O SHA-256 de cada uma é conferido |
 | `fontes/` | Documentos-fonte embutidos na base (`current_sources`) |
 
-**Revisão atual: 4.**
+**Revisão atual: 6.**
 - rev. 3: correções de coerência e nomenclatura oficial.
 - rev. 4: nova governança, artes #019 e #020 e regra de nomenclatura.
+- rev. 5: regras oficiais de combate, captura e XP migradas do histórico, incluindo o dano V5.6.
+- rev. 6: golpes próprios de #001–#011 completados com a ficha original.
 
 O histórico de cada revisão fica em `vigente/current_journal.json`, e os pacotes aplicados ficam em `docs/patches/`.
 
@@ -37,6 +39,7 @@ python ferramentas/base/galetobase.py montar --historico REV2.sqlite --saida Gal
   2. Valida a base inteira antes de gravar.
   3. Incrementa a revisão.
   4. Registra o antes e o depois no diário.
+- **Depois de cada revisão:** rode `python ferramentas/base/exportar_para_mod.py` para atualizar os dados que o núcleo e o mod leem.
 - **`montar`:** gera o `Galetocraft.sqlite` completo, com o histórico do Release mais a camada vigente deste repositório, e confere `integrity_check` e as chaves estrangeiras. O SQLite gerado é um derivado e não entra no git.
 
 ## Regras que continuam valendo

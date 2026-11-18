@@ -1,8 +1,11 @@
 package br.galetocraft;
 
+import br.galetocraft.comando.ComandoGaletocraft;
+import br.galetocraft.nucleo.dados.Galetario;
 import br.galetocraft.registro.ModEntidades;
 import br.galetocraft.registro.ModItens;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -30,6 +33,11 @@ public class GaletocraftMod implements ModInitializer {
 					ModItens.OVOS_GALOS.forEach(entradas::accept);
 				});
 
-		LOGGER.info("Galetocraft carregado: {} galos prontos!", 1 + ModEntidades.GALOS.size());
+		// núcleo de regras: carrega a base vigente embutida (espécies, golpes e regras)
+		Galetario galetario = Galetario.padrao();
+		CommandRegistrationCallback.EVENT.register((dispatcher, acesso, ambiente) -> ComandoGaletocraft.registrar(dispatcher));
+
+		LOGGER.info("Galetocraft carregado: {} galos prontos! Base vigente rev. {} com {} espécies.",
+				1 + ModEntidades.GALOS.size(), galetario.revisaoBase(), galetario.especies().size());
 	}
 }

@@ -10,7 +10,7 @@ Projeto de mod de Minecraft com criaturas chamadas Cocorídeos/Galetos, batalhas
 
 ## Fonte de verdade
 
-- **Base vigente:** `base/vigente/*.json`, com artes em `base/artes/` e fontes em `base/fontes/`. Revisão atual: **4**. Manual em `base/LEIA_ME.md`.
+- **Base vigente:** `base/vigente/*.json`, com artes em `base/artes/` e fontes em `base/fontes/`. Revisão atual: **6**. Manual em `base/LEIA_ME.md`.
 - **Ferramenta:** `python ferramentas/base/galetobase.py` com os comandos `validar`, `ficha --especie N`, `atualizar --pacote`, `migrar --pacote` e `montar`.
 - **Toda mudança na base** segue estes passos:
   1. Escrever um pacote em `docs/patches/` com `expected_revision`, `reason` e `evidence`.
@@ -57,9 +57,16 @@ O fluxo completo está em `base/LEIA_ME.md`. Em resumo:
 
 ## Código
 
-- **Mod:** fica em `galetocraft/` e usa Fabric 1.21.11 com GeckoLib 5.4.5. Para compilar, rodar `gradlew build`; o Gradle precisa de JDK 25.
-- **Implementado:** 12 entidades exibidas com IA neutra e LOD.
-- **Não implementado:** Rinha, captura, golpes, elementos e reprodução.
+- **Mod:** fica em `galetocraft/` e usa Fabric 1.21.11 com GeckoLib 5.4.5.
+  - Para compilar: `JAVA_HOME=$(ls -d /usr/lib/jvm/java-25-openjdk-*) bash gradlew build`, com o JDK 25 instalado por `apt-get install -y openjdk-25-jdk-headless`.
+  - Os testes rodam com `bash gradlew :nucleo:test`.
+  - O build precisa do ambiente de nuvem "Galetocraft", que libera Fabric, Mojang e GeckoLib.
+  - O `gradlew` não tem permissão de execução; use `bash gradlew`.
+- **Núcleo de regras:** `galetocraft/nucleo`, em Java puro, embutido no jar.
+  - Lê os dados de `nucleo/src/main/resources/galetocraft/dados/`, gerados por `python ferramentas/base/exportar_para_mod.py`. Rodar o exportador de novo depois de cada revisão da base.
+  - O motor da Rinha fica em `br.galetocraft.nucleo.rinha`.
+- **Implementado no mod:** 12 entidades exibidas com IA neutra e LOD, mais os comandos `/galetocraft base | ficha | rinha | duelo`.
+- **Ainda falta:** Galeto individual, Rinha jogável com interface, captura, passivas e efeitos de golpes, e reprodução. O roteiro está em `docs/ANALISE_DESENVOLVIMENTO.md` e o andamento em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
 - **Modelos:** rode `ferramentas/especies/<id>.py` e depois `ferramentas/exportar_especie.py <id>`, como descrito em `galetocraft/LEIAME.md`.
 - **Git LFS:** os arquivos de `modelos/*/revisao/` e os PNGs do benchmark estão no LFS. Nesta cópia há só ponteiros.
 

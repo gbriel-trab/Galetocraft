@@ -1,6 +1,6 @@
 # Galetocraft — Base de conhecimento consolidada
 
-> Resumo de referência montado em 18/11/2026 a partir de: base vigente (hoje em `base/vigente/`, revisão 4; até a rev. 2 era o `Galetocraft.sqlite`, SHA-256 `9dd2253d…5aa3c`), Release `acervo-documental-2026-11-17` (inventário de 1.636 arquivos), documentos oficiais dos sistemas e código deste repositório.
+> Resumo de referência montado em 18/11/2026 a partir de: base vigente (hoje em `base/vigente/`, revisão 6; até a rev. 2 era o `Galetocraft.sqlite`, SHA-256 `9dd2253d…5aa3c`), Release `acervo-documental-2026-11-17` (inventário de 1.636 arquivos), documentos oficiais dos sistemas e código deste repositório.
 > **Este arquivo é um resumo, não uma fonte de verdade.** Em qualquer conflito, vale a camada `current_*` / `v_current_*` do banco vigente.
 
 ## 1. O que é o projeto
@@ -25,7 +25,8 @@ Todo design passa por **homologação expressa do criador**. Propostas, Betas, r
   - `base/vigente/*.json`: tabelas `current_*`.
   - `base/artes/`: as 23 artes.
   - `base/fontes/`: documentos-fonte.
-  - Dados: 23 espécies, 690 vínculos de golpes, 23 regras (incluindo `nomenclatura`), 23 artes, 13 vínculos hereditários, 22 pendências e 14 metadados.
+  - Dados: 23 espécies, 690 vínculos de golpes, 33 regras, 23 artes, 13 vínculos hereditários, 22 pendências e 14 metadados.
+  - Regras incluídas: `nomenclatura`, `dano_v5_6`, `matriz_elemental`, `combate_universal`, `estados_negativos`, `climas`, `santuarios`, `captura`, `experiencia` e `treinador`.
 - **Ler somente as tabelas `current_*`** (no SQLite montado, também as views `v_current_*`).
   - O `Galetocraft.sqlite` da revisão 2 no Release (235 tabelas, 67 views) é histórico.
   - A tabela `species` (12 linhas) e as demais tabelas estão marcadas como `HISTORICO_OU_EVIDENCIA`.
@@ -44,6 +45,8 @@ Todo design passa por **homologação expressa do criador**. Propostas, Betas, r
   - rev. 2 (17/11): `v_current_pares_reproducao` passou a usar `current_galeria`.
   - rev. 3 (18/11): correções de coerência (Concentração V2.3 em todas as espécies, golpes básicos, esquema do #023, pendências resolvidas, decisões do criador) e nomenclatura oficial (Tonto).
   - rev. 4 (18/11): nova governança (base no repositório, sob o Claude), artes #019/#020 em `current_art`, regra `nomenclatura`, R12 e U05 resolvidas.
+  - rev. 5 (18/11): regras oficiais de combate, captura, XP e treinador migradas do histórico para `current_rules`; o dano V5.6 entrou na base.
+  - rev. 6 (18/11): 32 golpes próprios de #001–#011 completados com a ficha original protegida (categoria, elemento, estado aplicado, efeito estruturado).
 
 ## 3. Espécies vigentes (atributos no nível 50)
 
@@ -165,9 +168,9 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 - Se houver chance intrínseca (por exemplo, Lâminas de Vento com 25%), ela é combinada de forma independente: `1 − (1−Pu)(1−Pi)`.
 
 ### Mira Anatômica Estratégica V1.5 (12/11)
-- **Regiões e multiplicador de dano:**
+- **Regiões e multiplicador da precisão do golpe** (não do dano):
 
-  | Região | Multiplicador |
+  | Região | Precisão |
   |---|---:|
   | Cabeça/crina | 0,78 |
   | Asas | 0,86 |
@@ -203,9 +206,12 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 - **Estados negativos persistentes:** Queimadura, Envenenamento, Afogamento, **Tonto** e Paralisia. A captura também menciona Sono.
   - "Tontura" é o nome antigo. O ID técnico `tontura` continua como alias.
 
-### Fórmula de dano
-- A Tipagem Dupla V1 cita as versões **V5.6/V5.6.1**, com arredondamento único por acerto.
-- A "fórmula de dano definitiva" ainda está **pendente**.
+### Fórmula de dano (V5.6, homologada em 13/11/2026; regra `dano_v5_6`)
+- `D_base = HPmax_defensor × Poder/400 × (Ataque/max(1, Defesa))^0,7`, contínuo até o fim.
+- Arredondamento para cima uma única vez por acerto; acerto válido não anulado causa no mínimo 1.
+- **Ordem dos modificadores:** eficácia → bônus de dano (soma dos percentuais) → Guarda, Exposição ou Ruptura (teto ×1,40) → Defesa Especial (−75%) → maior redução da mesma classe.
+- **Pendente:** HP efetivo e "Resistência por Vitalidade V5.6.1". Até a decisão, o núcleo usa como HP máximo a progressão do atributo HP, arredondada para cima.
+- **Esquiva universal:** `clamp(7,5 + 5·(Vd−Va)/(Vd+Va), 5, 10)%`.
 
 ## 6. Progressão, captura, XP e outros sistemas
 
@@ -386,7 +392,10 @@ O relatório completo está em `docs/AUDITORIA_INCOERENCIAS.md`: 29 conflitos re
   - Loom 1.19-SNAPSHOT, mapeamentos oficiais da Mojang.
   - O mod compila para Java 21, mas o Gradle precisa de JDK 25.
 - **Identidade:** mod id `galetocraft`, pacote `br.galetocraft`, versão 0.1.0.
-- **Build:** `gradlew build` gera `build/libs/galetocraft-0.1.0.jar`. O último `build.log` terminou em BUILD SUCCESSFUL.
+- **Build:**
+  - `bash gradlew build` gera `build/libs/galetocraft-0.1.0.jar`.
+  - Nesta nuvem, o build exige o ambiente "Galetocraft" e o JDK 25 (`apt-get install openjdk-25-jdk-headless`).
+  - O build passou em 18/11/2026, e o mod foi testado num servidor dedicado com `bash gradlew runServer --args=nogui`.
 - **O que está implementado:**
   - **12 entidades**:
     - O Pirococó tem classe própria, `PirococoEntity`.
@@ -396,9 +405,16 @@ O relatório completo está em `docs/AUDITORIA_INCOERENCIAS.md`: 29 conflitos re
   - **Itens:** 12 ovos geradores.
   - **Renderização:** `GaloRenderer` com LOD por distância (16/32/48 blocos) e uma camada de brilho parcial por glowmask.
   - **Testes de cliente** (source set `gametest`): fotos do Pirococó, galeria e benchmark.
-- **O que NÃO existe no código:**
-  - Rinha, captura, energia, golpes, elementos, comandos, blocos, spawn natural, loot, receitas e sons próprios.
-  - Hoje o mod é uma vitrine de modelos. Todo o design da base vigente ainda precisa ser implementado.
+- **Núcleo de regras** (`galetocraft/nucleo`, Java puro, embutido no jar):
+  - Implementa o Galetário com os dados da base, eficácia, progressão, dano V5.6, esquiva, Golpe Duplo, Mira, energia/Concentração/Pena, estados, climas e santuários, captura e XP.
+  - Inclui um motor de Rinha com IA básica e simulador.
+  - Tem 21 testes. O andamento fica em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
+- **Comandos no jogo:** `/galetocraft base | ficha <espécie> | rinha <a> <b> [nível] | duelo <a> <b> [rinhas]`.
+- **Ainda NÃO existe no mod:**
+  - Galeto individual (nível, IV, golpes) e Rinha jogável com interface.
+  - Captura, treinador e Galetário no jogo.
+  - Passivas e efeitos especiais dos golpes.
+  - Blocos, spawn natural e sons próprios.
 - **Espécies sem entidade:** #002 Cocórrego, #013–#018 e #020–#023.
 
 ### Modelos (`modelos/`) e ferramentas (`ferramentas/`)

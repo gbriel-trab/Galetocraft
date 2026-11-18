@@ -6,6 +6,8 @@ galetocraft/.gradle/
 galetocraft/run/
 galetocraft/out/
 galetocraft/bin/
+galetocraft/nucleo/build/
+galetocraft/nucleo/bin/
 
 # Configuração local do Claude Code nesta máquina
 .claude/

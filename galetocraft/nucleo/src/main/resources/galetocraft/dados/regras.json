@@ -1,0 +1,1854 @@
+{
+ "captura": {
+  "parametros": {
+   "id": "balanceamento_captura_final",
+   "instrumento_id": "pena_rubi_oficial",
+   "raridade_fatores_json": {
+    "Comum": 1.8,
+    "Raro": 1.2,
+    "Super Raro": 0.8,
+    "Épico": 0.5,
+    "Mítico": 0.3,
+    "Lendário": 0.14,
+    "Divino": 0.05
+   },
+   "raridade_xp_base_json": {
+    "Comum": 15,
+    "Raro": 25,
+    "Super Raro": 40,
+    "Épico": 60,
+    "Mítico": 90,
+    "Lendário": 135,
+    "Divino": 200
+   },
+   "incremento_forca_por_evolucao": 0.15,
+   "divisor_dificuldade_nivel": 60.0,
+   "coeficiente_bonus_hp_rinha": 1.5,
+   "incremento_xp_por_nivel_alvo": 2,
+   "nivel_pena_min": 1,
+   "nivel_pena_max": 5,
+   "nivel_alvo_min": 1,
+   "nivel_alvo_max": 100,
+   "formula_forca_pena": "F = 1 + 0.15 * (nivel_pena - 1)",
+   "formula_dificuldade_nivel": "D = 1 + (nivel_alvo - 1) / 60",
+   "formula_hp_rinha": "H = 1 + 1.5 * (1 - hp_atual / hp_maximo)",
+   "formula_probabilidade": "P(%) = 100 * forca / (forca + D)",
+   "formula_xp": "XP = XP_base_raridade + 2 * nivel_alvo",
+   "xp_total_ate_pena_5": 26000,
+   "captura_xp_apenas_em_sucesso": 1,
+   "sem_nova_xp_apos_pena_5": 1,
+   "xp_excedente_preservada": 1,
+   "multiplas_evolucoes_mesma_captura": 1,
+   "duracao_tiques": null,
+   "animacoes_adicionais": null,
+   "recompensas_adicionais": null,
+   "penalidades_adicionais": null,
+   "status": "oficial_homologado",
+   "fonte_documento": "Galetocraft_Proposta_Final_Capturas_Progressao_Pena_Mais_Dificil_2026-11-12.md",
+   "sha256_documento": "35fac1ba755c5b0aaf7daafc3a40ea405f58126ecb5d23f62800ef546d52fd85",
+   "fonte_aprovacao": "Aprovo oficialmente o balanceamento final de capturas contido no documento Galetocraft_Proposta_Final_Capturas_Progressao_Pena_Mais_Dificil_2026-11-12.md, incluindo a progressão mais difícil da Pena de Captura com custos de 1.000, 3.000, 7.000 e 15.000 XP por evolução, total de 26.000 XP, além das fórmulas de captura e XP descritas no documento. Preserve todas as regras homologadas anteriormente, registre em nova versão do banco SQLite, audite e apresente o sistema de capturas finalizado.",
+   "data_aprovacao": "2026-11-12"
+  },
+  "modalidades": [
+   {
+    "modalidade": "mundo_direto",
+    "modelo_id": "balanceamento_captura_final",
+    "formula_forca": "forca = R * F",
+    "formula_chance": "forca = R * F; D = 1 + (nivel_alvo-1)/60; P(%) = 100*forca/(forca+D)",
+    "aplica_hp_atual": 0,
+    "aplica_status_negativo": 0,
+    "aplica_raridade": 1,
+    "aplica_nivel_alvo": 1,
+    "aplica_nivel_pena": 1,
+    "pena_nao_consumivel": 1,
+    "consome_acao_treinador": 0,
+    "resultado_calculado_no_clique": 1,
+    "alcance_maximo_blocos": 12,
+    "exige_visao_livre": 1,
+    "inicio_sem_enfraquecimento": null,
+    "falha_permite_tentar_novamente_sem_cooldown": 1,
+    "falha_rinha_continua": null,
+    "sucesso_rinha_encerra": null,
+    "adversario_pendente_age_na_ordem": null,
+    "status": "oficial_homologado",
+    "fonte_aprovacao": "Aprovo oficialmente o balanceamento final de capturas contido no documento Galetocraft_Proposta_Final_Capturas_Progressao_Pena_Mais_Dificil_2026-11-12.md, incluindo a progressão mais difícil da Pena de Captura com custos de 1.000, 3.000, 7.000 e 15.000 XP por evolução, total de 26.000 XP, além das fórmulas de captura e XP descritas no documento. Preserve todas as regras homologadas anteriormente, registre em nova versão do banco SQLite, audite e apresente o sistema de capturas finalizado."
+   },
+   {
+    "modalidade": "rinha",
+    "modelo_id": "balanceamento_captura_final",
+    "formula_forca": "forca = R * F * H * S",
+    "formula_chance": "forca = R * F * H * S; D = 1 + (nivel_alvo-1)/60; P(%) = 100*forca/(forca+D)",
+    "aplica_hp_atual": 1,
+    "aplica_status_negativo": 1,
+    "aplica_raridade": 1,
+    "aplica_nivel_alvo": 1,
+    "aplica_nivel_pena": 1,
+    "pena_nao_consumivel": 1,
+    "consome_acao_treinador": 1,
+    "resultado_calculado_no_clique": null,
+    "alcance_maximo_blocos": null,
+    "exige_visao_livre": null,
+    "inicio_sem_enfraquecimento": 1,
+    "falha_permite_tentar_novamente_sem_cooldown": null,
+    "falha_rinha_continua": 1,
+    "sucesso_rinha_encerra": 1,
+    "adversario_pendente_age_na_ordem": 1,
+    "status": "oficial_homologado",
+    "fonte_aprovacao": "Aprovo oficialmente o balanceamento final de capturas contido no documento Galetocraft_Proposta_Final_Capturas_Progressao_Pena_Mais_Dificil_2026-11-12.md, incluindo a progressão mais difícil da Pena de Captura com custos de 1.000, 3.000, 7.000 e 15.000 XP por evolução, total de 26.000 XP, além das fórmulas de captura e XP descritas no documento. Preserve todas as regras homologadas anteriormente, registre em nova versão do banco SQLite, audite e apresente o sistema de capturas finalizado."
+   }
+  ],
+  "fatores_estado_rinha": [
+   {
+    "estado_negativo": "Sono",
+    "fator_estado": 1.55
+   },
+   {
+    "estado_negativo": "Paralisia",
+    "fator_estado": 1.25
+   },
+   {
+    "estado_negativo": "Envenenamento",
+    "fator_estado": 1.0
+   },
+   {
+    "estado_negativo": "Afogamento",
+    "fator_estado": 1.0
+   },
+   {
+    "estado_negativo": "Queimadura",
+    "fator_estado": 1.0
+   },
+   {
+    "estado_negativo": "Tonto",
+    "fator_estado": 1.0
+   }
+  ],
+  "niveis_pena": [
+   {
+    "nivel_pena": 1,
+    "fator_forca": 1.0,
+    "xp_evolucao": 0,
+    "xp_acumulada": 0,
+    "habilita_captura_lendarios": 0
+   },
+   {
+    "nivel_pena": 2,
+    "fator_forca": 1.3,
+    "xp_evolucao": 1000,
+    "xp_acumulada": 1000,
+    "habilita_captura_lendarios": 0
+   },
+   {
+    "nivel_pena": 3,
+    "fator_forca": 1.65,
+    "xp_evolucao": 3000,
+    "xp_acumulada": 4000,
+    "habilita_captura_lendarios": 0
+   },
+   {
+    "nivel_pena": 4,
+    "fator_forca": 2.05,
+    "xp_evolucao": 7000,
+    "xp_acumulada": 11000,
+    "habilita_captura_lendarios": 0
+   },
+   {
+    "nivel_pena": 5,
+    "fator_forca": 2.5,
+    "xp_evolucao": 15000,
+    "xp_acumulada": 26000,
+    "habilita_captura_lendarios": 1
+   }
+  ],
+  "lendarios": {
+   "regra_id": "pena_5_habilita_lendario",
+   "regra_anterior": "reforco_poder_pena_niveis",
+   "instrumento_id": "pena_rubi_oficial",
+   "raridade_especial": "Lendário",
+   "nivel_minimo_pena": 5,
+   "exige_nivel_5_para_capturar": 1,
+   "aplica_mundo_e_rinha": 1,
+   "outras_raridades_sem_nova_restricao": 1,
+   "nao_garante_sucesso": 1,
+   "sem_alterar_xp_evolucao": 1,
+   "comportamento_tentativa_inelegivel": null,
+   "efeitos_adicionais": null,
+   "probabilidades_adicionais": null,
+   "descricao": "A Pena nivel 5 e o requisito para capturar Cocorideos de raridade Lendario nas duas modalidades, mantendo chance probabilistica e sem garantir sucesso; nenhum requisito novo criado para Mitico/Divino ou outras raridades.",
+   "fonte_solicitacao": "Deixe um pouquinho mais forte os níveis, o nível 5 será para capturar lendários",
+   "status": "oficial_vigente_v1258",
+   "data": "2026-11-12"
+  },
+  "cooldown_falha_mundo": [
+   {
+    "raridade": "Comum",
+    "espera_segundos": 20,
+    "escopo_da_espera": "instancia_individual_do_cocorideo_alvo",
+    "espera_compartilhada_entre_treinadores": 1
+   },
+   {
+    "raridade": "Raro",
+    "espera_segundos": 20,
+    "escopo_da_espera": "instancia_individual_do_cocorideo_alvo",
+    "espera_compartilhada_entre_treinadores": 1
+   },
+   {
+    "raridade": "Super Raro",
+    "espera_segundos": 20,
+    "escopo_da_espera": "instancia_individual_do_cocorideo_alvo",
+    "espera_compartilhada_entre_treinadores": 1
+   },
+   {
+    "raridade": "Épico",
+    "espera_segundos": 20,
+    "escopo_da_espera": "instancia_individual_do_cocorideo_alvo",
+    "espera_compartilhada_entre_treinadores": 1
+   },
+   {
+    "raridade": "Mítico",
+    "espera_segundos": 20,
+    "escopo_da_espera": "instancia_individual_do_cocorideo_alvo",
+    "espera_compartilhada_entre_treinadores": 1
+   },
+   {
+    "raridade": "Lendário",
+    "espera_segundos": 60,
+    "escopo_da_espera": "instancia_individual_do_cocorideo_alvo",
+    "espera_compartilhada_entre_treinadores": 1
+   }
+  ],
+  "migrado_em": "2026-11-18"
+ },
+ "climas": {
+  "chuva": {
+   "formal_status": "oficial",
+   "damage_by_move_element": {
+    "Água": 0.25,
+    "Elétrico": 0.1,
+    "Fogo": -0.25
+   },
+   "defense_by_species_element": {},
+   "scope_damage": "elemento_do_movimento_independente_do_elemento_da_especie",
+   "scope_defense": "elemento_da_especie_alvo_do_bonus_defensivo",
+   "bonus_order": "usar_regra_existente_combat_rules.bonus_percentuais_dano; ataques aplicam depois do multiplicador elemental",
+   "duration": 4,
+   "activation": "movimento_de_suporte_20_energia_uma_acao_ou_movimento_integrado_custo_proprio_ou_passiva_futura",
+   "field_ownership": "global_compartilhado",
+   "simultaneous_climates": "somente_1",
+   "sanctuary_interaction": "coexistencia_permitida_um_clima_mais_um_santuario",
+   "approval_date": "2026-11-09",
+   "renewal": "nova_invocacao_reinicia_4_rodadas"
+  },
+  "ensolarado": {
+   "formal_status": "oficial",
+   "damage_by_move_element": {
+    "Fogo": 0.25,
+    "Planta": 0.1,
+    "Água": -0.25
+   },
+   "defense_by_species_element": {},
+   "scope_damage": "elemento_do_movimento_independente_do_elemento_da_especie",
+   "scope_defense": "elemento_da_especie_alvo_do_bonus_defensivo",
+   "bonus_order": "usar_regra_existente_combat_rules.bonus_percentuais_dano; ataques aplicam depois do multiplicador elemental",
+   "duration": 4,
+   "activation": "movimento_de_suporte_20_energia_uma_acao_ou_movimento_integrado_custo_proprio_ou_passiva_futura",
+   "field_ownership": "global_compartilhado",
+   "simultaneous_climates": "somente_1",
+   "sanctuary_interaction": "coexistencia_permitida_um_clima_mais_um_santuario",
+   "approval_date": "2026-11-09",
+   "renewal": "nova_invocacao_reinicia_4_rodadas"
+  },
+  "ventania": {
+   "formal_status": "oficial",
+   "damage_by_move_element": {
+    "Ar": 0.25,
+    "Planta": -0.25
+   },
+   "defense_by_species_element": {
+    "Ar": {
+     "magical_defense": 0.1
+    }
+   },
+   "scope_damage": "elemento_do_movimento_independente_do_elemento_da_especie",
+   "scope_defense": "elemento_da_especie_alvo_do_bonus_defensivo",
+   "bonus_order": "usar_regra_existente_combat_rules.bonus_percentuais_dano; ataques aplicam depois do multiplicador elemental",
+   "duration": 4,
+   "activation": "movimento_de_suporte_20_energia_uma_acao_ou_movimento_integrado_custo_proprio_ou_passiva_futura",
+   "field_ownership": "global_compartilhado",
+   "simultaneous_climates": "somente_1",
+   "sanctuary_interaction": "coexistencia_permitida_um_clima_mais_um_santuario",
+   "approval_date": "2026-11-09",
+   "renewal": "nova_invocacao_reinicia_4_rodadas"
+  },
+  "tempestade_areia": {
+   "formal_status": "oficial",
+   "damage_by_move_element": {
+    "Terra": 0.25,
+    "Ar": -0.25
+   },
+   "defense_by_species_element": {
+    "Terra": {
+     "physical_defense": 0.1
+    }
+   },
+   "scope_damage": "elemento_do_movimento_independente_do_elemento_da_especie",
+   "scope_defense": "elemento_da_especie_alvo_do_bonus_defensivo",
+   "bonus_order": "usar_regra_existente_combat_rules.bonus_percentuais_dano; ataques aplicam depois do multiplicador elemental",
+   "duration": 4,
+   "activation": "movimento_de_suporte_20_energia_uma_acao_ou_movimento_integrado_custo_proprio_ou_passiva_futura",
+   "field_ownership": "global_compartilhado",
+   "simultaneous_climates": "somente_1",
+   "sanctuary_interaction": "coexistencia_permitida_um_clima_mais_um_santuario",
+   "approval_date": "2026-11-09",
+   "renewal": "nova_invocacao_reinicia_4_rodadas"
+  },
+  "migrado_em": "2026-11-18"
+ },
+ "combate_universal": {
+  "energia": {
+   "afogamento_em_campo_reduz_inicio_rodada": 20,
+   "afogamento_na_reserva_suspenso": true,
+   "escolha_golpe_energia_insuficiente_invalida": true,
+   "inicial": 100,
+   "maxima": 100,
+   "regen_inicio_rodada": 20,
+   "reserva_regenera": 20
+  },
+  "esquiva_universal": {
+   "formula_percentual": "clamp(7.5 + 5*(vel_defensor-vel_atacante)/(vel_defensor+vel_atacante), 5, 10)"
+  },
+  "golpes_multiplos": {
+   "chance_intrinseca_mais_velocidade_sem_empilhar_terceiro_golpe": true,
+   "checagem_esquiva_e_status_por_golpe": true,
+   "excecao_cocorion_via_passiva_fracao": 0.75,
+   "maximo_golpes_por_acao": 2,
+   "primeiro_golpe_derrota_alvo_encerra_acao_mesmo_se_reviver": true,
+   "primeiro_golpe_esquivado_encerra_acao": true,
+   "segundo_golpe_poder_padrao_fracao": 0.5,
+   "sem_custo_energia_extra": true,
+   "chance_segundo_acerto": "ver golpe_duplo (V2.2)"
+  },
+  "trocas": {
+   "prisao_das_areias_so_impede_voluntarias": true,
+   "substituicao_por_derrota_gratis": true,
+   "substituto_nao_age_na_mesma_acao": true,
+   "troca_consume_acao": true,
+   "troca_voluntaria_dupla_simultanea_e_oculta": true,
+   "voluntarias_prioridade_absoluta": true,
+   "ordem_resolucao_voluntarias_simultaneas": "velocidade_galo_ativo_mais_rapido_sai_primeiro",
+   "entradas_durante_trocas_simultaneas": "entrou_substituto_ativa_passiva_antes_da_proxima_troca",
+   "criterio_desempate_trocas_voluntarias_mesma_velocidade": "pendente_aprovacao"
+  },
+  "desempate_velocidade": {
+   "velocidade_igual_sorteio_50_50_nova_rodada": true
+  },
+  "modificadores_temporarios": {
+   "bonus_atributo_sai_campo_remove": true,
+   "bonus_de_dano_cocorion_sai_campo_remove": true,
+   "reducao_atributo_sai_campo_remove": true
+  },
+  "equipes_3v3": {
+   "team_size": 3,
+   "active_per_side": 1,
+   "reserve_per_full_team": 2,
+   "voluntary_swaps_priority": "antes de ataques e suportes",
+   "simultaneous_blind_swaps_if_both_players_select": true,
+   "mandatory_substitution_on_definitive_ko": "gratuita",
+   "replacement_no_extra_action": true,
+   "negative_status_suspended_in_reserve": true,
+   "temporary_stat_modifiers_removed_on_leaving_field": true,
+   "ko_all_three_to_win": true,
+   "species_duplicate_policy": "PENDENTE - hipótese de simulação: distintas dentro de cada trio",
+   "team_lead_selection_policy": "PENDENTE - hipótese de simulação: aleatória",
+   "strategy_AI_not_part_of_official_game_rules": true,
+   "simultaneous_swaps_order": "comparar_velocidade_do_galo_ativo_origem; mais_veloz_sai_primeiro",
+   "simultaneous_swaps_choices_remain_hidden": true
+  },
+  "ordem_trocas_e_invocacoes_simultaneas": {
+   "formal_status": "oficial",
+   "approved_on": "2026-11-09",
+   "context": "duas_trocas_voluntarias_escolhidas_simultaneamente_no_3x3",
+   "action_selection": "ambos_jogadores_decidem_troca_sem_revelar_antes_da_resolucao",
+   "priority_vs_other_actions": "trocas_voluntarias_continuam_antes_de_ataques_e_movimentos_de_suporte",
+   "comparison_stat": "velocidade_do_galeto_que_esta_em_campo_antes_de_trocar",
+   "resolution": "mais_veloz_sai_primeiro; seu_substituto_entra_e_ativa_passiva; em_seguida_o_outro_galo_sai_e_seu_substituto_entra",
+   "last_passive_environment_wins": "ultima_invocacao_aplicada_de_um_mesmo_tipo_de_ambiente_e_a_prevalente",
+   "no_suppression_if_last_entree_has_no_invocation": true,
+   "weather_and_sanctuary_slots_are_independent": true,
+   "equal_speed_resolution": "pendente_aprovacao",
+   "starting_battle_initial_entry_order": "pendente_aprovacao",
+   "mandatory_replacements_when_simultaneous": "pendente_aprovacao",
+   "no_extra_turn_costs_or_damage": true,
+   "does_not_change_other_existing_rules": true
+  },
+  "hp": {
+   "entre_niveis": "pendente_especificacao",
+   "nivel_1": 10,
+   "nivel_100": "ceil(1.5 * hp_base)"
+  },
+  "superados_nao_vigentes": {
+   "dano_basico": "substituído por dano_v5_6",
+   "dano_elemental": "substituído por dano_v5_6 + tipagem_dupla",
+   "golpe_adicional_velocidade": "substituído por golpe_duplo (V2.2)",
+   "atributos": "fórmula antiga (nível/100, IV 1–20) substituída pela progressao (nível 50); IV 1–40; integração de IV/EV/peso PENDENTE",
+   "raridade_mitica_total_pontos": "substituído pela escala da progressao (Mítico 550 no nível 50)"
+  },
+  "migrado_em": "2026-11-18"
+ },
+ "concentracao": {
+  "norma_integral": {
+   "base": "Concentração V2.3, refinamentos de experiência das Rinhas previamente aprovados",
+   "data": "2026-11-13",
+   "fundamento": "Aprovação expressa em conversa pelo criador, texto literal: Aprovo expressamente os seguintes itens do pacote de refinamento do Galetocraft: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10. Não aprovo nem homologo automaticamente os demais itens. Preserve os registros históricos e trate as pendências especiais 11–14 separadamente.",
+   "itens_homologados": [
+    {
+     "id": 1,
+     "regra": "Aplicar especificação de Concentração V2.3 a todas as espécies, E0, +35 de energia em execução válida, 40% de chance de remover um estado persistente e substituição do bônus aleatório pela Pena de Ritmo. Retificar fichas #019–#021 com trilha de versão; preservar originais históricos de 20% e núcleo antigo.",
+     "titulo": "Padronização documental universal"
+    },
+    {
+     "id": 2,
+     "regra": "Todo Galeto entra em campo com 100/100 de energia, incluindo entrada inicial, troca voluntária, substituição obrigatória ou troca por golpe. Teto de energia continua em 100; recuperação universal de +20 no início do próprio turno mantida.",
+     "titulo": "Energia de entrada"
+    },
+    {
+     "id": 3,
+     "regra": "Uma Pena por equipe; criada ao fim de Concentração válida, quando ainda não houver Pena; não utilizável na própria ação. Válida nas duas próximas oportunidades próprias da equipe, expira após elas. Concentração repetida não cria Pena nem renova validade. Persiste ao trocar ou ser derrotado o Galeto criador, enquanto a equipe continuar apta, e termina com a Rinha.",
+     "titulo": "Ciclo da Pena de Ritmo"
+    },
+    {
+     "id": 4,
+     "regra": "Declarar a utilização da Pena antes de conhecer o resultado da ação; uso individual e mutuamente exclusivo. No Canto Ofensivo, consumir no primeiro acerto direto válido; errar totalmente preserva a Pena até expiração. No Canto de Suporte, consumir na execução válida; ação impedida preserva Pena. Na Guarda, a Pena é comprometida secretamente e segue as regras de acerto/erro. No Revezamento, consumir ao completar troca voluntária válida. Não gastar Pena antiga durante Concentração.",
+     "titulo": "Momento de compromisso e consumo"
+    },
+    {
+     "id": 5,
+     "regra": "+12% de dano no primeiro acerto direto válido do ataque; +6 pontos de Pressão anatômica elegível uma vez por ação que retire HP efetivo, após regras de Guarda, respeitando limite de 65 de Pressão por ação, limite anatômico de dano e demais mecânicas. Não concede acertos ou Rupturas extras, nem altera exceções de golpes sequenciais.",
+     "titulo": "Canto Ofensivo com Mira"
+    },
+    {
+     "id": 6,
+     "regra": "Pena comprometida antes da resolução com Guarda localizada. Se a Guarda coincidir com a região atacada e houver dano direto efetivo ao HP, recupera +15 de energia, sem ultrapassar 100. Se a Guarda estiver incorreta e um ataque direto elegível acertar, consome a Pena sem recompensa. Se não houver ataque elegível ou acerto aplicável, preserva a Pena enquanto válida. Leitura Perfeita permanece independente.",
+     "titulo": "Canto da Guarda"
+    },
+    {
+     "id": 7,
+     "regra": "Troca voluntária convencional custa uma ação; entrante começa com 100 de energia. A Pena concede redução de 20% no primeiro acerto ofensivo direto sofrido até esse acerto ou até o fim da primeira oportunidade própria do entrante. Armadilhas e efeitos de entrada continuam normais. Não acumular reduções da mesma classe: aplicar a maior, preservando mecânicas defensivas distintas. A Pena é consumida quando a troca é completada; não aplica em substituição obrigatória nem em troca de golpe especial.",
+     "titulo": "Canto de Revezamento V2.3"
+    },
+    {
+     "id": 8,
+     "regra": "Desconto de 15 pontos no custo energético de golpe Suporte que não seja Concentração, após outros modificadores do custo e antes de verificar se há energia suficiente. Custo mínimo zero; a Pena é consumida apenas em execução válida; não altera efeito, potência ou duração do golpe.",
+     "titulo": "Canto de Suporte"
+    },
+    {
+     "id": 9,
+     "regra": "Guardar escolhas ocultas de Mira e Guarda até a resolução; Concentração impedida não concede energia, remoção de estado ou Pena. Cantos não concedem ação/energia acima do teto, não contornam imunidades, nem alteram velocidade, acertos ou demais limites homologados por inferência.",
+     "titulo": "Prioridade e segurança"
+    },
+    {
+     "id": 10,
+     "regra": "Exigir testes e auditoria de interações com 21 fichas documentais, golpes sequenciais, passivas, estados negativos, armadilhas, climas, Santuários, trocas, Guarda, Ruptura e Leitura Perfeita; documentar resultados reais antes de declarar integração funcional. Alterações posteriores de balanceamento requerem nova autorização.",
+     "titulo": "Auditoria e testes obrigatórios"
+    }
+   ],
+   "pendencias_especiais": [
+    {
+     "id": 11,
+     "procedimento": "auditar fórmulas oficiais e precedência, sem substituir automaticamente",
+     "status": "NÃO APROVADO / PENDENTE",
+     "titulo": "Fórmula de dano definitiva"
+    },
+    {
+     "id": 12,
+     "procedimento": "comparação e homologação individual, preservar ambas as referências",
+     "status": "NÃO APROVADO / PENDENTE",
+     "titulo": "36 atributos dos seis iniciais"
+    },
+    {
+     "id": 13,
+     "procedimento": "definição individual com fonte primária, sem estimar",
+     "status": "NÃO APROVADO / PENDENTE",
+     "titulo": "Peso natural do Renacocó #019"
+    },
+    {
+     "id": 14,
+     "procedimento": "migração separada sujeita a autorização e teste; não confundir documentação com runtime",
+     "status": "NÃO APROVADO / PENDENTE",
+     "titulo": "Integração de Galetário/Galolpédia ao banco jogável"
+    }
+   ],
+   "projeto": "Galetocraft",
+   "restricoes": [
+    "Nenhum arquivo ou banco anterior alterado por esta ata.",
+    "Não se presume migração à Beta 1.4, Fabric, NeoForge, GeckoLib ou motor jogável.",
+    "Concentração universal única não autoriza modificar golpes originais, passivas, espécies, atributos ou artes fora do escopo.",
+    "Documentos anteriores permanecem históricos auditáveis.",
+    "Aprovação da exigência de testes não equivale à execução de testes."
+   ],
+   "situacao": "HOMOLOGADO COMO DESIGN E REGRAS; IMPLEMENTAÇÃO E TESTES REAIS NÃO ATESTADOS",
+   "titulo": "Ata de homologação — Concentração V2.3 e regras operacionais 1–10"
+  },
+  "precedencia": "Histórico interno da fonte preservado; decisões posteriores de current_rules/current_species prevalecem por campo.",
+  "resolucoes_posteriores": {
+   "data": "2026-11-18",
+   "pendencia_12_36_atributos_iniciais": "RESOLVIDA — current_issues R02 (R531 + Beta161 + R55 + CSV concordam; base_nivel=50).",
+   "pendencia_13_peso_renacoco": "RESOLVIDA — current_issues R09: 6,8 kg (faixa 5,44–10,20 kg).",
+   "pendencia_14_integracao_banco_jogavel": "Continua pendente (current_issues R14)."
+  }
+ },
+ "dano_v5_6": {
+  "versao": "V5.6",
+  "data": "2026-11-13",
+  "status_fonte": "FÓRMULA-BASE OFICIAL / HOMOLOGADA EXPRESSAMENTE PELO CRIADOR",
+  "formula": "D_base = HPmax_defensor × Poder/400 × (Ataque_efetivo / max(1, Defesa_efetiva))^0,7",
+  "hp_referencia": "HP máximo efetivo atual do defensor (não o HP restante)",
+  "par_ataque_defesa": "físico ou mágico, conforme a categoria do golpe",
+  "arredondamento": "contínuo até o fim; arredondar para cima uma única vez por acerto",
+  "dano_minimo": "acerto direto válido não anulado causa no mínimo 1; imunidade, falha, esquiva e anulação total podem dar 0",
+  "hp_perdido": "mínimo entre o HP restante e o dano que atravessou proteções e escudos",
+  "ordem": [
+   "validar ação",
+   "snapshot do acerto",
+   "D_base",
+   "eficácia elemental (uma vez)",
+   "bônus e penalidades de dano (soma dos percentuais diferentes aplicáveis; não acumuláveis prevalecem)",
+   "anatomia e defesa (Guarda, Exposição/Ruptura, proteções)",
+   "acertos (máx. 2 convencionais)",
+   "arredondamento final",
+   "pós-acerto: HP perdido, efeitos, Pressão uma vez por ação"
+  ],
+  "guarda": {
+   "correta": 0.65,
+   "neutra": 1.0,
+   "errada": 1.1
+  },
+  "exposicao_bonus": 0.15,
+  "ruptura_janela_bonus": 0.25,
+  "exposicao_e_ruptura_acumulam": false,
+  "teto_anatomico": 1.4,
+  "defesa_especial_reducao": 0.75,
+  "canto_ofensivo_bonus": 0.12,
+  "canto_ofensivo_escopo": "somente o primeiro acerto direto válido da ação",
+  "canto_revezamento_reducao": 0.2,
+  "reducoes_mesma_classe": "aplicar a maior, sem somar",
+  "segundo_acerto_fracao_base": 0.5,
+  "pressao": "P = min(65, max(1, floor((18 + 200·L/HPmax)·F_regiao·G_guarda) + B_guarda)); L = HP retirado na ação; L=0 → 0",
+  "pressao_com_canto_ofensivo": "P = min(65, max(1, floor(((18 + 200·L/HPmax)·F_regiao + 6)·G_guarda) + B_guarda))",
+  "exemplos": [
+   {
+    "hp_max": 200,
+    "poder": 40,
+    "ataque": 100,
+    "defesa": 100,
+    "dano": 20
+   },
+   {
+    "hp_max": 200,
+    "poder": 80,
+    "ataque": 100,
+    "defesa": 100,
+    "dano": 40
+   },
+   {
+    "hp_max": 350,
+    "poder": 80,
+    "ataque": 100,
+    "defesa": 100,
+    "dano": 70
+   },
+   {
+    "hp_max": 200,
+    "poder": 80,
+    "ataque": 160,
+    "defesa": 80,
+    "dano": 65
+   },
+   {
+    "hp_max": 200,
+    "poder": 80,
+    "ataque": 80,
+    "defesa": 160,
+    "dano": 25
+   },
+   {
+    "hp_max": 200,
+    "poder": 180,
+    "ataque": 100,
+    "defesa": 100,
+    "dano": 90
+   }
+  ],
+  "exemplos_modificadores_poder80_A_D_100_HP200": {
+   "neutro": 40,
+   "guarda_correta": 26,
+   "guarda_errada": 44,
+   "exposicao": 46,
+   "ruptura": 50,
+   "defesa_especial": 10,
+   "canto_ofensivo": 45
+  },
+  "substitui": "combat_rules.dano_basico e combat_rules.dano_elemental (registros históricos preservados)",
+  "vitalidade_v5_6_1": "PENDENTE — HP efetivo e Resistência por Vitalidade dependem de parâmetro ainda não definido",
+  "migrado_em": "2026-11-18"
+ },
+ "estados_negativos": {
+  "regras_gerais": {
+   "cura_por_concentracao": 0.4,
+   "derrota_remove": true,
+   "maximo_por_galo": 1,
+   "reaplicacao_ignorada": true,
+   "reserva_congela_efeito_e_progresso": true
+  },
+  "estados": {
+   "Queimadura": {
+    "dano_fim_rodada_fracao_hp_maximo": 0.05,
+    "debuff_atf_atm": 0.2
+   },
+   "Envenenamento": {
+    "arredonda_cima": true,
+    "dano_fim_rodada_fracao_hp_maximo_por_blocos_de_duas_ocorrencias": [
+     0.1,
+     0.2,
+     0.3
+    ],
+    "dano_na_rodada_aplicacao": true,
+    "progride_mais_0_10_cada_duas_ocorrencias": true
+   },
+   "Afogamento": {
+    "dano_hp": 0,
+    "substitui_regeneracao_energia_por_perda_20": true
+   },
+   "Tonto": {
+    "ataque_ofensivo_causa_ao_proprio_usuario_fracao_dano_calculado": 0.5,
+    "chance_falhar_movimento": 0.3,
+    "gasta_energia": true,
+    "suporte_falha": true,
+    "id_tecnico_antigo": "tontura"
+   },
+   "Paralisia": {
+    "acao_perdida_gasta_energia": false,
+    "acao_perdida_nao_aplica_golpes_ou_suporte": true,
+    "afeta_tipos_acao": [
+     "ofensiva",
+     "suporte",
+     "troca_voluntaria"
+    ],
+    "chance_aplicacao_por_golpe": "a_definir_quando_existir_golpe_que_aplique_paralisia",
+    "chance_perder_acao": 0.2,
+    "concentracao_cura_chance_se_executada": 0.4,
+    "dano_hp_periodico": 0,
+    "duracao": "ate_cura_ou_derrota_definitiva",
+    "elemento_eletrico": "planejado_nao_implementado",
+    "invalido_por_energia_insuficiente_continua_invalido": true,
+    "kind": "negativo_persistente",
+    "limite_um_status_negativo_por_galo": true,
+    "nao_impede_substituicao_obrigatoria": true,
+    "reaplicacao_nao_acumula_nem_reinicia": true,
+    "removido_por_derrota_definitiva": true,
+    "reservas_suspendem_penalidade_e_checagem": true,
+    "status": "Paralisia",
+    "velocidade_formula": "max(1,ceil(velocidade_apos_modificadores_de_peso*0.75))",
+    "velocidade_reducao_fracao": 0.25,
+    "verificacao": "uma_checagem_ao_executar_cada_acao_ativa; nao_por_golpe"
+   }
+  },
+  "Sono": "Citado só na captura (fator 1,55 na Rinha). Efeito em Rinha ainda não definido (PENDENTE).",
+  "migrado_em": "2026-11-18"
+ },
+ "experiencia": {
+  "sistema": {
+   "politica_id": "progressao_cocorideos_rinhas_v1260",
+   "nivel_minimo": 1,
+   "nivel_maximo": 100,
+   "experiencia_independente_da_pena": 1,
+   "formula_xp_total": "T(N) = (N-1)^3 + 10*(N-1)^2",
+   "formula_xp_ao_proximo": "T(N+1)-T(N)",
+   "formula_recompensa_oponente": "floor((25+15*L)*M_raridade*C_desafio*M_modo)",
+   "formula_fator_desafio": "max(0.25,min(1.50,1+0.03*(L-P)))",
+   "nivel_max_participante_referencia": "P=maior_nivel_dos_Cocorideos_que_entraram_em_campo",
+   "recompensa_somente_em_rinha_vencida": 1,
+   "recompensa_uma_vez_por_oponente_derrotado": 1,
+   "premia_so_participantes_que_entraram_em_campo": 1,
+   "exige_ataque_executado_para_premiar": 0,
+   "banco_reserva_sem_entrada_recebe_xp": 0,
+   "xp_por_derrota_fuga_abandono": 0,
+   "xp_por_captura_sem_derrota": 0,
+   "xp_nova_no_nivel_100": 0,
+   "xp_cocorideo_capturado_inicio": "T(nivel_atual), sem XP extra ao capturar",
+   "momento_liquidacao": "fim_da_Rinha_vencida",
+   "transacao_servidor_atomica": 1,
+   "mesma_rinha_nao_gera_xp_duplicada": 1,
+   "preserva_evs_participacao": 1,
+   "preserva_ivs_e_atributos_e_genetica": 1,
+   "preserva_golpes_e_3v3": 1,
+   "preserva_capturas_e_pena": 1,
+   "status": "homologado_oficial_2026_11_12",
+   "proposta_nome": "Galetocraft_Proposta_Oficial_Progressao_XP_Cocorideos_Auditoria_2026-11-12.md",
+   "proposta_sha256": "894d553f44fb9cc5b829323ccf66ea47a21fcf7c31d2405a8a584bf8a563b5b8",
+   "fonte_aprovacao": "Aprovo oficialmente, na íntegra, a proposta Galetocraft_Proposta_Oficial_Progressao_XP_Cocorideos_Auditoria_2026-11-12.md, incluindo curva numérica de níveis 1–100, recompensas de XP por Rinha, multiplicadores de raridade, desafio, distribuição entre participantes, XP PvP e proteção contra farm. Preserve IVs, EVs, atributos, golpes, sistema de capturas e todas as regras anteriores. Registre em nova versão incremental do SQLite, audite e apresente o resultado.",
+   "data_aprovacao": "2026-11-12"
+  },
+  "raridades": [
+   {
+    "raridade": "Comum",
+    "multiplicador": 1.0
+   },
+   {
+    "raridade": "Raro",
+    "multiplicador": 1.25
+   },
+   {
+    "raridade": "Super Raro",
+    "multiplicador": 1.55
+   },
+   {
+    "raridade": "Épico",
+    "multiplicador": 1.9
+   },
+   {
+    "raridade": "Mítico",
+    "multiplicador": 2.3
+   },
+   {
+    "raridade": "Lendário",
+    "multiplicador": 2.8
+   },
+   {
+    "raridade": "Divino",
+    "multiplicador": 3.4
+   }
+  ],
+  "modalidades": [
+   {
+    "modalidade": "PvE_selvagem",
+    "multiplicador": 1.0
+   },
+   {
+    "modalidade": "PvP_valido",
+    "multiplicador": 0.75
+   }
+  ],
+  "distribuicao": {
+   "politica_id": "progressao_cocorideos_rinhas_v1260",
+   "participantes_min": 1,
+   "participantes_max": 3,
+   "regra_participacao": "Cocorídeos distintos que entraram em campo ao menos uma vez, mesmo sem golpear",
+   "soma_parcelas": "somar floor(XP_oponente) por oponente derrotado uma unica vez em Rinha vencida",
+   "regra_quociente_resto": "repartir por quociente inteiro e atribuir resto de 1 unidade por participante",
+   "desempate_restos": "ordem da primeira entrada; em empate desempate por identificador persistente",
+   "xp_total_conservada": 1,
+   "PvP_janela_horas": 24,
+   "PvP_vitoria_premiada_por_par_uma_por_janela": 1,
+   "PvP_repeticao_pode_acontecer": 1,
+   "PvP_repeticao_xp": 0,
+   "regra_xp_development_separada_pena": "XP da Pena por capturas é independente e continua integralmente homologada",
+   "escopo_recompensa": "XP somente de desenvolvimento de Cocorídeos; EVs permanecem regidos por política separada",
+   "fonte_aprovacao": "Aprovo oficialmente, na íntegra, a proposta Galetocraft_Proposta_Oficial_Progressao_XP_Cocorideos_Auditoria_2026-11-12.md, incluindo curva numérica de níveis 1–100, recompensas de XP por Rinha, multiplicadores de raridade, desafio, distribuição entre participantes, XP PvP e proteção contra farm. Preserve IVs, EVs, atributos, golpes, sistema de capturas e todas as regras anteriores. Registre em nova versão incremental do SQLite, audite e apresente o resultado.",
+   "status": "oficial"
+  },
+  "migrado_em": "2026-11-18"
+ },
+ "galeria_compatibilidade": {
+  "escopo": "compatibilidade; não define duração, cooldown ou condições de alojamento",
+  "homologacao_manual_de_cada_par": false,
+  "macho_e_femea": true,
+  "minimo_alas_compartilhadas": 1,
+  "principal_secundaria_equivalentes": true,
+  "sexo_nao_inferido_do_visual": true
+ },
+ "galeria_especie_filhote_normal": {
+  "excecoes": "Gêmeos especiais aprovados são exceções de nascimento entre espécies, não híbridos.",
+  "hibridos": false,
+  "pais_distintos": {
+   "materna": 0.5,
+   "paterna": 0.5
+  },
+  "pais_mesma_especie": 1
+ },
+ "galeria_gemeos": {
+  "eventos_independentes_por_ovo": true,
+  "filhotes_no_ovo_gemeo": 2,
+  "regra_vigente": "reproducao_gemeos",
+  "seis_ivs_identicos_entre_os_gemeos": true
+ },
+ "galeria_gemeos_especiais": {
+  "casal_5_com6": "IMPOSSIVEL_AMBOS_MACHOS",
+  "chance_total_absoluta_por_ovo_elegivel": 0.001,
+  "gatilhos_completos": "PENDENTE",
+  "pares_conhecidos": [
+   [
+    1,
+    19
+   ],
+   [
+    5,
+    6
+   ]
+  ],
+  "resolucoes_posteriores": {
+   "data": "2026-11-18",
+   "pares_inativos": [
+    {
+     "par": [
+      5,
+      6
+     ],
+     "especies": "Cocórion + Cocórvolt",
+     "motivo": "As duas espécies são 100% machos; o par fica registrado e inativo até mudança na distribuição de sexo.",
+     "decisao": "Decisão expressa do criador em 18/11/2026 (auditoria de incoerências)"
+    }
+   ]
+  }
+ },
+ "galeria_heranca_de_bico": {
+  "ave_fenix_pelo_menos_um_portador": 1,
+  "catalogo_completo_por_filhote_a_reconciliar": true,
+  "pai_portador": 1,
+  "preservar_compatibilidade_dos_golpes": true,
+  "somente_mae_portadora": 0.25
+ },
+ "galeria_ivs": {
+  "excecao_refinamento": "reproducao_etapa01",
+  "gemeos": "mesmo vetor final de seis IVs",
+  "herdados": 3,
+  "nao_herdados": 3,
+  "origem_por_herdado": {
+   "mae": 0.7,
+   "pai": 0.3
+  },
+  "selecao": "uniforme sem reposição",
+  "sorteio_inicial_nao_herdados": "inteiro uniforme independente 1..40"
+ },
+ "galeria_ovos": {
+  "filhotes_normais_por_ovo": 1,
+  "maximo": 3,
+  "minimo": 1,
+  "probabilidades_por_quantidade": {
+   "1": 0.25,
+   "2": 0.5,
+   "3": 0.25
+  }
+ },
+ "galeria_sexo": {
+  "aplicar_distribuicao_da_especie_do_filhote": true,
+  "garantia_de_metade_exata_da_populacao": false,
+  "padrao_femea": 0.5,
+  "padrao_macho": 0.5,
+  "por_individuo": true
+ },
+ "golpe_duplo": {
+  "norma_integral": {
+   "aprovacao_usuario": "Está completamente oficializado",
+   "casos_pendentes": [
+    "Velocidade efetiva do defensor = 0 exige especificação segura sem alterar regra do usuário",
+    "Playtest completo no motor real do Minecraft"
+   ],
+   "chances_especiais": {
+    "independentes": true,
+    "laminas_de_vento_intrinseca": 0.25,
+    "podem_exceder_teto_universal": true,
+    "probabilidade_combinada": "1-(1-P_universal)*(1-P_intrinseca)",
+    "sem_terceiro_acerto": true
+   },
+   "data": "2026-11-13",
+   "norma": "Golpe Duplo Estratégico V2.2",
+   "preservacao": [
+    "Dano V5.6 e Vitalidade V5.6.1",
+    "Progressao atributos Nivel50 V1",
+    "Concentracao V2.3",
+    "Mira Anatomica V1.5",
+    "golpes, passivas, custo e energia",
+    "conflitos 36 atributos iniciais"
+   ],
+   "probabilidade_universal": {
+    "alcanca_teto_razao": 1.5,
+    "base_empate": 0.25,
+    "dominio": "velocidade_defensor>0",
+    "teto": 0.5,
+    "vel_atacante_igual_maior_defensor": "min(0.50, 0.25+0.50*(Va/Vd-1))",
+    "vel_atacante_menor_defensor": 0
+   },
+   "projeto": "Galetocraft",
+   "segundo_acerto": {
+    "chance_bloqueio": 0.5,
+    "checagem_precisao_esquiva": true,
+    "energia_extra": 0,
+    "excecoes_especificas_preservadas": true,
+    "fracao_dano_base_padrao": 0.5,
+    "ko_primeiro_acerto_encerra": true,
+    "limite_acertos_convencionais": 2,
+    "mira_unica_na_acao": true,
+    "pressao_anatomica_uma_vez_por_acao": true,
+    "primeiro_acerto_esquivado_encerra": true
+   },
+   "sequenciais_aprovados": {
+    "limite_proprio_ate": 5,
+    "sem_acerto_extra_por_velocidade": true
+   },
+   "status_implementacao": "modulo_python_isolado_sem_integracao_minecraft",
+   "status_normativo": "OFICIAL_HOMOLOGADO",
+   "testes": {
+    "amostras_monotonicidade_deterministas": 15000,
+    "casos": 7,
+    "notas": "sem simulacao de Rinhas completas",
+    "status": "OK"
+   }
+  },
+  "precedencia": "Histórico interno da fonte preservado; decisões posteriores de current_rules/current_species prevalecem por campo.",
+  "resolucoes_posteriores": {
+   "data": "2026-11-18",
+   "preservacao.conflitos_36_atributos_iniciais": "RESOLVIDO — current_issues R02."
+  }
+ },
+ "heranca_bico": {
+  "ave_fenix_qualquer_progenitor": 1,
+  "catalogo_identificado": 13,
+  "compatibilidade_cruzada": "PENDENTE: reprodução possível não concede todo golpe ao descendente",
+  "pai_elegivel": 1,
+  "somente_mae_elegivel": 0.25,
+  "resolucoes_posteriores": {
+   "data": "2026-11-18",
+   "especies_sem_hereditario_por_design": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "decisao_sem_hereditario": "Decisão expressa do criador em 18/11/2026 (auditoria de incoerências)",
+   "especie_23": "Não reproduz (Lendário Original); Herança de Bico não se aplica."
+  }
+ },
+ "itens_segurados": {
+  "capacidade": {
+   "max_itens_segurados_por_galo": 2,
+   "requisito_categorias_distintas": true,
+   "aplicacao": "qualquer_galo",
+   "slots_facultativos": true,
+   "condicao_duplo_equipamento": "itens[0].categoria != itens[1].categoria",
+   "categorias_oficiais": "PENDENTE_DE_APROVACAO",
+   "categorias_sugeridas_nao_oficiais": [
+    "Ambiental",
+    "Ofensivo",
+    "Defensivo",
+    "Utilitario"
+   ],
+   "itens_individuais_ja_homologados": false,
+   "nao_define_efeitos_nem_valores_de_itens": true,
+   "sem_alteracao_de_golpes_passivas_especies_status_ambientes": true,
+   "aprovado_em": "2026-11-09"
+  },
+  "categorias_oficiais": {
+   "categories": [
+    "Ambiental",
+    "Ofensiva",
+    "Defensiva",
+    "Utilitária"
+   ],
+   "two_slots_max": 2,
+   "different_categories_for_two_items": true,
+   "may_use_zero_or_one": true,
+   "rarity_system": "pending",
+   "obtaining_items": "pending",
+   "assignments_to_current_species": false
+  },
+  "catalogo": "Os 20 itens de held_item_catalog são candidatos e não foram migrados.",
+  "migrado_em": "2026-11-18"
+ },
+ "lendarios_originais_reproducao": {
+  "especies_incluidas": [
+   23
+  ],
+  "permitida": false
+ },
+ "matriz_elemental": {
+  "elementos": [
+   "Fogo",
+   "Água",
+   "Planta",
+   "Terra",
+   "Ar",
+   "Elétrico"
+  ],
+  "multiplicadores": {
+   "Fogo": {
+    "Fogo": 1.0,
+    "Água": 0.5,
+    "Planta": 2.0,
+    "Terra": 0.5,
+    "Ar": 2.0,
+    "Elétrico": 1.0
+   },
+   "Água": {
+    "Fogo": 2.0,
+    "Água": 1.0,
+    "Planta": 0.5,
+    "Terra": 2.0,
+    "Ar": 1.0,
+    "Elétrico": 0.5
+   },
+   "Planta": {
+    "Fogo": 0.5,
+    "Água": 2.0,
+    "Planta": 1.0,
+    "Terra": 1.0,
+    "Ar": 0.5,
+    "Elétrico": 2.0
+   },
+   "Terra": {
+    "Fogo": 2.0,
+    "Água": 0.5,
+    "Planta": 1.0,
+    "Terra": 1.0,
+    "Ar": 0.5,
+    "Elétrico": 2.0
+   },
+   "Ar": {
+    "Fogo": 0.5,
+    "Água": 1.0,
+    "Planta": 2.0,
+    "Terra": 2.0,
+    "Ar": 1.0,
+    "Elétrico": 0.5
+   },
+   "Elétrico": {
+    "Fogo": 1.0,
+    "Água": 2.0,
+    "Planta": 0.5,
+    "Terra": 0.5,
+    "Ar": 2.0,
+    "Elétrico": 1.0
+   }
+  },
+  "neutro_e_sem_elemento": 1.0,
+  "suporte_nao_aplica_eficacia": true,
+  "dupla_e_tripla": "ver tipagem_dupla (V1) e nexo (V2.0)",
+  "migrado_em": "2026-11-18"
+ },
+ "mira": {
+  "norma_integral": {
+   "approval_date": "2026-11-12",
+   "approval_quote": "Aprove o sistema como oficial a partir de agora",
+   "approved_version": "1.5",
+   "constraints": {
+    "energy_initial_max": 100,
+    "energy_regen_own_turn": 20,
+    "five_equipped_moves_concentracao_mandatory": true,
+    "normal_hits_max": 2,
+    "official_rinha_format": "3v3",
+    "official_sequential_exception_up_to": 5
+   },
+   "feature": "Mira Anatômica Estratégica",
+   "guard": {
+    "correct_damage_multiplier": 0.65,
+    "correct_pressure_multiplier": 0.2,
+    "neutral_damage_multiplier": 1.0,
+    "neutral_extra_pressure": 0,
+    "neutral_pressure_multiplier": 1.0,
+    "wrong_damage_multiplier": 1.1,
+    "wrong_extra_pressure": 10
+   },
+   "implementation_status": "MOTOR_JAVA_ISOLADO_NAO_INTEGRADO_NEOFORGE",
+   "normative_status": "OFICIAL_HOMOLOGADO_REGRAS",
+   "perfect_read": {
+    "clear_exposure_eligibility": "pressão cai abaixo de 50 ou a região rompe ou o cocorídeo sai de campo",
+    "enabled": true,
+    "expires": "fim da próxima oportunidade de ação própria, mesmo sem golpe acertado",
+    "max_one_reward_per_exposure_episode_per_region": true,
+    "max_pressure_added_per_region_per_action": 65,
+    "never_changes": [
+     "dano do golpe",
+     "energia",
+     "atributos base",
+     "golpes aprendidos",
+     "efeitos de passivas"
+    ],
+    "non_stacking": true,
+    "reward": "8 pontos de pressão extras na próxima ação ofensiva com dano HP positivo",
+    "trigger": "guarda localizada correta + região já exposta antes do ataque + dano HP positivo + alvo vivo + região NÃO rompe nesta ação"
+   },
+   "preservation": {
+    "approved_past_species_moves_passives_art_modified": false,
+    "official_mod_updated": false,
+    "official_sqlite_modified": false,
+    "preserve_prior_versions": true
+   },
+   "pressure": {
+    "decay_after_own_opportunity_without_hit": 10,
+    "exposed_at": 50,
+    "fixed_gain_on_damage": 18,
+    "max": 100,
+    "max_concurrent_ruptures": 1,
+    "max_gain_per_region_per_action": 65,
+    "min": 0,
+    "other_regions_cap_during_rupture": 99,
+    "proportional_gain_factor": 200,
+    "rupture_at": 100
+   },
+   "project": "Galetocraft",
+   "provenance_files": {
+    "RELATORIO_COMPARATIVO_V1_5.md": "68e4121ecb44a9ff3c77c0be1f01a25fd49828fbd21d839721f0806a30e58757",
+    "config_v14_reference.json": "8a14186aaf02f18aded966041b2ea31862449dceb5d24c28dfb2d6b0dfaf463b",
+    "config_v15_experimental.json": "7cbba6b5b1c0edec3ec96cb63f5068a70fae5f7c51f202067080cece57fa3882"
+   },
+   "regions": {
+    "asas": {
+     "hit_multiplier": 0.86,
+     "pressure_factor": 1.0,
+     "rupture": {
+      "attribute": "velocidade",
+      "delta_pct": -40
+     }
+    },
+    "cabeca_crina": {
+     "hit_multiplier": 0.78,
+     "pressure_factor": 1.1,
+     "rupture": {
+      "attribute": "ataque_magico",
+      "delta_pct": -45
+     }
+    },
+    "pernas_garras": {
+     "hit_multiplier": 0.9,
+     "pressure_factor": 1.0,
+     "rupture": {
+      "attribute": "ataque_fisico",
+      "delta_pct": -45
+     }
+    },
+    "tronco": {
+     "hit_multiplier": 1.0,
+     "pressure_factor": 0.55,
+     "rupture": {
+      "attribute": [
+       "defesa_fisica",
+       "defesa_magica"
+      ],
+      "delta_pct": -30
+     }
+    }
+   },
+   "rupture": {
+    "bonuses_stack": false,
+    "damage_bonus_cap_anatomy": 1.4,
+    "duration_future_target_opportunities": 2,
+    "exposed_damage_bonus": 0.15,
+    "finisher_damage_bonus": 0.25,
+    "finisher_requires_same_region_and_unprotected": true,
+    "no_new_rupture_on_ko": true,
+    "trigger_only_after_full_attack_action": true
+   },
+   "switch": {
+    "pressure_retained_fraction": 0.5,
+    "remove_active_anatomy_debuff": true,
+    "remove_finisher": true
+   },
+   "unchanged_from_v14": {
+    "default_energy_cap": 100,
+    "exposed_at": 50,
+    "max_one_rupture_active": true,
+    "max_pressure_gain_per_action": 65,
+    "neutral_guard": true,
+    "normal_hits_maximum": 2,
+    "official_team_size": 3,
+    "regions": 4,
+    "rupture_at": 100,
+    "rupture_duration_target_opportunities": 2,
+    "self_turn_energy_recovery": 20,
+    "sequential_exemption_if_approved_by_existing_move": 5
+   },
+   "validation": {
+    "java_assertions_passed": 111,
+    "paired_synthetic_matches_total": 24000,
+    "scope": "synthetic_only"
+   }
+  },
+  "precedencia": "Histórico interno da fonte preservado; decisões posteriores de current_rules/current_species prevalecem por campo."
+ },
+ "nexo": {
+  "norma_integral": {
+   "auditoria": {
+    "eficacia_final_conferida": true,
+    "golpe_nexo_contra_quetzacoco_triplo": 2,
+    "reciprocidade_nexo": true,
+    "relacao_nexo_vs_nexo": 1,
+    "total_confrontos_nexo_definidos": 13
+   },
+   "cobertura_atacante": {
+    "Ar": [
+     "Planta",
+     "Terra"
+    ],
+    "Nexo": [
+     "Fogo",
+     "Ar"
+    ],
+    "Planta": [
+     "Água",
+     "Elétrico"
+    ]
+   },
+   "data": "2026-11-15",
+   "eficacia_final_recebida_quetzacoco": {
+    "Ar": 1.0,
+    "Elétrico": 2.0,
+    "Fogo": 2.0,
+    "Nexo": 2,
+    "Planta": 0.5,
+    "Terra": 0.5,
+    "Água": 0.5
+   },
+   "eficacia_nexo_como_atacante": {
+    "Ar": 2,
+    "Elétrico": 0.5,
+    "Fogo": 2,
+    "Nexo": 1,
+    "Planta": 1,
+    "Terra": 1,
+    "Água": 1
+   },
+   "eficacia_nexo_como_defensor": {
+    "Ar": 0.5,
+    "Elétrico": 2,
+    "Fogo": 0.5,
+    "Nexo": 1,
+    "Planta": 1,
+    "Terra": 1,
+    "Água": 1
+   },
+   "elemento_exclusivo": {
+    "aplicacao": "apenas eficácia elemental",
+    "efeitos_automaticos_excluidos": [
+     "clima",
+     "domínio ambiental",
+     "cura",
+     "imunidade",
+     "modificador direto de atributos",
+     "status",
+     "ações extras",
+     "bônus para golpes de Ar ou Planta"
+    ],
+    "nome": "Nexo",
+    "pertence_exclusivamente": "#023 Quetzacocó",
+    "titulo": "A Convergência Elemental",
+    "transferivel_por_reproducao": false,
+    "versao": "2.0"
+   },
+   "elementos": [
+    "Ar",
+    "Planta",
+    "Nexo"
+   ],
+   "entidade": "#023 Quetzacocó",
+   "origem_aprovacao": "Gostei muito, extremamente aprovado",
+   "pendentes": [
+    "regra de herança de golpes tipados Nexo",
+    "relações com futuros elementos especiais de outros lendários",
+    "atributos e peso #023",
+    "passiva e repertório de golpes #023",
+    "balanceamento por simulação",
+    "implementação Java/SQLite/Minecraft"
+   ],
+   "preservacoes": [
+    "matriz 6x6 dos seis elementos básicos",
+    "tipagem dupla V1",
+    "fórmula de dano e arredondamento",
+    "Energia",
+    "Golpe Duplo e teto de dois acertos",
+    "Mira Anatômica",
+    "arte visual homologada com pernas e logo"
+   ],
+   "projeto": "Galetocraft",
+   "raridade": "Lendário",
+   "regra_tripla_excepcional": "produto de eficácia(ataque,Ar) × eficácia(ataque,Planta) × eficácia(ataque,Nexo); uma vez por acerto antes do arredondamento final",
+   "status": "OFICIAL_HOMOLOGADO_COM_APROVACAO_EXPRESSA"
+  },
+  "precedencia": "Histórico interno da fonte preservado; decisões posteriores de current_rules/current_species prevalecem por campo.",
+  "resolucoes_posteriores": {
+   "data": "2026-11-18",
+   "pendentes.atributos_e_peso_023": "RESOLVIDO — ficha V2 de 16/11/2026: total 700 no nível 50, peso 180 kg.",
+   "pendentes.passiva_e_repertorio_023": "RESOLVIDO — Soberania dos Ventos Eternos; 30 golpes homologados em 16/11/2026.",
+   "pendentes.heranca_golpes_tipados_nexo": "SEM APLICAÇÃO — Lendários Originais não reproduzem (regra lendarios_originais_reproducao).",
+   "pendentes_reais": [
+    "distribuição de aprendizagem do #023 (current_issues U03)",
+    "balanceamento por simulação",
+    "implementação Java/SQLite/Minecraft",
+    "relações com futuros elementos especiais de outros lendários"
+   ]
+  }
+ },
+ "nexo_relacoes": [
+  {
+   "attacker": "Fogo",
+   "defender": "Nexo",
+   "multiplier": 0.5,
+   "source_id": "nexo"
+  },
+  {
+   "attacker": "Água",
+   "defender": "Nexo",
+   "multiplier": 1.0,
+   "source_id": "nexo"
+  },
+  {
+   "attacker": "Planta",
+   "defender": "Nexo",
+   "multiplier": 1.0,
+   "source_id": "nexo"
+  },
+  {
+   "attacker": "Terra",
+   "defender": "Nexo",
+   "multiplier": 1.0,
+   "source_id": "nexo"
+  },
+  {
+   "attacker": "Ar",
+   "defender": "Nexo",
+   "multiplier": 0.5,
+   "source_id": "nexo"
+  },
+  {
+   "attacker": "Elétrico",
+   "defender": "Nexo",
+   "multiplier": 2.0,
+   "source_id": "nexo"
+  },
+  {
+   "attacker": "Nexo",
+   "defender": "Nexo",
+   "multiplier": 1.0,
+   "source_id": "nexo"
+  },
+  {
+   "attacker": "Nexo",
+   "defender": "Fogo",
+   "multiplier": 2.0,
+   "source_id": "nexo"
+  },
+  {
+   "attacker": "Nexo",
+   "defender": "Água",
+   "multiplier": 1.0,
+   "source_id": "nexo"
+  },
+  {
+   "attacker": "Nexo",
+   "defender": "Planta",
+   "multiplier": 1.0,
+   "source_id": "nexo"
+  },
+  {
+   "attacker": "Nexo",
+   "defender": "Terra",
+   "multiplier": 1.0,
+   "source_id": "nexo"
+  },
+  {
+   "attacker": "Nexo",
+   "defender": "Ar",
+   "multiplier": 2.0,
+   "source_id": "nexo"
+  },
+  {
+   "attacker": "Nexo",
+   "defender": "Elétrico",
+   "multiplier": 0.5,
+   "source_id": "nexo"
+  }
+ ],
+ "nomenclatura": {
+  "titulo": "Galetocraft — Nomenclatura oficial",
+  "oficializado_em": "18/11/2026",
+  "autorizacao": "Pedido expresso do criador em 18/11/2026: oficializar as trocas de nomes feitas no projeto (ex.: RoosterTeca -> Galetário), incluindo Galeria e Histórico da Rinha.",
+  "regra_de_aplicacao": "Usar o nome oficial em todo texto de apresentação (títulos, legendas, descrições, fichas, interface e documentação). Nomes antigos permanecem apenas em identificadores técnicos (caminhos, nomes de arquivo, tabelas SQL, chaves JSON, IDs em minúsculas) e em citações históricas que explicam a troca.",
+  "trocas": [
+   {
+    "id": "galetario",
+    "oficial": "Galetário",
+    "antigos": [
+     "RoosterTeca"
+    ],
+    "genero": {
+     "antigo": "f",
+     "oficial": "m"
+    },
+    "conceito": "Enciclopédia de espécies (fichas dos Cocorídeos).",
+    "aplicacao": "automatica",
+    "decidido_em": "11/11/2026",
+    "fontes": [
+     "Padronizacao_Documental_Galetario_2026-11-11.md §1",
+     "Galetocraft_Padronizacao_Interfaces_de_Rinha_2026-11-11.md §1"
+    ]
+   },
+   {
+    "id": "heranca_de_bico",
+    "oficial": "Herança de Bico",
+    "antigos": [
+     "GalolpeTeca Hereditária"
+    ],
+    "genero": {
+     "antigo": "f",
+     "oficial": "f"
+    },
+    "conceito": "Seção dos golpes hereditários paternos.",
+    "aplicacao": "automatica",
+    "decidido_em": "11/11/2026",
+    "fontes": [
+     "Padronizacao_Documental_Galetario_2026-11-11.md §1",
+     "Galetocraft_Padronizacao_Interfaces_de_Rinha_2026-11-11.md §1"
+    ]
+   },
+   {
+    "id": "galolpedia",
+    "oficial": "Galolpédia",
+    "antigos": [
+     "GalolpeTeca Geral",
+     "GalolpeTecas",
+     "GalolpeTeca"
+    ],
+    "genero": {
+     "antigo": "f",
+     "oficial": "f"
+    },
+    "conceito": "Catálogo geral de golpes (IDs G001–G144 e série N).",
+    "aplicacao": "automatica",
+    "decidido_em": "11/11/2026",
+    "fontes": [
+     "Padronizacao_Documental_Galetario_2026-11-11.md §1",
+     "Galolpedia_Reforma_Integral_212_Golpes_Catalogo_2026-11-11.json (nova_nomenclatura)"
+    ]
+   },
+   {
+    "id": "tonto",
+    "oficial": "Tonto",
+    "antigos": [
+     "Tontura"
+    ],
+    "genero": {
+     "antigo": "f",
+     "oficial": "m"
+    },
+    "conceito": "Estado negativo persistente.",
+    "aplicacao": "automatica",
+    "decidido_em": "13/11/2026 (R3/R5.2), reafirmado em 14/11/2026 (R5.3)",
+    "fontes": [
+     "RELATORIO_CONSOLIDACAO_GERAL_R53_2026-11-14.md §5: 'Tonto permanece o nome oficial, com alias técnico Tontura'"
+    ],
+    "observacao": "O ID técnico em minúsculas 'tontura' (tabela status_effects e chaves JSON) é mantido como alias."
+   },
+   {
+    "id": "ave_fenix",
+    "oficial": "Ave Fênix",
+    "antigos": [
+     "Tricrina Infernal"
+    ],
+    "genero": {
+     "antigo": "f",
+     "oficial": "f"
+    },
+    "conceito": "Golpe hereditário exclusivo do #001 Pirococó (Fogo, mágico).",
+    "aplicacao": "automatica",
+    "decidido_em": "09/11/2026",
+    "fontes": [
+     "Galetocraft_GalolpeTeca_Hereditaria_Atualizada.md: 'Renomeia e substitui Tricrina Infernal (registro antigo)'"
+    ]
+   },
+   {
+    "id": "historico_da_rinha",
+    "oficial": "Histórico da Rinha",
+    "antigos": [
+     "Diário de Batalha"
+    ],
+    "genero": {
+     "antigo": "m",
+     "oficial": "m"
+    },
+    "conceito": "Registro/painel com o histórico de ações e o resultado de uma Rinha.",
+    "aplicacao": "automatica",
+    "decidido_em": "11/11/2026 como rótulo opcional; oficializado em 18/11/2026",
+    "fontes": [
+     "Galetocraft_Padronizacao_Interfaces_de_Rinha_2026-11-11.md §8"
+    ],
+    "observacao": "A funcionalidade é a mesma já homologada; muda só o nome. 'Resultado da Rinha' fica como rótulo da tela de resultado."
+   },
+   {
+    "id": "rinha",
+    "oficial": "Rinha / Rinhas",
+    "antigos": [
+     "combate (termo genérico para a atividade)"
+    ],
+    "conceito": "Batalha por turnos entre Cocorídeos.",
+    "aplicacao": "manual",
+    "decidido_em": "11/11/2026",
+    "fontes": [
+     "Galetocraft_Padronizacao_Interfaces_de_Rinha_2026-11-11.md §1"
+    ],
+    "observacao": "O botão do menu da Rinha continua escrito 'Combate'. Por isso a troca não é automática: depende do contexto."
+   },
+   {
+    "id": "cocorideos",
+    "oficial": "Cocorídeos (coletivo) / Galeto (indivíduo)",
+    "antigos": [
+     "denominações anteriores de raça"
+    ],
+    "conceito": "Nome do grupo de criaturas e de cada criatura.",
+    "aplicacao": "manual",
+    "decidido_em": "11/11/2026",
+    "fontes": [
+     "Padronizacao_Documental_Galetario_2026-11-11.md §1"
+    ]
+   },
+   {
+    "id": "galeria",
+    "oficial": "Galeria",
+    "antigos": [
+     "Galeria (nome provisório)"
+    ],
+    "conceito": "Sistema/área de criação e reprodução (alas, pares, ovos, linhagem).",
+    "aplicacao": "manual",
+    "decidido_em": "12/11/2026 como nome provisório; oficializado em 18/11/2026",
+    "fontes": [
+     "Galetocraft_Memoria_Mestra_Beta_1.2_1.3_2026-11-12.md: 'Galeria (nome provisório da reprodução)'"
+    ],
+    "observacao": "Remover o qualificativo 'provisório' onde aparecer."
+   }
+  ],
+  "nao_sao_trocas_de_nome": [
+   {
+    "registro": "Nimbocó -> Libelocó (#016), Raizaló -> Castorocó (#017), Brasapó -> Mariposocó (#018)",
+    "motivo": "Conceitos de proposta substituídos por outros conceitos em 12/11/2026; não são apelidos da mesma criatura."
+   },
+   {
+    "registro": "'Crista Poderosa'",
+    "motivo": "Forma usada em conversa; o nome oficial registrado é Crina Poderosa."
+   },
+   {
+    "registro": "Morcegalo: Sombrio -> Ar; Cocórvolt: Elétrico",
+    "motivo": "Retificações de elemento, não de nome."
+   }
+  ]
+ },
+ "progressao": {
+  "norma_integral": {
+   "abaixo_50": "PENDENTE_DE_ESPECIFICACAO; nenhuma curva antiga automaticamente homologada",
+   "arredondamento_inteiro": "PENDENTE_DE_HOMOLOGACAO; valores exatos racionais sao a fonte de verdade e estudos podem usar piso explicito como convencao experimental",
+   "conflitos": {
+    "iniciais_001_006": "36 CAMPOS NAO RESOLVIDOS; salvar ambas fontes sem selecao",
+    "integracao": "NAO COMPROVADA",
+    "passivas_golpes": "NAO MODIFICADOS"
+   },
+   "crescimento_por_nivel_apos_50": {
+    "denominador": 100,
+    "interpretacao": "+1% do atributo-base fixo do nivel 50 POR NIVEL",
+    "numerador": 1
+   },
+   "data": "2026-11-13",
+   "divino": "SEM_TOTAL_BASE_HOMOLOGADO",
+   "fontes": {
+    "galetario_md": "Galetocraft_Galetario_21_Fichas_Gerais_Oficiais_BAL_2026-11-12.md",
+    "galetario_sha256": "5be139305ef3f02effe6c356df38b95e9ebbe43e0e8868a4b549bfefc3616f15",
+    "sqlite_r5_nome": "Galetocraft_Beta_1.2.61_R5_COPIA_Resolucao_Documental_21_2026-11-13.sqlite",
+    "sqlite_r5_sha256": "c0af0fe0a9749fb953aa0abee97ace9f7923b042f54abfbb1c3086c9797ee9bc"
+   },
+   "formula": "A_exato(L)=A50*(L+50)/100 para 50<=L<=100",
+   "hp_efetivo": "DEPENDENTE_DE_REGRA_PROPRIA_PREEXISTENTE_NAO_REINTERPRETAR_COMO_HP_BASE",
+   "ivs_evs": "NAO_MODIFICADOS",
+   "nivel_100_fator": "3/2",
+   "peso": "NAO_MODIFICADO",
+   "projeto": "Galetocraft",
+   "raridades": [
+    {
+     "max_l50": 390,
+     "min_l50": 350,
+     "nome": "Comum",
+     "referencia_l50": 370,
+     "referencia_teorica_l100": "555"
+    },
+    {
+     "max_l50": 450,
+     "min_l50": 410,
+     "nome": "Raro",
+     "referencia_l50": 430,
+     "referencia_teorica_l100": "645"
+    },
+    {
+     "max_l50": 510,
+     "min_l50": 470,
+     "nome": "Épico",
+     "referencia_l50": 490,
+     "referencia_teorica_l100": "735"
+    },
+    {
+     "max_l50": 570,
+     "min_l50": 530,
+     "nome": "Mítico",
+     "referencia_l50": 550,
+     "referencia_teorica_l100": "825"
+    },
+    {
+     "max_l50": 630,
+     "min_l50": 590,
+     "nome": "Lendário",
+     "referencia_l50": 610,
+     "referencia_teorica_l100": "915"
+    }
+   ],
+   "referencia": {
+    "fator": "1/1",
+    "nivel": 50
+   },
+   "status": "HOMOLOGADO_EM_DESIGN_SEM_INTEGRACAO_RUNTIME",
+   "super_raro": "CLASSE_HISTORICA_NAO_PARTE_ESCALA_ATUAL",
+   "titulo": "Norma oficial de referencia de atributos no nivel 50 e crescimento 50–100 V1"
+  },
+  "precedencia": "Histórico interno da fonte preservado; decisões posteriores de current_rules/current_species prevalecem por campo.",
+  "resolucoes_posteriores": {
+   "data": "2026-11-18",
+   "conflitos.iniciais_001_006": "RESOLVIDO — current_issues R02; 36 atributos dos iniciais vigentes em current_species (total 550).",
+   "lendario_original": {
+    "classe": "Lendário Original",
+    "fora_da_escala_de_raridades": true,
+    "total_definido_pela_ficha_homologada": true,
+    "especies": {
+     "23": {
+      "nome": "Quetzacocó",
+      "total_l50": 700
+     }
+    },
+    "decisao": "Decisão expressa do criador em 18/11/2026 (auditoria de incoerências)"
+   }
+  }
+ },
+ "reproducao_etapa01": {
+  "criador_aprovou_expressamente": true,
+  "data": "2026-11-16",
+  "etapa": 1,
+  "ninhos": {
+   "alas": [
+    "Galiformes",
+    "Alígeros",
+    "Colossais",
+    "Couraçados",
+    "Fitomorfos",
+    "Hidromorfos",
+    "Zoomorfos",
+    "Arcanos"
+   ],
+   "capacidade_ovos": 3,
+   "eclosao_manual": true,
+   "obrigatorio_para_incubar": true,
+   "obrigatorio_para_reproduzir": false,
+   "por_especie": false,
+   "refinamento": {
+    "ativacao": 0.5,
+    "atributos_alvo": "1 entre os 3 IVs não herdados",
+    "limite": 40,
+    "regra": "maior(IV original, novo sorteio 1..40); se não houve ganho e IV<40, +1",
+    "tentativas_maximas_por_ovo": 1
+   },
+   "tempo_multiplicador_com_afinidade": 0.7
+  },
+  "nome": "Ninhos Especializados e Terreiro de Encontro",
+  "pendencias_externas": [
+   "Gatilhos completos dos gêmeos especiais",
+   "Compatibilidade cruzada de Herança de Bico"
+  ],
+  "projeto": "Galetocraft",
+  "sistema": "Reprodução V2.0",
+  "status": "HOMOLOGADO_DESIGN",
+  "status_implementacao": "NAO_VERIFICADO_NO_MOD",
+  "terreiro": {
+   "bandeja_capacidade": 3,
+   "cooldown_adicional_minutos": 0,
+   "ovos_distribuicao": {
+    "1": 0.25,
+    "2": 0.5,
+    "3": 0.25
+   },
+   "ovos_por_leva_max": 3,
+   "ovos_por_leva_min": 1,
+   "tempo_minutos_por_leva": 10
+  }
+ },
+ "reproducao_etapa02": {
+  "base_minutos": 40,
+  "eclosao_manual": true,
+  "formula_minutos": "40*(1-min(0.55,soma_das_reducoes_ativas))",
+  "limite_fonte": "Critérios detalhados de detecção ambiental não recuperados integralmente; não inventar.",
+  "minimo_minutos": 18,
+  "qualquer_bioma": true,
+  "reducao_afinidade": 0.3,
+  "reducao_decoracao": 0.1,
+  "reducao_maxima": 0.55,
+  "reducao_microclima": 0.1,
+  "reducao_protecao": 0.05
+ },
+ "reproducao_etapa04": {
+  "caminho": "Galetário > Galeria > Linhagem",
+  "geracoes_visiveis_iniciais": 4,
+  "historico_completo_consultavel": true,
+  "identidade_individual_permanente": true,
+  "informativa": true,
+  "nome": "Árvore Genealógica V1.1",
+  "registros": [
+   "pai",
+   "mãe",
+   "ancestrais",
+   "irmãos",
+   "meio-irmãos",
+   "descendentes",
+   "gerações G0/G1",
+   "IVs e origem",
+   "Herança de Bico",
+   "gêmeos do mesmo ovo",
+   "História da Linhagem"
+  ]
+ },
+ "reproducao_etapa05_diretriz": {
+  "apenas_particulas_leves_breves": true,
+  "cinematicas_e_camera_prolongadas": false,
+  "efeitos_especificos": "proposta completa ainda não homologada",
+  "momento": "eclosão manual"
+ },
+ "reproducao_gemeos": {
+  "elegivel": {
+   "gemeos_comuns": 0.004,
+   "gemeos_especiais": 0.001,
+   "normal": 0.995
+  },
+  "eventos_mutuamente_exclusivos": true,
+  "gatilhos_especiais": "PENDENTE_FONTE_INTEGRAL",
+  "nao_elegivel": {
+   "gemeos_comuns": 0.005,
+   "gemeos_especiais": 0,
+   "normal": 0.995
+  },
+  "por_ovo": true,
+  "seis_ivs_identicos": true
+ },
+ "santuarios": {
+  "mecanica_universal": {
+   "status": "oficial",
+   "duration_rounds": 4,
+   "max_simultaneous_sanctuaries": 1,
+   "may_coexist_with_weather": true,
+   "field_is_shared_by_both_players": true,
+   "activation": {
+    "action_type": "movimento_de_suporte",
+    "energy_cost": 20,
+    "consumes_turn_action": true
+   },
+   "replacement": "o_santuario_novo_substitui_o_anterior",
+   "reserve": {
+    "receives_sanctuary_hp_healing": false,
+    "receives_sanctuary_extra_energy": false
+   },
+   "offensive_bonus_scope": "elemento_do_golpe_independentemente_da_especie",
+   "secondary_bonus_scope": "somente_especie_do_elemento_correspondente_ativa",
+   "damage_bonus_combination": "soma_bonus_percentuais_apos_multiplicador_elemental_conforme_regra_existente",
+   "status_effect_chances_unchanged": true,
+   "notes": "Não acrescenta movimentos novos à GalolpeTeca nem define quais espécies aprenderão a ativação. Duração/ativação dos CLIMAS permanecem pendentes."
+  },
+  "santuario_raios": {
+   "formal_status": "oficial",
+   "damage_by_move_element": {
+    "Elétrico": 0.15
+   },
+   "extra_energy_by_active_species_element": {
+    "Elétrico": 10
+   },
+   "energy_bonus_timing": "inicio_da_rodada",
+   "energy_bonus_max_cap": 100,
+   "effect_scope": "golpes_eletricos_independente_especie; energia_somente_especie_eletrica_ativa",
+   "universal_rule_ref": "santuarios_mecanica_universal",
+   "afogamento_integration_detail": "pendente_interacao_exata_entre_bonus_de_energia_e_dreno_de_afogamento",
+   "field_ownership": "global_compartilhado",
+   "simultaneous_sanctuaries": "somente_1",
+   "duration_rounds": 4,
+   "renewal": "nova_invocacao_reinicia_4_rodadas"
+  },
+  "santuario_raizes": {
+   "formal_status": "oficial",
+   "damage_by_move_element": {
+    "Planta": 0.15
+   },
+   "heal_fraction_max_hp_by_active_species_element": {
+    "Planta": 0.04
+   },
+   "heal_timing": "fim_da_rodada",
+   "heal_max_cap": "hp_maximo",
+   "heal_stacks_with_existing_healing": "Simbiose Venenosa permanece inalterada; ambas podem ocorrer com teto de HP maximo",
+   "effect_scope": "golpes_planta_independente_especie; cura_somente_especie_planta_ativa",
+   "universal_rule_ref": "santuarios_mecanica_universal",
+   "hp_heal_rounding": "pendente_arredondamento_especifico",
+   "field_ownership": "global_compartilhado",
+   "simultaneous_sanctuaries": "somente_1",
+   "duration_rounds": 4,
+   "renewal": "nova_invocacao_reinicia_4_rodadas"
+  },
+  "migrado_em": "2026-11-18"
+ },
+ "tipagem_dupla": {
+  "norma_integral": "# Galetocraft — Regra oficial de Tipagem Dupla V1 (13/11/2026)\n\n**Decisão expressa do criador nesta revisão:** \"Sistema de dano em tipagem dupla, apenas multiplique para 4x caso as tipagens possuam fraquezas em comum\". A regra vale **somente** para o cálculo elemental de golpe ofensivo contra defensor com dois elementos.\n\n## Regra\n\n- Cada golpe ofensivo usa **um elemento de ataque** homologado (Fogo, Água, Planta, Terra, Ar, Elétrico). Movimentos Neutros usam multiplicador 1×; Suportes não recebem multiplicador de dano por não causarem dano ofensivo próprio.\n- Consultar a matriz elemental vigente de 6×6 para cada elemento distinto do alvo, com fatores 0,5× / 1× / 2×. **Multiplicar os dois fatores uma única vez**, sem ativar efeito por ser híbrido nem inventar vantagem.\n- **4× ocorre se, e somente se, ambos os elementos do defensor são fracos (2× e 2×) ao mesmo elemento de ataque.**\n- 2× + neutro (1×) = 2×; fraqueza (2×) + resistência (0,5×) = 1×; duas resistências (0,5× e 0,5×) = 0,25×; resistência+neutro = 0,5×; duplo neutro = 1×.\n- Não há terceira tipagem por padrão. Rejeitar elemento duplicado; ataques de suporte sem dano não aplicam eficácia.\n- Para alvo de elemento único, aplicar apenas o fator da matriz 6×6, sem duplicação.\n- Na fórmula V5.6/V5.6.1, aplicar eficácia **uma única vez ao dano contínuo** na sequência dos modificadores, antes de **um único arredondamento final por acerto**. Não arredondar dano intermediário. Dano efetivo ao HP continua limitado ao HP restante. Imunidades e proteções mantêm seus efeitos próprios.\n- Essa regra não concede golpe duplo, não modifica precisão, Guarda, Ruptura, Concentração, IV/EV, Peso, custo de Energia, raridade, atributos, espécies ou artes. Golpe Duplo V2.2 permanece independente.\n\n## Matriz aplicada às oito espécies duplas das 21 fichas atuais\n\n| Espécie | Elementos | Fogo | Água | Planta | Terra | Ar | Elétrico |\n|---|---|---:|---:|---:|---:|---:|---:|\n| #013 Quartzaló | Terra + Elétrico | 0,5× | 1× | 2× | 2× | 1× | 0,5× |\n| #014 Carangocó | Água + Terra | 0,25× | 2× | 2× | 0,5× | 2× | 1× |\n| #015 Faíscocó | Fogo + Elétrico | 1× | 1× | 1× | **4×** | 0,25× | 1× |\n| #016 Libelocó | Água + Ar | 1× | 1× | 1× | 0,25× | 1× | **4×** |\n| #017 Castorocó | Planta + Terra | 1× | 1× | 1× | 1× | **4×** | 0,25× |\n| #018 Mariposocó | Fogo + Planta | 2× | 1× | 0,5× | 2× | 1× | 0,5× |\n| #020 Frankocó | Terra + Elétrico | 0,5× | 1× | 2× | 2× | 1× | 0,5× |\n| #021 Cabacocó | Planta + Terra | 1× | 1× | 1× | 1× | **4×** | 0,25× |\n\n**Quatro situações de 4× verificadas neste catálogo:** #015 Faíscocó recebe Terra 4×; #016 Libelocó recebe Elétrico 4×; #017 Castorocó recebe Ar 4×; #021 Cabacocó recebe Ar 4×.\n\n**Sirenocó #022:** a direção conceitual já aprovada Água+Ar também implica fraqueza compartilhada a Elétrico 4×, quando a espécie for incorporada; nenhuma ficha, atributo ou golpe adicional foi criado aqui.\n\n## Controle de versão\n\nA alternativa de segurança **experimental** R3 que limitava o produto dos elementos a 0,5×–2× deixa de ser adequada à instrução atual e **é superada somente para o cálculo de dupla tipagem**. Não reescrever R3; manter como histórico. O banco R5.1 e a matriz simples 6×6 não foram sobrescritos. A implementação pronta é **Python isolado**, com resultados SQL de referência; não é motor Minecraft compilado.\n",
+  "precedencia": "Histórico interno da fonte preservado; decisões posteriores de current_rules/current_species prevalecem por campo.",
+  "resolucoes_posteriores": {
+   "data": "2026-11-18",
+   "sirenoco_022": "Incorporada em 13/11/2026 (Água + Ar). Matriz: Fogo 1×, Água 1×, Planta 1×, Terra 0,25×, Ar 1×, Elétrico 4× — igual ao #016 Libelocó.",
+   "especies_duplas_atuais": 9,
+   "casos_4x_atuais": [
+    "#015 Faíscocó: Terra",
+    "#016 Libelocó: Elétrico",
+    "#017 Castorocó: Ar",
+    "#021 Cabacocó: Ar",
+    "#022 Sirenocó: Elétrico"
+   ],
+   "tripla": "#023 Quetzacocó (Ar + Planta + Nexo) segue a regra tripla excepcional do Nexo V2.0."
+  }
+ },
+ "treinador": {
+  "equipe_principal": {
+   "regra_id": "equipe_principal_limite_cinco_cocorideos",
+   "escopo": "equipe_principal_do_treinador",
+   "capacidade_maxima_cocorideos": 5,
+   "formato_rinha_alterado": 0,
+   "tamanho_reserva": null,
+   "reserva_sem_limite": 1,
+   "capturado_entra_equipe_se_houver_vaga": 1,
+   "capturado_vai_reserva_se_equipe_cheia": 1,
+   "comportamento_com_reservas_cheias": null,
+   "regras_gerenciamento": null,
+   "descricao_aprovada": "O treinador possui equipe principal de até cinco (5) Cocorídeos e reservas sem limite de quantidade. Toda captura bem-sucedida ingressa automaticamente na equipe principal se houver vaga; se as cinco vagas estiverem ocupadas, é armazenada automaticamente nas reservas. Nenhum Cocorídeo capturado é perdido por falta de espaço na equipe. O formato homologado de Rinha 3v3 permanece independente. A aprovação não especifica ainda operações de gerenciamento de reservas nem mecânicas numéricas da captura.",
+   "status": "oficial_limite_equipe_principal_outros_detalhes_pendentes",
+   "fonte_aprovacao": "Correção expressa do criador: Serão apenas 5 | Homologação complementar de reservas e roteamento: Manteremos sim, vamos voltar ao sistema de capturas e finalizar",
+   "data_aprovacao": "2026-11-12"
+  },
+  "reservas": {
+   "regra_id": "treinador_reservas_ilimitadas_captura_automatica",
+   "politica_limite_equipe": "equipe_principal_limite_cinco_cocorideos",
+   "capacidade_equipe_principal": 5,
+   "reservas_ilimitadas": 1,
+   "capturado_entra_equipe_se_vaga": 1,
+   "capturado_vai_reservas_se_equipe_cheia": 1,
+   "sem_perda_por_falta_vaga": 1,
+   "formato_rinha_3v3_preservado": 1,
+   "limite_numerico_reservas": null,
+   "procedimento_troca_equipe_reservas": null,
+   "interface_gerenciamento": null,
+   "regra_duplicatas": null,
+   "formula_captura": null,
+   "chance_captura_json": null,
+   "experiencia_pena_json": null,
+   "regra_oficial": "O treinador possui equipe principal de até cinco (5) Cocorídeos e reservas sem limite de quantidade. Toda captura bem-sucedida ingressa automaticamente na equipe principal se houver vaga; se as cinco vagas estiverem ocupadas, é armazenada automaticamente nas reservas. Nenhum Cocorídeo capturado é perdido por falta de espaço na equipe. O formato homologado de Rinha 3v3 permanece independente. A aprovação não especifica ainda operações de gerenciamento de reservas nem mecânicas numéricas da captura.",
+   "status": "oficial_reservas_roteamento_detalhes_pendentes",
+   "fonte_aprovacao": "Aprovação por referência imediata à proposta de reservas ilimitadas e encaminhamento automático: Manteremos sim, vamos voltar ao sistema de capturas e finalizar",
+   "data_aprovacao": "2026-11-12"
+  },
+  "migrado_em": "2026-11-18"
+ }
+}
