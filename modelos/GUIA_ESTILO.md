@@ -3,6 +3,11 @@
 **Padrão visual vigente desde 18/11/2026**, pedido do dono: os galetos do Galetocraft seguem o estilo dos modelos do
 Cobblemon, dentro do Minecraft. Vale para todo modelo novo e para toda refação.
 
+**O Cobblemon é a única referência de estilo.** As regras antigas do dono (`ferramentas/especies/BRIEFING.md`,
+`REFAZER.md`, `REVISAO.md`, `AUDITORIA.md`, `JUIZ.md`) não valem mais onde divergirem deste guia, por decisão
+dele. A ficha de cada espécie só diz **qual** criatura é; **como** ela vira modelo é sempre do jeito Cobblemon
+(seção 8).
+
 De onde vêm as regras:
 - medições em **78 modelos do Cobblemon 1.8.4**: uma amostra de 1 a cada 15 pastas da Pokédex, mais 20 aves e
   lutadores bípedes;
@@ -69,14 +74,14 @@ Copiamos **o jeito de fazer**, nunca as peças.
   asa são planos e todas as "feathers" são planos, mas a base da asa é sempre uma placa com espessura (ex.:
   17x3x12, 12x2x10).
 - Cauda e cabeleira: ~50% a 75% planos sobre um miolo de caixa.
-- Nada de pilhas de cubinhos. Uma região tem poucos volumes grandes; a regra "sem entulho" do dono continua valendo.
+- Nada de pilhas de cubinhos: uma região tem poucos volumes grandes, como no Cobblemon.
 
 ### Planos (espessura 0)
 - São 20% a 75% dos cubos (46%). Para galetos, que têm penas, mire em 35% a 60%.
 - Usos: franjas e pontas de pena, chamas, garras, unhas, esporas, sobrancelhas, olho, pupila, pálpebra e brilho
   do olho, cristas finas, folhas.
-- **Sempre presos a uma caixa** (franja de borda), nunca como a massa da pena grande. Mínimo de 2 px de largura,
-  poucos e bem desenhados. Franja fina "pingando" continua proibida.
+- **Sempre presos a uma caixa** (franja de borda), nunca como a massa da pena grande. Podem ser bem estreitos,
+  como no Cobblemon: sobrancelha de 1 px (0x1x9), pupila 0x2x1, unha 0x1x1.
 - Para ler de vários ângulos: leque de 2–3 planos a ±50–65° (chama do pulso do Blaziken) ou planos em X.
 
 ### Desempate e simetria
@@ -92,8 +97,9 @@ Copiamos **o jeito de fazer**, nunca as peças.
 - Ossos sem cubo servem de articulação ou orientação extra (pulso, base da asa, "hairpos" do Blaziken).
 
 ### Rosto e olho
-As regras do dono continuam valendo (rosto orgânico, Fase 7 "olhar imponente" do `ferramentas/especies/REFAZER.md`).
-O jeito Cobblemon de fazer:
+A cabeça é uma caixa (o Combusken usa um cubo 7x7x7 inteiro); o rosto ganha forma com poucos planos ou caixas rasas.
+A expressão segue o personagem: brava no Blaziken (sobrancelhas em V), simpática no Combusken (olho de cubo). O
+jeito Cobblemon de fazer:
 - olho num plano (ou num cubo raso) na face diagonal ou na quina da cabeça, para ser lido de frente e de lado;
 - pupila e brilho em camadas 0,01 à frente;
 - sobrancelha em plano (0x1xN) girado 30–40°, cortando o topo do olho em V, descendo para o bico;
@@ -115,9 +121,9 @@ Ossos vazios marcam pontos para partículas, montaria e itens: olho, boca, topo,
 - **Paleta curta:** 20 a 50 cores no total (28; 19–47), com 3 a 5 tons por material. Os Cocorídeos têm de 288 a
   8.645 cores.
 - **Mosqueado leve:** dentro de um material, ~40% dos pares de pixels vizinhos têm cor diferente (0,32–0,54). A
-  diferença entre eles é pequena, ~16 de luminância (6%). Isso é textura de pena ou escama, não ruído. Continua
-  proibido o que o dono rejeitou: xadrez, pontilhado e listras finas de alto contraste. A maioria dos
-  Cocorídeos fica abaixo de 0,08 (degradê liso), o que dá o ar de "plástico" ou "HD".
+  diferença entre eles é pequena, ~16 de luminância (6%). Isso é textura de pena ou escama, não ruído: em 90% dos
+  modelos a diferença típica entre vizinhos fica abaixo de 19, e não há xadrez nem pontilhado de alto contraste. A
+  maioria dos Cocorídeos fica abaixo de 0,08 (degradê liso), o que dá o ar de "plástico" ou "HD".
 - **Luz pintada fraca:** o próprio Minecraft já escurece as faces de lado e de baixo. No Cobblemon, a tampa fica
   só ~5 mais clara que os lados e o fundo ~7 mais escuro (luminância 0–255). Os Cocorídeos pintam +17 e −21.
   Não há fio escuro de contorno nas bordas da face.
@@ -174,28 +180,30 @@ Técnicas:
 - **Validar sempre:** os ossos animados existem e o Molang compila. Os dois erros que achamos no Cobblemon foram
   um osso `neck` inexistente e parênteses errados.
 
-## 8. O que continua valendo das regras do dono
-Tudo o que é de gosto e de fidelidade continua igual: `ferramentas/especies/BRIEFING.md`, `REFAZER.md`,
-`REVISAO.md`, `AUDITORIA.md`, `JUIZ.md`.
-- Fidelidade à ficha: silhueta, proporções, paleta, elementos característicos e arte conceitual (`REFAZER.md`,
-  início e Fases 2 e 5).
-- Rosto e bico orgânicos, nada de rosto disforme; olhar imponente com pálpebra pesada (Fase 7).
-- Modelo limpo, sem entulho; poucas peças e maiores (Fase 6).
-- Só a expressão neutra no modelo. Revisão por juiz, auditoria, IoU e cor (`comparar_ficha.py`).
-- `_glowmask` para o que brilha. Frente em -z; lado direito em -x.
+## 8. O papel da ficha
+- A ficha (`modelos/referencias/NNN_id_*.png`) define **a criatura**: a silhueta geral, as cores principais e os
+  elementos que a identificam (crista, emblema, cauda, armadura). Um fã tem de reconhecê-la na hora.
+- O Cobblemon define **a construção**. Simplificar a arte como o Cobblemon simplifica a arte oficial dos Pokémon é
+  o esperado:
+  - detalhe que não cabe no orçamento vira desenho na textura ou sai;
+  - contagens exatas (penas, placas, contas) não precisam bater.
+- `comparar_ficha.py` (IoU e cor) continua útil para conferir a silhueta e a paleta, mas não aprova nem reprova
+  nada sozinho. Quem aprova é este guia (`--estilo`) mais o reconhecimento da criatura.
+- Convenções técnicas que continuam: frente em -z e lado direito em -x; `_glowmask` para o que brilha; nomes de
+  ossos do exportador (seção 6); rodadas novas em `revisao/` sem sobrescrever as antigas.
 
-## 9. O que muda em relação às regras antigas
-| regra antiga | regra nova | por quê |
+## 9. Regras antigas substituídas
+| regra antiga | regra nova (Cobblemon) | por quê |
 |---|---|---|
-| até ~350 peças, textura até 512x1024 (`BRIEFING.md`) | orçamento da seção 3 (ex.: ~100 cubos, ≤530 faces, 256x128 para 2–3 blocos) | medido no Cobblemon; os Cocorídeos usam 2 a 7 vezes mais faces que o alvo |
+| seguir a ficha "da forma mais literal possível" e auditar todo detalhe (`REVISAO.md`, `AUDITORIA.md`) | a ficha define a criatura; a construção simplifica como o Cobblemon (seção 8) | o Cobblemon reduz cada Pokémon a ~100 cubos e 30 cores |
+| até ~350 peças, textura até 512x1024 (`BRIEFING.md`) | orçamento da seção 3 (ex.: ~100 cubos, ≤530 faces, 256x128 para 2–3 blocos) | os Cocorídeos usam 2 a 7 vezes mais faces que o alvo |
 | UV por face e escala aplicada na geometria | UV de caixa, tamanhos inteiros, escala no renderizador | pixel único = cara de Minecraft |
-| volumes arredondados com `arredondado` e `octogono` (Fase 6) | caixas inteiras; inclinação no osso; facetas só no rosto e no bico | Cobblemon gira 5% dos cubos; os Cocorídeos, ~70% |
+| rosto e bico "arredondados e orgânicos, não caixas puras" (`REVISAO.md`) | cabeça em caixa; rosto com poucos planos ou caixas rasas | o Combusken tem cabeça de cubo inteiro; o Blaziken faz a cara com 2 planos |
+| "olhar imponente" de pálpebra pesada para todos (Fase 7 do `REFAZER.md`) | expressão do personagem, feita com sobrancelha em plano, pálpebra escondida e piscar | no Cobblemon a expressão varia por espécie |
+| volumes arredondados com `arredondado` e `octogono` (Fase 6) | caixas inteiras; inclinação no osso | o Cobblemon gira 5% dos cubos; os Cocorídeos, ~70% |
 | "pinte a luz em 3D, é o acabamento Cobblemon" (`BRIEFING.md`) | luz pintada fraca (≤16 de luminância) | o Cobblemon quase não pinta luz; quem sombreia é o jogo |
-| 2–3 tons chapados por bloco, sem ruído (início do `REFAZER.md`) | 3–5 tons com mosqueado leve (~6% de contraste); padrões de alto contraste seguem proibidos | é o que dá a textura "de pena" do Cobblemon |
-| placas finas só para membrana, chama e pétala (início do `REFAZER.md`) | massa sempre em caixa grossa; planos liberados para franjas, pontas, garras, olhos e sobrancelhas, presos a uma caixa | 46% das peças do Cobblemon são planos, quase todos de borda |
-
-**Confirmar com o dono:** as três últimas linhas mudam pedidos explícitos dele (início e Fase 6 do `REFAZER.md`). Este guia segue o
-Cobblemon, mas mantém o motivo de cada pedido: nada de "papel", "fumaça" nem "quadradão".
+| 2–3 tons chapados por bloco, sem ruído (`REFAZER.md`) | 3–5 tons com mosqueado leve (~6% de contraste) | é a textura "de pena" do Cobblemon |
+| placas finas só para membrana, chama e pétala (`REFAZER.md`) | massa em caixa grossa; planos de borda em 20% a 75% das peças | 46% das peças do Cobblemon são planos |
 
 ## 10. Checklist (o que `--estilo` confere)
 1. UV de caixa em 100% dos cubos.
@@ -214,7 +222,7 @@ Cobblemon, mas mantém o motivo de cada pedido: nada de "papel", "fumaça" nem "
 14. Animações recomendadas: grito e dormir.
 15. Todo osso animado existe no modelo.
 
-E, fora da ferramenta: a ficha (IoU, cor e auditoria de detalhes), o olhar imponente e o modelo limpo.
+E, fora da ferramenta: um fã reconhece na hora a criatura da ficha, e o modelo parece ter saído do Cobblemon.
 
 ## 11. Situação em 18/11/2026
 | espécie | altura | cubos | faces | textura | cores | planos | cubos girados | critérios |

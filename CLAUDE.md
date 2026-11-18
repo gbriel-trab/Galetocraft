@@ -14,9 +14,11 @@ guia antes de criar, refazer ou revisar qualquer modelo. Resumo:
 - Modele em pose neutra; a postura vem do `parado`. Animações obrigatórias: parado, andar e piscar (pálpebra
   escondida); recomendadas: grito e dormir.
 - Confira com `python ferramentas/analisar_geo.py MODELO.geo.json TEXTURA.png --anim ANIM.json --estilo`.
-- As regras de gosto do dono continuam valendo: fidelidade à ficha, rosto orgânico, olhar imponente e modelo
-  sem entulho (`ferramentas/especies/BRIEFING.md`, `REFAZER.md`, `REVISAO.md`). Onde as regras técnicas antigas
-  conflitam com o guia, vale o guia (seção 9).
+- **O Cobblemon é a única referência de estilo.** As regras antigas do dono (`ferramentas/especies/BRIEFING.md`,
+  `REFAZER.md`, `REVISAO.md`, `AUDITORIA.md`, `JUIZ.md`) não valem mais onde divergirem do guia, por decisão
+  dele.
+- A ficha (`modelos/referencias/NNN_id_*.png`) só define **qual** criatura é: silhueta, cores principais e
+  elementos marcantes. Simplificar como o Cobblemon simplifica a arte oficial é o esperado.
 
 ## Onde fica cada coisa
 - `galetocraft/`: o mod. `GaloRenderer.java` desenha (com LOD e brilho); os modelos e as animações GeckoLib estão

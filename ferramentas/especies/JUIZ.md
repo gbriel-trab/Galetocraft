@@ -22,12 +22,19 @@ Não edite, crie nem apague arquivos. Apenas olhe as imagens indicadas com a fer
 - Os renders são ortográficos, com luz suave, sem sombras e sem contornos. Julgue o modelo, não o renderizador.
 - O tamanho absoluto não conta.
 
-## Regras do dono
-1. Modelo limpo, sem entulho.
-2. Acabamento no nível do Cobblemon, em voxel do Minecraft.
-3. Rosto e bico orgânicos, sem rosto disforme nem olhos deformados.
-4. Seguir a ficha da forma mais literal possível: silhueta, proporções, paleta e elementos característicos.
-5. Só a expressão neutra conta.
+## Regras de estilo (desde 18/11/2026)
+O dono decidiu que o padrão é o **Cobblemon** (`modelos/GUIA_ESTILO.md`), acima das regras antigas dele:
+1. O modelo tem de parecer saído do Cobblemon:
+   - pixel do mesmo tamanho em todo o modelo;
+   - poucas caixas grandes, com detalhe na textura e planos finos nas bordas (franjas, chamas, garras, olhos e
+     sobrancelhas);
+   - paleta curta com mosqueado leve;
+   - nada de entulho de cubinhos, nada de degradê liso "HD".
+2. A ficha define **qual** criatura é. Um fã tem de reconhecê-la na hora: silhueta geral, cores principais e
+   elementos que a identificam. Simplificar detalhes e contagens como o Cobblemon simplifica a arte oficial é o
+   esperado e não tira nota.
+3. Expressão: a do personagem na ficha (só a neutra), feita do jeito Cobblemon (sobrancelha em plano, olho em
+   camadas).
 
 ## Como decidir
 Compare A e B em:
@@ -39,7 +46,8 @@ Compare A e B em:
 - cauda;
 - pernas e pés;
 - elementos característicos;
-- paleta e acabamento.
+- paleta e acabamento;
+- fidelidade ao estilo Cobblemon (pesa mais que detalhes da ficha).
 
 Não importa qual versão é a mais nova.
 

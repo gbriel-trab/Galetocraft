@@ -1,9 +1,11 @@
 # Briefing: modelar uma criatura do Galetocraft (mesmo procedimento do Pirococó)
 
-> **Desde 18/11/2026, o padrão visual é `modelos/GUIA_ESTILO.md` (estilo Cobblemon).** Leia o guia antes deste
-> briefing. Onde as regras técnicas daqui conflitam com ele, vale o guia: orçamento, tamanho da textura, UV de
-> caixa, planos, luz pintada e volumes arredondados (seção 9 do guia). O resto continua valendo: procedimento,
-> fidelidade à ficha, nomes de ossos e critérios do revisor.
+> **Desde 18/11/2026, o padrão é o Cobblemon (`modelos/GUIA_ESTILO.md`), acima das regras antigas do dono.** Leia
+> o guia antes deste briefing.
+> - Daqui continua valendo só o procedimento: o arquivo do gerador, como rodar, os nomes de ossos e as rodadas.
+> - Orçamento, textura, acabamento, rosto e "lições do Pirococó" foram substituídos pelo guia (seção 9).
+> - A ficha define qual criatura é; a construção segue o Cobblemon.
+> - Antes de entregar, rode `python ferramentas/analisar_geo.py ... --estilo` e resolva cada critério que falhar.
 
 ## Objetivo
 Escrever `ferramentas/especies/<id>.py`, um gerador em Python que constrói a criatura da ficha como modelo

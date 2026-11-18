@@ -27,15 +27,20 @@ Não edite, crie nem apague arquivos. Apenas olhe as imagens indicadas com a fer
 - A ficha é uma ilustração "voxel" pintada por IA: formas e contagens exatas nunca vão bater 1:1. Julgue se um fã
   da ficha reconheceria NA HORA que é o mesmo personagem e se o modelo parece bem acabado.
 
-## Regras do dono
-Elas valem acima de qualquer outra leitura da ficha:
-1. Modelo limpo, sem pilhas de blocos empilhados nem aparência de entulho.
-2. Qualidade no nível do Cobblemon, mas claramente no estilo voxel do Minecraft.
-3. Rosto e bico arredondados e orgânicos, não caixas puras. O rosto não pode parecer "disforme" nem os olhos
-   deformados.
-4. Fora isso, o modelo deve seguir a ficha da forma mais literal possível: silhueta, proporções (tamanho da cabeça
-   em relação ao corpo, pernas, cauda), paleta e os elementos característicos da espécie.
-5. Só a expressão NEUTRA conta. Atributos, golpes e habilidades da ficha não fazem parte do modelo.
+## Regras de estilo (desde 18/11/2026)
+O dono decidiu que o padrão é o **Cobblemon** (`modelos/GUIA_ESTILO.md`), acima das regras antigas dele:
+1. O modelo tem de parecer saído do Cobblemon:
+   - pixel do mesmo tamanho em todo o modelo;
+   - poucas caixas grandes, com detalhe na textura e planos finos nas bordas (franjas, chamas, garras, olhos e
+     sobrancelhas);
+   - paleta curta com mosqueado leve;
+   - nada de entulho de cubinhos, nada de degradê liso "HD".
+2. A ficha define **qual** criatura é. Um fã tem de reconhecê-la na hora: silhueta geral, cores principais e
+   elementos que a identificam. Simplificar detalhes e contagens como o Cobblemon simplifica a arte oficial é o
+   esperado e não tira nota.
+3. Expressão: a do personagem na ficha (só a neutra), feita do jeito Cobblemon (sobrancelha em plano, olho em
+   camadas).
+4. Atributos, golpes e habilidades da ficha não fazem parte do modelo.
 
 ## Notas (0 a 10)
 Dê uma nota para cada item, com uma linha de justificativa apontando o que você realmente vê:
@@ -48,7 +53,7 @@ Dê uma nota para cada item, com uma linha de justificativa apontando o que voc�
 7. Cauda
 8. Pernas e pés
 9. Elementos característicos da espécie (padrões, adereços, emblemas, partes especiais)
-10. Cores, acabamento e limpeza
+10. Estilo Cobblemon: pixel único, paleta curta, mosqueado leve, planos de borda, limpeza
 
 **Regra do veredito:** APROVADO só se todas as notas forem pelo menos 7 E a média for pelo menos 8. Seja rigoroso e
 concreto: não dê nota pelo esforço e não arredonde para cima.
