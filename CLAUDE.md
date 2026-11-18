@@ -24,6 +24,11 @@ guia antes de criar, refazer ou revisar qualquer modelo. Resumo:
 - A ficha (`modelos/referencias/NNN_id_*.png`) só define **qual** criatura é: silhueta, cores principais e
   elementos marcantes. Simplificar como o Cobblemon simplifica a arte oficial é o esperado.
 
+## Skills do projeto
+- `.claude/skills/engenharia-reversa-cobblemon/`: o processo de engenharia reversa de um modelo do Cobblemon
+  (feito com o Blaziken e o Combusken): baixar, medir geometria/textura/animações, comparar a arte oficial com
+  o modelo e escrever o relatório. Traz os scripts juntos e os números de referência.
+
 ## Onde fica cada coisa
 - `galetocraft/`: o mod. `GaloRenderer.java` desenha (com LOD e brilho); os modelos e as animações GeckoLib estão
   em `src/main/resources/assets/galetocraft/geckolib/`.

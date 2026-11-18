@@ -603,7 +603,10 @@ def main():
     medidas = []
     for p in a.pose:
         nome, _, t = p.partition("@"); t = float(t or 0)
-        chave = next(k for k in anims if k == nome or k.endswith("." + nome))
+        chave = next((k for k in anims if k == nome or k.endswith("." + nome)), None)
+        if chave is None:
+            print(f"aviso: não há animação '{nome}'. Existem: {', '.join(k.split('.')[-1] for k in anims)}")
+            continue
         dados = faces(geo, tex, pose(anims[chave], t))
         folha_vistas(dados, a.escala, f"{chave} @ {t:g}s").save(saida / f"vistas_{nome}.png")
         lo, hi = limites(dados)

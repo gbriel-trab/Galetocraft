@@ -7,8 +7,9 @@ galetocraft/run/
 galetocraft/out/
 galetocraft/bin/
 
-# Configuração local do Claude Code nesta máquina
-.claude/
+# Configuração local do Claude Code nesta máquina (as skills do projeto entram no Git)
+.claude/*
+!.claude/skills/
 
 # Python
 __pycache__/
