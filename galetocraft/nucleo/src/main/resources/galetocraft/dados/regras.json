@@ -4854,7 +4854,7 @@
      "c:is_mountain_slope"
     ],
     "horario": "dia",
-    "condicao": "mais provável (×2) com chuva ou tempestade no mundo, no deserto (aproximação da \"tempestade de areia\")",
+    "condicao": "mais provável (×2) durante a tempestade de areia (regra tempestade_de_areia)",
     "grupo": [
      1,
      1
@@ -6376,6 +6376,26 @@
    "renewal": "nova_invocacao_reinicia_4_rodadas"
   },
   "migrado_em": "2026-11-18"
+ },
+ "tempestade_de_areia": {
+  "status": "OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18",
+  "aprovacao": "Criador, 18/11/2026: \"Vamos adicionar ao mod esse efeito ao minecraft de tempestade de areia\"; respostas no mesmo dia: \"Quando chove, no deserto\"; efeitos: \"Rinha com o clima Tempestade de Areia\".",
+  "gatilho": "quando chove ou troveja no mundo (ciclo de clima do Minecraft), nos biomas onde não chove",
+  "biomas": [
+   "c:is_desert",
+   "c:is_badlands"
+  ],
+  "ao_ar_livre": "só onde o céu é visível; sob teto ou no subsolo não há tempestade",
+  "visual": {
+   "poeira": "partículas de areia sopradas na direção do vento (a direção muda a cada dia de jogo)",
+   "nevoa": "névoa amarelada que encurta a visão, com transição suave ao entrar e sair",
+   "vento": "som de vento contínuo enquanto durar"
+  },
+  "efeitos_de_jogo": {
+   "rinha": "uma Rinha que começa dentro da tempestade (posição do Galeto selvagem) já começa com o clima Tempestade de Areia, pelas regras de climas (4 rodadas)",
+   "aparecimento": "Cocórak (encontro raro) fica 2× mais provável durante a tempestade (regra mundo_aparecimento)",
+   "sem_outros_efeitos": "não causa dano nem lentidão no jogador"
+  }
  },
  "tipagem_dupla": {
   "norma_integral": "# Galetocraft — Regra oficial de Tipagem Dupla V1 (13/11/2026)\n\n**Decisão expressa do criador nesta revisão:** \"Sistema de dano em tipagem dupla, apenas multiplique para 4x caso as tipagens possuam fraquezas em comum\". A regra vale **somente** para o cálculo elemental de golpe ofensivo contra defensor com dois elementos.\n\n## Regra\n\n- Cada golpe ofensivo usa **um elemento de ataque** homologado (Fogo, Água, Planta, Terra, Ar, Elétrico). Movimentos Neutros usam multiplicador 1×; Suportes não recebem multiplicador de dano por não causarem dano ofensivo próprio.\n- Consultar a matriz elemental vigente de 6×6 para cada elemento distinto do alvo, com fatores 0,5× / 1× / 2×. **Multiplicar os dois fatores uma única vez**, sem ativar efeito por ser híbrido nem inventar vantagem.\n- **4× ocorre se, e somente se, ambos os elementos do defensor são fracos (2× e 2×) ao mesmo elemento de ataque.**\n- 2× + neutro (1×) = 2×; fraqueza (2×) + resistência (0,5×) = 1×; duas resistências (0,5× e 0,5×) = 0,25×; resistência+neutro = 0,5×; duplo neutro = 1×.\n- Não há terceira tipagem por padrão. Rejeitar elemento duplicado; ataques de suporte sem dano não aplicam eficácia.\n- Para alvo de elemento único, aplicar apenas o fator da matriz 6×6, sem duplicação.\n- Na fórmula V5.6/V5.6.1, aplicar eficácia **uma única vez ao dano contínuo** na sequência dos modificadores, antes de **um único arredondamento final por acerto**. Não arredondar dano intermediário. Dano efetivo ao HP continua limitado ao HP restante. Imunidades e proteções mantêm seus efeitos próprios.\n- Essa regra não concede golpe duplo, não modifica precisão, Guarda, Ruptura, Concentração, IV/EV, Peso, custo de Energia, raridade, atributos, espécies ou artes. Golpe Duplo V2.2 permanece independente.\n\n## Matriz aplicada às oito espécies duplas das 21 fichas atuais\n\n| Espécie | Elementos | Fogo | Água | Planta | Terra | Ar | Elétrico |\n|---|---|---:|---:|---:|---:|---:|---:|\n| #013 Quartzaló | Terra + Elétrico | 0,5× | 1× | 2× | 2× | 1× | 0,5× |\n| #014 Carangocó | Água + Terra | 0,25× | 2× | 2× | 0,5× | 2× | 1× |\n| #015 Faíscocó | Fogo + Elétrico | 1× | 1× | 1× | **4×** | 0,25× | 1× |\n| #016 Libelocó | Água + Ar | 1× | 1× | 1× | 0,25× | 1× | **4×** |\n| #017 Castorocó | Planta + Terra | 1× | 1× | 1× | 1× | **4×** | 0,25× |\n| #018 Mariposocó | Fogo + Planta | 2× | 1× | 0,5× | 2× | 1× | 0,5× |\n| #020 Frankocó | Terra + Elétrico | 0,5× | 1× | 2× | 2× | 1× | 0,5× |\n| #021 Cabacocó | Planta + Terra | 1× | 1× | 1× | 1× | **4×** | 0,25× |\n\n**Quatro situações de 4× verificadas neste catálogo:** #015 Faíscocó recebe Terra 4×; #016 Libelocó recebe Elétrico 4×; #017 Castorocó recebe Ar 4×; #021 Cabacocó recebe Ar 4×.\n\n**Sirenocó #022:** a direção conceitual já aprovada Água+Ar também implica fraqueza compartilhada a Elétrico 4×, quando a espécie for incorporada; nenhuma ficha, atributo ou golpe adicional foi criado aqui.\n\n## Controle de versão\n\nA alternativa de segurança **experimental** R3 que limitava o produto dos elementos a 0,5×–2× deixa de ser adequada à instrução atual e **é superada somente para o cálculo de dupla tipagem**. Não reescrever R3; manter como histórico. O banco R5.1 e a matriz simples 6×6 não foram sobrescritos. A implementação pronta é **Python isolado**, com resultados SQL de referência; não é motor Minecraft compilado.\n",

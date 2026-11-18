@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "package": "br.galetocraft.client.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": ["NevoaAtmosfericaMixin"],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

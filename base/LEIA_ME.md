@@ -10,11 +10,12 @@
 | `artes/` | As 23 artes oficiais do Galetário (`current_art`). O SHA-256 de cada uma é conferido |
 | `fontes/` | Documentos-fonte embutidos na base (`current_sources`) |
 
-**Revisão atual: 9.**
+**Revisão atual: 10.**
 - rev. 3: correções de coerência e nomenclatura oficial.
 - rev. 4: nova governança, artes #019 e #020 e regra de nomenclatura.
 - rev. 5: regras oficiais de combate, captura e XP migradas do histórico, incluindo o dano V5.6.
 - rev. 6: golpes próprios de #001–#011 completados com a ficha original.
+- rev. 10: tempestade de areia no mundo (regra `tempestade_de_areia`), pedida pelo criador.
 - rev. 9: decisões do criador sobre as propostas das pendências (aparecimento, Pena, escalação, companheiro, aprendizado de #013–#018 e #023, EV, Quetzacocó).
 - rev. 8: pendências resolvidas com os dados mais recentes do acervo, por instrução do criador: curva 1–49, HP, Vitalidade, IV/EV/peso, aprendizado de golpes, desempates, captura. As pendências sem dado ficaram em `current_issues` (U07–U12).
 - rev. 7: regra de captura sem os dois campos da proposta superada (força da Pena pela tabela do reforço v1258 e espera após falha no mundo da v1259).

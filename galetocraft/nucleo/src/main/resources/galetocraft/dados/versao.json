@@ -1,11 +1,11 @@
 {
- "revisao_base": 9,
+ "revisao_base": 10,
  "especies": 23,
  "golpes": 690,
- "regras": 35,
+ "regras": 36,
  "sha256": {
   "especies.json": "a1f7c2740e7faa42ae6dbd90dddafedd3a6a3271943f01ffa6cf68caf13be87a",
-  "regras.json": "5f244d35c2c9322ec17fbb162ca60e78b9c1cb8f5238f7fa2165a75da8c977fa"
+  "regras.json": "443d768246e25bd6900b269d1dbbb5f41fc1b103ff8983c886f49b08b000807a"
  },
  "origem": "base/vigente (ferramentas/base/exportar_para_mod.py)"
 }

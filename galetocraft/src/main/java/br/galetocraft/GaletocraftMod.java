@@ -32,6 +32,8 @@ public class GaletocraftMod implements ModInitializer {
 		ModAnexos.registrar();
 		// aparecimento natural, encontros raros e Quetzacocó (regra mundo_aparecimento)
 		br.galetocraft.mundo.Aparecimento.registrar();
+		// tempestade de areia no mundo (regra tempestade_de_areia)
+		br.galetocraft.mundo.TempestadeDeAreia.registrar();
 		// início da jornada e posse da Pena (kit, recuperação, Pena não fica no chão)
 		br.galetocraft.treinador.Jornada.registrar();
 

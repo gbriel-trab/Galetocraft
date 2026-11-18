@@ -10,6 +10,11 @@ import net.minecraft.world.entity.EntityType;
 public class GaletocraftClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
+		// tempestade de areia: partícula de areia, intensidade, poeira e vento (a névoa fica no NevoaAtmosfericaMixin)
+		net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry.getInstance().register(
+				br.galetocraft.mundo.TempestadeDeAreia.PARTICULA_AREIA, br.galetocraft.client.tempestade.AreiaParticula.Provider::new);
+		net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents.END_CLIENT_TICK.register(br.galetocraft.client.tempestade.TempestadeCliente::tick);
+
 		EntityRenderers.register(ModEntidades.PIROCOCO, PirococoRenderer::new);
 
 		for (EntityType<GaloEntity> tipo : ModEntidades.GALOS) {

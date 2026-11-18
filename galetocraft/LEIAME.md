@@ -46,13 +46,14 @@ Para abrir o jogo de teste já com o mod: `gradlew runClient`.
 7. `/galetocraft golpes <n>` mostra os golpes equipados e aprendidos do Galeto e troca os slots livres fora da Rinha (a Concentração é fixa). Ao subir de nível, o Galeto aprende golpes novos, mas não os equipa sozinho.
 8. Com mais de 3 Galetos, `/galetocraft desafiar` abre a **escalação**: escolha 3 e quem começa.
 9. `/galetocraft companheiro <n>` chama um Galeto para seguir você; toque nele com a Pena (ou use `/galetocraft recolher`) para recolher. `/galetocraft libertar <n>` solta um Galeto para sempre, com confirmação dupla.
-10. Os Galetos aparecem sozinhos no mundo, conforme bioma e horário, com nível de 1 a 70. Operadores podem usar `/galetocraft dar <espécie> [nível]`.
+10. **Tempestade de areia:** quando chove, os desertos e badlands ganham poeira de areia, névoa amarelada e vento. Uma Rinha começada dentro dela já começa com o clima Tempestade de Areia.
+11. Os Galetos aparecem sozinhos no mundo, conforme bioma e horário, com nível de 1 a 70. Operadores podem usar `/galetocraft dar <espécie> [nível]`.
 
 Outros comandos: `/galetocraft ficha <espécie>`, `/galetocraft base`, `/galetocraft rinha <a> <b> [nível]` (Rinha simulada) e `/galetocraft duelo <a> <b> [rinhas]` (operadores). Clicar num Galeto com a mão vazia mostra a ficha dele.
 
 ## Testes
 - Regras (núcleo): `gradlew :nucleo:test`.
-- Testes no cliente: `gradlew runClientGameTest`. A variável `GALETO_TESTES` escolhe quais rodam (`pirococo`, `galeria`, `rinha`, `captura`, `jornada`); sem ela, rodam todos. O `rinha` joga uma Rinha inteira pelos botões do chat; o `captura` captura no mundo com o botão direito e na Rinha pelo menu.
+- Testes no cliente: `gradlew runClientGameTest`. A variável `GALETO_TESTES` escolhe quais rodam (`pirococo`, `galeria`, `rinha`, `captura`, `jornada`, `tempestade`); sem ela, rodam todos. O `rinha` joga uma Rinha inteira pelos botões do chat; o `captura` captura no mundo com o botão direito e na Rinha pelo menu.
 - Sem placa de vídeo (Linux): `GALETO_TESTES=rinha,captura LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a bash gradlew runClientGameTest`.
 
 ## Onde fica cada coisa

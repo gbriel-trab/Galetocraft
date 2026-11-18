@@ -10,7 +10,7 @@ Projeto de mod de Minecraft com criaturas chamadas Cocorídeos/Galetos, batalhas
 
 ## Fonte de verdade
 
-- **Base vigente:** `base/vigente/*.json`, com artes em `base/artes/` e fontes em `base/fontes/`. Revisão atual: **9**. Manual em `base/LEIA_ME.md`.
+- **Base vigente:** `base/vigente/*.json`, com artes em `base/artes/` e fontes em `base/fontes/`. Revisão atual: **10**. Manual em `base/LEIA_ME.md`.
 - **Ferramenta:** `python ferramentas/base/galetobase.py` com os comandos `validar`, `ficha --especie N`, `atualizar --pacote`, `migrar --pacote` e `montar`.
 - **Toda mudança na base** segue estes passos:
   1. Escrever um pacote em `docs/patches/` com `expected_revision`, `reason` e `evidence`.
@@ -79,6 +79,7 @@ O fluxo completo está em `base/LEIA_ME.md`. Em resumo:
     - escalação antes da Rinha (`/galetocraft escalar`), companheiro (`companheiro`, `recolher`), `libertar`, EV de combate com faixas do nível 50;
     - `/galetocraft dar` para operadores.
   - Teste de cliente `JornadaTesteCliente` (GALETO_TESTES=jornada).
+  - Tempestade de areia (rev. 10, regra `tempestade_de_areia`): quando chove, nos desertos e badlands ao ar livre. No cliente: poeira de areia (partícula `galetocraft:areia`), névoa amarelada (mixin `NevoaAtmosfericaMixin`) e vento. Na Rinha: começa com o clima Tempestade de Areia. Teste `TempestadeTesteCliente` (GALETO_TESTES=tempestade).
 - **Ainda falta:** tela própria da Rinha e do Galetário, Mestres (golpes por treinamento), passivas e efeitos de golpes, alimentação (EV e peso), reprodução e Terreiro, arte da Pena (gerar no ChatGPT) e modelos das 11 espécies sem entidade (incluindo o Quetzacocó).
 - **Decisões de 18/11:** as propostas de `docs/propostas/PROPOSTAS_PENDENCIAS_2026-11-18.md` foram aprovadas e estão na base desde a rev. 9 (B com nível 1–70; H com aviso global). As pendências U03 e U07–U12 estão resolvidas; U08 aguarda só a arte. O roteiro está em `docs/ANALISE_DESENVOLVIMENTO.md` e o andamento em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
 - **Modelos:** rode `ferramentas/especies/<id>.py` e depois `ferramentas/exportar_especie.py <id>`, como descrito em `galetocraft/LEIAME.md`.

@@ -20,9 +20,13 @@ import java.util.Map;
 public final class Ambiente {
 	public static final int DURACAO = 4;
 
-	public enum Clima { CHUVA("chuva"), ENSOLARADO("ensolarado"), VENTANIA("ventania"), TEMPESTADE_AREIA("tempestade_areia");
+	public enum Clima { CHUVA("chuva", "Chuva"), ENSOLARADO("ensolarado", "Ensolarado"), VENTANIA("ventania", "Ventania"),
+		TEMPESTADE_AREIA("tempestade_areia", "Tempestade de Areia");
 		final String id;
-		Clima(String id) { this.id = id; }
+		private final String nome;
+		Clima(String id, String nome) { this.id = id; this.nome = nome; }
+		/** Nome do clima como aparece para o jogador. */
+		public String nome() { return nome; }
 	}
 
 	public enum Santuario { RAIOS("santuario_raios"), RAIZES("santuario_raizes");

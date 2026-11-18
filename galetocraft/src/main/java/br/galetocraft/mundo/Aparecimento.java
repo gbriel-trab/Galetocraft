@@ -194,7 +194,7 @@ public final class Aparecimento {
 			if (!momento || (r.condicao() != null && r.condicao().equals("só com chuva") && !l.isRaining()))
 				continue;
 			double chance = chanceEncontro;
-			if (r.condicao() != null && r.condicao().startsWith("mais provável (×2)") && l.isRaining())
+			if (r.condicao() != null && r.condicao().startsWith("mais provável (×2)") && TempestadeDeAreia.ativaEm(l, pos))
 				chance *= 2;
 			if (l.getRandom().nextDouble() >= chance)
 				continue;

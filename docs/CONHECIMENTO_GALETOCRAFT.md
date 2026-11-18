@@ -1,6 +1,6 @@
 # Galetocraft — Base de conhecimento consolidada
 
-> Resumo de referência montado em 18/11/2026 a partir de: base vigente (hoje em `base/vigente/`, revisão 9; até a rev. 2 era o `Galetocraft.sqlite`, SHA-256 `9dd2253d…5aa3c`), Release `acervo-documental-2026-11-17` (inventário de 1.636 arquivos), documentos oficiais dos sistemas e código deste repositório.
+> Resumo de referência montado em 18/11/2026 a partir de: base vigente (hoje em `base/vigente/`, revisão 10; até a rev. 2 era o `Galetocraft.sqlite`, SHA-256 `9dd2253d…5aa3c`), Release `acervo-documental-2026-11-17` (inventário de 1.636 arquivos), documentos oficiais dos sistemas e código deste repositório.
 > **Este arquivo é um resumo, não uma fonte de verdade.** Em qualquer conflito, vale a camada `current_*` / `v_current_*` do banco vigente.
 
 ## 1. O que é o projeto
@@ -47,6 +47,7 @@ Todo design passa por **homologação expressa do criador**. Propostas, Betas, r
   - rev. 4 (18/11): nova governança (base no repositório, sob o Claude), artes #019/#020 em `current_art`, regra `nomenclatura`, R12 e U05 resolvidas.
   - rev. 5 (18/11): regras oficiais de combate, captura, XP e treinador migradas do histórico para `current_rules`; o dano V5.6 entrou na base.
   - rev. 6 (18/11): 32 golpes próprios de #001–#011 completados com a ficha original protegida (categoria, elemento, estado aplicado, efeito estruturado).
+  - rev. 10 (18/11): tempestade de areia no mundo (regra `tempestade_de_areia`). Acontece quando chove, nos desertos e badlands ao ar livre, com poeira, névoa amarelada e vento. A Rinha que começa dentro dela já começa com o clima Tempestade de Areia. O Cocórak passa a usar a tempestade real.
   - rev. 9 (18/11): decisões do criador sobre as propostas das pendências. Entraram a regra nova `mundo_aparecimento` (biomas, horários, pesos, encontros raros, nível 1–70 e Quetzacocó), o kit de início e a posse da Pena, a escalação, o companheiro e o libertar, as tabelas de aprendizado de #013–#018 e #023, e a EV com faixas do nível 50. U03 e U07–U12 resolvidas (U08 aguarda a arte).
   - rev. 8 (18/11): pendências resolvidas com os dados mais recentes do acervo, por instrução do criador. Entraram: curva 1–49, HP nominal e de referência, Vitalidade V5.6.1, IV/EV/peso, regra `aprendizado` (16 espécies), desempate de trocas, trio com espécie repetida, precisão base de 100%, posição da captura, alvo inelegível e alvo válido. As pendências sem dado ficaram registradas (U07–U12).
   - rev. 7 (18/11): regra `captura` coerente. A força da Pena segue a tabela do reforço v1258 (a fórmula `1 + 0,15·(nível−1)` ficou registrada como superada) e a modalidade "mundo" passou a indicar a espera após falha da v1259.
@@ -214,6 +215,7 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 
 ### Ambiente e estados
 - **Climas** (duram 4 rodadas): Chuva, Ensolarado, Ventania e Tempestade de Areia.
+  - **Tempestade de areia no mundo** (rev. 10): quando chove, os desertos e badlands têm tempestade de areia ao ar livre. Uma Rinha que começa dentro dela já começa com o clima Tempestade de Areia.
 - **Santuários:** dos Raios e das Raízes.
 - **Estados negativos persistentes:** Queimadura, Envenenamento, Afogamento, **Tonto** e Paralisia. A captura também menciona Sono.
   - "Tontura" é o nome antigo. O ID técnico `tontura` continua como alias.

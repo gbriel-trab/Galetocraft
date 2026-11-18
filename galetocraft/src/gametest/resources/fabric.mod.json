@@ -6,6 +6,6 @@
   "environment": "*",
   "mixins": ["galetocraft-teste.mixins.json"],
   "entrypoints": {
-    "fabric-client-gametest": ["br.galetocraft.teste.PirococoTesteCliente", "br.galetocraft.teste.GaleriaTesteCliente", "br.galetocraft.teste.PirococoBenchmark", "br.galetocraft.teste.RinhaTesteCliente", "br.galetocraft.teste.CapturaTesteCliente", "br.galetocraft.teste.JornadaTesteCliente"]
+    "fabric-client-gametest": ["br.galetocraft.teste.PirococoTesteCliente", "br.galetocraft.teste.GaleriaTesteCliente", "br.galetocraft.teste.PirococoBenchmark", "br.galetocraft.teste.RinhaTesteCliente", "br.galetocraft.teste.CapturaTesteCliente", "br.galetocraft.teste.JornadaTesteCliente", "br.galetocraft.teste.TempestadeTesteCliente"]
   }
 }

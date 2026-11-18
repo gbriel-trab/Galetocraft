@@ -117,7 +117,7 @@ public final class Rinha {
 	public void definirClima(Ambiente.Clima c) {
 		clima = c;
 		climaRestante = Ambiente.DURACAO;
-		registrar("Clima: " + c);
+		registrar("Clima: " + c.nome() + " (" + Ambiente.DURACAO + " rodadas)");
 	}
 
 	public void definirSantuario(Ambiente.Santuario s) {

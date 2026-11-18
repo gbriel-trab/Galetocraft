@@ -303,6 +303,28 @@ O pacote é `docs/patches/rev9_decisoes_criador.json`, e as pendências U03 e U0
 - **Galetário:** aba Equipe e Reservas (falta a tela do Galetário).
 - **Modelos:** aparecimento das 11 espécies sem entidade, incluindo o Quetzacocó.
 
+## 18/11/2026 — Tempestade de areia no mundo (base rev. 10)
+
+Pedido do criador, com as decisões: acontece **quando chove, no deserto**, e a **Rinha começa com o clima Tempestade de Areia**. O pacote é `docs/patches/rev10_tempestade_de_areia.json`, com a regra nova `tempestade_de_areia`.
+
+- **Quando:** chove ou troveja no mundo, o lugar é deserto ou badlands e o céu está visível. Sob teto ou no subsolo não há tempestade.
+- **Visual (cliente):**
+  - **Poeira:** partícula própria `galetocraft:areia`, que usa as texturas vanilla de poeira tingidas de areia. Os grãos são soprados na direção do vento, que muda a cada dia de jogo, e a quantidade segue a opção de partículas.
+  - **Névoa:** névoa amarelada pelo mixin `NevoaAtmosfericaMixin`, que encurta a névoa atmosférica e puxa a cor para a da areia.
+  - **Vento:** som vanilla de vento do voo de élitro, mais grave.
+  - Tudo com transição suave ao entrar e sair.
+- **Jogo:**
+  - Uma Rinha que começa dentro da tempestade já começa com o clima Tempestade de Areia (4 rodadas). O Histórico da Rinha mostra "Clima: Tempestade de Areia (4 rodadas)".
+  - O encontro raro do Cocórak usa a tempestade real (2×).
+  - A tempestade não causa dano nem lentidão.
+- **Teste `TempestadeTesteCliente`:**
+  - sem chuva, nada;
+  - com chuva no deserto, intensidade 1,0 e detecção no servidor;
+  - a Rinha começa com o clima;
+  - fora do deserto, com a mesma chuva, intensidade 0;
+  - prints antes e durante.
+- **Os quatro testes de cliente** (rinha, captura, jornada e tempestade) passam juntos.
+
 ### Próximos passos (fase 6 em diante)
 1. Mestres Elementais (golpes por treinamento) e sincronização com o cliente.
 2. Alimentação (EV e peso) quando as faixas de EV estiverem recalibradas (U12).

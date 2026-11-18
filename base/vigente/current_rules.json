@@ -4966,7 +4966,7 @@
       "c:is_mountain_slope"
      ],
      "horario": "dia",
-     "condicao": "mais provável (×2) com chuva ou tempestade no mundo, no deserto (aproximação da \"tempestade de areia\")",
+     "condicao": "mais provável (×2) durante a tempestade de areia (regra tempestade_de_areia)",
      "grupo": [
       1,
       1
@@ -6540,6 +6540,31 @@
    "migrado_em": "2026-11-18"
   },
   "source_ref": "combat_rules.santuarios_mecanica_universal + environmental_fields",
+  "status": "OFICIAL_DOCUMENTAL"
+ },
+ {
+  "id": "tempestade_de_areia",
+  "payload_json": {
+   "status": "OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18",
+   "aprovacao": "Criador, 18/11/2026: \"Vamos adicionar ao mod esse efeito ao minecraft de tempestade de areia\"; respostas no mesmo dia: \"Quando chove, no deserto\"; efeitos: \"Rinha com o clima Tempestade de Areia\".",
+   "gatilho": "quando chove ou troveja no mundo (ciclo de clima do Minecraft), nos biomas onde não chove",
+   "biomas": [
+    "c:is_desert",
+    "c:is_badlands"
+   ],
+   "ao_ar_livre": "só onde o céu é visível; sob teto ou no subsolo não há tempestade",
+   "visual": {
+    "poeira": "partículas de areia sopradas na direção do vento (a direção muda a cada dia de jogo)",
+    "nevoa": "névoa amarelada que encurta a visão, com transição suave ao entrar e sair",
+    "vento": "som de vento contínuo enquanto durar"
+   },
+   "efeitos_de_jogo": {
+    "rinha": "uma Rinha que começa dentro da tempestade (posição do Galeto selvagem) já começa com o clima Tempestade de Areia, pelas regras de climas (4 rodadas)",
+    "aparecimento": "Cocórak (encontro raro) fica 2× mais provável durante a tempestade (regra mundo_aparecimento)",
+    "sem_outros_efeitos": "não causa dano nem lentidão no jogador"
+   }
+  },
+  "source_ref": "Pedido e respostas do criador em 18/11/2026",
   "status": "OFICIAL_DOCUMENTAL"
  },
  {

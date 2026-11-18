@@ -24,5 +24,11 @@
 		"java": ">=21",
 		"fabric-api": "*",
 		"geckolib": ">=5.4.5"
-	}
+	},
+	"mixins": [
+		{
+			"config": "galetocraft.client.mixins.json",
+			"environment": "client"
+		}
+	]
 }

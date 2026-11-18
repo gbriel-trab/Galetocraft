@@ -102,6 +102,9 @@ public final class GerenciadorRinhas {
 				new Equipe("Selvagem", List.of(new Combatente(especieSelvagem, selvagem.nivel(),
 						GaletoGuardado.APRENDIZADO.equipamentoInicial(especieSelvagem, selvagem.nivel()), selvagem.individuo()))), semente);
 		r.permitirCaptura(Capturas.REGRAS);
+		// Rinha que começa dentro da tempestade de areia já começa com o clima Tempestade de Areia (regra tempestade_de_areia)
+		if (br.galetocraft.mundo.TempestadeDeAreia.ativaEm(selvagem.level(), selvagem.blockPosition()))
+			r.definirClima(br.galetocraft.nucleo.regras.Ambiente.Clima.TEMPESTADE_AREIA);
 		selvagem.emRinha(true);
 		Sessao s = new Sessao(r, selvagem, semente);
 		s.galetosDoTreinador = ids;

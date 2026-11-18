@@ -1,0 +1,487 @@
+{
+ "expected_revision": 9,
+ "reason": "Tempestade de areia no mundo, pedida e definida pelo criador em 18/11/2026; o Cocórak passa a usar a tempestade real.",
+ "evidence": {
+  "aprovacao": "Criador, 18/11/2026: \"Vamos adicionar ao mod esse efeito ao minecraft de tempestade de areia\"; respostas no mesmo dia: \"Quando chove, no deserto\"; efeitos: \"Rinha com o clima Tempestade de Areia\"."
+ },
+ "operations": [
+  {
+   "op": "inserir",
+   "table": "current_rules",
+   "key": {
+    "id": "tempestade_de_areia"
+   },
+   "values": {
+    "payload_json": {
+     "status": "OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18",
+     "aprovacao": "Criador, 18/11/2026: \"Vamos adicionar ao mod esse efeito ao minecraft de tempestade de areia\"; respostas no mesmo dia: \"Quando chove, no deserto\"; efeitos: \"Rinha com o clima Tempestade de Areia\".",
+     "gatilho": "quando chove ou troveja no mundo (ciclo de clima do Minecraft), nos biomas onde não chove",
+     "biomas": [
+      "c:is_desert",
+      "c:is_badlands"
+     ],
+     "ao_ar_livre": "só onde o céu é visível; sob teto ou no subsolo não há tempestade",
+     "visual": {
+      "poeira": "partículas de areia sopradas na direção do vento (a direção muda a cada dia de jogo)",
+      "nevoa": "névoa amarelada que encurta a visão, com transição suave ao entrar e sair",
+      "vento": "som de vento contínuo enquanto durar"
+     },
+     "efeitos_de_jogo": {
+      "rinha": "uma Rinha que começa dentro da tempestade (posição do Galeto selvagem) já começa com o clima Tempestade de Areia, pelas regras de climas (4 rodadas)",
+      "aparecimento": "Cocórak (encontro raro) fica 2× mais provável durante a tempestade (regra mundo_aparecimento)",
+      "sem_outros_efeitos": "não causa dano nem lentidão no jogador"
+     }
+    },
+    "source_ref": "Pedido e respostas do criador em 18/11/2026",
+    "status": "OFICIAL_DOCUMENTAL"
+   }
+  },
+  {
+   "op": "atualizar",
+   "table": "current_rules",
+   "key": {
+    "id": "mundo_aparecimento"
+   },
+   "values": {
+    "payload_json": {
+     "status": "OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18",
+     "aprovacao": "Criador, 18/11/2026: \"Todas menos B e H estão aprovadas. No caso eu quero que o nível seja independente do local completamente variável do 1 até o 70. No caso do lendário único ele será extremamente raro, mas quando aparecer uma mensagem de chat aparecerá global avisando\"; esclarecimentos no mesmo dia: resto do B como proposto; Quetzacocó em selva ou montanha durante tempestade e depois dos 6 elementos; sempre nível 70; Pena nível 5 e fator 0,14.",
+     "proposta": "docs/propostas/PROPOSTAS_PENDENCIAS_2026-11-18.md (B e H)",
+     "nivel_selvagem": {
+      "regra": "sorteado de forma uniforme entre 1 e 70, independente do local, da dimensão e da raridade",
+      "minimo": 1,
+      "maximo": 70
+     },
+     "pesos_por_raridade": {
+      "Comum": 6,
+      "Raro": 2,
+      "Épico": 1,
+      "referencia": "galinha vanilla = 10"
+     },
+     "limite": {
+      "selvagens_por_jogador": 6,
+      "raio_blocos": 64
+     },
+     "desaparecimento": "como os animais vanilla quando longe, exceto em Rinha ou com espera de captura ativa",
+     "encontros_raros": {
+      "especies": [
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       19,
+       22
+      ],
+      "chance": 0.01,
+      "quando": "uma checagem por jogador a cada período elegível: manhã para os diurnos, anoitecer para os noturnos e os de qualquer hora; os que dependem de tempestade checam a cada minuto de tempestade",
+      "maximo_ativos_por_jogador": 1
+     },
+     "iniciais": "fora do aparecimento comum: um vem no kit de início e os outros cinco aparecem como encontros raros",
+     "divinos": "não aparecem naturalmente (decisão de 09/11)",
+     "especies": [
+      {
+       "numero": 1,
+       "nome": "Pirococó",
+       "raridade": "Mítico",
+       "modo": "encontro",
+       "biomas": [
+        "c:is_desert",
+        "c:is_badlands"
+       ],
+       "horario": "dia",
+       "condicao": null,
+       "grupo": [
+        1,
+        1
+       ],
+       "peso": null
+      },
+      {
+       "numero": 2,
+       "nome": "Cocórrego",
+       "raridade": "Mítico",
+       "modo": "encontro",
+       "biomas": [
+        "c:is_river",
+        "c:is_beach",
+        "c:is_swamp"
+       ],
+       "horario": "qualquer",
+       "condicao": null,
+       "grupo": [
+        1,
+        1
+       ],
+       "peso": null
+      },
+      {
+       "numero": 3,
+       "nome": "Esporocó",
+       "raridade": "Mítico",
+       "modo": "encontro",
+       "biomas": [
+        "c:is_forest",
+        "c:is_jungle"
+       ],
+       "horario": "qualquer",
+       "condicao": null,
+       "grupo": [
+        1,
+        1
+       ],
+       "peso": null
+      },
+      {
+       "numero": 4,
+       "nome": "Cocórak",
+       "raridade": "Mítico",
+       "modo": "encontro",
+       "biomas": [
+        "c:is_desert",
+        "c:is_mountain_slope"
+       ],
+       "horario": "dia",
+       "condicao": "mais provável (×2) durante a tempestade de areia (regra tempestade_de_areia)",
+       "grupo": [
+        1,
+        1
+       ],
+       "peso": null
+      },
+      {
+       "numero": 5,
+       "nome": "Cocórion",
+       "raridade": "Mítico",
+       "modo": "encontro",
+       "biomas": [
+        "c:is_plains",
+        "c:is_hill",
+        "c:is_plateau"
+       ],
+       "horario": "dia",
+       "condicao": null,
+       "grupo": [
+        1,
+        1
+       ],
+       "peso": null
+      },
+      {
+       "numero": 6,
+       "nome": "Cocórvolt",
+       "raridade": "Mítico",
+       "modo": "encontro",
+       "biomas": [
+        "c:is_windswept",
+        "c:is_mountain_peak",
+        "c:is_plateau"
+       ],
+       "horario": "qualquer",
+       "condicao": "só durante tempestade (trovoada)",
+       "grupo": [
+        1,
+        1
+       ],
+       "peso": null
+      },
+      {
+       "numero": 7,
+       "nome": "Taturico",
+       "raridade": "Comum",
+       "modo": "comum",
+       "biomas": [
+        "c:is_savanna",
+        "c:is_dry_overworld",
+        "c:is_mountain_slope"
+       ],
+       "horario": "dia",
+       "condicao": null,
+       "grupo": [
+        1,
+        2
+       ],
+       "peso": 6
+      },
+      {
+       "numero": 8,
+       "nome": "Axococó",
+       "raridade": "Comum",
+       "modo": "comum",
+       "biomas": [
+        "minecraft:lush_caves",
+        "c:is_swamp",
+        "c:is_river"
+       ],
+       "horario": "qualquer",
+       "condicao": null,
+       "grupo": [
+        1,
+        2
+       ],
+       "peso": 6
+      },
+      {
+       "numero": 9,
+       "nome": "Vagaló",
+       "raridade": "Comum",
+       "modo": "comum",
+       "biomas": [
+        "c:is_swamp",
+        "c:is_forest",
+        "c:is_plains"
+       ],
+       "horario": "noite",
+       "condicao": null,
+       "grupo": [
+        1,
+        3
+       ],
+       "peso": 6
+      },
+      {
+       "numero": 10,
+       "nome": "Morcegalo",
+       "raridade": "Comum",
+       "modo": "comum",
+       "biomas": [
+        "c:is_cave",
+        "c:is_stony_shores",
+        "c:is_windswept",
+        "c:is_mountain_peak"
+       ],
+       "horario": "noite_ou_subterraneo",
+       "condicao": null,
+       "grupo": [
+        1,
+        2
+       ],
+       "peso": 6
+      },
+      {
+       "numero": 11,
+       "nome": "Espinhocó",
+       "raridade": "Comum",
+       "modo": "comum",
+       "biomas": [
+        "c:is_forest",
+        "c:is_jungle"
+       ],
+       "horario": "dia",
+       "condicao": null,
+       "grupo": [
+        1,
+        2
+       ],
+       "peso": 6
+      },
+      {
+       "numero": 12,
+       "nome": "Salambrasa",
+       "raridade": "Comum",
+       "modo": "comum",
+       "biomas": [
+        "c:is_desert",
+        "c:is_badlands",
+        "minecraft:basalt_deltas"
+       ],
+       "horario": "dia",
+       "condicao": "no Nether (Deltas de Basalto) com peso 1",
+       "grupo": [
+        1,
+        1
+       ],
+       "peso": 6
+      },
+      {
+       "numero": 13,
+       "nome": "Quartzaló",
+       "raridade": "Comum",
+       "modo": "comum",
+       "biomas": [
+        "c:is_mountain",
+        "minecraft:dripstone_caves",
+        "c:is_mountain_slope"
+       ],
+       "horario": "qualquer",
+       "condicao": null,
+       "grupo": [
+        1,
+        1
+       ],
+       "peso": 6
+      },
+      {
+       "numero": 14,
+       "nome": "Carangocó",
+       "raridade": "Comum",
+       "modo": "comum",
+       "biomas": [
+        "c:is_beach",
+        "minecraft:mangrove_swamp",
+        "c:is_river"
+       ],
+       "horario": "dia",
+       "condicao": null,
+       "grupo": [
+        1,
+        2
+       ],
+       "peso": 6
+      },
+      {
+       "numero": 15,
+       "nome": "Faíscocó",
+       "raridade": "Raro",
+       "modo": "comum",
+       "biomas": [
+        "c:is_savanna",
+        "c:is_badlands",
+        "c:is_plateau"
+       ],
+       "horario": "qualquer",
+       "condicao": "peso ×2 durante tempestade",
+       "grupo": [
+        1,
+        1
+       ],
+       "peso": 2
+      },
+      {
+       "numero": 16,
+       "nome": "Libelocó",
+       "raridade": "Comum",
+       "modo": "comum",
+       "biomas": [
+        "c:is_swamp",
+        "c:is_river"
+       ],
+       "horario": "dia",
+       "condicao": null,
+       "grupo": [
+        1,
+        2
+       ],
+       "peso": 6
+      },
+      {
+       "numero": 17,
+       "nome": "Castorocó",
+       "raridade": "Comum",
+       "modo": "comum",
+       "biomas": [
+        "c:is_river",
+        "c:is_forest"
+       ],
+       "horario": "dia",
+       "condicao": null,
+       "grupo": [
+        1,
+        1
+       ],
+       "peso": 6
+      },
+      {
+       "numero": 18,
+       "nome": "Mariposocó",
+       "raridade": "Comum",
+       "modo": "comum",
+       "biomas": [
+        "minecraft:flower_forest",
+        "minecraft:meadow",
+        "c:is_forest"
+       ],
+       "horario": "noite",
+       "condicao": null,
+       "grupo": [
+        1,
+        2
+       ],
+       "peso": 6
+      },
+      {
+       "numero": 19,
+       "nome": "Renacocó",
+       "raridade": "Mítico",
+       "modo": "encontro",
+       "biomas": [
+        "minecraft:soul_sand_valley",
+        "minecraft:basalt_deltas"
+       ],
+       "horario": "qualquer",
+       "condicao": "Nether",
+       "grupo": [
+        1,
+        1
+       ],
+       "peso": null
+      },
+      {
+       "numero": 20,
+       "nome": "Frankocó",
+       "raridade": "Épico",
+       "modo": "comum",
+       "biomas": [
+        "c:is_mountain",
+        "c:is_plateau"
+       ],
+       "horario": "qualquer",
+       "condicao": "só durante tempestade (trovoada)",
+       "grupo": [
+        1,
+        1
+       ],
+       "peso": 1
+      },
+      {
+       "numero": 21,
+       "nome": "Cabacocó",
+       "raridade": "Épico",
+       "modo": "comum",
+       "biomas": [
+        "minecraft:dark_forest",
+        "minecraft:pale_garden"
+       ],
+       "horario": "noite",
+       "condicao": null,
+       "grupo": [
+        1,
+        1
+       ],
+       "peso": 1
+      },
+      {
+       "numero": 22,
+       "nome": "Sirenocó",
+       "raridade": "Mítico",
+       "modo": "encontro",
+       "biomas": [
+        "c:is_ocean"
+       ],
+       "horario": "noite",
+       "condicao": "só com chuva",
+       "grupo": [
+        1,
+        1
+       ],
+       "peso": null
+      }
+     ],
+     "quetzacoco": {
+      "regra": "Lendário Original único por mundo: extremamente raro, só em selva (inclui bambuzal) ou montanha alta durante tempestade (trovoada), e só para um treinador que tenha registrado Galetos dos 6 elementos; aparece sempre no nível 70; ao aparecer, mensagem global no chat para todos os jogadores, sem coordenadas; se não for capturado, foge no fim da tempestade e pode voltar numa próxima elegível; depois de capturado, nunca mais aparece no mundo",
+      "chance": 0.002,
+      "chance_unidade": "por minuto de tempestade, por jogador elegível (cerca de 1,6% por tempestade média de 8 min)",
+      "nivel": 70,
+      "biomas": [
+       "c:is_jungle",
+       "minecraft:bamboo_jungle",
+       "c:is_mountain_peak"
+      ],
+      "mensagem_global": "O Quetzacocó, Lendário Original, apareceu em algum lugar do mundo durante a tempestade!"
+     }
+    }
+   }
+  }
+ ]
+}
