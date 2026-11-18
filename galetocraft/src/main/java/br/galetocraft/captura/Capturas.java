@@ -15,6 +15,9 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.AABB;
@@ -45,8 +48,46 @@ public final class Capturas {
 	private Capturas() {
 	}
 
+	/** Tem no inventário uma Pena de Captura válida: do próprio treinador e da versão atual. */
 	public static boolean temPena(Player p) {
-		return p.getInventory().contains(s -> s.is(ModItens.PENA_DE_CAPTURA));
+		return p.getInventory().contains(s -> penaValida(p, s));
+	}
+
+	public static boolean penaValida(Player p, ItemStack s) {
+		if (!s.is(ModItens.PENA_DE_CAPTURA))
+			return false;
+		net.minecraft.nbt.CompoundTag d = s.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+		return d.getStringOr(PenaDeCapturaItem.DONO, "").equals(p.getUUID().toString())
+				&& d.getIntOr(PenaDeCapturaItem.VERSAO, -1) == ModAnexos.treinador(p).penaVersao();
+	}
+
+	/**
+	 * Entrega uma Pena nova ao treinador (kit de início ou recuperação). A versão sobe, então qualquer Pena anterior
+	 * (num baú, perdida) deixa de funcionar: continua havendo uma só por treinador.
+	 */
+	public static void novaPena(ServerPlayer p) {
+		Treinador t = ModAnexos.treinador(p).comNovaPena();
+		ModAnexos.salvar(p, t);
+		ItemStack s = new ItemStack(ModItens.PENA_DE_CAPTURA);
+		s.set(DataComponents.CUSTOM_DATA, CustomData.of(PenaDeCapturaItem.dados(p, t.penaVersao(), REGRAS.nivelPena(t.penaXp()))));
+		if (!p.getInventory().add(s))
+			p.drop(s, false);
+	}
+
+	/** Atualiza o nível escrito na Pena do treinador (para a dica do item). */
+	public static void atualizarPena(ServerPlayer p) {
+		Treinador t = ModAnexos.treinador(p);
+		for (ItemStack s : p.getInventory().getNonEquipmentItems())
+			if (penaValida(p, s))
+				s.set(DataComponents.CUSTOM_DATA, CustomData.of(PenaDeCapturaItem.dados(p, t.penaVersao(), REGRAS.nivelPena(t.penaXp()))));
+	}
+
+	/** Regra de posse: se o treinador já teve Pena e não tem uma válida, ela volta (ao entrar, renascer ou acordar). */
+	public static void restaurarPena(ServerPlayer p) {
+		if (ModAnexos.treinador(p).penaVersao() > 0 && !temPena(p)) {
+			novaPena(p);
+			p.displayClientMessage(Component.literal("Sua Pena de Captura voltou para você.").withStyle(ChatFormatting.LIGHT_PURPLE), false);
+		}
 	}
 
 	public static int nivelPena(Player p) {
@@ -82,6 +123,10 @@ public final class Capturas {
 		Especie e = alvo.fichaDaEspecie().orElse(null);
 		if (e == null) {
 			aviso(p, "Este Cocorídeo não está no Galetário vigente.");
+			return;
+		}
+		if (alvo.companheiro()) {
+			aviso(p, e.nome() + " é companheiro de um treinador e não pode ser capturado.");
 			return;
 		}
 		if (alvo.emRinha()) {
@@ -131,8 +176,10 @@ public final class Capturas {
 		int ganho = REGRAS.xpPena(g.ficha().raridade(), g.nivel());
 		int xp = REGRAS.somarXpPena(t.penaXp(), ganho);
 		ModAnexos.salvar(p, t.comCapturado(g).comPenaXp(xp));
+		br.galetocraft.mundo.Aparecimento.aoCapturar(p.level().getServer(), g.especie());
 		p.displayClientMessage(Component.literal(g.ficha().nome() + " foi capturado e foi para "
 				+ (naEquipe ? "a equipe principal." : "as reservas (equipe principal cheia).")).withStyle(ChatFormatting.GREEN), false);
+		atualizarPena(p);
 		p.displayClientMessage(Component.literal(xp > t.penaXp() ? "A Pena de Captura ganhou " + (xp - t.penaXp()) + " XP."
 				: "A Pena de Captura já está no nível máximo.").withStyle(ChatFormatting.LIGHT_PURPLE), false);
 		int depois = REGRAS.nivelPena(xp);

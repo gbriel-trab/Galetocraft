@@ -55,6 +55,11 @@ import java.util.stream.Collectors;
  * para guardar, chamar e pôr em primeiro (os três primeiros vão para a Rinha).</li>
  * <li>{@code /galetocraft equipe teste <a> [b] [c]}: equipe de teste, usada só enquanto o treinador não tem Galetos.</li>
  * <li>{@code /galetocraft pena}: entrega a Pena de Captura, se o jogador não tiver uma, e mostra o nível dela.</li>
+ * <li>{@code /galetocraft inicial <1-6>}: escolha única do Galeto inicial (kit de início de jornada).</li>
+ * <li>{@code /galetocraft companheiro <n>} e {@code recolher}: o Galeto da posição n segue o treinador no mundo.</li>
+ * <li>{@code /galetocraft libertar <n>}: solta o Galeto para sempre, com confirmação dupla.</li>
+ * <li>{@code /galetocraft escalar ...}: escalação antes da Rinha (3 dos 5 e quem começa).</li>
+ * <li>{@code /galetocraft dar <espécie> [nível]}: operadores; dá um Galeto ao próprio treinador.</li>
  * <li>{@code /galetocraft golpes <n>}: golpes equipados e aprendidos do n-ésimo Galeto da equipe, com botões para trocar
  * os slots livres (regra aprendizado: Concentração fixa, fora da Rinha, depois dos 5 golpes de origem).</li>
  * <li>{@code /galetocraft desafiar}: começa uma Rinha contra o Galeto selvagem mais próximo (até 10 blocos).</li>
@@ -95,6 +100,29 @@ public final class ComandoGaletocraft {
 						.then(Commands.literal("primeiro").then(Commands.argument("i", IntegerArgumentType.integer(0))
 								.executes(c -> mexerNaEquipe(c, (t, i) -> t.primeiro(i), true)))))
 				.then(Commands.literal("pena").executes(ComandoGaletocraft::pena))
+				.then(Commands.literal("inicial").then(Commands.argument("n", IntegerArgumentType.integer(1, 6))
+						.executes(c -> acaoBool(c, p -> br.galetocraft.treinador.Jornada.escolher(p, IntegerArgumentType.getInteger(c, "n"))))))
+				.then(Commands.literal("companheiro").then(Commands.argument("i", IntegerArgumentType.integer(0))
+						.executes(c -> acao(c, p -> {
+							if (GerenciadorRinhas.emRinha(p))
+								c.getSource().sendFailure(Component.literal("Não dá durante uma Rinha."));
+							else
+								br.galetocraft.treinador.Companheiros.chamar(p, IntegerArgumentType.getInteger(c, "i"));
+						}))))
+				.then(Commands.literal("recolher").executes(c -> acao(c, p -> br.galetocraft.treinador.Companheiros.recolher(p, true))))
+				.then(Commands.literal("libertar").then(Commands.argument("i", IntegerArgumentType.integer(0))
+						.executes(c -> libertar(c, 0))
+						.then(Commands.literal("confirmar").executes(c -> libertar(c, 1)))
+						.then(Commands.literal("definitivo").executes(c -> libertar(c, 2)))))
+				.then(Commands.literal("escalar")
+						.then(Commands.literal("ok").executes(c -> acao(c, br.galetocraft.rinha.Escalacoes::confirmar)))
+						.then(Commands.literal("cancelar").executes(c -> acao(c, br.galetocraft.rinha.Escalacoes::cancelar)))
+						.then(Commands.argument("i", IntegerArgumentType.integer(0))
+								.executes(c -> acao(c, p -> br.galetocraft.rinha.Escalacoes.alternar(p, IntegerArgumentType.getInteger(c, "i"))))))
+				.then(Commands.literal("dar").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
+						.then(Commands.argument("especie", StringArgumentType.word()).suggests(ESPECIES)
+								.executes(c -> dar(c, 50))
+								.then(Commands.argument("nivel", IntegerArgumentType.integer(1, 100)).executes(c -> dar(c, IntegerArgumentType.getInteger(c, "nivel"))))))
 				.then(Commands.literal("golpes").then(Commands.argument("g", IntegerArgumentType.integer(0)).executes(ComandoGaletocraft::mostrarGolpes)
 						.then(Commands.literal("trocar").then(Commands.argument("slot", IntegerArgumentType.integer(0, 4))
 								.then(Commands.argument("golpe", IntegerArgumentType.integer(0)).executes(ComandoGaletocraft::trocarGolpe))))))
@@ -304,11 +332,37 @@ public final class ComandoGaletocraft {
 	private static int pena(CommandContext<CommandSourceStack> c) throws CommandSyntaxException {
 		ServerPlayer p = c.getSource().getPlayerOrException();
 		if (!Capturas.temPena(p)) {
-			p.getInventory().add(new ItemStack(ModItens.PENA_DE_CAPTURA));
+			// mesma regra de posse: uma Pena nova invalida as anteriores
+			Capturas.novaPena(p);
 			enviar(c, Component.literal("Você recebeu a Pena de Captura. Mire num Cocorídeo selvagem e use o botão direito.")
 					.withStyle(ChatFormatting.GREEN));
 		}
 		enviar(c, Capturas.estadoPena(p));
+		return 1;
+	}
+
+	private static int acaoBool(CommandContext<CommandSourceStack> c, java.util.function.Predicate<ServerPlayer> f) throws CommandSyntaxException {
+		return f.test(c.getSource().getPlayerOrException()) ? 1 : 0;
+	}
+
+	private static int libertar(CommandContext<CommandSourceStack> c, int etapa) throws CommandSyntaxException {
+		ServerPlayer p = c.getSource().getPlayerOrException();
+		if (GerenciadorRinhas.emRinha(p)) {
+			c.getSource().sendFailure(Component.literal("Não dá durante uma Rinha."));
+			return 0;
+		}
+		br.galetocraft.treinador.Companheiros.libertar(p, IntegerArgumentType.getInteger(c, "i"), etapa);
+		return 1;
+	}
+
+	/** Operadores: dá um Galeto ao próprio treinador (testes e administração). */
+	private static int dar(CommandContext<CommandSourceStack> c, int nivel) throws CommandSyntaxException {
+		ServerPlayer p = c.getSource().getPlayerOrException();
+		Optional<Especie> e = especie(StringArgumentType.getString(c, "especie"));
+		if (e.isEmpty())
+			return falhar(c);
+		ModAnexos.salvar(p, ModAnexos.treinador(p).comCapturado(br.galetocraft.treinador.Jornada.novo(p, e.get(), nivel)));
+		enviar(c, Component.literal(e.get().nome() + " Nv" + nivel + " entrou para o seu treinador.").withStyle(ChatFormatting.GREEN));
 		return 1;
 	}
 
@@ -344,13 +398,13 @@ public final class ComandoGaletocraft {
 			return 0;
 		}
 		Optional<GaloEntity> alvo = p.level().getEntitiesOfClass(GaloEntity.class, p.getBoundingBox().inflate(10),
-						g -> g.isAlive() && !g.emRinha() && g.fichaDaEspecie().isPresent())
+						g -> g.isAlive() && !g.emRinha() && !g.companheiro() && g.fichaDaEspecie().isPresent())
 				.stream().min(Comparator.comparingDouble(g -> g.distanceTo(p)));
 		if (alvo.isEmpty()) {
 			c.getSource().sendFailure(Component.literal("Nenhum Galeto selvagem a até 10 blocos."));
 			return 0;
 		}
-		GerenciadorRinhas.iniciar(p, alvo.get());
+		br.galetocraft.rinha.Escalacoes.desafiar(p, alvo.get());
 		return 1;
 	}
 

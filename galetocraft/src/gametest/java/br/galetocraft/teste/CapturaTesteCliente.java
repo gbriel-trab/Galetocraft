@@ -13,7 +13,7 @@ import net.minecraft.server.level.ServerPlayer;
 /**
  * Captura de ponta a ponta no cliente:
  * <ol>
- * <li>{@code /galetocraft pena} entrega a Pena de Captura (nível 1);</li>
+ * <li>ao entrar no mundo o treinador recebe a Pena de Captura nível 1 (kit de início de jornada);</li>
  * <li>sem alvo na mira, o botão direito só avisa;</li>
  * <li>no mundo: mira num Taturico e usa o botão direito de verdade (tecla "usar"), até capturar. Depois de cada
  * falha, confere a espera de 20 s antes de tentar de novo;</li>
@@ -47,8 +47,9 @@ public class CapturaTesteCliente implements FabricClientGameTest {
 			servidor.runCommand("tp @p 0 -60 -3 0 0");
 
 			// 1) a Pena de Captura
+			chat.exigir(chat.contem("Início da jornada: você recebeu a Pena de Captura!"), "a Pena não veio no kit de início");
+			chat.exigir(chat.contem("Escolha seu Galeto inicial"), "a escolha do inicial não foi oferecida");
 			chat.comando("galetocraft pena");
-			chat.exigir(chat.contem("Você recebeu a Pena de Captura"), "a Pena não foi entregue");
 			chat.exigir(chat.contem("Pena de Captura nível 1 · 0 XP"), "a Pena deveria começar no nível 1");
 			chat.exigir(contexto.computeOnClient(mc -> mc.player.getMainHandItem().is(ModItens.PENA_DE_CAPTURA)),
 					"a Pena não está na mão");
@@ -60,7 +61,7 @@ public class CapturaTesteCliente implements FabricClientGameTest {
 			chat.exigir(chat.contem("Mire num Cocorídeo selvagem a até 12 blocos"), "faltou o aviso sem alvo");
 
 			// 3) captura no mundo, mirando e usando o botão direito
-			servidor.runCommand("summon galetocraft:taturico 0 -60 3 {NoAI:1b}");
+			servidor.runCommand("summon galetocraft:taturico 0 -60 3 {NoAI:1b,galeto_nivel:50,galeto_sexo:\"M\",galeto_ivs:[I;20,20,20,20,20,20]}");
 			contexto.waitTicks(10);
 			int tentativas = 0;
 			while (!chat.contem("Taturico foi capturado") && tentativas < MAX_TENTATIVAS) {
@@ -91,7 +92,7 @@ public class CapturaTesteCliente implements FabricClientGameTest {
 			servidor.runCommand("tp @p 0 -60 -3 0 0");
 			int rinhas = 0, acoes = 0;
 			while (!chat.contem("Vagaló foi capturado") && rinhas < 5) {
-				servidor.runCommand("summon galetocraft:vagalo 0 -60 2 {Rotation:[180f,0f]}");
+				servidor.runCommand("summon galetocraft:vagalo 0 -60 2 {Rotation:[180f,0f],galeto_nivel:50,galeto_sexo:\"M\",galeto_ivs:[I;20,20,20,20,20,20]}");
 				contexto.waitTicks(10);
 				chat.comando("galetocraft desafiar");
 				rinhas++;

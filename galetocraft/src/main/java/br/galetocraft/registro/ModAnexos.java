@@ -12,6 +12,10 @@ public final class ModAnexos {
 	public static final AttachmentType<Treinador> TREINADOR = AttachmentRegistry.create(GaletocraftMod.id("treinador"),
 			b -> b.persistent(Treinador.CODEC).copyOnDeath().initializer(() -> Treinador.NOVO));
 
+	/** Marca do mundo: o Quetzacocó (Lendário Original, único) já foi capturado e não aparece mais. */
+	public static final AttachmentType<Boolean> QUETZACOCO_CAPTURADO = AttachmentRegistry.create(GaletocraftMod.id("quetzacoco_capturado"),
+			b -> b.persistent(com.mojang.serialization.Codec.BOOL).initializer(() -> false));
+
 	private ModAnexos() {
 	}
 

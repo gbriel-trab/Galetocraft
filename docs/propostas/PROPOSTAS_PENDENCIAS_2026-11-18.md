@@ -1,6 +1,11 @@
 # Galetocraft — Propostas para as pendências (18/11/2026)
 
-> **Status: PROPOSTA.** Nada aqui é oficial até o criador aprovar. Depois da aprovação, cada item entra na base por pacote (revisão 9) e é implementado no mod.
+> **Status: DECIDIDO em 18/11/2026 (base rev. 9).**
+> - A, C, D, E, F, G e I foram aprovados como propostos.
+> - B foi aprovado com o **nível dos selvagens sorteado de 1 a 70, sem depender do local** (no lugar da tabela por distância).
+> - H foi aprovado como **extremamente raro, com mensagem global no chat**: só em selva ou montanha durante tempestade, depois dos 6 elementos, sempre no nível 70, com Pena 5 e fator 0,14.
+>
+> O texto abaixo é a proposta original.
 >
 > **Base das propostas:** a base vigente (rev. 8), as regras já homologadas e os padrões medidos nos dados existentes. As regras citadas são os biomas oficiais dos Mestres, o Peso V1.2, a XP V1.260 e os "seis iniciais". Os padrões medidos são os das 16 tabelas de aprendizado.
 >

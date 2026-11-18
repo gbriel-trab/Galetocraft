@@ -77,6 +77,15 @@ public final class ModEntidades {
 		return Registry.register(BuiltInRegistries.ENTITY_TYPE, chave, builder.build(chave));
 	}
 
+	/** Tipo de entidade da espécie do Galetário (pelo nome sem acento), se ela já tiver modelo no mod. */
+	public static java.util.Optional<EntityType<? extends GaloEntity>> porEspecie(int numero) {
+		String nome = java.text.Normalizer.normalize(br.galetocraft.nucleo.dados.Galetario.padrao().especie(numero).nome(),
+				java.text.Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase(java.util.Locale.ROOT);
+		if (nome.equals(id(PIROCOCO)))
+			return java.util.Optional.of(PIROCOCO);
+		return LISTA.stream().filter(t -> id(t).equals(nome)).<EntityType<? extends GaloEntity>>map(t -> t).findFirst();
+	}
+
 	/** Id da espécie ("esporoco", "cocorak"...). */
 	public static String id(EntityType<?> tipo) {
 		return BuiltInRegistries.ENTITY_TYPE.getKey(tipo).getPath();

@@ -37,19 +37,22 @@ Para abrir o jogo de teste já com o mod: `gradlew runClient`.
 3. No jogo, os **ovos geradores** das 12 espécies ficam na aba de ovos geradores do modo criativo.
 
 ## Capturar e jogar Rinhas (versão de teste)
-1. Pegue a Pena de Captura: `/galetocraft pena` (ou no criativo, aba de ferramentas).
+1. **Início da jornada:** ao entrar no mundo você recebe a Pena de Captura e escolhe um dos 6 iniciais pelos botões do chat (ou `/galetocraft inicial <1-6>`). Se a Pena se perder, ela volta ao entrar no mundo, renascer ou acordar (ou com `/galetocraft pena`).
 2. **Captura no mundo:** com a Pena na mão, mire num Galeto a até 12 blocos e clique com o botão direito. Se falhar, ele resiste por 20 s (60 s se Lendário).
 3. **Rinha:** chegue a até 10 blocos de um Galeto e use `/galetocraft desafiar`. Entram os 3 primeiros da sua equipe. Sem Galetos, entra a equipe de teste (`/galetocraft equipe teste cocorrego pirococo esporoco`).
 4. Jogue clicando nos botões do chat: golpes (Combate), troca (Galetos), Mira, Guarda, Pena de Ritmo (depois de uma Concentração), Itens → Pena de Captura e Fugir.
 5. Vencer uma Rinha dá XP aos seus Galetos que entraram em campo; eles sobem de nível pela curva oficial.
 6. `/galetocraft equipe` mostra a equipe principal (até 5), as reservas, a XP de cada Galeto e a Pena, com botões para ver golpes, guardar, chamar e pôr em primeiro.
 7. `/galetocraft golpes <n>` mostra os golpes equipados e aprendidos do Galeto e troca os slots livres fora da Rinha (a Concentração é fixa). Ao subir de nível, o Galeto aprende golpes novos, mas não os equipa sozinho.
+8. Com mais de 3 Galetos, `/galetocraft desafiar` abre a **escalação**: escolha 3 e quem começa.
+9. `/galetocraft companheiro <n>` chama um Galeto para seguir você; toque nele com a Pena (ou use `/galetocraft recolher`) para recolher. `/galetocraft libertar <n>` solta um Galeto para sempre, com confirmação dupla.
+10. Os Galetos aparecem sozinhos no mundo, conforme bioma e horário, com nível de 1 a 70. Operadores podem usar `/galetocraft dar <espécie> [nível]`.
 
 Outros comandos: `/galetocraft ficha <espécie>`, `/galetocraft base`, `/galetocraft rinha <a> <b> [nível]` (Rinha simulada) e `/galetocraft duelo <a> <b> [rinhas]` (operadores). Clicar num Galeto com a mão vazia mostra a ficha dele.
 
 ## Testes
 - Regras (núcleo): `gradlew :nucleo:test`.
-- Testes no cliente: `gradlew runClientGameTest`. A variável `GALETO_TESTES` escolhe quais rodam (`pirococo`, `galeria`, `rinha`, `captura`); sem ela, rodam todos. O `rinha` joga uma Rinha inteira pelos botões do chat; o `captura` captura no mundo com o botão direito e na Rinha pelo menu.
+- Testes no cliente: `gradlew runClientGameTest`. A variável `GALETO_TESTES` escolhe quais rodam (`pirococo`, `galeria`, `rinha`, `captura`, `jornada`); sem ela, rodam todos. O `rinha` joga uma Rinha inteira pelos botões do chat; o `captura` captura no mundo com o botão direito e na Rinha pelo menu.
 - Sem placa de vídeo (Linux): `GALETO_TESTES=rinha,captura LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a bash gradlew runClientGameTest`.
 
 ## Onde fica cada coisa

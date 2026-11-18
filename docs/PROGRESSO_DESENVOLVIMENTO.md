@@ -257,6 +257,52 @@ No mod, esses pontos continuam com as soluções provisórias já descritas. Nad
   - 3×3: de 11,95 para 12,61 rodadas (+5,5%).
   - As Rinhas continuam curtas. Faltam as passivas e os efeitos dos golpes.
 
+## 18/11/2026 — Decisões do criador sobre as propostas (base rev. 9)
+
+O criador aprovou as propostas de `docs/propostas/PROPOSTAS_PENDENCIAS_2026-11-18.md`:
+- A, C, D, E, F, G e I como estavam.
+- **B** com o nível dos selvagens sorteado de 1 a 70, sem depender do local.
+- **H** como extremamente raro, com aviso global no chat. Nos esclarecimentos: selva ou montanha durante tempestade, depois dos 6 elementos, nível 70, Pena 5 e fator 0,14.
+
+O pacote é `docs/patches/rev9_decisoes_criador.json`, e as pendências U03 e U07–U12 ficaram resolvidas (U08 aguarda só a arte da Pena).
+
+### Implementado no mod
+
+| Decisão | O que entrou |
+|---|---|
+| B: aparecimento | Regra `mundo_aparecimento` aplicada: aparecimento natural por bioma (tags de convenção e biomas vanilla), horário e tempestade; pesos 6/2/1; limite de 6 selvagens a até 64 blocos; selvagens naturais somem quando o jogador se afasta |
+| B: nível | Todo Galeto novo sorteia de 1 a 70 |
+| B: encontros raros | 1% por jogador na manhã ou no anoitecer, ou a cada minuto de tempestade, conforme a espécie; no máximo 1 ativo |
+| H: Quetzacocó | 0,2% por minuto de tempestade por jogador elegível (selva ou montanha alta e Galetos dos 6 elementos); nível 70; mensagem global; foge no fim da tempestade; único por mundo (marca no mundo ao ser capturado). **Fica pronto para quando houver modelo**: a espécie ainda não tem entidade |
+| C: kit de início | Pena nível 1 ao entrar e escolha única do inicial nível 5 pelos botões do chat |
+| C: posse da Pena | Dono e versão gravados no item; só o dono usa; uma Pena nova invalida as anteriores; a Pena não fica no chão; volta ao entrar, renascer ou acordar; a dica mostra nível e treinador |
+| D: escalação | Com mais de 3 Galetos, a escolha de 3 e de quem começa é feita no chat antes da Rinha; o selvagem fica reservado enquanto o treinador escolhe |
+| E: companheiro | 1 Galeto segue o treinador; invulnerável; não é desafiado nem capturado; volta à equipe com a Pena, na Rinha ou quando o jogador sai |
+| E: libertar | Confirmação dupla; o Galeto vira selvagem no lugar |
+| F: aprendizado | Tabelas de #013–#018 e #023 na base; as 23 espécies aprendem por nível |
+| G: EV | Faixas pelo total do nível 50 (`Ev` no núcleo); +0,1 EV por oponente derrotado, no atributo mais alto dele, para quem entrou em campo |
+
+### Testes
+- **Núcleo:** 31 testes. Os novos cobrem as faixas de EV e a cobertura das 23 tabelas de aprendizado.
+- **`JornadaTesteCliente` (novo):**
+  - kit e escolha única do inicial;
+  - a Pena some do chão e volta na versão 2;
+  - 8 selvagens com níveis entre 1 e 70 (ex.: 5 a 58);
+  - Vagaló na lista de aparecimento das planícies;
+  - companheiro invulnerável, não desafiável e recolhido;
+  - escalação com Morcegalo começando;
+  - libertar com confirmação dupla.
+- **`RinhaTesteCliente` e `CapturaTesteCliente`:** continuam passando. Os selvagens do teste têm nível fixado por NBT, e a EV de combate aparece no chat.
+- **Servidor dedicado:** sobe com a base rev. 9.
+
+### Ainda não implementado (decidido, mas depende de outra parte)
+- **Feixe do Rubi:** o encolhimento do Galeto e o som (falta animação no cliente).
+- **Arte da Pena:** cores por nível (falta gerar a arte no ChatGPT).
+- **Terreiro:** recebe Galetos direto da equipe (falta a reprodução).
+- **Peso do companheiro:** a deriva de peso pelo movimento depende da alimentação, que ainda não existe.
+- **Galetário:** aba Equipe e Reservas (falta a tela do Galetário).
+- **Modelos:** aparecimento das 11 espécies sem entidade, incluindo o Quetzacocó.
+
 ### Próximos passos (fase 6 em diante)
 1. Mestres Elementais (golpes por treinamento) e sincronização com o cliente.
 2. Alimentação (EV e peso) quando as faixas de EV estiverem recalibradas (U12).

@@ -30,6 +30,10 @@ public class GaletocraftMod implements ModInitializer {
 		ModEntidades.registrar();
 		ModItens.registrar();
 		ModAnexos.registrar();
+		// aparecimento natural, encontros raros e Quetzacocó (regra mundo_aparecimento)
+		br.galetocraft.mundo.Aparecimento.registrar();
+		// início da jornada e posse da Pena (kit, recuperação, Pena não fica no chão)
+		br.galetocraft.treinador.Jornada.registrar();
 
 		// os ovos dos galos aparecem na aba de ovos geradores do modo criativo
 		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS)
@@ -43,7 +47,12 @@ public class GaletocraftMod implements ModInitializer {
 		Galetario galetario = Galetario.padrao();
 		CommandRegistrationCallback.EVENT.register((dispatcher, acesso, ambiente) -> ComandoGaletocraft.registrar(dispatcher));
 		// Rinha em andamento termina se o jogador sair do servidor
-		ServerPlayConnectionEvents.DISCONNECT.register((conexao, servidor) -> GerenciadorRinhas.encerrar(conexao.getPlayer().getUUID()));
+		ServerPlayConnectionEvents.DISCONNECT.register((conexao, servidor) -> {
+			java.util.UUID id = conexao.getPlayer().getUUID();
+			GerenciadorRinhas.encerrar(id);
+			br.galetocraft.rinha.Escalacoes.cancelar(id);
+			br.galetocraft.treinador.Companheiros.recolher(id, servidor);
+		});
 		ServerLifecycleEvents.SERVER_STOPPING.register(servidor -> GerenciadorRinhas.encerrarTodas());
 
 		LOGGER.info("Galetocraft carregado: {} galos prontos! Base vigente rev. {} com {} espécies.",

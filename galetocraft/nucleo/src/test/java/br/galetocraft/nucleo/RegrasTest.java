@@ -326,8 +326,14 @@ class RegrasTest {
 		assertEquals(2, ap.porNivel(piro, 1).size());                   // nível 1: básico + Concentração
 		// #022 Sirenocó: marcos homologados em 13/11; #013 sem tabela: só os 5 de origem
 		assertEquals(15, ap.porNivel(g.especie(22), 50).size());
-		assertFalse(ap.temTabela(g.especie(13)));
-		assertEquals(g.especie(13).originais(), ap.porNivel(g.especie(13), 50));
+		// rev. 9: as 23 espécies têm tabela (#013–#018 e #023 aprovadas em 18/11)
+		for (Especie e : g.especies()) {
+			assertTrue(ap.temTabela(e), e.nome());
+			int n = ap.porNivel(e, 50).size();   // grades conciliadas (#007, #009 ...) podem ter marcos vazios
+			assertTrue(n >= 10 && n <= 15, e.nome() + ": " + n);
+			assertTrue(ap.porNivel(e, 50).containsAll(e.originais()), e.nome());
+		}
+		assertEquals(2, ap.porNivel(g.especie(13), 16).stream().filter(x -> g.especie(13).originais().contains(x)).count());
 		// slots: Concentração fixa, só golpes aprendidos
 		List<Golpe> origem = piro.originais();
 		Golpe conc = origem.stream().filter(Golpe::concentracao).findFirst().orElseThrow();
@@ -337,5 +343,19 @@ class RegrasTest {
 		Golpe treino = ap.porTreinamento(piro).get(0);
 		assertThrows(IllegalArgumentException.class, () -> ap.validarEquipamento(piro, 50, List.of(conc, treino), List.of()));
 		ap.validarEquipamento(piro, 50, List.of(conc, treino), List.of(treino));
+	}
+
+	@Test
+	void evComFaixasDoNivel50() {
+		Galetario g = Galetario.padrao();
+		Especie taturico = g.especie(7);                               // total 370 → limiar 185
+		assertEquals(185.0, br.galetocraft.nucleo.regras.Ev.limiar(taturico));
+		assertEquals(0.1, br.galetocraft.nucleo.regras.Ev.efetivo(taturico, 0, 0.1), 1e-12);
+		assertEquals(0.05, br.galetocraft.nucleo.regras.Ev.efetivo(taturico, 200, 0.1), 1e-12);       // 2ª faixa: metade
+		assertEquals(0.025, br.galetocraft.nucleo.regras.Ev.efetivo(taturico, 400, 0.1), 1e-12);      // 3ª faixa: um quarto
+		// atravessa a fronteira: 0,05 cabe na 1ª faixa e o resto (0,05 de ganho) vale metade
+		assertEquals(0.05 + 0.025, br.galetocraft.nucleo.regras.Ev.efetivo(taturico, 184.95, 0.1), 1e-9);
+		assertEquals(br.galetocraft.nucleo.dados.Atributo.DEFESA_FISICA, br.galetocraft.nucleo.regras.Ev.atributoMaisAlto(taturico)); // 105
+		assertEquals(br.galetocraft.nucleo.dados.Atributo.VELOCIDADE, br.galetocraft.nucleo.regras.Ev.atributoMaisAlto(g.especie(9)));  // Vagaló 180
 	}
 }

@@ -10,7 +10,7 @@ Projeto de mod de Minecraft com criaturas chamadas Cocorídeos/Galetos, batalhas
 
 ## Fonte de verdade
 
-- **Base vigente:** `base/vigente/*.json`, com artes em `base/artes/` e fontes em `base/fontes/`. Revisão atual: **8**. Manual em `base/LEIA_ME.md`.
+- **Base vigente:** `base/vigente/*.json`, com artes em `base/artes/` e fontes em `base/fontes/`. Revisão atual: **9**. Manual em `base/LEIA_ME.md`.
 - **Ferramenta:** `python ferramentas/base/galetobase.py` com os comandos `validar`, `ficha --especie N`, `atualizar --pacote`, `migrar --pacote` e `montar`.
 - **Toda mudança na base** segue estes passos:
   1. Escrever um pacote em `docs/patches/` com `expected_revision`, `reason` e `evidence`.
@@ -72,9 +72,15 @@ O fluxo completo está em `base/LEIA_ME.md`. Em resumo:
   - XP dos Cocorídeos por Rinha vencida (regra `experiencia`), com subida de nível.
   - Testes de cliente `RinhaTesteCliente` e `CapturaTesteCliente`. Para rodar sem placa de vídeo: `GALETO_TESTES=rinha,captura LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a bash gradlew runClientGameTest`.
   - Atributos pela regra `progressao` (rev. 8): curva 1–49, HP nominal, IV/EV e peso; Vitalidade V5.6.1 no dano.
-  - Aprendizado de golpes por nível e slots (`/galetocraft golpes`), pela regra `aprendizado`.
-- **Ainda falta:** tela própria da Rinha, Galetário no jogo, Mestres (golpes por treinamento), passivas e efeitos de golpes, alimentação (EV e peso) e reprodução.
-- **Pendências sem nenhum dado no acervo** (`current_issues` U07–U12): spawn, obtenção e arte da Pena, escalação e gerenciamento da equipe, Galeto do treinador no mundo, aprendizado de #013–#018 e faixas de EV. Não inventar; pedir a decisão ao criador. As propostas aguardando aprovação estão em `docs/propostas/PROPOSTAS_PENDENCIAS_2026-11-18.md`. O roteiro está em `docs/ANALISE_DESENVOLVIMENTO.md` e o andamento em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
+  - Aprendizado de golpes por nível e slots (`/galetocraft golpes`), pela regra `aprendizado` (as 23 espécies têm tabela desde a rev. 9).
+  - Decisões de 18/11 (rev. 9), implementadas:
+    - kit de início (Pena + inicial nível 5, `/galetocraft inicial`) e Pena com dono e versão (não fica no chão, volta ao dono);
+    - nível dos selvagens de 1 a 70; aparecimento natural por bioma e horário (regra `mundo_aparecimento`); encontros raros; Quetzacocó com aviso global (aguarda modelo);
+    - escalação antes da Rinha (`/galetocraft escalar`), companheiro (`companheiro`, `recolher`), `libertar`, EV de combate com faixas do nível 50;
+    - `/galetocraft dar` para operadores.
+  - Teste de cliente `JornadaTesteCliente` (GALETO_TESTES=jornada).
+- **Ainda falta:** tela própria da Rinha e do Galetário, Mestres (golpes por treinamento), passivas e efeitos de golpes, alimentação (EV e peso), reprodução e Terreiro, arte da Pena (gerar no ChatGPT) e modelos das 11 espécies sem entidade (incluindo o Quetzacocó).
+- **Decisões de 18/11:** as propostas de `docs/propostas/PROPOSTAS_PENDENCIAS_2026-11-18.md` foram aprovadas e estão na base desde a rev. 9 (B com nível 1–70; H com aviso global). As pendências U03 e U07–U12 estão resolvidas; U08 aguarda só a arte. O roteiro está em `docs/ANALISE_DESENVOLVIMENTO.md` e o andamento em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
 - **Modelos:** rode `ferramentas/especies/<id>.py` e depois `ferramentas/exportar_especie.py <id>`, como descrito em `galetocraft/LEIAME.md`.
 - **Git LFS:** os arquivos de `modelos/*/revisao/` e os PNGs do benchmark estão no LFS. Nesta cópia há só ponteiros.
 

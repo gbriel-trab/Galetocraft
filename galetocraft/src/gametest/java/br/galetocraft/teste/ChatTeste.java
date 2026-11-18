@@ -119,8 +119,15 @@ final class ChatTeste {
 
 	/** Confere que o botão existe no menu e devolve o comando dele. */
 	String botao(String comando) {
-		String prefixo = comando.contains(" ") ? comando.substring(0, comando.lastIndexOf(' ') + 1) : comando;
-		exigir(botoes(prefixo).contains(comando) || botoes(comando).contains(comando), "botão ausente no menu: " + comando);
+		boolean achou = false;
+		synchronized (mensagens) {
+			for (int i = mensagens.size() - 1; i >= Math.max(0, mensagens.size() - 30) && !achou; i--) {
+				List<String> l = new ArrayList<>();
+				coletar(mensagens.get(i), comando, l);
+				achou = l.contains(comando);
+			}
+		}
+		exigir(achou, "botão ausente no menu: " + comando);
 		return comando;
 	}
 

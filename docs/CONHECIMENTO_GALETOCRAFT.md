@@ -1,6 +1,6 @@
 # Galetocraft — Base de conhecimento consolidada
 
-> Resumo de referência montado em 18/11/2026 a partir de: base vigente (hoje em `base/vigente/`, revisão 8; até a rev. 2 era o `Galetocraft.sqlite`, SHA-256 `9dd2253d…5aa3c`), Release `acervo-documental-2026-11-17` (inventário de 1.636 arquivos), documentos oficiais dos sistemas e código deste repositório.
+> Resumo de referência montado em 18/11/2026 a partir de: base vigente (hoje em `base/vigente/`, revisão 9; até a rev. 2 era o `Galetocraft.sqlite`, SHA-256 `9dd2253d…5aa3c`), Release `acervo-documental-2026-11-17` (inventário de 1.636 arquivos), documentos oficiais dos sistemas e código deste repositório.
 > **Este arquivo é um resumo, não uma fonte de verdade.** Em qualquer conflito, vale a camada `current_*` / `v_current_*` do banco vigente.
 
 ## 1. O que é o projeto
@@ -47,6 +47,7 @@ Todo design passa por **homologação expressa do criador**. Propostas, Betas, r
   - rev. 4 (18/11): nova governança (base no repositório, sob o Claude), artes #019/#020 em `current_art`, regra `nomenclatura`, R12 e U05 resolvidas.
   - rev. 5 (18/11): regras oficiais de combate, captura, XP e treinador migradas do histórico para `current_rules`; o dano V5.6 entrou na base.
   - rev. 6 (18/11): 32 golpes próprios de #001–#011 completados com a ficha original protegida (categoria, elemento, estado aplicado, efeito estruturado).
+  - rev. 9 (18/11): decisões do criador sobre as propostas das pendências. Entraram a regra nova `mundo_aparecimento` (biomas, horários, pesos, encontros raros, nível 1–70 e Quetzacocó), o kit de início e a posse da Pena, a escalação, o companheiro e o libertar, as tabelas de aprendizado de #013–#018 e #023, e a EV com faixas do nível 50. U03 e U07–U12 resolvidas (U08 aguarda a arte).
   - rev. 8 (18/11): pendências resolvidas com os dados mais recentes do acervo, por instrução do criador. Entraram: curva 1–49, HP nominal e de referência, Vitalidade V5.6.1, IV/EV/peso, regra `aprendizado` (16 espécies), desempate de trocas, trio com espécie repetida, precisão base de 100%, posição da captura, alvo inelegível e alvo válido. As pendências sem dado ficaram registradas (U07–U12).
   - rev. 7 (18/11): regra `captura` coerente. A força da Pena segue a tabela do reforço v1258 (a fórmula `1 + 0,15·(nível−1)` ficou registrada como superada) e a modalidade "mundo" passou a indicar a espera após falha da v1259.
 
@@ -152,7 +153,7 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
   - 15 golpes por nível (os 5 de origem incluídos, nos marcos 1, 1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 44, 47 e 50) e 15 por treinamento com os Mestres.
   - Na captura, todos os golpes por nível até o nível atual já vêm aprendidos.
   - Tabelas de 16 espécies: #001–#012 (grades de 12/11, conciliadas com o repertório vigente), #019, #020, #021 e #022.
-  - Sem dado no acervo: #013–#018 (U11) e #023 (U03). Essas espécies ficam só com os 5 golpes de origem.
+  - Desde a rev. 9, as 23 espécies têm tabela: #013–#018 e #023 seguem o padrão medido nas outras 16 (aprovado em 18/11).
 - **Desempates e trio (rev. 8):** trocas simultâneas com Velocidade igual seguem o sorteio 50/50 oficial; o trio pode repetir espécie (os trios oficiais dos Mestres têm 2 espécies para 3 Galetos).
 - **Precisão (rev. 8):** nenhum golpe tem precisão própria em fonte alguma; a precisão original de todos é 100%.
 - **Energia:**
@@ -235,7 +236,7 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
   - **IV e EV:** `floor(A_n × (1 + (0,25·IV + 0,5·√EV)/100))`. IV de 1 a 40, EV sem teto.
   - **Peso V1.2:** aplicado por último, sobre HP, defesas e Velocidade (ataques não mudam), com `r = peso/peso natural` de 0,8 a 1,5. O Galeto nasce com r = 1.
   - Exemplo: Taturico nível 50 com IV 20, EV 0 e peso neutro tem HP 134.
-  - Pendente: recalibrar as faixas de dificuldade de EV para os totais do nível 50 (U12).
+  - **EV (rev. 9):** o custo dobra a cada `0,5 × total-base` da espécie no nível 50. Cada Galeto que entrou em campo numa Rinha vencida ganha +0,1 EV por oponente derrotado, no atributo-base mais alto do oponente. O treino é a alimentação da V1.2.
 - **Faixas de total no nível 50 por raridade:**
 
   | Raridade | Faixa | Referência |
@@ -274,8 +275,19 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 
   - Espera após falha no mundo: 20 s (60 s para Lendário), por Cocorídeo e compartilhada entre jogadores. Na Rinha não há espera.
   - XP da Pena por captura: `XP_base(raridade) + 2·nível_alvo` (Comum 15 … Lendário 135); excedente reaproveitado; sem XP nova no nível 5.
-  - Pendentes: como o treinador recebe a Pena, receita, aparência; tentativa contra alvo inelegível; Divino e Lendário Original.
+  - **Pena (rev. 9):** vem no kit de início, junto com a escolha de 1 dos 6 iniciais no nível 5. Tem dono e versão: não fica no chão e volta ao dono ao entrar, renascer ou acordar. Não tem receita. A cor da pena muda por nível; a arte ainda vai ser gerada.
+  - Alvo inelegível: a tentativa não começa (rev. 8). Lendário Original: Pena 5 e fator 0,14 (rev. 9).
 - **Treinador:** equipe principal de até 5 Cocorídeos e reservas ilimitadas. O Cocorídeo capturado vai para a reserva se a equipe estiver cheia.
+  - Escalação (rev. 9): antes de cada Rinha, o treinador escolhe 3 dos 5 e quem começa; o padrão são os 3 primeiros. A troca entre equipe e reservas é livre fora da Rinha.
+  - Companheiro (rev. 9): 1 Galeto segue o treinador, invulnerável fora da Rinha, e é recolhido com a Pena. O Terreiro recebe Galetos direto da equipe.
+  - Libertar (rev. 9): exige confirmação dupla e não vale para o último Galeto da equipe.
+- **Aparecimento no mundo (rev. 9, regra `mundo_aparecimento`):**
+  - Biomas do Mestre do elemento e habitats das fichas.
+  - Pesos: Comum 6, Raro 2, Épico 1.
+  - Limite de 6 selvagens a até 64 blocos de cada jogador.
+  - Nível sorteado de 1 a 70, sem depender do local.
+  - Iniciais e Míticos aparecem só como encontros raros (1%).
+  - Quetzacocó: único por mundo e extremamente raro, em selva ou montanha durante tempestade, depois dos 6 elementos. Aparece no nível 70 e o chat avisa todos os jogadores.
 - **XP dos Cocorídeos (V1.260):**
   - XP total para o nível N: `T(N) = (N−1)³ + 10(N−1)²`.
   - Só há XP em Rinha vencida.
@@ -387,7 +399,7 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
   - A Herança de Bico entre espécies está pendente (U01).
   - As etapas 03, 05 e 06 estão incompletas (U02). A Etapa 07 V1.1 é design aprovado.
 - **Quetzacocó:** falta distribuir os 30 golpes por nível e treino (U03).
-- **Sem nenhum dado no acervo** (registradas na revisão 8 com status `PENDENTE_SEM_DADO`):
+- **Resolvidas na revisão 9** por decisão do criador (eram as pendências sem dado da revisão 8):
   - U07: aparecimento no mundo (biomas, frequência, nível dos selvagens).
   - U08: como o treinador recebe e recupera a Pena de Captura, e a arte dela.
   - U09: quais 3 dos 5 entram na Rinha, quem começa e como trocar com as reservas.

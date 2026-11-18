@@ -52,7 +52,7 @@ import java.util.Optional;
  * <ul>
  * <li>Sexo: sorteado pela distribuição da espécie no Galetário (Galeria).</li>
  * <li>IVs: inteiros de 1 a 40, uniformes, como os IVs não herdados da reprodução.</li>
- * <li>Nível: 50. As regras de aparecimento e a curva 1–49 ainda não foram definidas.</li>
+ * <li>Nível: sorteado de 1 a 70 para todo Galeto novo, sem depender do local (regra mundo_aparecimento, rev. 9).</li>
  * </ul>
  * Os atributos seguem a regra progressao (rev. 8): nominal no nível → IV/EV → peso.
  * Clicar com a mão vazia mostra a ficha do indivíduo.
@@ -61,6 +61,8 @@ import java.util.Optional;
  */
 public class GaloEntity extends PathfinderMob implements GeoEntity {
 	public static final int NIVEL_PADRAO = Progressao.NIVEL_REFERENCIA;
+	/** Nível dos selvagens (regra mundo_aparecimento, rev. 9): uniforme de 1 a 70, sem depender do local. */
+	public static final int NIVEL_SELVAGEM_MIN = 1, NIVEL_SELVAGEM_MAX = 70;
 	public static final int IV_MINIMO = 1, IV_MAXIMO = 40;
 
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
@@ -69,6 +71,9 @@ public class GaloEntity extends PathfinderMob implements GeoEntity {
 	private int[] ivs = new int[0];
 	private boolean emRinha;
 	private long esperaCapturaAte;   // tempo do jogo (ticks) até o fim da resistência após captura falha no mundo
+	private boolean selvagemNatural; // apareceu sozinho (spawn natural ou encontro): some quando o jogador se afasta
+	private java.util.UUID dono;      // companheiro de um treinador (não é selvagem); nulo = selvagem
+	private java.util.UUID idGuardado; // id do Galeto guardado que este companheiro representa
 
 	public GaloEntity(EntityType<? extends GaloEntity> tipo, Level mundo) {
 		super(tipo, mundo);
@@ -148,7 +153,7 @@ public class GaloEntity extends PathfinderMob implements GeoEntity {
 	private void garantirIndividuo(RandomSource rng) {
 		if (nivel > 0)
 			return;
-		nivel = NIVEL_PADRAO;
+		nivel = NIVEL_SELVAGEM_MIN + rng.nextInt(NIVEL_SELVAGEM_MAX - NIVEL_SELVAGEM_MIN + 1);
 		Optional<Especie> e = fichaDaEspecie();
 		Double machos = e.map(Especie::probabilidadeMacho).orElse(null);
 		sexo = machos == null ? '-' : (rng.nextDouble() < machos ? 'M' : 'F');
@@ -157,8 +162,57 @@ public class GaloEntity extends PathfinderMob implements GeoEntity {
 			ivs[i] = IV_MINIMO + rng.nextInt(IV_MAXIMO - IV_MINIMO + 1);
 	}
 
+	/** Define o nível de um indivíduo ainda não gerado (encontros especiais, como o Quetzacocó no nível 70). */
+	public void definirNivel(int n) {
+		garantirIndividuo(getRandom());
+		nivel = Math.max(Progressao.NIVEL_MINIMO, Math.min(Progressao.NIVEL_MAXIMO, n));
+	}
+
+	/** Companheiro de um treinador: não é selvagem, não pode ser capturado nem desafiado. */
+	public boolean companheiro() {
+		return dono != null;
+	}
+
+	public java.util.UUID dono() {
+		return dono;
+	}
+
+	public java.util.UUID idGuardado() {
+		return idGuardado;
+	}
+
+	/** Copia os dados individuais de um Galeto guardado (companheiro ou Galeto libertado). */
+	public void definirIndividuo(int nivel, char sexo, int[] ivs) {
+		this.nivel = Math.max(Progressao.NIVEL_MINIMO, Math.min(Progressao.NIVEL_MAXIMO, nivel));
+		this.sexo = sexo;
+		this.ivs = ivs.clone();
+	}
+
+	public void tornarCompanheiro(java.util.UUID treinador, java.util.UUID galetoGuardado) {
+		dono = treinador;
+		idGuardado = galetoGuardado;
+		selvagemNatural = false;
+		setPersistenceRequired();
+	}
+
+	public boolean selvagemNatural() {
+		return selvagemNatural;
+	}
+
+	public void marcarSelvagemNatural() {
+		selvagemNatural = true;
+	}
+
+	/** Selvagens naturais somem quando o jogador se afasta, exceto em Rinha ou com espera de captura ativa. */
+	@Override
+	public boolean removeWhenFarAway(double distanciaQuadrada) {
+		return selvagemNatural && !emRinha && esperaCaptura() == 0;
+	}
+
 	@Override
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor mundo, DifficultyInstance dificuldade, EntitySpawnReason motivo, SpawnGroupData dados) {
+		if (motivo == EntitySpawnReason.NATURAL || motivo == EntitySpawnReason.CHUNK_GENERATION)
+			selvagemNatural = true;
 		garantirIndividuo(mundo.getRandom());
 		return super.finalizeSpawn(mundo, dificuldade, motivo, dados);
 	}
@@ -173,6 +227,11 @@ public class GaloEntity extends PathfinderMob implements GeoEntity {
 		// a Rinha não sobrevive ao salvamento: o Galeto volta com a IA ligada (ver readAdditionalSaveData)
 		saida.putBoolean("galeto_em_rinha", emRinha);
 		saida.putLong("galeto_espera_captura", esperaCapturaAte);
+		saida.putBoolean("galeto_selvagem_natural", selvagemNatural);
+		if (dono != null) {
+			saida.putString("galeto_dono", dono.toString());
+			saida.putString("galeto_id_guardado", idGuardado.toString());
+		}
 	}
 
 	@Override
@@ -185,12 +244,53 @@ public class GaloEntity extends PathfinderMob implements GeoEntity {
 		if (ivs.length != Atributo.values().length)
 			nivel = 0;   // dados incompletos: gera de novo na próxima consulta
 		esperaCapturaAte = entrada.getLongOr("galeto_espera_captura", 0L);
+		selvagemNatural = entrada.getBooleanOr("galeto_selvagem_natural", false);
+		String d = entrada.getStringOr("galeto_dono", "");
+		if (!d.isEmpty()) {
+			dono = java.util.UUID.fromString(d);
+			idGuardado = java.util.UUID.fromString(entrada.getStringOr("galeto_id_guardado", d));
+		}
 		if (entrada.getBooleanOr("galeto_em_rinha", false))
 			setNoAi(false);   // salvo no meio de uma Rinha (as sessões ficam só na memória do servidor)
 	}
 
+	/** Companheiro: invulnerável fora da Rinha (regra treinador.companheiro_rev9). */
+	@Override
+	public boolean hurtServer(net.minecraft.server.level.ServerLevel mundo, DamageSource fonte, float dano) {
+		if (companheiro())
+			return false;
+		return super.hurtServer(mundo, fonte, dano);
+	}
+
+	/** Companheiro: segue o dono, teleporta se passar de 24 blocos e volta à equipe se o dono não estiver por perto. */
+	@Override
+	protected void customServerAiStep(net.minecraft.server.level.ServerLevel mundo) {
+		super.customServerAiStep(mundo);
+		if (!companheiro())
+			return;
+		Player d = mundo.getPlayerByUUID(dono);
+		if (d == null) {
+			discard();
+			return;
+		}
+		double dist = distanceTo(d);
+		if (dist > 24) {
+			snapTo(d.getX(), d.getY(), d.getZ(), getYRot(), getXRot());
+			getNavigation().stop();
+		} else if (dist > 4) {
+			getNavigation().moveTo(d, 1.1);
+		} else {
+			getNavigation().stop();
+		}
+	}
+
 	@Override
 	protected InteractionResult mobInteract(Player jogador, InteractionHand mao) {
+		if (companheiro() && jogador.getUUID().equals(dono) && jogador.getItemInHand(mao).is(br.galetocraft.registro.ModItens.PENA_DE_CAPTURA)) {
+			if (jogador instanceof net.minecraft.server.level.ServerPlayer sp)
+				br.galetocraft.treinador.Companheiros.recolher(sp, true);
+			return InteractionResult.SUCCESS;
+		}
 		if (!jogador.getItemInHand(mao).isEmpty())
 			return super.mobInteract(jogador, mao);
 		if (!level().isClientSide())

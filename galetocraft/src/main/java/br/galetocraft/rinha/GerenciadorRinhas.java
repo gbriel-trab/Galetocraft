@@ -80,16 +80,18 @@ public final class GerenciadorRinhas {
 	 * Começa uma Rinha entre o treinador e o Galeto selvagem. Vão para a Rinha os 3 primeiros da equipe principal
 	 * (formato 3v3); sem Galetos capturados, vai a equipe de teste.
 	 */
-	public static void iniciar(ServerPlayer jogador, GaloEntity selvagem) {
+	public static void iniciar(ServerPlayer jogador, GaloEntity selvagem, List<Integer> escalados) {
+		br.galetocraft.treinador.Companheiros.recolher(jogador, true);   // o companheiro volta à equipe na Rinha
 		Galetario g = Galetario.padrao();
 		Especie especieSelvagem = selvagem.fichaDaEspecie().orElseThrow();
 		Treinador treinador = ModAnexos.treinador(jogador);
 		List<Combatente> meus;
 		List<UUID> ids = List.of();
 		if (!treinador.equipe().isEmpty()) {
-			List<GaletoGuardado> escalados = treinador.equipe().stream().limit(GALETOS_NA_RINHA).toList();
-			meus = escalados.stream().map(GaletoGuardado::combatente).toList();
-			ids = escalados.stream().map(GaletoGuardado::id).toList();
+			List<GaletoGuardado> lista = escalados == null ? treinador.equipe().stream().limit(GALETOS_NA_RINHA).toList()
+					: escalados.stream().map(treinador.equipe()::get).toList();
+			meus = lista.stream().map(GaletoGuardado::combatente).toList();
+			ids = lista.stream().map(GaletoGuardado::id).toList();
 		} else {
 			meus = EquipesTemporarias.equipe(jogador).stream().map(e -> Combatente.padrao(e, GaloEntity.NIVEL_PADRAO)).toList();
 			jogador.displayClientMessage(Component.literal("Você ainda não tem Galetos: entra a equipe de teste (/galetocraft equipe teste).")
@@ -275,7 +277,18 @@ public final class GerenciadorRinhas {
 			if (antes == null)
 				continue;
 			GaletoGuardado depois = antes.comXp(e.getValue());
-			t = t.atualizar(id, g -> depois);
+			// EV de combate (regra ev_rev9): +0,1 por oponente derrotado, no atributo-base mais alto dele, pelas faixas
+			for (Combatente op : s.rinha.equipeB().galetos())
+				if (op.derrotado()) {
+					br.galetocraft.nucleo.dados.Atributo a = br.galetocraft.nucleo.regras.Ev.atributoMaisAlto(op.especie());
+					double ef = br.galetocraft.nucleo.regras.Ev.efetivo(depois.ficha(), depois.evs().stream().mapToDouble(Double::doubleValue).sum(),
+							br.galetocraft.nucleo.regras.Ev.GANHO_COMBATE);
+					depois = depois.comEv(a, ef);
+					p.displayClientMessage(Component.literal(String.format(Locale.ROOT, "%s: +%.3f EV de %s", antes.ficha().nome(), ef, a.chave()))
+							.withStyle(ChatFormatting.DARK_AQUA), false);
+				}
+			final GaletoGuardado finalDepois = depois;
+			t = t.atualizar(id, g -> finalDepois);
 			p.displayClientMessage(Component.literal(antes.ficha().nome() + " ganhou " + (depois.xp() - antes.xp()) + " XP.")
 					.withStyle(ChatFormatting.AQUA), false);
 			if (depois.nivel() > antes.nivel()) {

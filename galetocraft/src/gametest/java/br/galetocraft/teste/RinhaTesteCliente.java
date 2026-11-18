@@ -51,7 +51,8 @@ public class RinhaTesteCliente implements FabricClientGameTest {
 			chat.exigir(chat.contem("entra a equipe de teste"), "sem Galetos, a Rinha deveria usar a equipe de teste");
 			chat.exigir(servidor.computeOnServer(s -> selvagens(s).stream().allMatch(g -> g.emRinha() && g.isNoAi())),
 					"o Taturico não ficou parado durante a Rinha");
-			chat.exigir(chat.botoes("/galetocraft acao itens").isEmpty(), "Itens ativo sem a Pena de Captura");
+			// a Pena de Captura vem no kit de início de jornada: o botão Itens já fica ativo contra selvagens
+			chat.exigir(!chat.botoes("/galetocraft acao itens").isEmpty(), "Itens deveria estar ativo com a Pena do kit");
 			contexto.takeScreenshot("rinha_menu_inicio");
 
 			// escolhas secretas da Mira Anatômica, pelos botões

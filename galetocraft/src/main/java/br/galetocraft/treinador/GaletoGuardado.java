@@ -126,6 +126,13 @@ public record GaletoGuardado(UUID id, int especie, int nivel, String sexo, List<
 		return new GaletoGuardado(id, especie, novoNivel, sexo, ivs, total, fixos, treinados, evs, peso);
 	}
 
+	/** Soma EV efetivo a um atributo (já calculado pelas faixas). */
+	public GaletoGuardado comEv(Atributo a, double efetivo) {
+		List<Double> novos = new ArrayList<>(evs);
+		novos.set(a.ordinal(), novos.get(a.ordinal()) + efetivo);
+		return new GaletoGuardado(id, especie, nivel, sexo, ivs, xp, equipados, treinados, novos, peso);
+	}
+
 	public int atributo(Atributo a) {
 		return Progressao.atributoFinal(a, ficha().atributo(a), nivel, ivs.get(a.ordinal()), evs.get(a.ordinal()), peso);
 	}
