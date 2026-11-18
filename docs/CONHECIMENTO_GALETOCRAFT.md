@@ -349,11 +349,77 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 - **Rótulo de nível:** fichas antigas dizem "Nível 100" para os atributos-base. A base vigente usa `base_nivel = 50`. A pendência R03 já está resolvida na leitura, e o JSON antigo foi preservado.
 - **Total do Quetzacocó:** 700 no nível 50, acima da faixa Lendário (590–630). A raridade registrada é "Lendário Original", que não tem faixa definida na norma de progressão.
 - **Mestres Elementais:** os documentos de 10/11 citam "11/12 espécies" e "302 vínculos", números anteriores ao catálogo atual de 23 espécies. No v1.1, Braseiro aparece com Pirococó, Cocórak e Cocórion. Depois, o Elenco provisório definiu Pirococó e Salambrasa.
-- **Loader do mod:** os documentos citam ora NeoForge, ora Fabric/GeckoLib. Ver a seção 10 para o que o código usa de fato.
+- **Loader do mod:** as atas e os documentos dos Mestres falam em "Java/NeoForge", mas o código real usa **Fabric + GeckoLib**, como a base vigente também registra.
 
 ## 10. Repositório (código e modelos)
 
-_(preenchido a partir da leitura do código — ver abaixo)_
+### Mod (`galetocraft/`)
+- **Plataforma e versões:**
+  - Fabric, Minecraft **1.21.11**, Fabric Loader 0.20.1, Fabric API 0.141.6+1.21.11 e GeckoLib 5.4.5.
+  - Loom 1.19-SNAPSHOT, mapeamentos oficiais da Mojang.
+  - O mod compila para Java 21, mas o Gradle precisa de JDK 25.
+- **Identidade:** mod id `galetocraft`, pacote `br.galetocraft`, versão 0.1.0.
+- **Build:** `gradlew build` gera `build/libs/galetocraft-0.1.0.jar`. O último `build.log` terminou em BUILD SUCCESSFUL.
+- **O que está implementado:**
+  - **12 entidades**:
+    - O Pirococó tem classe própria, `PirococoEntity`.
+    - As outras 11 usam a classe genérica `GaloEntity`: Esporocó, Cocórak, Cocórion, Cocórvolt, Taturico, Axococó, Vagaló, Morcegalo, Espinhocó, Salambrasa e Renacocó.
+    - Comportamento: mobs neutros com ataque corpo a corpo e sons de galinha vanilla.
+    - Animações GeckoLib só de `idle` e `walk`.
+  - **Itens:** 12 ovos geradores.
+  - **Renderização:** `GaloRenderer` com LOD por distância (16/32/48 blocos) e uma camada de brilho parcial por glowmask.
+  - **Testes de cliente** (source set `gametest`): fotos do Pirococó, galeria e benchmark.
+- **O que NÃO existe no código:**
+  - Rinha, captura, energia, golpes, elementos, comandos, blocos, spawn natural, loot, receitas e sons próprios.
+  - Hoje o mod é uma vitrine de modelos. Todo o design da base vigente ainda precisa ser implementado.
+- **Espécies sem entidade:** #002 Cocórrego, #013–#018 e #020–#023.
+
+### Modelos (`modelos/`) e ferramentas (`ferramentas/`)
+- **Rodada oficial de cada modelo:**
+
+  | Espécie | Rodada |
+  |---|---|
+  | Pirococó | g09 |
+  | Renacocó | r82 |
+  | Vagaló | v58 |
+  | Cocórvolt | n74 |
+  | Axococó | n69 |
+  | Cocórion | c37 |
+  | Taturico | n63 |
+  | Morcegalo | n58 |
+  | Salambrasa | n51 |
+  | Espinhocó | n49 |
+  | Esporocó | n46 |
+  | Cocórak | k8 |
+
+- **Gerar e exportar um modelo:**
+  1. `ferramentas/especies/<id>.py` gera o modelo, usando a biblioteca `galo_base.py`.
+  2. `exportar_especie.py <id>` exporta para os assets do mod. Ele usa `otimizar_bb.py` e gera os ossos `_brilho` e `_lod`.
+- **Ferramentas de apoio:**
+  - `rodada_revisao.py` congela uma rodada.
+  - `comparar_ficha.py` mede o IoU da silhueta e as cores contra as vistas da ficha.
+  - `dimensoes.py` guarda as alturas oficiais.
+  - Os prompts de agentes ficam em `ferramentas/especies/` (BRIEFING, REFAZER, REVISAO, JUIZ e AUDITORIA).
+- **Dependências e ambiente:** Python com Pillow e numpy. Alguns scripts têm caminhos fixos do Windows (`C:\Users\gbriel\Desktop\galopiru`).
+- **Auditorias de fidelidade:** os modelos receberam notas entre 4 e 6 de 10, puxadas sobretudo pelo rosto.
+- **Pirococó:** passou por 3 fichas, com as séries p (RoosterTeca), q18 (Galetário, armadura prata) e **g09** (Galetário 2, armadura roxa, que é a vigente).
+- **`referencias/`:** fichas, artes, vistas e expressões das espécies modeladas, mais especificações em texto do Cocórion e do Renacocó.
+
+### Benchmark e Git LFS
+- **`benchmark/`:** CSVs de 9 a 11/11, ainda com um modelo de Pirococó anterior ao g09.
+  - 100 Pirococós na máquina atual: cerca de 90 FPS. O modelo antigo dava 35 FPS, então a otimização rendeu cerca de 2,6×.
+  - O gargalo é o cliente: o MSPT fica abaixo de 8 ms.
+- **Git LFS** cobre `modelos/*/revisao/**` (png, bbmodel, bak) e `benchmark/**/*.png`.
+  - Nesta cópia há só ponteiros: 5.783 arquivos, cerca de 2,4 GB não baixados.
+
+### Pendências técnicas no repositório
+- **Licença:** o arquivo `LICENSE` é CC0, mas o `fabric.mod.json` declara "All-Rights-Reserved".
+- **Documentação desatualizada:**
+  - O `LEIAME.md` ainda descreve o fluxo antigo (`pirococo6.py` com `exportar_geckolib.py`).
+  - O `teste.log` é antigo.
+  - Alguns comentários e logs do Pirococó e do Vagaló descrevem versões anteriores.
+- **Glowmasks vazias:** Axococó, Cocórion, Espinhocó e Taturico. Por inferência a partir do código, a camada de brilho redesenha o modelo inteiro sem necessidade nesses casos.
+- **Propriedade intelectual:** a pasta `galos_monstro/` (protótipo fora do mod) se declara inspirada em Pokémon. Convém não levá-la para o jogo.
 
 ## 11. Acervo do Release `acervo-documental-2026-11-17`
 

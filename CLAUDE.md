@@ -16,6 +16,14 @@ Projeto de mod de Minecraft com criaturas chamadas Cocorídeos/Galetos, batalhas
   - Registro novo exige migração completa validada.
 - **Arquivos grandes do Release:** use HTTP Range para extrair um arquivo de um ZIP sem baixar o pacote inteiro. Os pacotes 01–13 têm cerca de 800 MB cada. Confira o SHA-256 contra `INVENTARIO_GALETOCRAFT.json`.
 
+## Código
+
+- **Mod:** fica em `galetocraft/` e usa Fabric 1.21.11 com GeckoLib 5.4.5. Para compilar, rodar `gradlew build`; o Gradle precisa de JDK 25.
+- **Implementado:** só 12 entidades exibidas com IA neutra e LOD.
+- **Não implementado:** Rinha, captura, golpes, elementos e reprodução.
+- **Modelos:** o fluxo atual é rodar `ferramentas/especies/<id>.py` e depois `ferramentas/exportar_especie.py <id>`. O `LEIAME.md` ainda descreve o fluxo antigo.
+- **Git LFS:** os arquivos de `modelos/*/revisao/` e os PNGs do benchmark estão no LFS. Nesta cópia há só ponteiros.
+
 ## Conhecimento consolidado
 
 O resumo completo (espécies, regras, sistemas, pendências e mapa do acervo) está em `docs/CONHECIMENTO_GALETOCRAFT.md`.
