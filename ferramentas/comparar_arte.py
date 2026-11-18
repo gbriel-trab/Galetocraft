@@ -10,7 +10,7 @@ A arte precisa de fundo transparente ou branco liso.
 
 Uso:
   python comparar_arte.py ARTE.png MODELO.geo.json TEXTURA.png [--anim ARQ.animation.json --pose NOME[@t]]
-                          [--saida folha.png] [--yaw Y --pitch P] [--espelhar]
+                          [--saida folha.png] [--yaw Y --pitch P] [--espelhar] [--de-frente]
 """
 import argparse, json, math, sys
 from pathlib import Path
@@ -145,6 +145,8 @@ def main():
     ap.add_argument("--saida", default="comparar_arte.png")
     ap.add_argument("--yaw", type=float); ap.add_argument("--pitch", type=float, default=0)
     ap.add_argument("--espelhar", action="store_true")
+    ap.add_argument("--de-frente", action="store_true",
+                    help="só ângulos de frente/3-4 e câmera na altura dos olhos (arte de ficha); evita casar pelas costas")
     a = ap.parse_args()
     arte = Image.open(a.arte)
     geo = ag.carregar_geo(a.modelo); tex = ag.carregar_textura(a.textura)
@@ -155,7 +157,9 @@ def main():
         pose = ag.pose(anims[next(k for k in anims if k.endswith("." + nome))], float(t or 0))
     dados = ag.faces(geo, tex, pose)
     if a.yaw is None:
-        v, yaw, pitch, esp = melhor_angulo(dados, normalizar(silhueta_arte(arte)))
+        yaws = range(-90, 91, 10) if a.de_frente else range(-180, 180, 10)
+        v, yaw, pitch, esp = melhor_angulo(dados, normalizar(silhueta_arte(arte)), yaws=yaws,
+                                           pitches=(-10, 0, 10) if a.de_frente else (-20, -10, 0, 10, 20))
     else:
         yaw, pitch, esp = a.yaw, a.pitch, a.espelhar
     nota = folha(arte, dados, yaw, pitch, esp, a.saida, Path(a.modelo).name + (f" / pose {a.pose}" if a.pose else ""))

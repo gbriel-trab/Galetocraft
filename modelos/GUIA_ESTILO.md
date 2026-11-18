@@ -246,8 +246,13 @@ E, fora da ferramenta: um fã reconhece na hora a criatura da ficha, e o modelo 
 | Taturico | 1,20 | 120 | 687 | 512x512 | 450 | 0% | 13% | 4/15 |
 | Vagaló | 1,00 | 239 | 1.309 | 512x512 | 6.191 | 0% | 67% | 2/15 |
 
-**Piloto (18/11/2026):** Pirococó no padrão, 2,78 blocos, 80 cubos, 344 faces, textura 128x64, 26 cores, 43%
-de planos, 0% de cubos girados, **15/15**. Arquivos em `modelos/pirococo/cobblemon/`; já está no mod.
+**Piloto (18/11/2026):** o Pirococó da ficha g3, feito pelo método da seção 13 (`modelos/pirococo/detalhes_g3.md`):
+- 2,98 blocos, 83 cubos, 362 faces;
+- textura 128x64 com 28 cores; 41% de planos; 0% de cubos girados;
+- **15/15** no `--estilo`; sobreposição com a arte de 48%;
+- compilado e testado no jogo; arquivos em `modelos/pirococo/cobblemon/`.
+
+A versão anterior, da ficha g2, está em `modelos/pirococo/alternativa_cb06.py`.
 
 Os outros 11 ainda seguem o padrão antigo. O caminho: o dono aprova o piloto no jogo e, a partir dele, as outras
 espécies são refeitas uma a uma com `cobble_base.py`.
@@ -286,8 +291,12 @@ Blaziken (estudo em `referencias/blaziken_arte_para_modelo.md`).
    mantém o matiz, satura ~1,35x e escurece os claros; cada tom mais claro anda +3° no matiz. Não pinte o contorno
    preto nem a sombra de anime; use as rampas com mosqueado leve.
 4. **Pose da arte:** crie a animação `render`, que recria a pose da ilustração sobre o modelo neutro. Confira com
-   `python ferramentas/comparar_arte.py ARTE.png MODELO.geo.json TEXTURA.png --anim ANIM.json --pose render`.
-   Meta: sobreposição de silhueta (IoU) de pelo menos 60% (o Blaziken dá 66%). O resultado também lista a cor mais
+   `python ferramentas/comparar_arte.py ARTE.png MODELO.geo.json TEXTURA.png --anim ANIM.json --pose render --de-frente`.
+   - Meta: sobreposição de silhueta (IoU) de pelo menos 60%. O Blaziken dá 66%; o Pirococó g3, com manto e caudas
+     longas, dá 48%.
+   - Use `--de-frente` em arte de ficha, para a busca não casar a silhueta pelas costas.
+   - Se a ficha tiver fundo preto ou cenário, recorte a figura antes, como em `001_pirococo_g3_arte_recorte.png`.
+   - Compare também as vistas ortográficas da ficha (frente, lado, trás) lado a lado com as do modelo. O resultado também lista a cor mais
    próxima da textura para cada cor dominante da arte.
 5. **Animações a partir do caráter da pose:** uma arte de luta pede `batalha_parado`; uma arte serena, um `parado`
    calmo.
