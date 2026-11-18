@@ -55,6 +55,26 @@ def mosqueado(rampa, base, t, chance=0.16, luz=True):
     return tom(rampa, i)
 
 
+def rampa_da_arte(rgb, tons=5, meio=2, sat=1.35, sat_max=0.85, v_max=0.85,
+                  passo_h=3.0, passo_s=0.045, passo_v_claro=0.055, passo_v_escuro=0.085):
+    """Rampa de pixel art no jeito Cobblemon a partir da cor chapada de uma região da arte.
+
+    Medido no Blaziken (arte oficial x textura): o tom do meio mantém o matiz da arte, satura ~1,35x e os claros
+    escurecem um pouco (V até ~0,85). A cada tom mais claro: matiz +3° (para o amarelo), saturação -0,045 e brilho
+    +0,055; para o escuro o passo de brilho é maior (-0,085). Ex.: rampa_da_arte((187, 87, 69)) -> vermelho."""
+    import colorsys
+    h, s, v = colorsys.rgb_to_hsv(*(c / 255 for c in rgb))
+    s = min(sat_max, s * sat); v = min(v, v_max)
+    saida = []
+    for i in range(tons):
+        k = i - meio
+        hi = (h + k * passo_h / 360) % 1.0
+        si = max(0.0, min(1.0, s - k * passo_s))
+        vi = max(0.0, min(1.0, v + k * (passo_v_claro if k > 0 else passo_v_escuro)))
+        saida.append(tuple(int(round(c * 255)) for c in colorsys.hsv_to_rgb(hi, si, vi)))
+    return saida
+
+
 def material(rampa, base, chance=0.16):
     return lambda t: mosqueado(rampa, base, t, chance)
 

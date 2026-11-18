@@ -268,3 +268,28 @@ espécies são refeitas uma a uma com `cobble_base.py`.
 - Orientação: frente em -z e **lado esquerdo da criatura em +x** no `.geo.json`, como no Cobblemon; `_e` é o
   esquerdo e `_d` o direito. Os modelos antigos usavam o contrário (`_d` em +x).
 - O Blockbench abre o `.geo.json` direto (formato Bedrock / GeckoLib) para ajustes à mão.
+
+## 13. Da imagem ao modelo (método a partir de 18/11/2026)
+Cada galeto novo parte de **uma ilustração no estilo da arte oficial dos Pokémon**: corpo inteiro, pose de ação,
+cores chapadas, contorno preto e fundo transparente ou branco. O método segue como o Cobblemon adaptou a arte do
+Blaziken (estudo em `referencias/blaziken_arte_para_modelo.md`).
+
+1. **Desmontar a arte em três listas:**
+   - massas (tronco, coxas, cabeça, asas, cabeleira) → caixas inteiras;
+   - contornos recortados que mudam a silhueta (cristas, tufos, franjas de pena, chamas, garras, esporões) →
+     planos com recorte;
+   - desenho interno (marcas, faixas, emblemas, a linha serrilhada entre duas cores) → textura em pixel art.
+2. **Proporções da arte:** meça cabeça, tronco, pernas, cauda e cabeleira como fração da altura e monte em **pose
+   neutra** com 16 × altura px (seção 2). Cada caixa cobre a largura máxima do membro. Uma parte que na arte é mais
+   larga que a vizinha (a "bota" do Blaziken, 9 contra 7 da coxa) tem de ser mais larga também no modelo.
+3. **Cores:** para cada região, pegue a cor chapada da arte e gere a rampa com `cobble_base.rampa_da_arte()`. Ela
+   mantém o matiz, satura ~1,35x e escurece os claros; cada tom mais claro anda +3° no matiz. Não pinte o contorno
+   preto nem a sombra de anime; use as rampas com mosqueado leve.
+4. **Pose da arte:** crie a animação `render`, que recria a pose da ilustração sobre o modelo neutro. Confira com
+   `python ferramentas/comparar_arte.py ARTE.png MODELO.geo.json TEXTURA.png --anim ANIM.json --pose render`.
+   Meta: sobreposição de silhueta (IoU) de pelo menos 60% (o Blaziken dá 66%). O resultado também lista a cor mais
+   próxima da textura para cada cor dominante da arte.
+5. **Animações a partir do caráter da pose:** uma arte de luta pede `batalha_parado`; uma arte serena, um `parado`
+   calmo.
+6. **Conferência final:** `analisar_geo.py ... --estilo` com 15/15 e a criatura reconhecível na hora pela arte.
+

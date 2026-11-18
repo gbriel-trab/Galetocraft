@@ -6,7 +6,7 @@ português: textos, nomes de ossos, identificadores e comentários.
 ## Padrão visual (obrigatório)
 **Todo modelo segue `modelos/GUIA_ESTILO.md`: o estilo dos modelos do Cobblemon dentro do Minecraft.** Leia o
 guia antes de criar, refazer ou revisar qualquer modelo. Resumo:
-- 1 unidade = 1 texel. UV de caixa, tamanhos inteiros, escala só no renderizador.
+- 1 unidade = 1 texel = 1/16 de bloco (escala 1: o modelo nasce na altura da tabela). UV de caixa, tamanhos inteiros.
 - Poucas caixas grandes na massa e planos (espessura 0) nas bordas: franjas, chamas, garras, olhos e sobrancelhas.
 - Orçamento por altura no jogo. Ex.: 2–3 blocos ≈ 100 cubos, ≤ 530 faces, textura 256x128 e ≤ 55 cores.
 - Textura: 3–5 tons por material, mosqueado leve, quase sem luz pintada; shiny só troca a paleta;
@@ -14,6 +14,10 @@ guia antes de criar, refazer ou revisar qualquer modelo. Resumo:
 - Modele em pose neutra; a postura vem do `parado`. Animações obrigatórias: parado, andar e piscar (pálpebra
   escondida); recomendadas: grito e dormir.
 - Confira com `python ferramentas/analisar_geo.py MODELO.geo.json TEXTURA.png --anim ANIM.json --estilo`.
+- **Galetos novos partem de UMA ilustração no estilo da arte oficial dos Pokémon** (guia, seção 13): pose neutra
+  com as proporções da arte, cores por `cobble_base.rampa_da_arte()`, animação `render` que recria a pose da
+  arte, conferida com `ferramentas/comparar_arte.py` (IoU ≥ 60%). Exemplo: `referencias/blaziken_arte_para_modelo.md`.
+  Arte oficial de Pokémon não entra no repositório.
 - **O Cobblemon é a única referência de estilo.** As regras antigas do dono (`ferramentas/especies/BRIEFING.md`,
   `REFAZER.md`, `REVISAO.md`, `AUDITORIA.md`, `JUIZ.md`) não valem mais onde divergirem do guia, por decisão
   dele.
