@@ -11,20 +11,21 @@ o mais fiel possível à ficha, com o acabamento do Pirococó (que o dono já ap
   - `_arte.png` (arte principal);
   - `_vistas.png` (frente, lateral direita, traseira, lateral esquerda);
   - `_detalhes.png` e `_expressoes.png` (o Cocórak não tem esses dois, só a arte e as vistas).
-- **Nível de qualidade esperado** (o Pirococó aprovado):
-  - imagens: `modelos/pirococo/pirococo_melhor_vistas.png`, `pirococo_melhor_3-4.png` e `pirococo_rosto.png`;
-  - código: `ferramentas/pirococo7.py`. Leia-o para ver as técnicas na prática: rosto facetado com o olho numa
-    face plana, bico em cunha com gancho, penas recortadas em leque, chamas em X, armadura facetada e correntes.
+- **Nível de qualidade esperado** (o Pirococó, refeito do zero no estilo Cobblemon):
+  - imagens: `modelos/pirococo/pirococo_vistas.png`, `pirococo_comparacao.png` e `pirococo_rosto.png`;
+  - código: `modelos/pirococo/gerar_pirococo.py`. Leia-o para ver as técnicas na prática: 1 px por unidade,
+    olho no canto da cara com viseira inclinada, bico em degrau com gancho, capa em leque por setores,
+    chamas recortadas em planos, tranças em cadeia e brilho só nos ossos `_brilho`.
 - **Biblioteca comum**: `ferramentas/galo_base.py`. Leia o docstring e as funções. Ela tem Peca/peca/osso,
   materiais pintados em 3D, formas prontas, `pintar_olho`, `gerar()`, `revisao()` e `rodar()`.
 
 ## Regras
 - Escreva SÓ no seu arquivo `ferramentas/especies/<id>.py` e em `modelos/<id>/`. Arquivos temporários vão para
   `modelos/<id>/revisao/`.
-- NÃO altere `galo_base.py`, `previa*.py`, `pirococo7.py`, as outras espécies nem nada em `galetocraft/`. Se
+- NÃO altere `galo_base.py`, `previa*.py`, `modelos/pirococo/`, as outras espécies nem nada em `galetocraft/`. Se
   precisar de uma função nova, ponha-a no seu arquivo.
 - Não rode Gradle nem Minecraft, não instale nada, não baixe nada.
-- Identificadores e comentários em português, no estilo de `pirococo7.py`.
+- Identificadores e comentários em português, no estilo de `modelos/pirococo/gerar_pirococo.py`.
 
 ## Esqueleto do arquivo
 ```python

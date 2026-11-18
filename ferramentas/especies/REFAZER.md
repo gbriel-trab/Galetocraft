@@ -172,7 +172,7 @@ Pedido do dono sobre os míticos: "refina o Cocórvolt, a nuca dele por exemplo 
 tenta deixar ele mais suave, menos quadradão, e o mesmo vale para o Cocórion, ele tá saindo bem feio".
 
 Referência do nível aprovado: Esporocó, Morcegalo, Espinhocó e Pirococó (`modelos/fotos_jogo/*_jogo.png`;
-código em `ferramentas/especies/esporoco.py` e `ferramentas/pirococo7.py`).
+código em `ferramentas/especies/esporoco.py` e `modelos/pirococo/gerar_pirococo.py`).
 
 ## O que deixa um modelo "quadradão" e feio
 - **Muitos cubinhos pequenos** de tamanhos e ângulos diferentes amontoados numa região (nuca, bochecha, crista,

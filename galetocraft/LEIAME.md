@@ -45,12 +45,16 @@ Para abrir o jogo de teste já com o mod: `gradlew runClient`.
 | Nome no jogo | `src/main/resources/assets/galetocraft/lang/pt_br.json` |
 
 ## Atualizar o modelo
-O modelo é gerado pelo script `../ferramentas/pirococo6.py` e convertido para o GeckoLib por
-`../ferramentas/exportar_geckolib.py`. Depois de mudar o `pirococo6.py`, rode (na pasta `galopiru`):
+O modelo é gerado do zero pelo script `../modelos/pirococo/gerar_pirococo.py`, que escreve a geometria,
+a textura, o brilho e as animações já no formato do GeckoLib, valida tudo e grava as imagens de conferência.
+Depois de mudar o script, rode (na raiz do repositório):
 
 ```
-python ferramentas/exportar_geckolib.py galetocraft/src/main/resources/assets/galetocraft
+python modelos/pirococo/gerar_pirococo.py --instalar
 ```
+
+O `--instalar` copia os quatro arquivos para `src/main/resources/assets/galetocraft`. Para conferir um modelo
+sem o Blockbench, use `python ferramentas/render_geo.py modelo.geo.json textura.png saida.png`.
 
 Também dá para editar direto no **Blockbench** (com o plugin *GeckoLib Animation Utils*): abra o
 `pirococo.geo.json`, ajuste e exporte por cima do mesmo arquivo. As animações também podem ser
