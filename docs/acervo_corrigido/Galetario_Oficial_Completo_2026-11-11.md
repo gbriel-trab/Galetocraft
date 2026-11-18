@@ -1193,9 +1193,9 @@
 | Slot | ID | Golpe | Elemento | P | Energia | Efeito/nota |
 |---:|---|---|---|---:|---:|---|
 | 1 | crina_poderosa | Crina Poderosa | Neutro | 40 | 0 | Ataque mágico básico de elemento Neutro; não possui efeitos adicionais. |
-| 2 | concentracao | Concentração | — | — | 0 | Possui 40% de chance de remover estado negativo ativo. Respeita as regras oficiais de Tontura, incluindo a possível falha da ação. |
+| 2 | concentracao | Concentração | — | — | 0 | Possui 40% de chance de remover estado negativo ativo. Respeita as regras oficiais de Tonto, incluindo a possível falha da ação. |
 | 3 | O01303 | Lascas de Quartzo | Terra | 65 | 25 | Lança fragmentos de quartzo branco; dano mágico direto a um adversário, sem efeito secundário. |
-| 4 | O01304 | Faíscas do Geodo | Elétrico | 85 | 40 | Descarga elétrica de cristais; 10% de chance de aplicar Tontura após causar dano. Apenas uma verificação de estado por ação, não substitui nem acumula estados negativos persistentes. |
+| 4 | O01304 | Faíscas do Geodo | Elétrico | 85 | 40 | Descarga elétrica de cristais; 10% de chance de aplicar Tonto após causar dano. Apenas uma verificação de estado por ação, não substitui nem acumula estados negativos persistentes. |
 | 5 | O01305 | Tempestade Cristalina | Terra | 115 | 55 | Chuva de cristais brancos; dano mágico direto elevado contra um único alvo. Não invoca Clima, aplica estado negativo ou instala armadilha. |
 
 **25 golpes aprendíveis atribuídos**

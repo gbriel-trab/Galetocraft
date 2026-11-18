@@ -653,7 +653,7 @@
             "poder": 130,
             "poder_maximo": 150,
             "energia": 70,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 10.0,
             "efeito_canonico": "Se o alvo recebeu um segundo golpe desde sua última ação, poder 150 em vez de 130; caso contrário, 10% de chance de Tonto após dano.",
             "mecanicas": [
@@ -2773,7 +2773,7 @@
             "poder": 100,
             "poder_maximo": null,
             "energia": 50,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 20.0,
             "efeito_canonico": "Após causar dano, 20% de chance de Tonto; se o alvo já estiver Tonto, em vez de tentar novo estado reduz sua energia em 12.",
             "mecanicas": [
@@ -3585,7 +3585,7 @@
             "poder": 100,
             "poder_maximo": 115,
             "energia": 50,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 15.0,
             "efeito_canonico": "Após causar dano, 15% de Tonto; se a Velocidade do usuário for menor que a do alvo, poder 115 em vez de 100.",
             "mecanicas": [
@@ -3993,7 +3993,7 @@
             "poder": 65,
             "poder_maximo": null,
             "energia": 30,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 18.0,
             "efeito_canonico": "Após dano, 18% de chance de Tonto; se o alvo já estiver Tonto, concede +8 de energia ao usuário em vez de tentar reaplicação.",
             "mecanicas": [
@@ -4362,7 +4362,7 @@
             "poder": 65,
             "poder_maximo": null,
             "energia": 30,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 15.0,
             "efeito_canonico": "Após dano, 15% de Tonto; se o alvo já estiver Paralisado, não tenta Tonto e drena 10 de energia adversária.",
             "mecanicas": [
@@ -4443,7 +4443,7 @@
             "poder": 130,
             "poder_maximo": 145,
             "energia": 75,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 15.0,
             "efeito_canonico": "Sob Santuário dos Raios, poder 145 em vez de 130; fora dele, 15% de chance de Tonto após dano, sem gerar acerto adicional.",
             "mecanicas": [
@@ -4828,7 +4828,7 @@
             "poder": 130,
             "poder_maximo": 150,
             "energia": 70,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 10.0,
             "efeito_canonico": "Se o alvo recebeu um segundo golpe desde sua última ação, poder 150 em vez de 130; caso contrário, 10% de chance de Tonto após dano.",
             "mecanicas": [
@@ -5237,7 +5237,7 @@
             "poder": 100,
             "poder_maximo": null,
             "energia": 50,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 20.0,
             "efeito_canonico": "Após causar dano, 20% de chance de Tonto; se o alvo já estiver Tonto, em vez de tentar novo estado reduz sua energia em 12.",
             "mecanicas": [
@@ -6833,7 +6833,7 @@
             "poder": 65,
             "poder_maximo": null,
             "energia": 30,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 15.0,
             "efeito_canonico": "Após dano, 15% de Tonto; se o alvo já estiver Paralisado, não tenta Tonto e drena 10 de energia adversária.",
             "mecanicas": [
@@ -7214,7 +7214,7 @@
             "poder": 130,
             "poder_maximo": 150,
             "energia": 70,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 10.0,
             "efeito_canonico": "Se o alvo recebeu um segundo golpe desde sua última ação, poder 150 em vez de 130; caso contrário, 10% de chance de Tonto após dano.",
             "mecanicas": [
@@ -7734,7 +7734,7 @@
             "poder": 100,
             "poder_maximo": 115,
             "energia": 50,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 15.0,
             "efeito_canonico": "Após causar dano, 15% de Tonto; se a Velocidade do usuário for menor que a do alvo, poder 115 em vez de 100.",
             "mecanicas": [
@@ -8249,7 +8249,7 @@
             "poder": 65,
             "poder_maximo": null,
             "energia": 30,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 15.0,
             "efeito_canonico": "Após dano, 15% de Tonto; se o alvo já estiver Paralisado, não tenta Tonto e drena 10 de energia adversária.",
             "mecanicas": [
@@ -8936,7 +8936,7 @@
             "poder": 100,
             "poder_maximo": null,
             "energia": 50,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 20.0,
             "efeito_canonico": "Após causar dano, 20% de chance de Tonto; se o alvo já estiver Tonto, em vez de tentar novo estado reduz sua energia em 12.",
             "mecanicas": [
@@ -9722,7 +9722,7 @@
             "poder": 100,
             "poder_maximo": null,
             "energia": 50,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 20.0,
             "efeito_canonico": "Após causar dano, 20% de chance de Tonto; se o alvo já estiver Tonto, em vez de tentar novo estado reduz sua energia em 12.",
             "mecanicas": [
@@ -10048,7 +10048,7 @@
             "categoria": "Suporte",
             "poder": null,
             "energia": 0,
-            "efeito": "Possui 40% de chance de remover estado negativo ativo. Respeita as regras oficiais de Tontura, incluindo a possível falha da ação.",
+            "efeito": "Possui 40% de chance de remover estado negativo ativo. Respeita as regras oficiais de Tonto, incluindo a possível falha da ação.",
             "origem": "original_da_especie",
             "slot": 2,
             "codigo": "concentracao",
@@ -10072,7 +10072,7 @@
             "categoria": "Mágico",
             "poder": 85,
             "energia": 40,
-            "efeito": "Descarga elétrica de cristais; 10% de chance de aplicar Tontura após causar dano. Apenas uma verificação de estado por ação, não substitui nem acumula estados negativos persistentes.",
+            "efeito": "Descarga elétrica de cristais; 10% de chance de aplicar Tonto após causar dano. Apenas uma verificação de estado por ação, não substitui nem acumula estados negativos persistentes.",
             "origem": "original_da_especie",
             "slot": 4,
             "codigo": "O01304",
@@ -10184,7 +10184,7 @@
             "poder": 105,
             "poder_maximo": 120,
             "energia": 50,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 15.0,
             "efeito_canonico": "Após causar dano 15% de Tonto; contra alvo com peso até 100% do natural, poder sobe de 105 para 120 sem alterar a chance.",
             "mecanicas": [
@@ -10453,7 +10453,7 @@
             "poder": 65,
             "poder_maximo": null,
             "energia": 30,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 15.0,
             "efeito_canonico": "Após dano, 15% de Tonto; se o alvo já estiver Paralisado, não tenta Tonto e drena 10 de energia adversária.",
             "mecanicas": [
@@ -10534,7 +10534,7 @@
             "poder": 130,
             "poder_maximo": 145,
             "energia": 75,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 15.0,
             "efeito_canonico": "Sob Santuário dos Raios, poder 145 em vez de 130; fora dele, 15% de chance de Tonto após dano, sem gerar acerto adicional.",
             "mecanicas": [
@@ -10725,7 +10725,7 @@
             "poder": 130,
             "poder_maximo": 150,
             "energia": 70,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 10.0,
             "efeito_canonico": "Se o alvo recebeu um segundo golpe desde sua última ação, poder 150 em vez de 130; caso contrário, 10% de chance de Tonto após dano.",
             "mecanicas": [
@@ -11362,7 +11362,7 @@
             "poder": 100,
             "poder_maximo": null,
             "energia": 50,
-            "status": "Tontura",
+            "status": "Tonto",
             "chance_status_pct": 20.0,
             "efeito_canonico": "Após causar dano, 20% de chance de Tonto; se o alvo já estiver Tonto, em vez de tentar novo estado reduz sua energia em 12.",
             "mecanicas": [
@@ -11797,7 +11797,7 @@
             "category": "Físico",
             "power": 65,
             "energy": 30,
-            "effect": "18% de chance de Tontura após dano; se alvo já Tonto, recupera 8 de energia em vez de reaplicar."
+            "effect": "18% de chance de Tonto após dano; se alvo já Tonto, recupera 8 de energia em vez de reaplicar."
           },
           {
             "id": "G073",
@@ -11833,7 +11833,7 @@
             "category": "Mágico",
             "power": 65,
             "energy": 30,
-            "effect": "15% de chance de Tontura; contra alvo já Paralisado, drena 10 de energia em vez de tentar Tontura."
+            "effect": "15% de chance de Tonto; contra alvo já Paralisado, drena 10 de energia em vez de tentar Tonto."
           },
           {
             "id": "G078",
@@ -13825,7 +13825,7 @@
           "Peso natural oficial ainda não definido.",
           "Testes executáveis e integração ao banco SQLite do mod."
         ],
-        "nota_preservacao": "Fichas e golpes homologados em design; não altera cópias históricas da GalolpeTeca ou bancos SQLite."
+        "nota_preservacao": "Fichas e golpes homologados em design; não altera cópias históricas da Galolpédia ou bancos SQLite."
       }
     },
     {

@@ -1,4 +1,4 @@
-# Galetocraft — RoosterTeca #009: Vagaló (OFICIAL)
+# Galetocraft — Galetário #009: Vagaló (OFICIAL)
 
 **Revisão:** v1.10.1 | **Data de homologação:** 09/11/2026 | **Situação:** COMPLETO — expressamente aprovado pelo criador.
 
@@ -68,7 +68,7 @@ No esquema técnico vigente, `hp_at_level_100` é **90** (derivado da regra pré
 
 ## Família aprovada de golpes de status (Catálogo geral, sem atribuir a Vagaló)
 
-Além de Choque Estático, quatro técnicas compartilhadas aprovadas para futuros Galetos: **Faísca Ardente** (Fogo/Queimadura), **Espinho Venenoso** (Planta/Envenenamento), **Jato Sufocante** (Água/Afogamento) e **Baque de Terra** (Terra/Tontura). Todas Físicas, poder 20, energia 30, 80% de aplicação e uma verificação por ação. **Não atribuir automaticamente a nenhuma espécie anterior.**
+Além de Choque Estático, quatro técnicas compartilhadas aprovadas para futuros Galetos: **Faísca Ardente** (Fogo/Queimadura), **Espinho Venenoso** (Planta/Envenenamento), **Jato Sufocante** (Água/Afogamento) e **Baque de Terra** (Terra/Tonto). Todas Físicas, poder 20, energia 30, 80% de aplicação e uma verificação por ação. **Não atribuir automaticamente a nenhuma espécie anterior.**
 
 ## Integridade e limites do registro
 

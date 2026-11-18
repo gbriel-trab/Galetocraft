@@ -204,7 +204,7 @@
       "category": "Físico",
       "power": 65,
       "energy": 30,
-      "effect": "18% de chance de Tontura após dano; se alvo já Tonto, recupera 8 de energia em vez de reaplicar."
+      "effect": "18% de chance de Tonto após dano; se alvo já Tonto, recupera 8 de energia em vez de reaplicar."
     },
     {
       "id": "G073",
@@ -240,7 +240,7 @@
       "category": "Mágico",
       "power": 65,
       "energy": 30,
-      "effect": "15% de chance de Tontura; contra alvo já Paralisado, drena 10 de energia em vez de tentar Tontura."
+      "effect": "15% de chance de Tonto; contra alvo já Paralisado, drena 10 de energia em vez de tentar Tonto."
     },
     {
       "id": "G078",

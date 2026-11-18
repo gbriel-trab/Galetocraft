@@ -55,7 +55,7 @@ public final class ModEntidades {
 	/** #019 Renacocó, o curandeiro da ressurreição (mítico, suporte; altura provisória 2,5; imune a fogo). */
 	public static final EntityType<GaloEntity> RENACOCO = galo("renacoco", 0.96f, 2.5f, true, 40, 0.28, 4);
 
-	/** Todas as espécies que usam {@link GaloEntity}, na ordem da RoosterTeca. */
+	/** Todas as espécies que usam {@link GaloEntity}, na ordem do Galetário. */
 	public static final List<EntityType<GaloEntity>> GALOS = Collections.unmodifiableList(LISTA);
 
 	private static EntityType<GaloEntity> galo(String nome, float largura, float altura, boolean imuneAFogo,

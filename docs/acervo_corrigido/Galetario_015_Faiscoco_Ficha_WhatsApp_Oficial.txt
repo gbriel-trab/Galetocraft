@@ -57,11 +57,11 @@ INDUÇÃO INCANDESCENTE v2 — Faíscocó começa sua PRIMEIRA entrada em uma Ri
 **⚡ ELÉTRICO — 11 GOLPES**
 
 **G071 — Bicada Elétrica** · Físico/Elétrico · P40 E0. Poder 50 contra alvo Paralisado.
-**G072 — Espora de Cobre** · Físico/Elétrico · P65 E30. 18% de chance de Tontura após dano; se alvo já Tonto, recupera 8 de energia em vez de reaplicar.
+**G072 — Espora de Cobre** · Físico/Elétrico · P65 E30. 18% de chance de Tonto após dano; se alvo já Tonto, recupera 8 de energia em vez de reaplicar.
 **G073 — Investida do Dínamo** · Físico/Elétrico · P85 E35. Poder 100 contra alvo com menos de 30 de energia.
 **G074 — Cascata de Centelhas** · Físico/Elétrico · P100 E50. Reduz Defesa Física do alvo em 12% por duas ações; sob Santuário dos Raios, reduz 16% por uma ação e recupera 5 de energia.
 **G076 — Arco de Faísca** · Mágico/Elétrico · P40 E0. Poder 50 sob Santuário dos Raios, sem produzir golpes adicionais.
-**G077 — Pulso Condutor** · Mágico/Elétrico · P65 E30. 15% de chance de Tontura; contra alvo já Paralisado, drena 10 de energia em vez de tentar Tontura.
+**G077 — Pulso Condutor** · Mágico/Elétrico · P65 E30. 15% de chance de Tonto; contra alvo já Paralisado, drena 10 de energia em vez de tentar Tonto.
 **G078 — Círculo Voltaico** · Mágico/Elétrico · P80 E40. Reduz Ataque Mágico do alvo em 10% por duas ações após causar dano; ao final recupera 8 de energia se estava abaixo de 40 após pagar o custo.
 **G081 — Cântico dos Condutores** · Suporte/Elétrico · P— E35. Invoca Santuário dos Raios por quatro rodadas; se o usuário estiver Paralisado, recupera 10 de energia após a execução.
 **G083 — Campo de Centelhas** · Suporte/Elétrico · P— E45. Armadilha persistente que reduz Defesa Mágica do adversário que entrar por troca voluntária em 12% por duas ações; se entrar Paralisado, reduz 15% por uma ação.

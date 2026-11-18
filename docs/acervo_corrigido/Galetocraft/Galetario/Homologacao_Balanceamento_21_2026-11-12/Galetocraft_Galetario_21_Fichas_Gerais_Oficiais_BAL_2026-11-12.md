@@ -1782,11 +1782,11 @@ Parâmetros completos (mantidos em sua estrutura original):
 
 | crina_poderosa | Crina Poderosa | Neutro | Mágico | 40 | 0 | Ataque mágico básico de elemento Neutro; não possui efeitos adicionais. |
 
-| concentracao | Concentração | — | Suporte | — | 0 | Possui 40% de chance de remover estado negativo ativo. Respeita as regras oficiais de Tontura, incluindo a possível falha da ação. |
+| concentracao | Concentração | — | Suporte | — | 0 | Possui 40% de chance de remover estado negativo ativo. Respeita as regras oficiais de Tonto, incluindo a possível falha da ação. |
 
 | O01303 | Lascas de Quartzo | Terra | Mágico | 65 | 25 | Lança fragmentos de quartzo branco; dano mágico direto a um adversário, sem efeito secundário. |
 
-| O01304 | Faíscas do Geodo | Elétrico | Mágico | 85 | 40 | Descarga elétrica de cristais; 10% de chance de aplicar Tontura após causar dano. Apenas uma verificação de estado por ação, não substitui nem acumula estados negativos persistentes. |
+| O01304 | Faíscas do Geodo | Elétrico | Mágico | 85 | 40 | Descarga elétrica de cristais; 10% de chance de aplicar Tonto após causar dano. Apenas uma verificação de estado por ação, não substitui nem acumula estados negativos persistentes. |
 
 | O01305 | Tempestade Cristalina | Terra | Mágico | 115 | 55 | Chuva de cristais brancos; dano mágico direto elevado contra um único alvo. Não invoca Clima, aplica estado negativo ou instala armadilha. |
 
@@ -2075,7 +2075,7 @@ Parâmetros completos (mantidos em sua estrutura original):
 
 | G071 | Bicada Elétrica | Elétrico | Físico | 40 | 0 | Poder 50 contra alvo Paralisado. |
 
-| G072 | Espora de Cobre | Elétrico | Físico | 65 | 30 | 18% de chance de Tontura após dano; se alvo já Tonto, recupera 8 de energia em vez de reaplicar. |
+| G072 | Espora de Cobre | Elétrico | Físico | 65 | 30 | 18% de chance de Tonto após dano; se alvo já Tonto, recupera 8 de energia em vez de reaplicar. |
 
 | G073 | Investida do Dínamo | Elétrico | Físico | 85 | 35 | Poder 100 contra alvo com menos de 30 de energia. |
 
@@ -2083,7 +2083,7 @@ Parâmetros completos (mantidos em sua estrutura original):
 
 | G076 | Arco de Faísca | Elétrico | Mágico | 40 | 0 | Poder 50 sob Santuário dos Raios, sem produzir golpes adicionais. |
 
-| G077 | Pulso Condutor | Elétrico | Mágico | 65 | 30 | 15% de chance de Tontura; contra alvo já Paralisado, drena 10 de energia em vez de tentar Tontura. |
+| G077 | Pulso Condutor | Elétrico | Mágico | 65 | 30 | 15% de chance de Tonto; contra alvo já Paralisado, drena 10 de energia em vez de tentar Tonto. |
 
 | G078 | Círculo Voltaico | Elétrico | Mágico | 80 | 40 | Reduz Ataque Mágico do alvo em 10% por duas ações após causar dano; ao final recupera 8 de energia se estava abaixo de 40 após pagar o custo. |
 

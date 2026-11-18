@@ -58,7 +58,7 @@ Galo voxel Minecraft com carapaça vermelho-coral, penas creme, asas em forma de
 • G043 *Chute de Cascalho* — Físico/Terra, P40 E0. Ataque físico de Terra básico, sem efeito adicional.
 • G044 *Marreta de Barro* — Físico/Terra, P65 E30. Reduz Velocidade inimiga em 20% por 2 ações.
 • G045 *Cabeçada de Basalto* — Físico/Terra, P85 E35. Impacto rochoso, dano direto.
-• G046 *Pisão Sísmico* — Físico/Terra, P100 E50. 15% de chance de causar Tontura.
+• G046 *Pisão Sísmico* — Físico/Terra, P100 E50. 15% de chance de causar Tonto.
 • G048 *Grão de Pedra* — Mágico/Terra, P40 E0. Projétil mágico de Terra básico.
 • G049 *Lodo Pressurizado* — Mágico/Terra, P65 E30. Reduz Defesa Mágica inimiga em 10% por 2 ações.
 • G053 *Tambor da Areia* — Suporte/Terra, P— E30. Invoca Tempestade de Areia por 4 rodadas.

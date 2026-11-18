@@ -1,0 +1,104 @@
+{
+ "titulo": "Galetocraft — Nomenclatura oficial",
+ "oficializado_em": "18/11/2026",
+ "autorizacao": "Pedido expresso do criador em 18/11/2026: oficializar as trocas de nomes feitas no projeto (ex.: RoosterTeca -> Galetário), incluindo Galeria e Histórico da Rinha.",
+ "regra_de_aplicacao": "Usar o nome oficial em todo texto de apresentação (títulos, legendas, descrições, fichas, interface e documentação). Nomes antigos permanecem apenas em identificadores técnicos (caminhos, nomes de arquivo, tabelas SQL, chaves JSON, IDs em minúsculas) e em citações históricas que explicam a troca.",
+ "trocas": [
+  {
+   "id": "galetario",
+   "oficial": "Galetário",
+   "antigos": ["RoosterTeca"],
+   "genero": {"antigo": "f", "oficial": "m"},
+   "conceito": "Enciclopédia de espécies (fichas dos Cocorídeos).",
+   "aplicacao": "automatica",
+   "decidido_em": "11/11/2026",
+   "fontes": ["Padronizacao_Documental_Galetario_2026-11-11.md §1", "Galetocraft_Padronizacao_Interfaces_de_Rinha_2026-11-11.md §1"]
+  },
+  {
+   "id": "heranca_de_bico",
+   "oficial": "Herança de Bico",
+   "antigos": ["GalolpeTeca Hereditária"],
+   "genero": {"antigo": "f", "oficial": "f"},
+   "conceito": "Seção dos golpes hereditários paternos.",
+   "aplicacao": "automatica",
+   "decidido_em": "11/11/2026",
+   "fontes": ["Padronizacao_Documental_Galetario_2026-11-11.md §1", "Galetocraft_Padronizacao_Interfaces_de_Rinha_2026-11-11.md §1"]
+  },
+  {
+   "id": "galolpedia",
+   "oficial": "Galolpédia",
+   "antigos": ["GalolpeTeca Geral", "GalolpeTecas", "GalolpeTeca"],
+   "genero": {"antigo": "f", "oficial": "f"},
+   "conceito": "Catálogo geral de golpes (IDs G001–G144 e série N).",
+   "aplicacao": "automatica",
+   "decidido_em": "11/11/2026",
+   "fontes": ["Padronizacao_Documental_Galetario_2026-11-11.md §1", "Galolpedia_Reforma_Integral_212_Golpes_Catalogo_2026-11-11.json (nova_nomenclatura)"]
+  },
+  {
+   "id": "tonto",
+   "oficial": "Tonto",
+   "antigos": ["Tontura"],
+   "genero": {"antigo": "f", "oficial": "m"},
+   "conceito": "Estado negativo persistente.",
+   "aplicacao": "automatica",
+   "decidido_em": "13/11/2026 (R3/R5.2), reafirmado em 14/11/2026 (R5.3)",
+   "fontes": ["RELATORIO_CONSOLIDACAO_GERAL_R53_2026-11-14.md §5: 'Tonto permanece o nome oficial, com alias técnico Tontura'"],
+   "observacao": "O ID técnico em minúsculas 'tontura' (tabela status_effects e chaves JSON) é mantido como alias."
+  },
+  {
+   "id": "ave_fenix",
+   "oficial": "Ave Fênix",
+   "antigos": ["Tricrina Infernal"],
+   "genero": {"antigo": "f", "oficial": "f"},
+   "conceito": "Golpe hereditário exclusivo do #001 Pirococó (Fogo, mágico).",
+   "aplicacao": "automatica",
+   "decidido_em": "09/11/2026",
+   "fontes": ["Galetocraft_GalolpeTeca_Hereditaria_Atualizada.md: 'Renomeia e substitui Tricrina Infernal (registro antigo)'"]
+  },
+  {
+   "id": "historico_da_rinha",
+   "oficial": "Histórico da Rinha",
+   "antigos": ["Diário de Batalha"],
+   "genero": {"antigo": "m", "oficial": "m"},
+   "conceito": "Registro/painel com o histórico de ações e o resultado de uma Rinha.",
+   "aplicacao": "automatica",
+   "decidido_em": "11/11/2026 como rótulo opcional; oficializado em 18/11/2026",
+   "fontes": ["Galetocraft_Padronizacao_Interfaces_de_Rinha_2026-11-11.md §8"],
+   "observacao": "A funcionalidade é a mesma já homologada; muda só o nome. 'Resultado da Rinha' fica como rótulo da tela de resultado."
+  },
+  {
+   "id": "rinha",
+   "oficial": "Rinha / Rinhas",
+   "antigos": ["combate (termo genérico para a atividade)"],
+   "conceito": "Batalha por turnos entre Cocorídeos.",
+   "aplicacao": "manual",
+   "decidido_em": "11/11/2026",
+   "fontes": ["Galetocraft_Padronizacao_Interfaces_de_Rinha_2026-11-11.md §1"],
+   "observacao": "O botão do menu da Rinha continua escrito 'Combate'. Por isso a troca não é automática: depende do contexto."
+  },
+  {
+   "id": "cocorideos",
+   "oficial": "Cocorídeos (coletivo) / Galeto (indivíduo)",
+   "antigos": ["denominações anteriores de raça"],
+   "conceito": "Nome do grupo de criaturas e de cada criatura.",
+   "aplicacao": "manual",
+   "decidido_em": "11/11/2026",
+   "fontes": ["Padronizacao_Documental_Galetario_2026-11-11.md §1"]
+  },
+  {
+   "id": "galeria",
+   "oficial": "Galeria",
+   "antigos": ["Galeria (nome provisório)"],
+   "conceito": "Sistema/área de criação e reprodução (alas, pares, ovos, linhagem).",
+   "aplicacao": "manual",
+   "decidido_em": "12/11/2026 como nome provisório; oficializado em 18/11/2026",
+   "fontes": ["Galetocraft_Memoria_Mestra_Beta_1.2_1.3_2026-11-12.md: 'Galeria (nome provisório da reprodução)'"],
+   "observacao": "Remover o qualificativo 'provisório' onde aparecer."
+  }
+ ],
+ "nao_sao_trocas_de_nome": [
+  {"registro": "Nimbocó -> Libelocó (#016), Raizaló -> Castorocó (#017), Brasapó -> Mariposocó (#018)", "motivo": "Conceitos de proposta substituídos por outros conceitos em 12/11/2026; não são apelidos da mesma criatura."},
+  {"registro": "'Crista Poderosa'", "motivo": "Forma usada em conversa; o nome oficial registrado é Crina Poderosa."},
+  {"registro": "Morcegalo: Sombrio -> Ar; Cocórvolt: Elétrico", "motivo": "Retificações de elemento, não de nome."}
+ ]
+}

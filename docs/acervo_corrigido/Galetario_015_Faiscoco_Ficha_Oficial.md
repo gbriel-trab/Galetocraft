@@ -96,11 +96,11 @@ INDUÇÃO INCANDESCENTE v2 — Faíscocó começa sua PRIMEIRA entrada em uma Ri
 #### Elétrico
 
 - **G071 — Bicada Elétrica:** Poder 50 contra alvo Paralisado.
-- **G072 — Espora de Cobre:** 18% de chance de Tontura após dano; se alvo já Tonto, recupera 8 de energia em vez de reaplicar.
+- **G072 — Espora de Cobre:** 18% de chance de Tonto após dano; se alvo já Tonto, recupera 8 de energia em vez de reaplicar.
 - **G073 — Investida do Dínamo:** Poder 100 contra alvo com menos de 30 de energia.
 - **G074 — Cascata de Centelhas:** Reduz Defesa Física do alvo em 12% por duas ações; sob Santuário dos Raios, reduz 16% por uma ação e recupera 5 de energia.
 - **G076 — Arco de Faísca:** Poder 50 sob Santuário dos Raios, sem produzir golpes adicionais.
-- **G077 — Pulso Condutor:** 15% de chance de Tontura; contra alvo já Paralisado, drena 10 de energia em vez de tentar Tontura.
+- **G077 — Pulso Condutor:** 15% de chance de Tonto; contra alvo já Paralisado, drena 10 de energia em vez de tentar Tonto.
 - **G078 — Círculo Voltaico:** Reduz Ataque Mágico do alvo em 10% por duas ações após causar dano; ao final recupera 8 de energia se estava abaixo de 40 após pagar o custo.
 - **G081 — Cântico dos Condutores:** Invoca Santuário dos Raios por quatro rodadas; se o usuário estiver Paralisado, recupera 10 de energia após a execução.
 - **G083 — Campo de Centelhas:** Armadilha persistente que reduz Defesa Mágica do adversário que entrar por troca voluntária em 12% por duas ações; se entrar Paralisado, reduz 15% por uma ação.

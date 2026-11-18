@@ -46,12 +46,12 @@ Os valores representam a ficha-base de referência no nível 50, sem IVs, EVs ou
 | Slot | Movimento | Elemento | Categoria | Poder | Energia | Efeito/funcionamento |
 |---:|---|---|---|---:|---:|---|
 | 1 | Crina Poderosa | Neutro | Mágico | 40 | 0 | Ataque mágico básico de elemento Neutro; não possui efeitos adicionais. |
-| 2 | Concentração | — | Suporte | — | 0 | Possui 40% de chance de remover estado negativo ativo. Respeita as regras oficiais de Tontura, incluindo a possível falha da ação. |
+| 2 | Concentração | — | Suporte | — | 0 | Possui 40% de chance de remover estado negativo ativo. Respeita as regras oficiais de Tonto, incluindo a possível falha da ação. |
 | 3 | Lascas de Quartzo | Terra | Mágico | 65 | 25 | Lança fragmentos de quartzo branco; dano mágico direto a um adversário, sem efeito secundário. |
-| 4 | Faíscas do Geodo | Elétrico | Mágico | 85 | 40 | Descarga elétrica de cristais; 10% de chance de aplicar Tontura após causar dano. Apenas uma verificação de estado por ação, não substitui nem acumula estados negativos persistentes. |
+| 4 | Faíscas do Geodo | Elétrico | Mágico | 85 | 40 | Descarga elétrica de cristais; 10% de chance de aplicar Tonto após causar dano. Apenas uma verificação de estado por ação, não substitui nem acumula estados negativos persistentes. |
 | 5 | Tempestade Cristalina | Terra | Mágico | 115 | 55 | Chuva de cristais brancos; dano mágico direto elevado contra um único alvo. Não invoca Clima, aplica estado negativo ou instala armadilha. |
 
-Os três novos movimentos foram homologados com os poderes, custos e efeitos acima; não modificar. A Concentração mantém integralmente o efeito oficial, inclusive a regra da Tontura.
+Os três novos movimentos foram homologados com os poderes, custos e efeitos acima; não modificar. A Concentração mantém integralmente o efeito oficial, inclusive a regra do Tonto.
 
 ## 6. Vinte e cinco golpes adicionais aprendíveis — homologados
 
@@ -64,7 +64,7 @@ Os três novos movimentos foram homologados com os poderes, custos e efeitos aci
 | G048 | Grão de Pedra | Terra | Mágico | 40 | 0 | Projétil mágico de Terra básico. |
 | G049 | Lodo Pressurizado | Terra | Mágico | 65 | 30 | Reduz a Defesa Mágica inimiga em 10% por 2 ações. |
 | G050 | Ondulação Rochosa | Terra | Mágico | 85 | 35 | Onda mágica de pedras; dano direto. |
-| G051 | Fenda da Garganta | Terra | Mágico | 105 | 50 | 15% de chance de causar Tontura. |
+| G051 | Fenda da Garganta | Terra | Mágico | 105 | 50 | 15% de chance de causar Tonto. |
 | G052 | Erupção de Geodo | Terra | Mágico | 130 | 70 | Explosão de cristais e rochas; dano direto. |
 | G053 | Tambor da Areia | Terra | Suporte | — | 30 | Invoca Tempestade de Areia por 4 rodadas. |
 | G054 | Muralha Escavada | Terra | Suporte | — | 35 | Um aliado recebe 35% menos dano físico na próxima ação ofensiva recebida. |
@@ -73,10 +73,10 @@ Os três novos movimentos foram homologados com os poderes, custos e efeitos aci
 | G071 | Bicada Elétrica | Elétrico | Físico | 40 | 0 | Bicada energizada básica. |
 | G073 | Investida do Dínamo | Elétrico | Físico | 85 | 35 | Avanço físico eletrificado; dano direto. |
 | G076 | Arco de Faísca | Elétrico | Mágico | 40 | 0 | Projétil elétrico básico. |
-| G077 | Pulso Condutor | Elétrico | Mágico | 65 | 30 | 15% de chance de causar Tontura. |
+| G077 | Pulso Condutor | Elétrico | Mágico | 65 | 30 | 15% de chance de causar Tonto. |
 | G078 | Círculo Voltaico | Elétrico | Mágico | 80 | 40 | Reduz o Ataque Mágico inimigo em 10% por 2 ações. |
 | G079 | Rede de Relâmpagos | Elétrico | Mágico | 105 | 45 | Descargas mágicas; sem efeito adicional. |
-| G080 | Ruptura de Alta Tensão | Elétrico | Mágico | 130 | 75 | 10% de chance de causar Tontura. |
+| G080 | Ruptura de Alta Tensão | Elétrico | Mágico | 130 | 75 | 10% de chance de causar Tonto. |
 | G081 | Cântico dos Condutores | Elétrico | Suporte | — | 35 | Invoca o Santuário dos Raios por 4 rodadas. |
 | G082 | Bateria Compartilhada | Elétrico | Suporte | — | 35 | Recupera 20 pontos de energia de um aliado escolhido, até o máximo de 100. |
 | G084 | Escudo Galvânico | Elétrico | Suporte | — | 35 | Um aliado recebe 30% menos dano mágico na próxima ação ofensiva recebida. |

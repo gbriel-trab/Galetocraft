@@ -1,8 +1,8 @@
-# Galetocraft — RoosterTeca #010 | MORCEGALO (OFICIAL)
+# Galetocraft — Galetário #010 | MORCEGALO (OFICIAL)
 
 **Data de homologação do peso natural:** 10/11/2026.  
 **Status:** ficha conceitual integralmente aprovada pelo criador; integração ao Minecraft e validação competitiva ainda não comprovadas.  
-**Versão consolidada:** RoosterTeca #010 — v2.1, com adendo oficial de peso natural de 10/11/2026.
+**Versão consolidada:** Galetário #010 — v2.1, com adendo oficial de peso natural de 10/11/2026.
 
 ## Identidade
 - **Nº:** #010
@@ -12,7 +12,7 @@
 - **Função:** Rastreador Acústico / Controle tático
 - **Inspiração:** galo + morcego
 - **Habitat temático:** cavernas, penhascos e regiões de ventos fortes
-- **Visual oficial:** prancha padronizada da RoosterTeca aprovada pelo criador em conversa de 10/11/2026; arquivo de referência nesta atualização: `Morcegalo_010_Arte_Oficial_Padronizada.png`. Conservar a aparência de orelhas angulosas de morcego, membranas roxas nas asas, crista curta, corpo índigo-roxo, peito lilás-claro, bico e patas claros, olhos âmbar e cauda plumada segmentada. Não redesenhar nem reinterpretar sem autorização.
+- **Visual oficial:** prancha padronizada do Galetário aprovada pelo criador em conversa de 10/11/2026; arquivo de referência nesta atualização: `Morcegalo_010_Arte_Oficial_Padronizada.png`. Conservar a aparência de orelhas angulosas de morcego, membranas roxas nas asas, crista curta, corpo índigo-roxo, peito lilás-claro, bico e patas claros, olhos âmbar e cauda plumada segmentada. Não redesenhar nem reinterpretar sem autorização.
 
 ## Peso (NOVA HOMOLOGAÇÃO)
 - **Peso natural máximo / referência neutra (100%): 5,2 kg.**
@@ -53,7 +53,7 @@
 2. **Concentração:** 40% de chance de remover 1 estado negativo persistente do próprio usuário ao executar a ação validamente; não muda regras do golpe geral.
 3. **Rasante Ressonante:** contra alvo marcado por Presa Localizada, usa **90% da Defesa Física** atual do alvo na fórmula do dano; sem marca, dano normal.
 4. **Ruído Branco:** aplica Interferência Acústica à próxima ação ofensiva do adversário ativo: **−15% dano** normalmente ou **−20%** se o alvo estava marcado no momento da aplicação. Abrange até dois golpes da mesma ação, físicos ou mágicos, não acumula, expira após a próxima ação ofensiva, ao fim da rodada seguinte ou ao sair do campo, o que ocorrer antes. Não é estado negativo persistente.
-5. **Colapso Sonoro:** ataque mágico Ar; primeiro golpe com **poder 85**, passando a **95** se alvo estiver marcado. Havendo segundo golpe permitido, usa **50% do poder-base 85**, sem custo adicional de energia e sem gerar terceiro golpe. Chance de **20% de causar Tontura**, verificada **uma vez por ação** após ao menos um golpe acertar e causar dano, se alvo puder receber estado negativo. Se pelo menos um golpe causar dano em alvo marcado, a marca é consumida **após terminar a ação**; se nenhum causar dano, preserva a marca conforme duração/regras gerais. Regras de Tontura permanecem as oficiais.
+5. **Colapso Sonoro:** ataque mágico Ar; primeiro golpe com **poder 85**, passando a **95** se alvo estiver marcado. Havendo segundo golpe permitido, usa **50% do poder-base 85**, sem custo adicional de energia e sem gerar terceiro golpe. Chance de **20% de causar Tonto**, verificada **uma vez por ação** após ao menos um golpe acertar e causar dano, se alvo puder receber estado negativo. Se pelo menos um golpe causar dano em alvo marcado, a marca é consumida **após terminar a ação**; se nenhum causar dano, preserva a marca conforme duração/regras gerais. Regras de Tonto permanecem as oficiais.
 
 ## Mecânicas e governança
 - Combate **3×3 (1 ativo + 2 reservas)**; troca voluntária usa uma ação; nenhuma habilidade concede ação gratuita.
@@ -65,5 +65,5 @@
 
 ## Histórico desta revisão
 - 09/11/2026: passiva e visual inicialmente aprovados; propostas de golpes.
-- 10/11/2026: criador aprovou completamente o conjunto v2.1, incluindo **20% de Tontura** no Colapso Sonoro e os seis atributos-base; aprovou a versão visual padronizada.
+- 10/11/2026: criador aprovou completamente o conjunto v2.1, incluindo **20% de Tonto** no Colapso Sonoro e os seis atributos-base; aprovou a versão visual padronizada.
 - **10/11/2026: peso natural de 5,2 kg definido oficialmente por solicitação expressa do criador**; todos os demais parâmetros preservados.

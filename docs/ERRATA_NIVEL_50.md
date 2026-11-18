@@ -29,7 +29,7 @@ Esta errata corrige os documentos **sem alterar os originais** do Release `acerv
 |---|---|
 | #001–#021 | Galetário consolidado BAL de 12/11 (`.md`, 21 rótulos; `.json`, 18 chaves) |
 | #001–#015 | `Galetario_Oficial_Completo_2026-11-11.md` (fichas, tabela-resumo e escala de raridades) |
-| #007, #008, #009, #010, #011, #012 | Fichas da RoosterTeca (Taturico, Axococó, Vagaló, Morcegalo, Espinhocó, Salambrasa) |
+| #007, #008, #009, #010, #011, #012 | Fichas do Galetário (Taturico, Axococó, Vagaló, Morcegalo, Espinhocó, Salambrasa), que no acervo estão em arquivos `RoosterTeca_0NN_*` |
 | #013 | Quartzaló (ficha oficial v1) |
 | #014, #015 | Carangocó e Faíscocó (ficha `.md`, versão WhatsApp `.txt` e registro `.json`) |
 | #016, #017, #018 | Libelocó, Castorocó e Mariposocó (fichas oficiais da homologação 016–018) |
@@ -51,4 +51,6 @@ Esta errata corrige os documentos **sem alterar os originais** do Release `acerv
      --dados DADOS_VIGENTES_CONSULTA.json --acervo PASTA_DO_ACERVO --saida PASTA_DE_SAIDA
    ```
 
-A lista de fichas fica em `ferramentas/acervo/fichas_oficiais_nivel100.json`. Se aparecer uma ficha com números diferentes dos vigentes, o script não troca o rótulo: ele insere uma nota de errata e registra a divergência no relatório.
+A lista de fichas fica em `ferramentas/acervo/fichas_oficiais_nivel100.json`.
+
+Depois desta correção, as cópias também receberam a nomenclatura oficial, com `ferramentas/acervo/aplicar_nomenclatura.py` (ver `docs/NOMENCLATURA_OFICIAL.md`). Por isso, o `sha256_corrigido` do `ERRATA_NIVEL_50.json` corresponde à etapa do nível 50. O hash final de cada arquivo está em `NOMENCLATURA_APLICADA.json`. Para reproduzir as cópias atuais, rode os dois scripts nesta ordem. Se aparecer uma ficha com números diferentes dos vigentes, o script não troca o rótulo: ele insere uma nota de errata e registra a divergência no relatório.

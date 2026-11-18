@@ -1,4 +1,4 @@
-# Galetocraft — RoosterTeca #007 | Taturico (OFICIAL)
+# Galetocraft — Galetário #007 | Taturico (OFICIAL)
 
 **Aprovação expressa do criador:** 09/11/2026. **Estado:** ficha do #007 completa e homologada no banco de referência; ainda não integrada ao mod Minecraft executável.
 
@@ -54,7 +54,7 @@
 ### Funcionamento aprovado
 
 1. **Garra Afiada:** efeito oficial existente, ataque físico neutro, P40/E0.
-2. **Concentração:** efeito oficial existente, suporte E0, 40% de chance de remover o estado negativo ativo, respeitando regras de Tontura.
+2. **Concentração:** efeito oficial existente, suporte E0, 40% de chance de remover o estado negativo ativo, respeitando regras de Tonto.
 3. **Impacto Blindado:** P70/E25, dano físico Terra com **80% da Defesa Física atual no lugar do Ataque Físico** na fórmula normal de dano. Sem efeito secundário. Movimento novo e compartilhado.
 4. **Guarda do Tatu:** E30. Protege o próprio usuário ou um aliado contra a próxima ação ofensiva até o próximo turno. Reduz 35% do dano físico e 20% do mágico recebido durante a proteção. Se Taturico sofrer dano físico, devolve 40% do dano efetivamente sofrido. Cobre até 2 golpes da mesma ação e permite no máximo 1 contra-ataque. Não acumula com o bloqueio da passiva. Movimento novo e compartilhado.
 5. **Coro das Dunas:** movimento geral já existente, E20. Invoca **Tempestade de Areia** por quatro rodadas. Clima global: +25% de dano dos golpes Terra, +10% de Defesa Física para Galetos Terra e −25% de dano de golpes Ar, beneficiando/aplicando-se a ambos os lados conforme as regras existentes. É suporte dedicado, não golpe exclusivo.
@@ -62,7 +62,7 @@
 ## Herança, compatibilidade e combate
 
 - **Golpes hereditários do Taturico:** nenhum (**zero**).
-- Os cinco golpes estão na **GalolpeTeca Geral**; apenas Impacto Blindado e Guarda do Tatu são novos; Coro das Dunas já existia e foi agora atribuído a #007.
+- Os cinco golpes estão na **Galolpédia**; apenas Impacto Blindado e Guarda do Tatu são novos; Coro das Dunas já existia e foi agora atribuído a #007.
 - Outros Galetos só poderão aprender esses movimentos quando sua compatibilidade for aprovada.
 - Limite universal: no máximo **2 golpes por ação**, incluindo segundo golpe adicional por Velocidade; um contra-ataque de Guarda do Tatu por ativação.
 - A ficha não especifica novas mecânicas externas; preserva os sistemas de peso, status, clima e equipe 3×3 preexistentes.

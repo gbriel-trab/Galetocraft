@@ -7,10 +7,12 @@
 
 Galetocraft é um mod de Minecraft de criaturas colecionáveis chamadas **Cocorídeos** (também chamados de **Galetos**), inspiradas em galos e com anatomia própria. O jogador captura, treina, cria e batalha com eles em duelos por turnos chamados **Rinhas**.
 
-Bibliotecas do universo:
-- **Galetário**: enciclopédia de espécies (fichas).
-- **Galolpédia / GalolpeTeca**: catálogo de golpes.
-- **RoosterTeca**: coleção pessoal do jogador. Inclui o Diário dos Mestres.
+Bibliotecas do universo (nomes oficiais; ver `docs/NOMENCLATURA_OFICIAL.md`):
+- **Galetário** (antiga RoosterTeca): enciclopédia de espécies (fichas). Inclui o Diário dos Mestres.
+- **Galolpédia** (antiga GalolpeTeca): catálogo geral de golpes.
+- **Herança de Bico** (antiga GalolpeTeca Hereditária): seção dos golpes hereditários paternos.
+- **Galeria**: criação e reprodução. É nome oficial desde 18/11; antes era provisório.
+- **Histórico da Rinha** (antigo Diário de Batalha): registro das ações e do resultado de uma Rinha.
 
 Todo design passa por **homologação expressa do criador**. Propostas, Betas, ramos R e ensaios são histórico, mesmo quando o nome do arquivo diz "oficial".
 
@@ -74,8 +76,8 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
   - O 3º próprio costuma ser o golpe **exclusivo e hereditário**.
   - No total são 196 aprendíveis diferentes. Os IDs vêm do catálogo da Reforma Integral: G001–G144 mais a série N.
   - Todos os 690 vínculos estão com status "não runtime".
-- **Golpes hereditários (13):**
-  - #1 Ave Fênix
+- **Herança de Bico — golpes hereditários (13):**
+  - #1 Ave Fênix (antiga Tricrina Infernal)
   - #2 Punho da Fortaleza
   - #3 Jardim da Discórdia
   - #4 Sepultamento do Deserto
@@ -187,7 +189,8 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 ### Ambiente e estados
 - **Climas** (duram 4 rodadas): Chuva, Ensolarado, Ventania e Tempestade de Areia.
 - **Santuários:** dos Raios e das Raízes.
-- **Estados negativos persistentes:** Queimadura, Envenenamento, Afogamento, Tontura e Paralisia. A captura também menciona Sono.
+- **Estados negativos persistentes:** Queimadura, Envenenamento, Afogamento, **Tonto** e Paralisia. A captura também menciona Sono.
+  - "Tontura" é o nome antigo. O ID técnico `tontura` continua como alias.
 
 ### Fórmula de dano
 - A Tipagem Dupla V1 cita as versões **V5.6/V5.6.1**, com arredondamento único por acerto.
@@ -248,7 +251,7 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 
 ## 7. Reprodução e Galeria (Reprodução V2.0)
 
-- **Galeria:**
+- **Galeria** (nome oficial desde 18/11/2026):
   - 22 espécies reprodutíveis, distribuídas em **8 alas**: Galiformes, Alígeros, Colossais, Couraçados, Fitomorfos, Hidromorfos, Zoomorfos e Arcanos.
   - Um casal é compatível se for macho e fêmea com pelo menos 1 ala em comum. Ala principal e secundária têm o mesmo peso.
   - A view `v_current_pares_reproducao` registra 484 pares.
@@ -326,7 +329,7 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 
 - **Sistemas ligados aos Mestres:**
   - IA dos Mestres: demonstra o golpe na primeira oportunidade e depois se adapta taticamente.
-  - Diário dos Mestres: 5 telas na RoosterTeca.
+  - Diário dos Mestres: 5 telas no Galetário.
   - Rumores e Exploração: aldeões vanilla dão pistas, sem coordenadas.
 
 ## 9. Pendências reais (`current_issues` e limites declarados)
@@ -406,7 +409,7 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
   - Os prompts de agentes ficam em `ferramentas/especies/` (BRIEFING, REFAZER, REVISAO, JUIZ e AUDITORIA).
 - **Dependências e ambiente:** Python com Pillow e numpy. Alguns scripts têm caminhos fixos do Windows (`C:\Users\gbriel\Desktop\galopiru`).
 - **Auditorias de fidelidade:** os modelos receberam notas entre 4 e 6 de 10, puxadas sobretudo pelo rosto.
-- **Pirococó:** passou por 3 fichas, com as séries p (RoosterTeca), q18 (Galetário, armadura prata) e **g09** (Galetário 2, armadura roxa, que é a vigente).
+- **Pirococó:** passou por 3 fichas, com as séries p (ficha da antiga RoosterTeca), q18 (Galetário, armadura prata) e **g09** (Galetário 2, armadura roxa, que é a vigente).
 - **`referencias/`:** fichas, artes, vistas e expressões das espécies modeladas, mais especificações em texto do Cocórion e do Renacocó.
 
 ### Benchmark e Git LFS
@@ -435,9 +438,9 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 - **Tipos de arquivo:** 472 .md, 366 .json, 247 .png, 197 .sqlite (7,3 GB de Betas e ramos históricos), 191 .zip, 66 .py e 52 .csv. Também há 2 .jar com os motores Java isolados da Mira V1.4 e V1.5.
 - **Pastas principais** dentro de `Galetocraft/`:
   - Base_Atual
-  - Galetario (fichas oficiais por espécie)
-  - GalolpeTecas
-  - RoosterTeca
+  - `Galetario` (fichas oficiais por espécie)
+  - `GalolpeTecas`: arquivos da Galolpédia, com o nome antigo mantido no caminho
+  - `RoosterTeca`: arquivos do Galetário, com o nome antigo mantido no caminho
   - Sistemas_Oficiais (atas de Concentração, Golpe Duplo, Mira, Nexo, Progressão, Reprodução e Tipagem Dupla)
   - Mestres_Elementais, IA_Mestres_Elementais, Balanceamento_Mestres, Diario_dos_Mestres e Rumores_Exploracao
   - Implementacoes_Experimentais (motores Python/Java isolados)
@@ -461,4 +464,8 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 - **Homologado / oficial:** aprovado pelo criador. Isso não significa implementado.
 - **Candidato / proposta / histórico:** sem autoridade vigente.
 - **E:** custo de Energia. **P:** poder.
-- **Galetário / Galolpédia / RoosterTeca:** espécies, golpes e coleção do jogador.
+- **Galetário / Galolpédia / Herança de Bico:** espécies, golpes e golpes hereditários.
+- **Galeria:** criação e reprodução.
+- **Histórico da Rinha:** registro de uma Rinha.
+- **Tonto:** estado negativo (antigo "Tontura").
+- **Nomes antigos** (RoosterTeca, GalolpeTeca, Tontura, Diário de Batalha, Tricrina Infernal) só aparecem em caminhos, IDs técnicos e citações históricas. Ver `docs/NOMENCLATURA_OFICIAL.md`.

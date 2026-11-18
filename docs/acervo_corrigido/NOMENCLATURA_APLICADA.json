@@ -1,0 +1,580 @@
+{
+ "dicionario": "nomenclatura_oficial.json",
+ "arquivos_alterados": 19,
+ "trocas": 70,
+ "ocorrencias_preservadas": 46,
+ "arquivos": [
+  {
+   "arquivo": "Galetario_013_Quartzalo_Ficha_Oficial_v1.md",
+   "sha256_antes": "f1cca77eec9a7a7b516e3f93e417d9e99b325083e751043816207e7837214baa",
+   "sha256_depois": "1e1d4c14fccadf224cd12e53765139b2a7beda114406b173c39b02b60bf6ce48",
+   "trocas": [
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 49
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 51
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 54
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 67
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 76
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 79
+    }
+   ],
+   "ocorrencias_preservadas": 2
+  },
+  {
+   "arquivo": "Galetario_014_Carangoco_Ficha_Oficial.md",
+   "sha256_antes": "705d878fe3c8f1b413f266559ec4abbbdf41f262ddfcdd513dbf5f151b4a1187",
+   "sha256_depois": "d72edd16e4b9c30dcc0762f399ada9cc68fb354903155f62196c43adf063e072",
+   "trocas": [
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 67
+    }
+   ],
+   "ocorrencias_preservadas": 0
+  },
+  {
+   "arquivo": "Galetario_014_Carangoco_Ficha_WhatsApp_Oficial.txt",
+   "sha256_antes": "cea43713def840bb331a83d97f2c7ab20f1b1d26ab731d12b626b552d2c580af",
+   "sha256_depois": "6572d31752f434759af1696472ff137bcc0c084cb1f5042fea6bc78dba7a023d",
+   "trocas": [
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 61
+    }
+   ],
+   "ocorrencias_preservadas": 0
+  },
+  {
+   "arquivo": "Galetario_014_Carangoco_Registro_Oficial.json",
+   "sha256_antes": "037609afd25477705b32512c915ef16ce1f12f79aedbf9f98c4caf14522a344b",
+   "sha256_depois": "b3e155327ea6e8bb79217792b4b600fa8cafbc231c21f1ce63f164fdfe319c3b",
+   "trocas": [
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 198
+    }
+   ],
+   "ocorrencias_preservadas": 0
+  },
+  {
+   "arquivo": "Galetario_015_Faiscoco_Ficha_Oficial.md",
+   "sha256_antes": "bd221112027f44594e5beea2d1588458b4b17dd2e3d22c77d4cb7d5af07713a0",
+   "sha256_depois": "c67a0cfc8fa94d2b609e5f9f342e0d7ddaaab0a835866546c9c0adcb49242f00",
+   "trocas": [
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 99
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 103
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 103
+    }
+   ],
+   "ocorrencias_preservadas": 0
+  },
+  {
+   "arquivo": "Galetario_015_Faiscoco_Ficha_WhatsApp_Oficial.txt",
+   "sha256_antes": "0ae2fcd98ad23efae631e5e3203948be9584db00b0bc88a9ef3fa33ed6e4b04a",
+   "sha256_depois": "247facef454c81ceee1f01cc160226acccb24465c56e104b316a8b06867a86a5",
+   "trocas": [
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 60
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 64
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 64
+    }
+   ],
+   "ocorrencias_preservadas": 0
+  },
+  {
+   "arquivo": "Galetario_015_Faiscoco_Registro_Oficial.json",
+   "sha256_antes": "478fc138fc1f768b179989f6a7a244acedfc0ad463063d06bcdd66ab6326fa12",
+   "sha256_depois": "0b90d0dc02d252a627ba2b1b8d838788af3c6a7691c51ed6688470702a2b11cc",
+   "trocas": [
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 207
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 243
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 243
+    }
+   ],
+   "ocorrencias_preservadas": 0
+  },
+  {
+   "arquivo": "Galetario_019_Renacoco_OFICIAL_2026-11-12.json",
+   "sha256_antes": "515652c3f7259ebf9ec8f7885dae83febd8bd302274601e41c0ef35e60ee3dd7",
+   "sha256_depois": "58a81e613465f81783a698c0c200dbd052e5c5c7b258440c0e70f34377dbdfbe",
+   "trocas": [
+    {
+     "troca": "galolpedia",
+     "antigo": "GalolpeTeca",
+     "oficial": "Galolpédia",
+     "linha": 384
+    }
+   ],
+   "ocorrencias_preservadas": 0
+  },
+  {
+   "arquivo": "Galetario_Oficial_Completo_2026-11-11.md",
+   "sha256_antes": "e8ad183c97a294f6b68955ee015575ac8632e394f50f7cfdab12c32444540562",
+   "sha256_depois": "647b1822787da94ee694b57e4504b74f5dfc05ef3eca0884c48cc3407669ff47",
+   "trocas": [
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 1196
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 1198
+    }
+   ],
+   "ocorrencias_preservadas": 7
+  },
+  {
+   "arquivo": "Galetocraft/Atualizacao_007_Taturico/RoosterTeca_007_Taturico_Oficial.md",
+   "sha256_antes": "241b56f49f827abb376a3c31eeceb91ce05dabae0ef003c51e0c4258e74abbec",
+   "sha256_depois": "cce47f3fccdb4eedd394d1a512207ef8ae3257857444c5a3564ea745c750d805",
+   "trocas": [
+    {
+     "troca": "galolpedia",
+     "antigo": "GalolpeTeca Geral",
+     "oficial": "Galolpédia",
+     "linha": 65
+    },
+    {
+     "troca": "galetario",
+     "antigo": "RoosterTeca",
+     "oficial": "Galetário",
+     "linha": 1
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 57
+    }
+   ],
+   "ocorrencias_preservadas": 0
+  },
+  {
+   "arquivo": "Galetocraft/Atualizacao_008_Axococo_Oficial/RoosterTeca_008_Axococo_Oficial.md",
+   "sha256_antes": "1fa026b8c166065ca50f455a86241d02f39e16bb5a72854ef58c980e29d11be3",
+   "sha256_depois": "a041af39fff994aa62ddee5d57918cd904f477b58a5ecd44d44466b16b3d0c7e",
+   "trocas": [
+    {
+     "troca": "galetario",
+     "antigo": "ROOSTERTECA",
+     "oficial": "GALETÁRIO",
+     "linha": 1
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 44
+    }
+   ],
+   "ocorrencias_preservadas": 0
+  },
+  {
+   "arquivo": "Galetocraft/Atualizacao_008_Axococo_Parcial/RoosterTeca_008_Axococo_Registro_Parcial_Oficial.md",
+   "sha256_antes": "d955ce6a742d81e384a9b9fa641fe6ff3c4d3f705079f9fda7e01ef124e1c0c3",
+   "sha256_depois": "75a15ba08ed5532809079f7b0fff3d13043890afd2c26869d20c6f3ccf651ead",
+   "trocas": [
+    {
+     "troca": "galetario",
+     "antigo": "RoosterTeca",
+     "oficial": "Galetário",
+     "linha": 1
+    },
+    {
+     "troca": "galetario",
+     "antigo": "RoosterTeca",
+     "oficial": "Galetário",
+     "linha": 18
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 35
+    }
+   ],
+   "ocorrencias_preservadas": 0
+  },
+  {
+   "arquivo": "Galetocraft/Atualizacao_009_Vagalo_Oficial/RoosterTeca_009_Vagalo_Oficial.md",
+   "sha256_antes": "9d7d52f2f1a5b301c1a05a42d09fd3abb18ff3b7c9dfb8836fe07f269dc380d0",
+   "sha256_depois": "918139659a9dace4f8386a658fa79d4b4eab9a8b8157e16697b80a9e977b6ebb",
+   "trocas": [
+    {
+     "troca": "galetario",
+     "antigo": "RoosterTeca",
+     "oficial": "Galetário",
+     "linha": 1
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 71
+    }
+   ],
+   "ocorrencias_preservadas": 0
+  },
+  {
+   "arquivo": "Galetocraft/Atualizacao_009_Vagalo_Parcial/RoosterTeca_009_Vagalo_Parcial_Oficial.md",
+   "sha256_antes": "01e9efdb6f7b8da39c107a28baad880dd0b3537d132c11e8a244274146af2600",
+   "sha256_depois": "6b0599029c02fe1c2c22a83c77fc307ffc6cef1e710926d460b833a66f4377aa",
+   "trocas": [
+    {
+     "troca": "galetario",
+     "antigo": "RoosterTeca",
+     "oficial": "Galetário",
+     "linha": 1
+    }
+   ],
+   "ocorrencias_preservadas": 0
+  },
+  {
+   "arquivo": "Galetocraft/Atualizacao_010_Morcegalo_Oficial/RoosterTeca_010_Morcegalo_Oficial.md",
+   "sha256_antes": "99085d692210c5a07547909f25409a8b5141279d4269221fecf1e1bb7c4e4f5b",
+   "sha256_depois": "137ad1387cf4eb62e8dfa22fc918f7758a39c04bb385e500c8cb9df26889d450",
+   "trocas": [
+    {
+     "troca": "galetario",
+     "antigo": "RoosterTeca",
+     "oficial": "Galetário",
+     "linha": 1
+    },
+    {
+     "troca": "galetario",
+     "antigo": "RoosterTeca",
+     "oficial": "Galetário",
+     "linha": 5
+    },
+    {
+     "troca": "galetario",
+     "antigo": "RoosterTeca",
+     "oficial": "Galetário",
+     "linha": 15
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 56
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 56
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 68
+    }
+   ],
+   "ocorrencias_preservadas": 0
+  },
+  {
+   "arquivo": "Galetocraft/Atualizacao_011_Espinhoco_Oficial/RoosterTeca_011_Espinhoco_Oficial.md",
+   "sha256_antes": "a2400c4dd7323a572d49f6af09ea99c53b8d7eea5f6ec7739ebb816f29d3fb9a",
+   "sha256_depois": "463acabc97593c599bb5db9852624c0446aa7a576b8390fe0a58b2956bc6425b",
+   "trocas": [
+    {
+     "troca": "galetario",
+     "antigo": "ROOSTERTECA",
+     "oficial": "GALETÁRIO",
+     "linha": 1
+    }
+   ],
+   "ocorrencias_preservadas": 1
+  },
+  {
+   "arquivo": "Galetocraft/Galetario/Homologacao_Balanceamento_21_2026-11-12/Galetocraft_Galetario_21_Fichas_Gerais_Oficiais_BAL_2026-11-12.json",
+   "sha256_antes": "1464dea5eda9cbdcb33cf8c869ff570433c8c2e2406d13fefc2785279cc304e5",
+   "sha256_depois": "d90c27525d4e0dfa8bd94c3dfe460307f6e43fcbef86f84aa19dc7c6999139b2",
+   "trocas": [
+    {
+     "troca": "galolpedia",
+     "antigo": "GalolpeTeca",
+     "oficial": "Galolpédia",
+     "linha": 13828
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 656
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 2776
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 3588
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 3996
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 4365
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 4446
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 4831
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 5240
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 6836
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 7217
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 7737
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 8252
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 8939
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 9725
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 10051
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 10075
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 10187
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 10456
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 10537
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 10728
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 11365
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 11800
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 11836
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 11836
+    }
+   ],
+   "ocorrencias_preservadas": 35
+  },
+  {
+   "arquivo": "Galetocraft/Galetario/Homologacao_Balanceamento_21_2026-11-12/Galetocraft_Galetario_21_Fichas_Gerais_Oficiais_BAL_2026-11-12.md",
+   "sha256_antes": "f9dad4d28b7c1c4712881d4790ac51495913851abaac33d6065165769af82cde",
+   "sha256_depois": "7a4ac670ac6f09b4b8053377f096abe96eb5631e6511ab35d539490ba062857b",
+   "trocas": [
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 1785
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 1789
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 2078
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 2086
+    },
+    {
+     "troca": "tonto",
+     "antigo": "Tontura",
+     "oficial": "Tonto",
+     "linha": 2086
+    }
+   ],
+   "ocorrencias_preservadas": 1
+  },
+  {
+   "arquivo": "Galetocraft/RoosterTeca/RoosterTeca_012_Salambrasa_Oficial_Completa_v3.md",
+   "sha256_antes": "a9c43efa62aa1880d1994eedb66e517293c47c97d38245f54f4fd8c53cd19b73",
+   "sha256_depois": "6f13065e31158ae1bac041cd15bf805e5fc36dac18ad4524886f30e2d14cabf2",
+   "trocas": [
+    {
+     "troca": "galetario",
+     "antigo": "RoosterTeca",
+     "oficial": "Galetário",
+     "linha": 1
+    }
+   ],
+   "ocorrencias_preservadas": 0
+  }
+ ]
+}

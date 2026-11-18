@@ -1,4 +1,4 @@
-# RoosterTeca — #009 Vagaló | Registro parcial aprovado
+# Galetário — #009 Vagaló | Registro parcial aprovado
 
 **Revisão:** 1.10.0 — 09/11/2026. **Situação:** APROVADO PARCIAL; **peso natural e seis atributos base ainda não aprovados**. Não considerar a espécie completamente homologada nem inferir seus valores a partir de pranchas ilustrativas.
 

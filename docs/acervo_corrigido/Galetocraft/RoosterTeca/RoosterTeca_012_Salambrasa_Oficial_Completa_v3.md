@@ -1,4 +1,4 @@
-# RoosterTeca Oficial — #012 Salambrasa
+# Galetário Oficial — #012 Salambrasa
 
 **Status:** FICHA INTEGRALMENTE APROVADA, 10/11/2026.
 

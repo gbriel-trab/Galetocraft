@@ -1,4 +1,4 @@
-# ROOSTERTECA OFICIAL — #008 AXOCOCÓ
+# GALETÁRIO OFICIAL — #008 AXOCOCÓ
 
 **Estado: FICHA COMPLETA E HOMOLOGADA EM 09/11/2026.**
 
@@ -41,7 +41,7 @@ Após sofrer dano de ataques inimigos, acumula uma reserva regenerativa equivale
 | 5 | Dilúvio Branquial | Mágico | Água | 85 | 45 |
 
 1. **Crina Poderosa:** golpe básico já homologado, sem modificação.
-2. **Concentração:** E0; 40% de chance de remover condição negativa persistente, respeitando os efeitos da Tontura.
+2. **Concentração:** E0; 40% de chance de remover condição negativa persistente, respeitando os efeitos do Tonto.
 3. **Estalo das Brânquias:** P75 e E25; poder sobe a 95 se o usuário recuperou HP desde a última ação (por passiva ou cura). Bônus não acumula; sem status adicional.
 4. **Elo Regenerativo:** E30; ao mirar o próprio usuário recupera 25% do próprio HP máximo. Em um aliado vivo da reserva, recupera 20% do HP máximo desse aliado e 5% do HP máximo do usuário. Ação normal sem troca. Não revive, não remove condição negativa nem ultrapassa o HP máximo.
 5. **Dilúvio Branquial:** mágico Água P85 E45; invoca Chuva por quatro rodadas após execução válida, mesmo sem acerto. Clima global: +25% dano de golpes Água; +10% dano de golpes Elétricos; −25% dano de golpes Fogo. E45 inclui a invocação integrada (25+20).

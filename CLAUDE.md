@@ -17,6 +17,20 @@ Projeto de mod de Minecraft com criaturas chamadas Cocorídeos/Galetos, batalhas
 - **Atributos-base são do nível 50**, confirmado pelo criador.
   - O rótulo "nível 100" em fichas antigas é um erro de rótulo: os números são os mesmos.
   - Para conferir fichas, use `docs/acervo_corrigido/` e veja `docs/ERRATA_NIVEL_50.md`.
+- **Nomenclatura oficial** (desde 18/11/2026; ver `docs/NOMENCLATURA_OFICIAL.md`):
+
+  | Nome oficial | Nome antigo |
+  |---|---|
+  | Galetário | RoosterTeca |
+  | Galolpédia | GalolpeTeca |
+  | Herança de Bico | GalolpeTeca Hereditária |
+  | Tonto | Tontura |
+  | Ave Fênix | Tricrina Infernal |
+  | Histórico da Rinha | Diário de Batalha |
+
+  - Também são oficiais **Rinha** (a atividade; o botão continua "Combate"), **Cocorídeos/Galeto** e **Galeria**.
+  - Use sempre o nome oficial em textos, interface e documentação.
+  - Nomes antigos só ficam em caminhos, nomes de arquivo, tabelas, chaves JSON, IDs em minúsculas e citações históricas.
 - **Arquivos grandes do Release:** use HTTP Range para extrair um arquivo de um ZIP sem baixar o pacote inteiro. Os pacotes 01–13 têm cerca de 800 MB cada. Confira o SHA-256 contra `INVENTARIO_GALETOCRAFT.json`.
 
 ## Código

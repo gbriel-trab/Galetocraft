@@ -1,4 +1,4 @@
-# RoosterTeca #008 — Axococó | registro parcialmente homologado
+# Galetário #008 — Axococó | registro parcialmente homologado
 
 **Data da aprovação:** 09/11/2026. **Raridade:** Comum. **Elemento:** Água. **Inspiração:** axolote. **Função:** regenerador tático / suporte aquático.
 
@@ -15,7 +15,7 @@
 - **Seis atributos base no nível 100:** **PENDENTES** (total/base e distribuição ainda não aprovados).
 
 > **Errata 18/11/2026:** os atributos-base do Galetocraft usam o nível 50 como referência (Norma de Progressão Nível 50 V1). Este registro não traz os números (registro parcial, superado pela ficha oficial completa); valores vigentes de #008 Axococó no nível 50: HP 95 / Ataque Físico 35 / Defesa Física 50 / Ataque Mágico 90 / Defesa Mágica 60 / Velocidade 40 (total 370).
-- **Ficha completa da RoosterTeca:** **PENDENTE**. Não avançar ao #009 até terminar #008.
+- **Ficha completa do Galetário:** **PENDENTE**. Não avançar ao #009 até terminar #008.
 
 ## Passiva oficial — Memória das Brânquias
 
@@ -32,7 +32,7 @@ Quando sofre dano de ataques inimigos, reserva **25% do dano sofrido** como recu
 | 5 | Dilúvio Branquial | Mágico | Água | 85 | 45 |
 
 1. **Crina Poderosa:** golpe básico preexistente, sem mudança.
-2. **Concentração:** golpe preexistente, E0, 40% de chance de remover efeito negativo; respeitar Tontura.
+2. **Concentração:** golpe preexistente, E0, 40% de chance de remover efeito negativo; respeitar Tonto.
 3. **Estalo das Brânquias:** P75 E25. Se Axococó recuperou HP desde sua última ação, P95 em vez de P75. A cura pode vir da passiva ou de golpe de recuperação; bônus não acumula. Sem status adicional.
 4. **Elo Regenerativo:** E30, suporte. Em si mesmo cura **25% do próprio HP máximo**. Se direcionado a um aliado ainda vivo na **reserva**, cura **20% do HP máximo do aliado** e **5% do HP máximo do Axococó**, sem troca e usando uma ação. Não revive, não remove condição negativa, não ultrapassa HP máximo.
 5. **Dilúvio Branquial:** P85 mágico Água E45. Invoca **Chuva por quatro rodadas** ao executar o golpe validamente, mesmo que não acerte. Custo inclui 20 de invocação integrada. Chuva global: +25% dano de golpes Água, +10% dano de golpes Elétricos, −25% dano de golpes Fogo; aplicável a ambas as equipes, segundo regras oficiais.
