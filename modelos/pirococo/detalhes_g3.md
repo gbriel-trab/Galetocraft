@@ -94,3 +94,13 @@ Sem medir na arte, a busca casava a silhueta pelas costas (yaw 160°). Por isso 
 - Penas da barra do manto um pouco mais longas, como na arte.
 - Expressões da ficha (bravo, determinado, sereno) como pálpebras extras, no padrão Cobblemon (`palpebra_dor`), se
   o mod ganhar um controlador de expressões.
+
+## Crítica cr01 (18/11/2026, não aplicada)
+A crítica completa está em `revisao/cr01_critica/critica.md`, com a folha e as peças soltas. Foi feita pela skill
+`modelar-galeto`. O modelo tem 15 de 15 no guia, mas sobrepõe só 48% com a arte. Os defeitos que mais pesam:
+1. a cauda tripla nasce no meio das costas e fica escondida de lado;
+2. a pose `render` está espelhada em relação à arte;
+3. o perfil vira uma coluna e o `parado` tem cara de manequim.
+
+Há também peças soltas: a garra do meio fica 0,5 px fora do pé, e a cauda se solta 0,37 px no andar. Os pés afundam
+1,1 px no andar e o corpo entra 9,24 px no chão no `dormir`.
