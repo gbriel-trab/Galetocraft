@@ -1,0 +1,315 @@
+{
+  "numero": 14,
+  "nome": "Carangocó",
+  "raridade": "Comum",
+  "elementos": [
+    "Água",
+    "Terra"
+  ],
+  "peso_natural_maximo_kg": 10.5,
+  "atributos_base_nivel50": {
+    "HP": 75,
+    "Ataque Físico": 80,
+    "Defesa Física": 75,
+    "Ataque Mágico": 40,
+    "Defesa Mágica": 55,
+    "Velocidade": 45
+  },
+  "passiva": {
+    "nome": "Pinças de Sedimento",
+    "chance_ativacao_pct": 40,
+    "reducao_defesa_fisica_pct": 10,
+    "duracao": "Até o alvo sair de campo ou ser derrotado",
+    "convencional": "Uma verificação ao final de ação ofensiva física com dano",
+    "sequencial": "Uma verificação por acerto com dano até primeira ativação, efeito imediatamente após o acerto e aplicado nos próximos acertos da mesma sequência, sem acumular"
+  },
+  "golpes_referencia": [
+    {
+      "slot": "1",
+      "nome": "Garra Afiada",
+      "elemento": "Neutro",
+      "categoria": "Físico",
+      "poder": 40,
+      "energia": 0,
+      "efeito": "Dano direto, sem efeitos secundários."
+    },
+    {
+      "slot": "2",
+      "nome": "Concentração",
+      "elemento": "Sem elemento",
+      "categoria": "Suporte",
+      "poder": null,
+      "energia": 0,
+      "efeito": "40% de chance de remover 1 estado negativo persistente do próprio usuário em execução válida; demais regras universais preservadas."
+    },
+    {
+      "slot": "3",
+      "nome": "Pinçada da Ressaca",
+      "elemento": "Água",
+      "categoria": "Físico",
+      "poder": 70,
+      "energia": 30,
+      "efeito": "Ao acertar e causar dano, 30% de chance de reduzir Ataque Físico do alvo em 10% durante os próximos 2 turnos do alvo; uma verificação ao fim da ação; não acumula."
+    },
+    {
+      "slot": "4",
+      "nome": "Couraça de Lodo",
+      "elemento": "Terra",
+      "categoria": "Suporte",
+      "poder": null,
+      "energia": 35,
+      "efeito": "Eleva Defesa Física em 25% e Defesa Mágica em 10% do próprio usuário durante 2 turnos próprios, contando o da ativação; não acumula."
+    },
+    {
+      "slot": "5",
+      "nome": "Cerco das Pinças",
+      "elemento": "Terra",
+      "categoria": "Físico",
+      "poder": "40 × 1–5",
+      "energia": 55,
+      "efeito": "Golpe sequencial: até 5 acertos, chances condicionais de 100%/70%/50%/30%/15%; termina ao falhar; não recebe golpe extra de Velocidade. Cada acerto com dano pode acionar Pinças de Sedimento (40%) até a primeira ativação; a redução entra em vigor imediatamente após o acerto e beneficia os seguintes."
+    }
+  ],
+  "golpes_adicionais": [
+    {
+      "id": "G015",
+      "nome": "Bico de Marola",
+      "elemento": "Água",
+      "categoria": "Físico",
+      "poder": 40,
+      "energia": 0,
+      "efeito": "Bicada coberta de água, sem efeito adicional."
+    },
+    {
+      "id": "G016",
+      "nome": "Cauda de Ressaca",
+      "elemento": "Água",
+      "categoria": "Físico",
+      "poder": 60,
+      "energia": 25,
+      "efeito": "Reduz a Velocidade inimiga em 10% por 2 ações."
+    },
+    {
+      "id": "G017",
+      "nome": "Pancada de Maré",
+      "elemento": "Água",
+      "categoria": "Físico",
+      "poder": 80,
+      "energia": 35,
+      "efeito": "Dano físico direto de água concentrada."
+    },
+    {
+      "id": "G018",
+      "nome": "Açoite de Corredeira",
+      "elemento": "Água",
+      "categoria": "Físico",
+      "poder": 95,
+      "energia": 50,
+      "efeito": "15% de chance de causar Afogamento."
+    },
+    {
+      "id": "G020",
+      "nome": "Gota Disparada",
+      "elemento": "Água",
+      "categoria": "Mágico",
+      "poder": 40,
+      "energia": 0,
+      "efeito": "Projétil mágico básico de água, sem efeito adicional."
+    },
+    {
+      "id": "G021",
+      "nome": "Orvalho Cortante",
+      "elemento": "Água",
+      "categoria": "Mágico",
+      "poder": 60,
+      "energia": 20,
+      "efeito": "Lâminas de água, dano direto."
+    },
+    {
+      "id": "G022",
+      "nome": "Coluna de Espuma",
+      "elemento": "Água",
+      "categoria": "Mágico",
+      "poder": 80,
+      "energia": 40,
+      "efeito": "15% de chance de causar Afogamento."
+    },
+    {
+      "id": "G025",
+      "nome": "Canto das Nuvens",
+      "elemento": "Água",
+      "categoria": "Suporte",
+      "poder": null,
+      "energia": 30,
+      "efeito": "Invoca Chuva por 4 rodadas."
+    },
+    {
+      "id": "G026",
+      "nome": "Névoa Protetora",
+      "elemento": "Água",
+      "categoria": "Suporte",
+      "poder": null,
+      "energia": 30,
+      "efeito": "Um aliado recebe 25% menos dano mágico na próxima ação ofensiva recebida."
+    },
+    {
+      "id": "G027",
+      "nome": "Maré de Retirada",
+      "elemento": "Água",
+      "categoria": "Suporte",
+      "poder": null,
+      "energia": 40,
+      "efeito": "Troca o usuário por um Galeto da reserva e recupera 10% do HP do Galeto que entra."
+    },
+    {
+      "id": "G043",
+      "nome": "Chute de Cascalho",
+      "elemento": "Terra",
+      "categoria": "Físico",
+      "poder": 40,
+      "energia": 0,
+      "efeito": "Ataque físico de Terra básico, sem efeito adicional."
+    },
+    {
+      "id": "G044",
+      "nome": "Marreta de Barro",
+      "elemento": "Terra",
+      "categoria": "Físico",
+      "poder": 65,
+      "energia": 30,
+      "efeito": "Reduz Velocidade inimiga em 20% por 2 ações."
+    },
+    {
+      "id": "G045",
+      "nome": "Cabeçada de Basalto",
+      "elemento": "Terra",
+      "categoria": "Físico",
+      "poder": 85,
+      "energia": 35,
+      "efeito": "Impacto rochoso, dano direto."
+    },
+    {
+      "id": "G046",
+      "nome": "Pisão Sísmico",
+      "elemento": "Terra",
+      "categoria": "Físico",
+      "poder": 100,
+      "energia": 50,
+      "efeito": "15% de chance de causar Tontura."
+    },
+    {
+      "id": "G048",
+      "nome": "Grão de Pedra",
+      "elemento": "Terra",
+      "categoria": "Mágico",
+      "poder": 40,
+      "energia": 0,
+      "efeito": "Projétil mágico de Terra básico."
+    },
+    {
+      "id": "G049",
+      "nome": "Lodo Pressurizado",
+      "elemento": "Terra",
+      "categoria": "Mágico",
+      "poder": 65,
+      "energia": 30,
+      "efeito": "Reduz Defesa Mágica inimiga em 10% por 2 ações."
+    },
+    {
+      "id": "G053",
+      "nome": "Tambor da Areia",
+      "elemento": "Terra",
+      "categoria": "Suporte",
+      "poder": null,
+      "energia": 30,
+      "efeito": "Invoca Tempestade de Areia por 4 rodadas."
+    },
+    {
+      "id": "G054",
+      "nome": "Muralha Escavada",
+      "elemento": "Terra",
+      "categoria": "Suporte",
+      "poder": null,
+      "energia": 35,
+      "efeito": "Um aliado recebe 35% menos dano físico na próxima ação ofensiva recebida."
+    },
+    {
+      "id": "G056",
+      "nome": "Pedra de Revezamento",
+      "elemento": "Terra",
+      "categoria": "Suporte",
+      "poder": null,
+      "energia": 35,
+      "efeito": "Troca o usuário por um Galeto da reserva e concede ao entrante +20% de Defesa Física por 2 ações."
+    },
+    {
+      "id": "G085",
+      "nome": "Bicada de Chamada",
+      "elemento": "Neutro",
+      "categoria": "Físico",
+      "poder": 40,
+      "energia": 0,
+      "efeito": "Bicada neutra simples, sem efeito adicional."
+    },
+    {
+      "id": "G086",
+      "nome": "Patada Rasteira",
+      "elemento": "Neutro",
+      "categoria": "Físico",
+      "poder": 50,
+      "energia": 25,
+      "efeito": "Reduz Velocidade inimiga em 10% por 2 ações."
+    },
+    {
+      "id": "G087",
+      "nome": "Choque de Ombros",
+      "elemento": "Neutro",
+      "categoria": "Físico",
+      "poder": 70,
+      "energia": 25,
+      "efeito": "Ataque neutro direto, sem efeito adicional."
+    },
+    {
+      "id": "G089",
+      "nome": "Impacto de Peito",
+      "elemento": "Neutro",
+      "categoria": "Físico",
+      "poder": 100,
+      "energia": 45,
+      "efeito": "Golpe corporal direto, sem efeito adicional."
+    },
+    {
+      "id": "G095",
+      "nome": "Pouso Estratégico",
+      "elemento": "Sem elemento",
+      "categoria": "Suporte",
+      "poder": null,
+      "energia": 30,
+      "efeito": "Um aliado recebe 20% menos dano físico e mágico na próxima ação ofensiva recebida."
+    },
+    {
+      "id": "G100",
+      "nome": "Terreiro Purificado",
+      "elemento": "Sem elemento",
+      "categoria": "Suporte",
+      "poder": null,
+      "energia": 40,
+      "efeito": "Remove todas as armadilhas e cargas do lado do usuário, sem afetar Climas ou Santuários."
+    }
+  ],
+  "arte_arquivo": "Carangoco_014_Arte_Visual_Aprovada_Galetario.png",
+  "arte_sha256": "d47cac184d017ce38e468119bb280c55dd5a88665776c0bfc215e26137b9f2d1",
+  "auditoria": {
+    "atributos": 370,
+    "golpes_referencia": 5,
+    "golpes_adicionais": 25,
+    "distribuicao": {
+      "Físico": 15,
+      "Mágico": 5,
+      "Suporte": 10
+    },
+    "duplicacao_ids": false,
+    "arte_diferencas_fora_textos": 0,
+    "situacao_simulacao_pvp": "pendente"
+  }
+}

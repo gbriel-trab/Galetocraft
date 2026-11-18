@@ -14,6 +14,9 @@ Projeto de mod de Minecraft com criaturas chamadas Cocorídeos/Galetos, batalhas
   - Usar `Atualizar_Galetocraft.py` com `expected_revision`, fonte e evidência.
   - Nunca criar outra base ativa, como uma "Beta 1.8".
   - Registro novo exige migração completa validada.
+- **Atributos-base são do nível 50**, confirmado pelo criador.
+  - O rótulo "nível 100" em fichas antigas é um erro de rótulo: os números são os mesmos.
+  - Para conferir fichas, use `docs/acervo_corrigido/` e veja `docs/ERRATA_NIVEL_50.md`.
 - **Arquivos grandes do Release:** use HTTP Range para extrair um arquivo de um ZIP sem baixar o pacote inteiro. Os pacotes 01–13 têm cerca de 800 MB cada. Confira o SHA-256 contra `INVENTARIO_GALETOCRAFT.json`.
 
 ## Código

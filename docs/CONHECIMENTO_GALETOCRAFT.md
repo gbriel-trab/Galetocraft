@@ -346,7 +346,11 @@ Ordem dos atributos: HP / Atq. Físico / Def. Física / Atq. Mágico / Def. Mág
 - **Fora do `current_issues`:** fórmula de dano definitiva e runtime Fabric/GeckoLib.
 
 ### Inconsistências encontradas nesta leitura (para conferir)
-- **Rótulo de nível:** fichas antigas dizem "Nível 100" para os atributos-base. A base vigente usa `base_nivel = 50`. A pendência R03 já está resolvida na leitura, e o JSON antigo foi preservado.
+- **Rótulo de nível — CORRIGIDO em 18/11/2026, com confirmação do criador:**
+  - A referência dos atributos-base é o **nível 50**.
+  - As 29 fichas oficiais que traziam o rótulo antigo "nível 100" ganharam cópias corrigidas em `docs/acervo_corrigido/`, com os números conferidos contra a base. Os detalhes estão em `docs/ERRATA_NIVEL_50.md`.
+  - Os originais do Release seguem preservados como histórico.
+  - Ao conferir uma ficha, use a cópia corrigida ou a base vigente.
 - **Total do Quetzacocó:** 700 no nível 50, acima da faixa Lendário (590–630). A raridade registrada é "Lendário Original", que não tem faixa definida na norma de progressão.
 - **Mestres Elementais:** os documentos de 10/11 citam "11/12 espécies" e "302 vínculos", números anteriores ao catálogo atual de 23 espécies. No v1.1, Braseiro aparece com Pirococó, Cocórak e Cocórion. Depois, o Elenco provisório definiu Pirococó e Salambrasa.
 - **Loader do mod:** as atas e os documentos dos Mestres falam em "Java/NeoForge", mas o código real usa **Fabric + GeckoLib**, como a base vigente também registra.

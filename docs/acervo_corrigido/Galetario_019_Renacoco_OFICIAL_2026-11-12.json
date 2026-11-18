@@ -1,0 +1,385 @@
+{
+  "projeto": "Galetocraft",
+  "catalogo": "Galetário",
+  "registro": "019",
+  "nome": "Renacocó",
+  "data_homologacao": "2026-11-12",
+  "status": "HOMOLOGADO_PELO_CRIADOR",
+  "raridade": "Mítico",
+  "elementos": [
+    "Fogo"
+  ],
+  "papel": "Suporte / Cura / Atacante físico",
+  "atributos_base_nivel_50": {
+    "HP": 180,
+    "Ataque Físico": 80,
+    "Defesa Física": 100,
+    "Ataque Mágico": 40,
+    "Defesa Mágica": 100,
+    "Velocidade": 70,
+    "total": 570
+  },
+  "passiva": {
+    "nome": "Três Chamas da Vida",
+    "chamas": [
+      {
+        "nome": "Renovação Própria",
+        "efeito": "+20% na eficácia das habilidades de cura aplicadas por Renacocó a si mesmo."
+      },
+      {
+        "nome": "Dádiva da Fênix",
+        "efeito": "+30% na eficácia das habilidades de cura aplicadas por Renacocó a aliados."
+      },
+      {
+        "nome": "Regeneração Eterna",
+        "efeito": "Ao final de cada turno próprio em campo: Renacocó recupera 10% do HP máximo e o aliado elegível em campo com menor percentual de HP recupera 10% de seu HP máximo."
+      }
+    ],
+    "restricoes": "Regeneração 1 vez por turno próprio, não acumula, não recebe amplificação dos bônus de cura, não ultrapassa HP máximo, não revive derrotados e cessa quando Renacocó sai de campo."
+  },
+  "aparencia_oficial": "Aparência oficial aprovada: penas azul muito claro e amarelo muito claro; rosto azul (sem partes brancas), detalhes vermelhos de galo preservados; crista de uma única chama; manto roxo comprido e simples; asas bem visíveis sob o manto; pernas alongadas; marca do renascimento em azul-escuro no peito; três caudas segmentadas de fênix; voxel refinado no padrão do Galetocraft, sem máscara nem armadura.",
+  "imagem_oficial_biblioteca": "/Renacocó com Face Azul Claro.png",
+  "golpes_iniciais": [
+    {
+      "slot_inicial": 1,
+      "nome": "Garra Afiada",
+      "categoria": "Físico",
+      "elemento": "Neutro",
+      "poder": 40,
+      "energia": 0,
+      "descricao": "Ataque básico universal."
+    },
+    {
+      "slot_inicial": 2,
+      "nome": "Concentração",
+      "categoria": "Suporte",
+      "elemento": "Neutro",
+      "poder": null,
+      "energia": 0,
+      "descricao": "Golpe universal obrigatório; recuperação de Energia, buff aleatório e 20% de chance de remover estado negativo conforme regra geral."
+    },
+    {
+      "slot_inicial": 3,
+      "nome": "Alvorada Purificadora",
+      "categoria": "Suporte",
+      "elemento": "Fogo",
+      "poder": null,
+      "energia": 50,
+      "descricao": "Remove todos os estados negativos de Renacocó e de todos os aliados, inclusive reservas; não remove efeitos positivos. Cura-base de 20% do HP máximo em Renacocó OU um aliado escolhido no banco (24%/26% com a passiva). Não ressuscita."
+    },
+    {
+      "slot_inicial": 4,
+      "nome": "Investida das Três Caudas",
+      "categoria": "Físico",
+      "elemento": "Fogo",
+      "poder": 95,
+      "energia": 40,
+      "descricao": "Aplica marca Brasa Regeneradora ao acertar (2 turnos próprios, não acumula). Outro golpe físico diferente que acerte o alvo consome a marca e cura Renacocó em 10% de seu HP máximo, valor final com a passiva. Marca desaparece com saída do alvo ou expiração; ataque adicional idêntico não ativa. As três caudas produzem um único golpe."
+    },
+    {
+      "slot_inicial": 5,
+      "nome": "Juramento da Fênix",
+      "categoria": "Suporte",
+      "elemento": "Fogo",
+      "poder": null,
+      "energia": 70,
+      "descricao": "Exclusivo/hereditário, 1 utilização bem-sucedida por Rinha. Ressuscita 1 aliado derrotado, devolvendo-o ao banco com 25% do HP máximo (valor fixo não amplificado) e removendo todos seus estados negativos. Renacocó sacrifica 50% do próprio HP máximo; não pode ativar caso fique abaixo de 1 HP. O aliado não age imediatamente."
+    }
+  ],
+  "aprendiveis_adicionais": [
+    {
+      "numero_aprendivel": 1,
+      "nome": "Asa da Aurora",
+      "categoria": "Físico",
+      "elemento": "Fogo",
+      "poder": 70,
+      "energia": 30,
+      "efeito_aprovado": "Golpeia com uma asa em chamas claras. 25% de chance de provocar Queimadura.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 2,
+      "nome": "Bico Luminar",
+      "categoria": "Físico",
+      "elemento": "Fogo",
+      "poder": 55,
+      "energia": 25,
+      "efeito_aprovado": "Bicada flamejante que causa 15% mais dano se o inimigo já estiver Queimado.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 3,
+      "nome": "Rasante Pacificador",
+      "categoria": "Físico",
+      "elemento": "Ar",
+      "poder": 75,
+      "energia": 30,
+      "efeito_aprovado": "Ataca com as asas e reduz o Ataque Físico do alvo em 15% por 2 turnos dele.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 4,
+      "nome": "Passo do Peregrino",
+      "categoria": "Físico",
+      "elemento": "Terra",
+      "poder": 80,
+      "energia": 40,
+      "efeito_aprovado": "Investida com as pernas longas. Após acertar, aumenta a Defesa Física própria em 15% por 2 turnos.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 5,
+      "nome": "Corte do Manto",
+      "categoria": "Físico",
+      "elemento": "Neutro",
+      "poder": 60,
+      "energia": 25,
+      "efeito_aprovado": "Um golpe com a asa sob o manto. Reduz em 20% o dano do próximo ataque ofensivo do alvo, por até 2 turnos.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 6,
+      "nome": "Rastro das Caudas",
+      "categoria": "Físico",
+      "elemento": "Fogo",
+      "poder": 90,
+      "energia": 40,
+      "efeito_aprovado": "As três caudas atingem juntas. Ao acertar, retiram 10 de Energia do adversário.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 7,
+      "nome": "Garra do Recomeço",
+      "categoria": "Físico",
+      "elemento": "Neutro",
+      "poder": 70,
+      "energia": 30,
+      "efeito_aprovado": "Causa 20% mais dano se Renacocó iniciou a ação com menos de 50% do HP máximo.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 8,
+      "nome": "Chicote da Aurora",
+      "categoria": "Físico",
+      "elemento": "Fogo",
+      "poder": 105,
+      "energia": 50,
+      "efeito_aprovado": "Uma cauda flamejante golpeia o inimigo, reduzindo sua Velocidade em 15% durante 2 turnos.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 9,
+      "nome": "Chute dos Céus",
+      "categoria": "Físico",
+      "elemento": "Ar",
+      "poder": 85,
+      "energia": 40,
+      "efeito_aprovado": "Chute aéreo com 25% de chance de provocar Tonto.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 10,
+      "nome": "Toque da Brasa",
+      "categoria": "Físico",
+      "elemento": "Fogo",
+      "poder": 65,
+      "energia": 30,
+      "efeito_aprovado": "Ao acertar, a próxima habilidade de cura de Renacocó custa 10 de Energia a menos, por até 2 turnos próprios.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 11,
+      "nome": "Ninho das Cinzas",
+      "categoria": "Suporte",
+      "elemento": "Fogo",
+      "poder": null,
+      "energia": 35,
+      "efeito_aprovado": "Cria um santuário por 3 turnos da equipe. Ao final de cada turno do galeto ativo, restaura 3% do HP máximo dele. Não acumula.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 12,
+      "nome": "Refúgio do Manto",
+      "categoria": "Suporte",
+      "elemento": "Neutro",
+      "poder": null,
+      "energia": 35,
+      "efeito_aprovado": "Envolve Renacocó no manto e reduz em 30% o próximo dano direto recebido, por até 2 turnos.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 13,
+      "nome": "Asas da Vigília",
+      "categoria": "Suporte",
+      "elemento": "Fogo",
+      "poder": null,
+      "energia": 40,
+      "efeito_aprovado": "Concede +20% em ambas as Defesas ao próprio Renacocó ou a um aliado da reserva quando entrar, durante 2 turnos do beneficiado.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 14,
+      "nome": "Fogo de Amparo",
+      "categoria": "Suporte",
+      "elemento": "Fogo",
+      "poder": null,
+      "energia": 50,
+      "efeito_aprovado": "Cura 18% do HP máximo de Renacocó ou de um aliado na reserva e reduz o próximo dano direto recebido pelo alvo em 20%.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 15,
+      "nome": "Descanso na Brasa",
+      "categoria": "Suporte",
+      "elemento": "Fogo",
+      "poder": null,
+      "energia": 45,
+      "efeito_aprovado": "Renacocó recupera 16% do HP máximo e ganha +15% de Defesa Mágica durante 2 turnos.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 16,
+      "nome": "Ninho de Passagem",
+      "categoria": "Suporte",
+      "elemento": "Fogo",
+      "poder": null,
+      "energia": 45,
+      "efeito_aprovado": "Prepara uma proteção para um aliado na reserva, que absorve dano equivalente a 20% do HP máximo dele após entrar em campo.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 17,
+      "nome": "Brisa Despertadora",
+      "categoria": "Suporte",
+      "elemento": "Ar",
+      "poder": null,
+      "energia": 40,
+      "efeito_aprovado": "Remove Sono de Renacocó ou de uma reserva e concede +25% de Velocidade por 2 turnos do beneficiado.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 18,
+      "nome": "Chama Reparadora",
+      "categoria": "Suporte",
+      "elemento": "Fogo",
+      "poder": null,
+      "energia": 40,
+      "efeito_aprovado": "Remove Queimadura de Renacocó ou de uma reserva e cura 12% do HP máximo do escolhido.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 19,
+      "nome": "Brasa Compartilhada",
+      "categoria": "Suporte",
+      "elemento": "Fogo",
+      "poder": null,
+      "energia": 45,
+      "efeito_aprovado": "Renacocó sacrifica 15% do próprio HP máximo para curar 25% do HP máximo de um aliado na reserva.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 20,
+      "nome": "Coro das Três Chamas",
+      "categoria": "Suporte",
+      "elemento": "Fogo",
+      "poder": null,
+      "energia": 70,
+      "efeito_aprovado": "As três caudas brilham juntas, curando simultaneamente Renacocó e todos os aliados vivos da reserva em 8% de seus respectivos HP máximos.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 21,
+      "nome": "Pacto da Retomada",
+      "categoria": "Suporte",
+      "elemento": "Fogo",
+      "poder": null,
+      "energia": 45,
+      "efeito_aprovado": "Marca uma reserva. Se entrar nas próximas 2 rodadas, seu primeiro ataque ofensivo que acertar em até 2 ações recupera 12% do próprio HP máximo.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 22,
+      "nome": "Escolta das Nuvens",
+      "categoria": "Suporte",
+      "elemento": "Ar",
+      "poder": null,
+      "energia": 40,
+      "efeito_aprovado": "Prepara a próxima troca da equipe. O próximo aliado que entrar em até 2 rodadas recebe cura-base de 12% do HP máximo e +10% de Velocidade por 2 turnos.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 23,
+      "nome": "Oração do Retorno",
+      "categoria": "Suporte",
+      "elemento": "Fogo",
+      "poder": null,
+      "energia": 45,
+      "efeito_aprovado": "Recupera 15 de Energia de um aliado na reserva e lhe concede +15% de Defesa Mágica durante seus primeiros 2 turnos após entrar.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 24,
+      "nome": "Guarda da Primeira Luz",
+      "categoria": "Suporte",
+      "elemento": "Fogo",
+      "poder": null,
+      "energia": 35,
+      "efeito_aprovado": "Protege Renacocó ou uma reserva contra a próxima aplicação de um estado negativo, durante até 2 turnos do beneficiado após a ativação ou entrada.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    },
+    {
+      "numero_aprendivel": 25,
+      "nome": "Cinza da Trégua",
+      "categoria": "Suporte",
+      "elemento": "Neutro",
+      "poder": null,
+      "energia": 50,
+      "efeito_aprovado": "Reduz simultaneamente o Ataque Físico e o Ataque Mágico de um adversário em 20% por 2 turnos dele.",
+      "status": "HOMOLOGADO_2026-11-12",
+      "origem": "Aprendível adicional da espécie; não exclusivo/hereditário"
+    }
+  ],
+  "quantidade_iniciais": 5,
+  "quantidade_aprendiveis": 25,
+  "total_repertorio": 30,
+  "mecanica_equipamento": "Até 5 golpes equipados, com Concentração como único movimento fixo; os outros 4 espaços são configuráveis dentre golpes já aprendidos e compatíveis, conforme regra oficial.",
+  "regras_transversais_aprovadas": [
+    "Os modificadores equivalentes não acumulam.",
+    "Marcas e efeitos de entrada ativam uma única vez.",
+    "Curas não ultrapassam HP máximo.",
+    "Golpes aprendíveis desta lista não ressuscitam derrotados.",
+    "No máximo dois acertos ofensivos por ação, independentemente dos efeitos.",
+    "Efeitos especiais por acerto são verificados uma vez por ação.",
+    "Passiva de cura ativa aumenta 20% as curas nele e 30% em aliados, conforme o alvo; regeneração passiva segue regra própria."
+  ],
+  "pendencias_tecnicas_nao_homologadas": [
+    "Níveis exatos de aprendizado dos 25 adicionais.",
+    "Peso natural oficial ainda não definido.",
+    "Testes executáveis e integração ao banco SQLite do mod."
+  ],
+  "nota_preservacao": "Fichas e golpes homologados em design; não altera cópias históricas da GalolpeTeca ou bancos SQLite."
+}

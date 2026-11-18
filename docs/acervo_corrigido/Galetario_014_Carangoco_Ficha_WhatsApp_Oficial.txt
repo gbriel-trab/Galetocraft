@@ -1,0 +1,101 @@
+🐓 *GALETOCRAFT — GALETÁRIO OFICIAL*
+*#014 — CARANGOCÓ*
+*O Galo Litorâneo*
+📅 Homologação: 11/11/2026
+✅ Status: ESPÉCIE HOMOLOGADA
+
+📋 *INFORMAÇÕES GERAIS*
+• Raridade: Comum
+• Elementos: Água + Terra
+• Especialidade: atacante físico equilibrado, com resistência física e pressão de defesa
+• Ambiente temático: praias, manguezais e áreas rochosas costeiras
+
+🎨 *VISUAL OFICIAL APROVADO*
+Galo voxel Minecraft com carapaça vermelho-coral, penas creme, asas em forma de pinças, crista de placas de carapaça, cauda em leque azul e creme, conchas e cracas nas placas, pés amarelos robustos. Prancha oficial com 4 vistas, 5 expressões, paleta e detalhes; preservar sem redesenhos. Modelagem 3D a cargo do designer externo.
+
+📊 *ATRIBUTOS BASE (NÍVEL 50)*
+• HP: 75
+• Ataque Físico: 80
+• Defesa Física: 75
+• Ataque Mágico: 40
+• Defesa Mágica: 55
+• Velocidade: 45
+*TOTAL: 370 pontos*
+
+⚡ *PASSIVA HOMOLOGADA — PINÇAS DE SEDIMENTO*
+• Em ação convencional com ataque físico ofensivo que acerta e causa dano: 40% de chance, conferida uma única vez AO FINAL da ação, de aplicar −10% na Defesa Física do alvo.
+• Golpes sequenciais do Carangocó: CADA acerto que causa dano tem sua própria verificação de 40% enquanto a penalidade não estiver ativa.
+• Em sequência, a aplicação ocorre IMEDIATAMENTE após o dano do acerto que a dispara; os acertos seguintes já usam a Defesa Física 10% reduzida.
+• A redução nunca acumula nem é reaplicada enquanto estiver ativa; permanece até o alvo sair de campo ou ser derrotado, mesmo que Carangocó saia de campo.
+
+🥊 *CINCO GOLPES ORIGINAIS / DE REFERÊNCIA — HOMOLOGADOS*
+1. *Garra Afiada* — Físico/Neutro | P40 | E0
+   Dano direto, sem efeitos secundários.
+2. *Concentração* — Suporte/Sem elemento | P— | E0
+   40% de chance de remover 1 estado negativo persistente do próprio usuário em execução válida; demais regras universais preservadas.
+3. *Pinçada da Ressaca* — Físico/Água | P70 | E30
+   Ao acertar e causar dano, 30% de chance de reduzir Ataque Físico do alvo em 10% durante os próximos 2 turnos do alvo; uma verificação ao fim da ação; não acumula.
+4. *Couraça de Lodo* — Suporte/Terra | P— | E35
+   Eleva Defesa Física em 25% e Defesa Mágica em 10% do próprio usuário durante 2 turnos próprios, contando o da ativação; não acumula.
+5. *Cerco das Pinças* — Físico/Terra | P40 × 1–5 | E55
+   Golpe sequencial: até 5 acertos, chances condicionais de 100%/70%/50%/30%/15%; termina ao falhar; não recebe golpe extra de Velocidade. Cada acerto com dano pode acionar Pinças de Sedimento (40%) até a primeira ativação; a redução entra em vigor imediatamente após o acerto e beneficia os seguintes.
+
+📚 *25 GOLPES ADICIONAIS APRENDÍVEIS — HOMOLOGADOS*
+
+🌊 *ÁGUA*
+• G015 *Bico de Marola* — Físico/Água, P40 E0. Bicada coberta de água, sem efeito adicional.
+• G016 *Cauda de Ressaca* — Físico/Água, P60 E25. Reduz a Velocidade inimiga em 10% por 2 ações.
+• G017 *Pancada de Maré* — Físico/Água, P80 E35. Dano físico direto de água concentrada.
+• G018 *Açoite de Corredeira* — Físico/Água, P95 E50. 15% de chance de causar Afogamento.
+• G020 *Gota Disparada* — Mágico/Água, P40 E0. Projétil mágico básico de água, sem efeito adicional.
+• G021 *Orvalho Cortante* — Mágico/Água, P60 E20. Lâminas de água, dano direto.
+• G022 *Coluna de Espuma* — Mágico/Água, P80 E40. 15% de chance de causar Afogamento.
+• G025 *Canto das Nuvens* — Suporte/Água, P— E30. Invoca Chuva por 4 rodadas.
+• G026 *Névoa Protetora* — Suporte/Água, P— E30. Um aliado recebe 25% menos dano mágico na próxima ação ofensiva recebida.
+• G027 *Maré de Retirada* — Suporte/Água, P— E40. Troca o usuário por um Galeto da reserva e recupera 10% do HP do Galeto que entra.
+
+🪨 *TERRA*
+• G043 *Chute de Cascalho* — Físico/Terra, P40 E0. Ataque físico de Terra básico, sem efeito adicional.
+• G044 *Marreta de Barro* — Físico/Terra, P65 E30. Reduz Velocidade inimiga em 20% por 2 ações.
+• G045 *Cabeçada de Basalto* — Físico/Terra, P85 E35. Impacto rochoso, dano direto.
+• G046 *Pisão Sísmico* — Físico/Terra, P100 E50. 15% de chance de causar Tontura.
+• G048 *Grão de Pedra* — Mágico/Terra, P40 E0. Projétil mágico de Terra básico.
+• G049 *Lodo Pressurizado* — Mágico/Terra, P65 E30. Reduz Defesa Mágica inimiga em 10% por 2 ações.
+• G053 *Tambor da Areia* — Suporte/Terra, P— E30. Invoca Tempestade de Areia por 4 rodadas.
+• G054 *Muralha Escavada* — Suporte/Terra, P— E35. Um aliado recebe 35% menos dano físico na próxima ação ofensiva recebida.
+• G056 *Pedra de Revezamento* — Suporte/Terra, P— E35. Troca o usuário por um Galeto da reserva e concede ao entrante +20% de Defesa Física por 2 ações.
+
+⚪ *NEUTROS / SEM ELEMENTO*
+• G085 *Bicada de Chamada* — Físico/Neutro, P40 E0. Bicada neutra simples, sem efeito adicional.
+• G086 *Patada Rasteira* — Físico/Neutro, P50 E25. Reduz Velocidade inimiga em 10% por 2 ações.
+• G087 *Choque de Ombros* — Físico/Neutro, P70 E25. Ataque neutro direto, sem efeito adicional.
+• G089 *Impacto de Peito* — Físico/Neutro, P100 E45. Golpe corporal direto, sem efeito adicional.
+• G095 *Pouso Estratégico* — Suporte/Sem elemento, P— E30. Um aliado recebe 20% menos dano físico e mágico na próxima ação ofensiva recebida.
+• G100 *Terreiro Purificado* — Suporte/Sem elemento, P— E40. Remove todas as armadilhas e cargas do lado do usuário, sem afetar Climas ou Santuários.
+
+📊 *DISTRIBUIÇÃO TOTAL DE MOVIMENTOS*
+• 15 físicos | 5 mágicos | 10 suportes = 30
+• 5 golpes de referência + 25 adicionais (Água 10, Terra 9, Neutro/Sem elemento 6)
+
+⚙️ *REGRAS DE RINHA*
+• Energia máxima: 100; recupera 20 no início do próprio turno (salvo modificadores).
+• Cinco movimentos equipados; Concentração é o único slot obrigatório.
+• Golpes convencionais obedecem ao limite universal de 2 acertos por ação (incluindo eventual adicional por Velocidade).
+• Golpes sequenciais são exceção: 1 a 5 acertos conforme chances condicionais 100% / 70% / 50% / 30% / 15%; não recebem ataque adicional por Velocidade.
+• O primeiro acerto de Cerco das Pinças inicia a sequência se for bem-sucedido; cada acerto seguinte depende do anterior. Falha encerra a sequência.
+• A exceção de Pinças de Sedimento por acerto é específica dos golpes sequenciais do Carangocó; não muda passivas alheias.
+
+⚖️ *PESO NATURAL MÁXIMO HOMOLOGADO*
+• 10,5 kg
+• Faixa técnica de referência 80–150%: 8,40–15,75 kg. Não confundir faixa técnica com peso natural de nascimento; regras gerais de alimentação preservadas.
+
+🔒 *AUDITORIA DE CONFORMIDADE*
+• 370 pontos-base — CONFORME.
+• 5 golpes base + 25 aprendíveis = 30, sem duplicação de IDs — CONFORME.
+• 25 efeitos do catálogo e custos v4 homologados — CONFORME.
+• Passiva e exceção de golpe sequencial preservadas — CONFORME.
+• Arte aprovada intacta fora das correções nominais (logo/rodapé) — CONFORME.
+• Peso 10,5 kg — CONFORME.
+• Simulação competitiva completa 1v1/3v3 — PENDENTE; não equivale a falha cadastral.
+• Modelagem 3D e implementação em jogo — pendentes do fluxo externo.
+• Não alterar conteúdo já aprovado sem autorização expressa do criador.
