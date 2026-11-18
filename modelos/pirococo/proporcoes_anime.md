@@ -13,9 +13,8 @@
   classifiquei as cores (creme, prata, roxo, dourado, vermelho) ao longo das linhas de centro, para achar os
   marcos. A vista de frente tem 276 px do chão à crista (6,13 px/u) e a lateral tem 273 px (6,07 px/u).
   A margem de erro do desenho é de cerca de ±0,5 u.
-
-Esta ficha muda a direção visual do Pirococó. O modelo atual (g09, da ficha voxel) serve como técnica, mas não
-como base de proporção.
+- **Base única:** este plano sai SÓ desta ficha. Os modelos 3D já existentes no repositório são ignorados por
+  completo: nenhuma medida, forma ou peça vem deles.
 
 ---
 
@@ -226,19 +225,6 @@ A folga é grande. Se sobrar, ela vai para as penas da capa e da crista, que é 
 | prata | (210, 190, 209) | elmo, colar, ombreiras, joelheiras, tornozeleiras |
 | dourado | (252, 180, 25) | bico, garras, tranças, pontas das ombreiras |
 | rubi (cristal) | (182, 25, 114) | gemas (testa e peito), losangos das lâminas da cauda |
-
----
-
-## 10. O que muda em relação ao modelo atual (proporção)
-
-Comparado ao registro p17 do `detalhes.md`:
-
-- **Pernas visíveis:** 0,23 H, contra ~0,13 H no p17 (quase o dobro).
-- **Crista:** 0,13 H acima do elmo, contra 0,19 H dos chifres dourados. Os chifres saem e o lugar vai para as
-  penas vermelhas em U.
-- **Armadura:** passa a ser prateada, não roxa e dourada.
-- **Cauda:** as 5 plumas e as 3 correntes de contas viram 3 tranças com lâmina na ponta.
-- **Medidas de caixa:** a largura vai de 1,71 para 1,82 blocos e o comprimento, de 2,47 para 2,25.
 
 ---
 
