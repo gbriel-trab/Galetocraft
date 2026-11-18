@@ -6,6 +6,8 @@ galetocraft/.gradle/
 galetocraft/run/
 galetocraft/out/
 galetocraft/bin/
+galetocraft/nucleo/build/
+galetocraft/nucleo/bin/
 
 # Configuração local do Claude Code nesta máquina
 .claude/
@@ -18,3 +20,6 @@ __pycache__/
 Thumbs.db
 desktop.ini
 *.DS_Store
+
+# SQLite completo gerado por ferramentas/base/galetobase.py montar (derivado; não versionar)
+*.sqlite

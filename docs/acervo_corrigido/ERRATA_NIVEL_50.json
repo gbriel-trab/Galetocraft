@@ -1,0 +1,2018 @@
+{
+ "data": "18/11/2026",
+ "regra": "Norma de Progressão Nível 50 V1: atributos-base referenciados no nível 50.",
+ "originais_preservados": true,
+ "arquivos_unicos": 29,
+ "caminhos_cobertos": 42,
+ "rotulos_trocados": 80,
+ "notas_inseridas": 2,
+ "arquivos": [
+  {
+   "arquivo": "Galetario_013_Quartzalo_Ficha_Oficial_v1.md",
+   "sha256_original": "6e502a3b4b83fb25ae6cdc3f281c9c139340c3221148e02cb959dfe8356bb201",
+   "sha256_corrigido": "f1cca77eec9a7a7b516e3f93e417d9e99b325083e751043816207e7837214baa",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "rotulo": "Os valores representam a ficha-base de referência no nível 100, sem IVs, EVs ou modificadores. A distribuição mantém a e",
+     "tipo": "atributos",
+     "especie": 13,
+     "conferido": [
+      [
+       70,
+       45,
+       65,
+       80,
+       65,
+       45
+      ],
+      [
+       70,
+       45,
+       65,
+       80,
+       65,
+       45
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetario_014_Carangoco_Ficha_Oficial.md",
+   "sha256_original": "6366175532dec28b4302cdb1dbd698dbd646414e008e10a1c7914b8f261a238a",
+   "sha256_corrigido": "705d878fe3c8f1b413f266559ec4abbbdf41f262ddfcdd513dbf5f151b4a1187",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "rotulo": "📊 **ATRIBUTOS BASE (NÍVEL 100)**",
+     "tipo": "atributos",
+     "especie": 14,
+     "conferido": [
+      [
+       75,
+       80,
+       75,
+       40,
+       55,
+       45
+      ],
+      [
+       75,
+       80,
+       75,
+       40,
+       55,
+       45
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetario_014_Carangoco_Ficha_WhatsApp_Oficial.txt",
+   "sha256_original": "b8fd35b38306ed690eb0411be23a0d4e91f674d73c7ae97c8f010c6ff5d92eaa",
+   "sha256_corrigido": "cea43713def840bb331a83d97f2c7ab20f1b1d26ab731d12b626b552d2c580af",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "rotulo": "📊 *ATRIBUTOS BASE (NÍVEL 100)*",
+     "tipo": "atributos",
+     "especie": 14,
+     "conferido": [
+      [
+       75,
+       80,
+       75,
+       40,
+       55,
+       45
+      ],
+      [
+       75,
+       80,
+       75,
+       40,
+       55,
+       45
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetario_014_Carangoco_Registro_Oficial.json",
+   "sha256_original": "1116b4e5c29a4d7e4148c7e8776c02cbf8fced829a355a3229945583c2dbafcc",
+   "sha256_corrigido": "037609afd25477705b32512c915ef16ce1f12f79aedbf9f98c4caf14522a344b",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 14,
+     "conferido": [
+      [
+       75,
+       80,
+       75,
+       40,
+       55,
+       45
+      ],
+      [
+       75,
+       80,
+       75,
+       40,
+       55,
+       45
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetario_015_Faiscoco_Ficha_Oficial.md",
+   "sha256_original": "36bfbf3ff8ab73015ad92598a0a22f5870218b789aa1568d0e3e14565caa1b4a",
+   "sha256_corrigido": "bd221112027f44594e5beea2d1588458b4b17dd2e3d22c77d4cb7d5af07713a0",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "rotulo": "## Atributos-base — referência nível 100",
+     "tipo": "atributos",
+     "especie": 15,
+     "conferido": [
+      [
+       70,
+       60,
+       50,
+       95,
+       55,
+       100
+      ],
+      [
+       70,
+       60,
+       50,
+       95,
+       55,
+       100
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetario_015_Faiscoco_Ficha_WhatsApp_Oficial.txt",
+   "sha256_original": "3c50ba042f2b9dc213e81979ebe15419ae9a1a9c305029b8345ef0c51ee48dc1",
+   "sha256_corrigido": "0ae2fcd98ad23efae631e5e3203948be9584db00b0bc88a9ef3fa33ed6e4b04a",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "rotulo": "### 📊 ATRIBUTOS BASE — NÍVEL 100",
+     "tipo": "atributos",
+     "especie": 15,
+     "conferido": [
+      [
+       70,
+       60,
+       50,
+       95,
+       55,
+       100
+      ],
+      [
+       70,
+       60,
+       50,
+       95,
+       55,
+       100
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetario_015_Faiscoco_Registro_Oficial.json",
+   "sha256_original": "c394023a47b5eacb9b18ab7ee3ea8adf6d3a6b69d1e98e0c9696806fbbdf3926",
+   "sha256_corrigido": "478fc138fc1f768b179989f6a7a244acedfc0ad463063d06bcdd66ab6326fa12",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "chave": "base_stats_level_100",
+     "especie": 15,
+     "conferido": [
+      [
+       70,
+       60,
+       50,
+       95,
+       55,
+       100
+      ],
+      [
+       70,
+       60,
+       50,
+       95,
+       55,
+       100
+      ]
+     ],
+     "acao": "chave_renomeada_para_base_stats_level_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetario_019_Renacoco_OFICIAL_2026-11-12.json",
+   "sha256_original": "dda3a080311e5010c0e954faf76728c383070a7a926af333e0ea4305c2020bd0",
+   "sha256_corrigido": "515652c3f7259ebf9ec8f7885dae83febd8bd302274601e41c0ef35e60ee3dd7",
+   "copias_identicas": [
+    "Galetocraft/Galetario/Galetario_019_Renacoco_OFICIAL_2026-11-12.json"
+   ],
+   "correcoes": [
+    {
+     "chave": "atributos_base_nivel_100",
+     "especie": 19,
+     "conferido": [
+      [
+       180,
+       80,
+       100,
+       40,
+       100,
+       70
+      ],
+      [
+       180,
+       80,
+       100,
+       40,
+       100,
+       70
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetario_019_Renacoco_OFICIAL_2026-11-12.md",
+   "sha256_original": "e69469190f2b711830183e5486971bfeaf87df35aaa92cc220ec72a6eb04d8ea",
+   "sha256_corrigido": "2daed411ac15154dd484969aaaf492ddfbd5f24d5f293b0ea708f62335221fdc",
+   "copias_identicas": [
+    "Galetocraft/Galetario/Galetario_019_Renacoco_OFICIAL_2026-11-12.md"
+   ],
+   "correcoes": [
+    {
+     "rotulo": "- **Pontos-base (nível 100):** **570**",
+     "tipo": "total",
+     "especie": 19,
+     "conferido": [
+      570,
+      570
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetario_020_Frankoco_OFICIAL_2026-11-12.md",
+   "sha256_original": "8249779559a02ad1975f155b18acb4aab366724dfabb6c5b8eead6913285e30e",
+   "sha256_corrigido": "d2fd8ae276fa7c3d0079d3f6c0fce366a94d3d5c3bed1a7f0c99570622e756db",
+   "copias_identicas": [
+    "Galetocraft/Galetario/Galetario_020_Frankoco_OFICIAL_2026-11-12.md"
+   ],
+   "correcoes": [
+    {
+     "rotulo": "## Ficha numérica — nível 100",
+     "tipo": "atributos",
+     "especie": 20,
+     "conferido": [
+      [
+       135,
+       110,
+       115,
+       30,
+       85,
+       35
+      ],
+      [
+       135,
+       110,
+       115,
+       30,
+       85,
+       35
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetario_021_Cabacoco_OFICIAL_2026-11-12.md",
+   "sha256_original": "16b430179f3839fb4240a02482473d5c59da942df73be30060268476c187077c",
+   "sha256_corrigido": "52e775a33d0b4dc385e73c1ea2ab721489a4e8effadf9ff90096d4b01b3d86b2",
+   "copias_identicas": [
+    "Galetocraft/Galetario/Galetario_021_Cabacoco_OFICIAL_2026-11-12.md"
+   ],
+   "correcoes": [
+    {
+     "rotulo": "## Atributos-base no nível 100",
+     "tipo": "atributos",
+     "especie": 21,
+     "conferido": [
+      [
+       110,
+       25,
+       75,
+       130,
+       115,
+       45
+      ],
+      [
+       110,
+       25,
+       75,
+       130,
+       115,
+       45
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetario_022_Sirenoco_OFICIAL_2026-11-13.md",
+   "sha256_original": "9be8bf91a6e97a693d9cc101c3afa4fd8559103488b4fe2ae57b05c5b47ef949",
+   "sha256_corrigido": "0efd6e55e87ad19791710e6911756eccb564745f3498008391ba18fe05e62984",
+   "copias_identicas": [
+    "Galetocraft/Galetario/Galetario_022_Sirenoco_OFICIAL_2026-11-13.md"
+   ],
+   "correcoes": [
+    {
+     "rotulo": "### Atributos-base — Nível 100",
+     "tipo": "atributos",
+     "especie": 22,
+     "conferido": [
+      [
+       100,
+       25,
+       70,
+       160,
+       100,
+       95
+      ],
+      [
+       100,
+       25,
+       70,
+       160,
+       100,
+       95
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetario_Oficial_Completo_2026-11-11.md",
+   "sha256_original": "518276ec611a0b278c35738a14356af3f191d5505788968b3b368299b522c1e6",
+   "sha256_corrigido": "e8ad183c97a294f6b68955ee015575ac8632e394f50f7cfdab12c32444540562",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "rotulo": "| # | Cocorídeo | Elementos | Raridade | Base nível 100 | Peso natural | Ficha | Originais | Aprendíveis |",
+     "tipo": "total",
+     "especie": "tabela",
+     "conferido": [
+      [
+       1,
+       550,
+       550
+      ],
+      [
+       2,
+       550,
+       550
+      ],
+      [
+       3,
+       550,
+       550
+      ],
+      [
+       4,
+       550,
+       550
+      ],
+      [
+       5,
+       550,
+       550
+      ],
+      [
+       6,
+       550,
+       550
+      ],
+      [
+       7,
+       370,
+       370
+      ],
+      [
+       8,
+       370,
+       370
+      ],
+      [
+       9,
+       370,
+       370
+      ],
+      [
+       10,
+       370,
+       370
+      ],
+      [
+       11,
+       370,
+       370
+      ],
+      [
+       12,
+       370,
+       370
+      ],
+      [
+       13,
+       370,
+       370
+      ],
+      [
+       14,
+       370,
+       370
+      ],
+      [
+       15,
+       430,
+       430
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "**Estado:** ficha_completa_homologada · **Raridade natural:** Mítico · **Base no nível 100:** 550 · **Peso natural:** 5.",
+     "tipo": "total",
+     "especie": 1,
+     "conferido": [
+      550,
+      550
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "**Estado:** ficha_completa_homologada · **Raridade natural:** Mítico · **Base no nível 100:** 550 · **Peso natural:** 8.",
+     "tipo": "total",
+     "especie": 2,
+     "conferido": [
+      550,
+      550
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "**Estado:** ficha_completa_homologada · **Raridade natural:** Mítico · **Base no nível 100:** 550 · **Peso natural:** 5.",
+     "tipo": "total",
+     "especie": 3,
+     "conferido": [
+      550,
+      550
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "**Estado:** ficha_completa_homologada · **Raridade natural:** Mítico · **Base no nível 100:** 550 · **Peso natural:** 10",
+     "tipo": "total",
+     "especie": 4,
+     "conferido": [
+      550,
+      550
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "**Estado:** ficha_completa_homologada · **Raridade natural:** Mítico · **Base no nível 100:** 550 · **Peso natural:** 3.",
+     "tipo": "total",
+     "especie": 5,
+     "conferido": [
+      550,
+      550
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "**Estado:** ficha_completa_homologada · **Raridade natural:** Mítico · **Base no nível 100:** 550 · **Peso natural:** 5.",
+     "tipo": "total",
+     "especie": 6,
+     "conferido": [
+      550,
+      550
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "**Estado:** ficha_completa_homologada · **Raridade natural:** Comum · **Base no nível 100:** 370 · **Peso natural:** 7.5",
+     "tipo": "total",
+     "especie": 7,
+     "conferido": [
+      370,
+      370
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "**Estado:** ficha_completa_homologada · **Raridade natural:** Comum · **Base no nível 100:** 370 · **Peso natural:** 5.8",
+     "tipo": "total",
+     "especie": 8,
+     "conferido": [
+      370,
+      370
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "**Estado:** ficha_completa_homologada · **Raridade natural:** Comum · **Base no nível 100:** 370 · **Peso natural:** 3.1",
+     "tipo": "total",
+     "especie": 9,
+     "conferido": [
+      370,
+      370
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "**Estado:** ficha_completa_homologada · **Raridade natural:** Comum · **Base no nível 100:** 370 · **Peso natural:** 5.2",
+     "tipo": "total",
+     "especie": 10,
+     "conferido": [
+      370,
+      370
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "**Estado:** ficha_completa_homologada · **Raridade natural:** Comum · **Base no nível 100:** 370 · **Peso natural:** 6.2",
+     "tipo": "total",
+     "especie": 11,
+     "conferido": [
+      370,
+      370
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "**Estado:** ficha_completa_homologada · **Raridade natural:** Comum · **Base no nível 100:** 370 · **Peso natural:** 6.4",
+     "tipo": "total",
+     "especie": 12,
+     "conferido": [
+      370,
+      370
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "**Estado:** ficha_completa_homologada · **Raridade natural:** Comum · **Base no nível 100:** 370 · **Peso natural:** 8.5",
+     "tipo": "total",
+     "especie": 13,
+     "conferido": [
+      370,
+      370
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "**Estado:** ficha_completa_homologada · **Raridade natural:** Comum · **Base no nível 100:** 370 · **Peso natural:** 10.",
+     "tipo": "total",
+     "especie": 14,
+     "conferido": [
+      370,
+      370
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "**Estado:** em_desenvolvimento · **Raridade natural:** Raro · **Base no nível 100:** 430 · **Peso natural:** não homolog",
+     "tipo": "total",
+     "especie": 15,
+     "conferido": [
+      430,
+      430
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Escala atual de raridades (nível 100)",
+     "tipo": "escala",
+     "especie": null,
+     "conferido": {
+      "Comum": [
+       350,
+       370,
+       390
+      ],
+      "Raro": [
+       410,
+       430,
+       450
+      ],
+      "Épico": [
+       470,
+       490,
+       510
+      ],
+      "Mítico": [
+       530,
+       550,
+       570
+      ],
+      "Lendário": [
+       590,
+       610,
+       630
+      ]
+     },
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetocraft/Atualizacao_007_Taturico/RoosterTeca_007_Taturico_Oficial.md",
+   "sha256_original": "21b2751fd5aee8a970055e0234b24b55970d8491b780ce2901289b53fc0c0805",
+   "sha256_corrigido": "241b56f49f827abb376a3c31eeceb91ce05dabae0ef003c51e0c4258e74abbec",
+   "copias_identicas": [
+    "Galetocraft/RoosterTeca/RoosterTeca_007_Taturico_Oficial.md",
+    "RoosterTeca_007_Taturico_Oficial.md"
+   ],
+   "correcoes": [
+    {
+     "rotulo": "## Atributos base — nível 100",
+     "tipo": "atributos",
+     "especie": 7,
+     "conferido": [
+      [
+       85,
+       55,
+       105,
+       25,
+       60,
+       40
+      ],
+      [
+       85,
+       55,
+       105,
+       25,
+       60,
+       40
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetocraft/Atualizacao_008_Axococo_Oficial/RoosterTeca_008_Axococo_Oficial.md",
+   "sha256_original": "a800b15a771d12044199aa30cc580d7ae43dcace6f96b20beb0808089fbaf284",
+   "sha256_corrigido": "1fa026b8c166065ca50f455a86241d02f39e16bb5a72854ef58c980e29d11be3",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "rotulo": "## Atributos base homologados — nível 100",
+     "tipo": "atributos",
+     "especie": 8,
+     "conferido": [
+      [
+       95,
+       35,
+       50,
+       90,
+       60,
+       40
+      ],
+      [
+       95,
+       35,
+       50,
+       90,
+       60,
+       40
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetocraft/Atualizacao_008_Axococo_Parcial/RoosterTeca_008_Axococo_Registro_Parcial_Oficial.md",
+   "sha256_original": "6a2b8a0e2067bb91bba83c0c5ef3cacb9c7622ea5b42c72f4233ad067456a051",
+   "sha256_corrigido": "d955ce6a742d81e384a9b9fa641fe6ff3c4d3f705079f9fda7e01ef124e1c0c3",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "rotulo": "- **Seis atributos base no nível 100:** **PENDENTES** (total/base e distribuição ainda não aprovados).",
+     "tipo": "atributos",
+     "especie": 8,
+     "acao": "nota_de_errata_inserida"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetocraft/Atualizacao_009_Vagalo_Oficial/RoosterTeca_009_Vagalo_Oficial.md",
+   "sha256_original": "3f74eb9971530a206a2b04e6fe79ecebaf79dc27a3a2895809ec77ce11c41725",
+   "sha256_corrigido": "9d7d52f2f1a5b301c1a05a42d09fd3abb18ff3b7c9dfb8836fe07f269dc380d0",
+   "copias_identicas": [
+    "RoosterTeca_009_Vagalo_Oficial.md"
+   ],
+   "correcoes": [
+    {
+     "rotulo": "## Atributos base, nível 100 (total 370 pontos)",
+     "tipo": "atributos",
+     "especie": 9,
+     "conferido": [
+      [
+       60,
+       25,
+       40,
+       15,
+       50,
+       180
+      ],
+      [
+       60,
+       25,
+       40,
+       15,
+       50,
+       180
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetocraft/Atualizacao_009_Vagalo_Parcial/RoosterTeca_009_Vagalo_Parcial_Oficial.md",
+   "sha256_original": "5508f523f73866a6a6fad93745a44a8ad891a957307f918b8cacb7aa364827a8",
+   "sha256_corrigido": "01e9efdb6f7b8da39c107a28baad880dd0b3537d132c11e8a244274146af2600",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "rotulo": "**Peso natural e seis atributos nível 100**, além de auditoria final de balanceamento. Não atribuir peso, stats ou outro",
+     "tipo": "atributos",
+     "especie": 9,
+     "acao": "nota_de_errata_inserida"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetocraft/Atualizacao_010_Morcegalo_Oficial/RoosterTeca_010_Morcegalo_Oficial.md",
+   "sha256_original": "d50b32e5d0ed53ce0fc0db152332e41b8e3cadc88d09f6e34e17ec204e735c83",
+   "sha256_corrigido": "99085d692210c5a07547909f25409a8b5141279d4269221fecf1e1bb7c4e4f5b",
+   "copias_identicas": [
+    "Galetocraft/RoosterTeca/RoosterTeca_010_Morcegalo_Oficial.md",
+    "RoosterTeca_010_Morcegalo_Oficial.md"
+   ],
+   "correcoes": [
+    {
+     "rotulo": "## Atributos base no nível 100 (APROVADOS)",
+     "tipo": "atributos",
+     "especie": 10,
+     "conferido": [
+      [
+       80,
+       50,
+       45,
+       40,
+       90,
+       65
+      ],
+      [
+       80,
+       50,
+       45,
+       40,
+       90,
+       65
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetocraft/Atualizacao_011_Espinhoco_Oficial/RoosterTeca_011_Espinhoco_Oficial.md",
+   "sha256_original": "111b7ff00fae334acdd8fc65d6617fd4f0a774d714c376e175b91156770b6bd7",
+   "sha256_corrigido": "a2400c4dd7323a572d49f6af09ea99c53b8d7eea5f6ec7739ebb816f29d3fb9a",
+   "copias_identicas": [
+    "Galetocraft/RoosterTeca/RoosterTeca_011_Espinhoco_Oficial.md",
+    "RoosterTeca_011_Espinhoco_Oficial.md"
+   ],
+   "correcoes": [
+    {
+     "rotulo": "## 2. Atributos-base — nível 100 (OFICIAIS)",
+     "tipo": "atributos",
+     "especie": 11,
+     "conferido": [
+      [
+       75,
+       95,
+       85,
+       20,
+       55,
+       40
+      ],
+      [
+       75,
+       95,
+       85,
+       20,
+       55,
+       40
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetocraft/Galetario/Galetario_020_Frankoco_OFICIAL_2026-11-12.json",
+   "sha256_original": "537e081c1570e6301f444039ec10f95e9e9525d59d89c8174b2cc09cd25b78be",
+   "sha256_corrigido": "5325777217e1ba53996e864fc232efca1ff7640ea4160c5aa9174d39bef1d027",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "chave": "atributos_base_nivel_100",
+     "especie": 20,
+     "conferido": [
+      [
+       135,
+       110,
+       115,
+       30,
+       85,
+       35
+      ],
+      [
+       135,
+       110,
+       115,
+       30,
+       85,
+       35
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetocraft/Galetario/Galetario_021_Cabacoco_OFICIAL_2026-11-12.json",
+   "sha256_original": "5ceb2ef4e092426f4c7c34323e65574086ef785e79ef6fb2794e83b594df8446",
+   "sha256_corrigido": "fa43acbf280c0f2a58b232a7b97c8cbd84e4196fb36388604a0c347985f93a11",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 21,
+     "conferido": [
+      [
+       110,
+       25,
+       75,
+       130,
+       115,
+       45
+      ],
+      [
+       110,
+       25,
+       75,
+       130,
+       115,
+       45
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetocraft/Galetario/Galetario_022_Sirenoco_OFICIAL_2026-11-13.json",
+   "sha256_original": "eb98786be8a18d1ea4cab047a0de41830b8960eacd5fca85e5fd71b4f99c1e2b",
+   "sha256_corrigido": "e483d0d240ea9e9b509e288eb677af0477e2a7b3cab6542c3f16906f68110f20",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "chave": "atributos_base_nivel_100",
+     "especie": 22,
+     "conferido": [
+      [
+       100,
+       25,
+       70,
+       160,
+       100,
+       95
+      ],
+      [
+       100,
+       25,
+       70,
+       160,
+       100,
+       95
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetocraft/Galetario/Homologacao_016_018_20261112/Fichas_Oficiais/Galetario_016_Libelocó_OFICIAL.md",
+   "sha256_original": "2e5bc69b17c2f3456af4fe91b4e98452ae3adc9c73b69aed150c900d489922ec",
+   "sha256_corrigido": "f39d3ed152100d37268a043b6eb714e53e757fd8bdf9b7ded74052f257a3bd97",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 16,
+     "conferido": [
+      [
+       60,
+       40,
+       48,
+       74,
+       70,
+       62
+      ],
+      [
+       60,
+       40,
+       48,
+       74,
+       70,
+       62
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetocraft/Galetario/Homologacao_016_018_20261112/Fichas_Oficiais/Galetario_017_Castorocó_OFICIAL.md",
+   "sha256_original": "0ed8675c6751fe0222ecb28fc63388faf617a58534b71ffcb6192929c8649929",
+   "sha256_corrigido": "922e5b1764bce00a08ce751247820afe2cfb198234ca7ec4ca2b193acbbab325",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 17,
+     "conferido": [
+      [
+       90,
+       70,
+       90,
+       39,
+       58,
+       27
+      ],
+      [
+       90,
+       70,
+       90,
+       39,
+       58,
+       27
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetocraft/Galetario/Homologacao_016_018_20261112/Fichas_Oficiais/Galetario_018_Mariposocó_OFICIAL.md",
+   "sha256_original": "551bd4948b1091ef67365e4364ddfd981bc0e9d7aa7d3aef0d0a1a5385464e4f",
+   "sha256_corrigido": "14771422c543e78351f253bc5e955a053c67ee7d8d86393063d2c74d911f3d57",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 18,
+     "conferido": [
+      [
+       68,
+       44,
+       49,
+       97,
+       62,
+       68
+      ],
+      [
+       68,
+       44,
+       49,
+       97,
+       62,
+       68
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetocraft/Galetario/Homologacao_Balanceamento_21_2026-11-12/Galetocraft_Galetario_21_Fichas_Gerais_Oficiais_BAL_2026-11-12.json",
+   "sha256_original": "7bbee0dc274bf29ac0b350193ef738c2ae9284d9cccc9e690fb00a88574792b0",
+   "sha256_corrigido": "1464dea5eda9cbdcb33cf8c869ff570433c8c2e2406d13fefc2785279cc304e5",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 1,
+     "conferido": [
+      [
+       90,
+       35,
+       60,
+       185,
+       95,
+       85
+      ],
+      [
+       90,
+       35,
+       60,
+       185,
+       95,
+       85
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    },
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 2,
+     "conferido": [
+      [
+       155,
+       45,
+       135,
+       45,
+       105,
+       65
+      ],
+      [
+       155,
+       45,
+       135,
+       45,
+       105,
+       65
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    },
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 3,
+     "conferido": [
+      [
+       120,
+       25,
+       65,
+       115,
+       145,
+       80
+      ],
+      [
+       120,
+       25,
+       65,
+       115,
+       145,
+       80
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    },
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 4,
+     "conferido": [
+      [
+       140,
+       180,
+       80,
+       25,
+       70,
+       55
+      ],
+      [
+       140,
+       180,
+       80,
+       25,
+       70,
+       55
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    },
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 5,
+     "conferido": [
+      [
+       80,
+       155,
+       65,
+       30,
+       55,
+       165
+      ],
+      [
+       80,
+       155,
+       65,
+       30,
+       55,
+       165
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    },
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 6,
+     "conferido": [
+      [
+       90,
+       25,
+       55,
+       155,
+       65,
+       160
+      ],
+      [
+       90,
+       25,
+       55,
+       155,
+       65,
+       160
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    },
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 7,
+     "conferido": [
+      [
+       85,
+       55,
+       105,
+       25,
+       60,
+       40
+      ],
+      [
+       85,
+       55,
+       105,
+       25,
+       60,
+       40
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    },
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 8,
+     "conferido": [
+      [
+       95,
+       35,
+       50,
+       90,
+       60,
+       40
+      ],
+      [
+       95,
+       35,
+       50,
+       90,
+       60,
+       40
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    },
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 9,
+     "conferido": [
+      [
+       60,
+       25,
+       40,
+       15,
+       50,
+       180
+      ],
+      [
+       60,
+       25,
+       40,
+       15,
+       50,
+       180
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    },
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 10,
+     "conferido": [
+      [
+       80,
+       50,
+       45,
+       40,
+       90,
+       65
+      ],
+      [
+       80,
+       50,
+       45,
+       40,
+       90,
+       65
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    },
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 11,
+     "conferido": [
+      [
+       75,
+       95,
+       85,
+       20,
+       55,
+       40
+      ],
+      [
+       75,
+       95,
+       85,
+       20,
+       55,
+       40
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    },
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 12,
+     "conferido": [
+      [
+       95,
+       90,
+       80,
+       25,
+       50,
+       30
+      ],
+      [
+       95,
+       90,
+       80,
+       25,
+       50,
+       30
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    },
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 13,
+     "conferido": [
+      [
+       70,
+       45,
+       65,
+       80,
+       65,
+       45
+      ],
+      [
+       70,
+       45,
+       65,
+       80,
+       65,
+       45
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    },
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 14,
+     "conferido": [
+      [
+       75,
+       80,
+       75,
+       40,
+       55,
+       45
+      ],
+      [
+       75,
+       80,
+       75,
+       40,
+       55,
+       45
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    },
+    {
+     "chave": "base_stats_level_100",
+     "especie": 15,
+     "conferido": [
+      [
+       70,
+       60,
+       50,
+       95,
+       55,
+       100
+      ],
+      [
+       70,
+       60,
+       50,
+       95,
+       55,
+       100
+      ]
+     ],
+     "acao": "chave_renomeada_para_base_stats_level_50"
+    },
+    {
+     "chave": "atributos_base_nivel_100",
+     "especie": 19,
+     "conferido": [
+      [
+       180,
+       80,
+       100,
+       40,
+       100,
+       70
+      ],
+      [
+       180,
+       80,
+       100,
+       40,
+       100,
+       70
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel_50"
+    },
+    {
+     "chave": "atributos_base_nivel_100",
+     "especie": 20,
+     "conferido": [
+      [
+       135,
+       110,
+       115,
+       30,
+       85,
+       35
+      ],
+      [
+       135,
+       110,
+       115,
+       30,
+       85,
+       35
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel_50"
+    },
+    {
+     "chave": "atributos_base_nivel100",
+     "especie": 21,
+     "conferido": [
+      [
+       110,
+       25,
+       75,
+       130,
+       115,
+       45
+      ],
+      [
+       110,
+       25,
+       75,
+       130,
+       115,
+       45
+      ]
+     ],
+     "acao": "chave_renomeada_para_atributos_base_nivel50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetocraft/Galetario/Homologacao_Balanceamento_21_2026-11-12/Galetocraft_Galetario_21_Fichas_Gerais_Oficiais_BAL_2026-11-12.md",
+   "sha256_original": "5be139305ef3f02effe6c356df38b95e9ebbe43e0e8868a4b549bfefc3616f15",
+   "sha256_corrigido": "f9dad4d28b7c1c4712881d4790ac51495913851abaac33d6065165769af82cde",
+   "copias_identicas": [
+    "Galetocraft_Galetario_21_Fichas_Gerais_Oficiais_BAL_2026-11-12.md"
+   ],
+   "correcoes": [
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 1,
+     "conferido": [
+      [
+       90,
+       35,
+       60,
+       185,
+       95,
+       85
+      ],
+      [
+       90,
+       35,
+       60,
+       185,
+       95,
+       85
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 2,
+     "conferido": [
+      [
+       155,
+       45,
+       135,
+       45,
+       105,
+       65
+      ],
+      [
+       155,
+       45,
+       135,
+       45,
+       105,
+       65
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 3,
+     "conferido": [
+      [
+       120,
+       25,
+       65,
+       115,
+       145,
+       80
+      ],
+      [
+       120,
+       25,
+       65,
+       115,
+       145,
+       80
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 4,
+     "conferido": [
+      [
+       140,
+       180,
+       80,
+       25,
+       70,
+       55
+      ],
+      [
+       140,
+       180,
+       80,
+       25,
+       70,
+       55
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 5,
+     "conferido": [
+      [
+       80,
+       155,
+       65,
+       30,
+       55,
+       165
+      ],
+      [
+       80,
+       155,
+       65,
+       30,
+       55,
+       165
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 6,
+     "conferido": [
+      [
+       90,
+       25,
+       55,
+       155,
+       65,
+       160
+      ],
+      [
+       90,
+       25,
+       55,
+       155,
+       65,
+       160
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 7,
+     "conferido": [
+      [
+       85,
+       55,
+       105,
+       25,
+       60,
+       40
+      ],
+      [
+       85,
+       55,
+       105,
+       25,
+       60,
+       40
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 8,
+     "conferido": [
+      [
+       95,
+       35,
+       50,
+       90,
+       60,
+       40
+      ],
+      [
+       95,
+       35,
+       50,
+       90,
+       60,
+       40
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 9,
+     "conferido": [
+      [
+       60,
+       25,
+       40,
+       15,
+       50,
+       180
+      ],
+      [
+       60,
+       25,
+       40,
+       15,
+       50,
+       180
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 10,
+     "conferido": [
+      [
+       80,
+       50,
+       45,
+       40,
+       90,
+       65
+      ],
+      [
+       80,
+       50,
+       45,
+       40,
+       90,
+       65
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 11,
+     "conferido": [
+      [
+       75,
+       95,
+       85,
+       20,
+       55,
+       40
+      ],
+      [
+       75,
+       95,
+       85,
+       20,
+       55,
+       40
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 12,
+     "conferido": [
+      [
+       95,
+       90,
+       80,
+       25,
+       50,
+       30
+      ],
+      [
+       95,
+       90,
+       80,
+       25,
+       50,
+       30
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 13,
+     "conferido": [
+      [
+       70,
+       45,
+       65,
+       80,
+       65,
+       45
+      ],
+      [
+       70,
+       45,
+       65,
+       80,
+       65,
+       45
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 14,
+     "conferido": [
+      [
+       75,
+       80,
+       75,
+       40,
+       55,
+       45
+      ],
+      [
+       75,
+       80,
+       75,
+       40,
+       55,
+       45
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 15,
+     "conferido": [
+      [
+       70,
+       60,
+       50,
+       95,
+       55,
+       100
+      ],
+      [
+       70,
+       60,
+       50,
+       95,
+       55,
+       100
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 16,
+     "conferido": [
+      [
+       60,
+       40,
+       48,
+       74,
+       70,
+       62
+      ],
+      [
+       60,
+       40,
+       48,
+       74,
+       70,
+       62
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 17,
+     "conferido": [
+      [
+       90,
+       70,
+       90,
+       39,
+       58,
+       27
+      ],
+      [
+       90,
+       70,
+       90,
+       39,
+       58,
+       27
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 18,
+     "conferido": [
+      [
+       68,
+       44,
+       49,
+       97,
+       62,
+       68
+      ],
+      [
+       68,
+       44,
+       49,
+       97,
+       62,
+       68
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 19,
+     "conferido": [
+      [
+       180,
+       80,
+       100,
+       40,
+       100,
+       70
+      ],
+      [
+       180,
+       80,
+       100,
+       40,
+       100,
+       70
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 20,
+     "conferido": [
+      [
+       135,
+       110,
+       115,
+       30,
+       85,
+       35
+      ],
+      [
+       135,
+       110,
+       115,
+       30,
+       85,
+       35
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    },
+    {
+     "rotulo": "## Atributos-base (nível 100)",
+     "tipo": "atributos",
+     "especie": 21,
+     "conferido": [
+      [
+       110,
+       25,
+       75,
+       130,
+       115,
+       45
+      ],
+      [
+       110,
+       25,
+       75,
+       130,
+       115,
+       45
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  },
+  {
+   "arquivo": "Galetocraft/RoosterTeca/RoosterTeca_012_Salambrasa_Oficial_Completa_v3.md",
+   "sha256_original": "1d256cbfaa923b762cf73f32c18eaa5e41c13f4fc4ef59417d13359e4075da8f",
+   "sha256_corrigido": "a9c43efa62aa1880d1994eedb66e517293c47c97d38245f54f4fd8c53cd19b73",
+   "copias_identicas": [],
+   "correcoes": [
+    {
+     "rotulo": "## Atributos-base (referência nível 100)",
+     "tipo": "atributos",
+     "especie": 12,
+     "conferido": [
+      [
+       95,
+       90,
+       80,
+       25,
+       50,
+       30
+      ],
+      [
+       95,
+       90,
+       80,
+       25,
+       50,
+       30
+      ]
+     ],
+     "acao": "rotulo_trocado_100_para_50"
+    }
+   ]
+  }
+ ]
+}

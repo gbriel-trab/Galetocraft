@@ -1,0 +1,64 @@
+[
+ {
+  "key": "active_filename",
+  "value_json": "base/vigente/*.json no repositório gbriel-trab/Galetocraft (o Galetocraft.sqlite completo é gerado por ferramentas/base/galetobase.py montar)"
+ },
+ {
+  "key": "authorisation",
+  "value_json": "Pedido direto do criador em 17/11/2026 para unificar e manter atualizada a mesma base. Não homologa propostas. | 18/11/2026: o criador transferiu ao Claude a responsabilidade por todo o projeto; o ChatGPT passa a servir apenas para geração de imagens. Homologações continuam exigindo aprovação expressa do criador."
+ },
+ {
+  "key": "historical_sqlite",
+  "value_json": {
+   "release": "acervo-documental-2026-11-17",
+   "arquivo": "Galetocraft_00_Base_Vigente.zip / Galetocraft/Base_Atual/Galetocraft.sqlite",
+   "revisao": 2,
+   "sha256": "9dd2253deabb2732cb8815a6cb7a50944bca29a57cb0bf421cf1d48e89e5aa3c",
+   "uso": "tabelas históricas (object_registry: HISTORICO_OU_EVIDENCIA) para montar o SQLite completo"
+  }
+ },
+ {
+  "key": "identity",
+  "value_json": "Galetocraft"
+ },
+ {
+  "key": "image_generation",
+  "value_json": "ChatGPT, somente para gerar imagens. Uma imagem só entra no Galetário (current_art) depois de aprovação expressa do criador; o Claude confere espécie, ficha e SHA-256 e registra por migração."
+ },
+ {
+  "key": "maintainer",
+  "value_json": "Claude (Claude Code), repositório gbriel-trab/Galetocraft, desde 18/11/2026"
+ },
+ {
+  "key": "policy",
+  "value_json": "Base única mantida no repositório do projeto (base/vigente), sob responsabilidade do Claude. Alterações somente por ferramentas/base/galetobase.py (atualizar ou migrar), com expected_revision, fonte e evidência; cada revisão é um commit revisável. Históricos e propostas preservados sem autoridade; nenhuma outra base ativa."
+ },
+ {
+  "key": "precedence",
+  "value_json": "Decisão expressa mais recente por campo > ficha homologada > cópia histórica; datas de backup não revogam decisões."
+ },
+ {
+  "key": "revision",
+  "value_json": 8
+ },
+ {
+  "key": "runtime_validado",
+  "value_json": false
+ },
+ {
+  "key": "schema_version",
+  "value_json": 1
+ },
+ {
+  "key": "source_beta17_sha256",
+  "value_json": "faf51a1b349fa8c2dbef4c064a3ba0c747860b69c555bb062bfaf65618e9e7af"
+ },
+ {
+  "key": "source_review_sha256",
+  "value_json": "3627b2b9b13b8c01c26d070ea6a8852834ff24b8866f0686b2b37292b268e5cb"
+ },
+ {
+  "key": "status",
+  "value_json": "BASE_UNICA_DOCUMENTAL_VIGENTE"
+ }
+]

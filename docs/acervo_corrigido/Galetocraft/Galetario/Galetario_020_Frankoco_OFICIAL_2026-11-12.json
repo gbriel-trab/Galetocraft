@@ -1,0 +1,418 @@
+{
+  "projeto": "Galetocraft",
+  "catalogo": "Galetário / Galolpédia",
+  "numero": 20,
+  "especie": "Frankocó",
+  "titulo": "O Colosso Reconstruído",
+  "status": "HOMOLOGADO — DESIGN OFICIAL",
+  "aprovacao": "Homologação expressa pelo criador em 12/11/2026 após aprovação de visual, passiva, atributos, cinco originais, 25 aprendíveis, distribuição, e peso revisado.",
+  "versionamento": "ADENDO DE ESPÉCIE #020; NÃO substitui backups Beta nem altera registros anteriores",
+  "raridade": "Épico",
+  "elementos": [
+    "Terra",
+    "Elétrico"
+  ],
+  "papel": "Tanque / Atacante físico",
+  "atributos_base_nivel_50": {
+    "HP": 135,
+    "Ataque Físico": 110,
+    "Defesa Física": 115,
+    "Ataque Mágico": 30,
+    "Defesa Mágica": 85,
+    "Velocidade": 35,
+    "total": 510
+  },
+  "peso_natural_kg": 28.0,
+  "peso_faixa_tecnica_kg": {
+    "80%": 22.4,
+    "100%": 28.0,
+    "150%": 42.0
+  },
+  "passiva": {
+    "nome": "Instinto de Reconstrução",
+    "limiares_HP": [
+      {
+        "hp_percentual": "<=75",
+        "bonus": {
+          "+Defesa Física (%)": 15
+        }
+      },
+      {
+        "hp_percentual": "<=50",
+        "bonus": {
+          "+Ataque Físico (%)": 15
+        }
+      },
+      {
+        "hp_percentual": "<=25",
+        "bonus": {
+          "+Defesa Mágica (%)": 15
+        }
+      }
+    ],
+    "regras": "Bônus cumulativos nos limiares correspondentes, removidos ao recuperar HP acima de cada limite. Não alteram modelo anatômico.",
+    "ultimo_remendo": "Uma vez por Rinha, ao sobreviver a ataque que deixa HP em 25% do máximo ou menos, concede blindagem de 15% do HP máximo. Não cura, não remove estados, não adiciona golpes."
+  },
+  "visual_oficial": {
+    "status": "aprovado — preservar sem alterações",
+    "referencia_biblioteca": "/Ficha Oficial Frankocó #020.png",
+    "descricao": "Galo voxel imponente inspirado no monstro de Frankenstein: plumagem/placas verde-oliva e cinza-escuro, peito bege, crista vermelha irregular, olhos amarelos luminosos, asas volumosas assimétricas, costuras estilizadas, pequenos terminais metálicos laterais, patas grossas amarelas, imponente e de temperamento gentil. Efeitos de Reconstrução via brilho, partículas e animações sem alterar anatomia."
+  },
+  "golpes_de_origem": [
+    {
+      "nome": "Garra Afiada",
+      "categoria": "Físico",
+      "elemento": "Neutro",
+      "poder": 40,
+      "energia": 0,
+      "efeito": "Ataque básico ofensivo universal, sem efeito adicional informado.",
+      "origem": "universal"
+    },
+    {
+      "nome": "Concentração",
+      "categoria": "Suporte",
+      "elemento": "Neutro",
+      "poder": null,
+      "energia": 0,
+      "efeito": "Recupera Energia e concede buff aleatório; 20% de chance de remover estado negativo, segundo a regra global.",
+      "origem": "universal",
+      "equipamento_obrigatorio": true
+    },
+    {
+      "nome": "Costura Tectônica",
+      "categoria": "Físico",
+      "elemento": "Terra",
+      "poder": 85,
+      "energia": 40,
+      "efeito": "Ao acertar, aplica Marca de Sutura ao alvo por até 2 turnos próprios de Frankocó. Se o alvo marcado causar dano direto a Frankocó, consome-se a marca e prepara-se +20% de dano no próximo golpe físico ofensivo de Frankocó usado nos 2 turnos próprios seguintes; o bônus consome-se no primeiro acerto físico válido. Uma marca por Frankocó, sem acúmulo; desaparece se alvo sair de campo; não cura nem adiciona acertos.",
+      "origem": "proprio"
+    },
+    {
+      "nome": "Curto Galvânico",
+      "categoria": "Físico",
+      "elemento": "Elétrico",
+      "poder": 85,
+      "energia": 45,
+      "efeito": "Ao acertar, aplica Circuito Travado: +10 Energia ao próximo golpe ofensivo adversário se HP de Frankocó >75%; +15 se ≤75%; +20 se ≤50%; +25 se ≤25%, segundo HP no acerto. Marca dura até dois turnos do adversário, consome-se quando utiliza próximo golpe ofensivo, não afeta Concentração nem suporte, não acumula, no máximo uma aplicação por ação, desaparece ao sair alvo de campo. Se custo exceder Energia disponível, golpe não pode ser usado.",
+      "origem": "proprio"
+    },
+    {
+      "nome": "Coração da Última Tempestade",
+      "categoria": "Físico",
+      "elemento": "Elétrico",
+      "poder": 115,
+      "energia": 70,
+      "efeito": "Exclusivo/hereditário. Memória dos Impactos: se Frankocó recebeu dano direto desde a última ação, prepara uma carga não acumulável. Ao acertar, +20% dano final no primeiro acerto válido e gera blindagem de 10% de seu HP máximo durante até 2 turnos próprios ou até ser consumida. Sem dano direto prévio, apenas P115. Carga reinicia após próxima ação, usada ou não; bônus uma vez por ação; não gera acertos extras. Se Último Remendo já existir, não soma blindagens: mantém a de maior valor.",
+      "origem": "exclusivo_hereditario",
+      "heranca": "100% pelo pai, conforme regra global homologada"
+    }
+  ],
+  "golpes_adicionais_aprendiveis": [
+    {
+      "nome": "Martelo de Estratos",
+      "categoria": "Físico",
+      "elemento": "Terra",
+      "poder": 95,
+      "energia": 40,
+      "efeito": "Ao acertar, 25% de chance de reduzir Defesa Física do alvo em 15% por 2 turnos dele."
+    },
+    {
+      "nome": "Bico de Bobina",
+      "categoria": "Físico",
+      "elemento": "Elétrico",
+      "poder": 65,
+      "energia": 25,
+      "efeito": "Ao acertar, 20% de chance de aplicar Paralisia."
+    },
+    {
+      "nome": "Pisada de Ancoragem",
+      "categoria": "Físico",
+      "elemento": "Terra",
+      "poder": 80,
+      "energia": 35,
+      "efeito": "Ao acertar, reduz Velocidade do alvo em 20% por 2 turnos dele."
+    },
+    {
+      "nome": "Choque dos Rebites",
+      "categoria": "Físico",
+      "elemento": "Elétrico",
+      "poder": 100,
+      "energia": 45,
+      "efeito": "Se o alvo estiver sob Circuito Travado, causa +15% dano final; não consome a marca."
+    },
+    {
+      "nome": "Asa Desparafusadora",
+      "categoria": "Físico",
+      "elemento": "Neutro",
+      "poder": 75,
+      "energia": 30,
+      "efeito": "Ao acertar, remove um bônus temporário positivo de Defesa Física do alvo, sem afetar passivas."
+    },
+    {
+      "nome": "Ombro de Cascalho",
+      "categoria": "Físico",
+      "elemento": "Terra",
+      "poder": 85,
+      "energia": 35,
+      "efeito": "Ao acertar, reduz Ataque Físico do adversário em 15% por 2 turnos dele."
+    },
+    {
+      "nome": "Garra de Escória",
+      "categoria": "Físico",
+      "elemento": "Fogo",
+      "poder": 85,
+      "energia": 40,
+      "efeito": "Ao acertar, 20% de chance de aplicar Queimadura."
+    },
+    {
+      "nome": "Trava de Indução",
+      "categoria": "Físico",
+      "elemento": "Elétrico",
+      "poder": 75,
+      "energia": 35,
+      "efeito": "Ao acertar, retira 10 de Energia do inimigo, uma vez por ação."
+    },
+    {
+      "nome": "Colisão de Pedreira",
+      "categoria": "Físico",
+      "elemento": "Terra",
+      "poder": 110,
+      "energia": 55,
+      "efeito": "Se Frankocó estiver com HP ≤25% quando selecionar o golpe, custo reduzido de 55 para 45 Energia."
+    },
+    {
+      "nome": "Punho dos Rebites",
+      "categoria": "Físico",
+      "elemento": "Neutro",
+      "poder": 70,
+      "energia": 30,
+      "efeito": "Se alvo tiver blindagem, remove da proteção valor igual a até 5% do HP máximo do alvo antes do dano normal; efeito extra não causa dano ao HP."
+    },
+    {
+      "nome": "Chassi de Argila",
+      "categoria": "Suporte",
+      "elemento": "Terra",
+      "poder": null,
+      "energia": 35,
+      "efeito": "Concede +20% Defesa Mágica a Frankocó ou a aliado na reserva por 2 turnos do beneficiário, iniciados quando ele entrar em campo se for reserva."
+    },
+    {
+      "nome": "Rebitagem de Emergência",
+      "categoria": "Suporte",
+      "elemento": "Terra",
+      "poder": null,
+      "energia": 45,
+      "efeito": "Concede blindagem de 12% do HP máximo de Frankocó por 2 turnos próprios ou até consumida; não acumula com suas outras blindagens, prevalece a maior."
+    },
+    {
+      "nome": "Ombreira de Cascalho",
+      "categoria": "Suporte",
+      "elemento": "Terra",
+      "poder": null,
+      "energia": 40,
+      "efeito": "Reduz 30% do próximo dano físico direto recebido, se ocorrer em até 2 turnos próprios."
+    },
+    {
+      "nome": "Captador de Faíscas",
+      "categoria": "Suporte",
+      "elemento": "Elétrico",
+      "poder": null,
+      "energia": 30,
+      "efeito": "Por até 2 turnos próprios, próximo golpe Elétrico direto recebido causa 20% menos dano e devolve 20 Energia a Frankocó; ativa uma vez."
+    },
+    {
+      "nome": "Circuito Auxiliar",
+      "categoria": "Suporte",
+      "elemento": "Elétrico",
+      "poder": null,
+      "energia": 35,
+      "efeito": "Transfere imediatamente 20 Energia para aliado vivo na reserva, respeitando máximo universal 100."
+    },
+    {
+      "nome": "Soltura de Engrenagens",
+      "categoria": "Suporte",
+      "elemento": "Neutro",
+      "poder": null,
+      "energia": 35,
+      "efeito": "Remove Tonto de Frankocó ou aliado na reserva e concede +15% Velocidade por 2 turnos do beneficiário."
+    },
+    {
+      "nome": "Ímã de Retenção",
+      "categoria": "Suporte",
+      "elemento": "Elétrico",
+      "poder": null,
+      "energia": 40,
+      "efeito": "Prepara por 2 turnos próprios resposta ao próximo golpe físico direto recebido: reduz Velocidade do atacante em 20% por 2 turnos dele. Ativa uma vez."
+    },
+    {
+      "nome": "Bobina de Reserva",
+      "categoria": "Suporte",
+      "elemento": "Elétrico",
+      "poder": null,
+      "energia": 30,
+      "efeito": "No início do próximo turno próprio, se Frankocó estiver em campo, recupera +45 Energia além dos +20 universais; não acumula com outra Bobina de Reserva."
+    },
+    {
+      "nome": "Fivelas de Reserva",
+      "categoria": "Suporte",
+      "elemento": "Terra",
+      "poder": null,
+      "energia": 35,
+      "efeito": "Por até 2 turnos próprios, prepara proteção que reduz 25% do primeiro dano direto que, sem essa proteção, retiraria ao menos 15% do HP máximo. Ativa uma vez."
+    },
+    {
+      "nome": "Descarga Depuradora",
+      "categoria": "Suporte",
+      "elemento": "Elétrico",
+      "poder": null,
+      "energia": 45,
+      "efeito": "Remove um estado negativo de Frankocó ou de aliado na reserva e concede 10 Energia ao beneficiário; não cura HP nem excede 100 Energia."
+    },
+    {
+      "nome": "Campo de Fendas",
+      "categoria": "Suporte",
+      "elemento": "Terra",
+      "poder": null,
+      "energia": 45,
+      "efeito": "Instala armadilha com uma carga no lado adversário: próximo inimigo que entrar perde 5% de HP máximo e 10 Energia. Persiste até ativar ou ser removida pela técnica universal de remoção de armadilhas; não acumula consigo mesma."
+    },
+    {
+      "nome": "Sinal de Revezamento",
+      "categoria": "Suporte",
+      "elemento": "Elétrico",
+      "poder": null,
+      "energia": 40,
+      "efeito": "Se um aliado entrar em campo nos próximos 2 turnos da equipe, recebe 10 Energia e +15% Defesa Física por 2 turnos próprios. Consome na primeira entrada válida."
+    },
+    {
+      "nome": "Arco de Interferência",
+      "categoria": "Suporte",
+      "elemento": "Elétrico",
+      "poder": null,
+      "energia": 45,
+      "efeito": "Marca inimigo por até 2 turnos dele. Se usar Suporte, após executar golpe perde +15 Energia; ativa uma vez, não acumula e desaparece ao sair alvo de campo. Não impede a utilização da técnica."
+    },
+    {
+      "nome": "Selo Antissutura",
+      "categoria": "Suporte",
+      "elemento": "Terra",
+      "poder": null,
+      "energia": 40,
+      "efeito": "Marca adversário por até 2 turnos dele. Próxima cura recebida (ativa ou passiva) tem eficácia reduzida em 40%, consumindo marca; desaparece se alvo sair. Marca específica, não novo status negativo universal."
+    },
+    {
+      "nome": "Polaridade de Retorno",
+      "categoria": "Suporte",
+      "elemento": "Elétrico",
+      "poder": null,
+      "energia": 40,
+      "efeito": "Prepara por até 2 turnos próprios uma reação. Ao receber dano mágico direto, o próximo golpe físico ofensivo de Frankocó terá custo reduzido em 20 Energia, mínimo 0, se usado nos 2 turnos próprios seguintes. Ativa uma vez."
+    }
+  ],
+  "progressao": {
+    "por_nivel": [
+      {
+        "nivel": 1,
+        "golpe": "Garra Afiada"
+      },
+      {
+        "nivel": 1,
+        "golpe": "Concentração"
+      },
+      {
+        "nivel": 5,
+        "golpe": "Bico de Bobina"
+      },
+      {
+        "nivel": 9,
+        "golpe": "Ombreira de Cascalho"
+      },
+      {
+        "nivel": 13,
+        "golpe": "Martelo de Estratos"
+      },
+      {
+        "nivel": 17,
+        "golpe": "Costura Tectônica"
+      },
+      {
+        "nivel": 21,
+        "golpe": "Chassi de Argila"
+      },
+      {
+        "nivel": 25,
+        "golpe": "Pisada de Ancoragem"
+      },
+      {
+        "nivel": 29,
+        "golpe": "Rebitagem de Emergência"
+      },
+      {
+        "nivel": 33,
+        "golpe": "Trava de Indução"
+      },
+      {
+        "nivel": 37,
+        "golpe": "Curto Galvânico"
+      },
+      {
+        "nivel": 41,
+        "golpe": "Colisão de Pedreira"
+      },
+      {
+        "nivel": 44,
+        "golpe": "Descarga Depuradora"
+      },
+      {
+        "nivel": 47,
+        "golpe": "Sinal de Revezamento"
+      },
+      {
+        "nivel": 50,
+        "golpe": "Coração da Última Tempestade"
+      }
+    ],
+    "apenas_treinamento": [
+      "Choque dos Rebites",
+      "Asa Desparafusadora",
+      "Ombro de Cascalho",
+      "Garra de Escória",
+      "Punho dos Rebites",
+      "Captador de Faíscas",
+      "Circuito Auxiliar",
+      "Soltura de Engrenagens",
+      "Ímã de Retenção",
+      "Bobina de Reserva",
+      "Fivelas de Reserva",
+      "Campo de Fendas",
+      "Arco de Interferência",
+      "Selo Antissutura",
+      "Polaridade de Retorno"
+    ]
+  },
+  "regras_transversais": {
+    "energia_maxima": 100,
+    "recuperacao_energia_inicio_turno": 20,
+    "golpes_equipados": 5,
+    "slots_livres": 4,
+    "concentracao_obrigatoria": true,
+    "limite_ataques_convencionais_por_acao": 2,
+    "heranca_exclusiva": "100% pelo pai conforme regra homologada"
+  },
+  "integracao_software": {
+    "sqlite_oficial_atualizado": false,
+    "minecraft_mod_programado": false,
+    "simulacoes_reais_executadas": false
+  },
+  "criterios_auditoria": {
+    "contagem_golpes_origem": 5,
+    "contagem_golpes_aprendiveis": 25,
+    "total_movimentos": 30,
+    "total_por_nivel": 15,
+    "total_por_treinamento": 15,
+    "duplicacoes": 0,
+    "pontos_base": 510,
+    "peso_revisado_kg": 28.0
+  },
+  "pendencias": "Somente implementação técnica, sincronização de banco do jogo e testes executáveis. O design da espécie está completo e homologado."
+}

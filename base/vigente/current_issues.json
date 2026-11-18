@@ -1,0 +1,198 @@
+[
+ {
+  "id": "R01",
+  "assunto": "Referencia da base",
+  "status": "RESOLVIDO_NA_BASE_UNICA",
+  "evidencia": "Beta 1.6.1 e indice corrente verificados; hash correspondente; incorporado em current_*",
+  "proximo_passo": "Consultar camada vigente; não reabrir por fonte antiga."
+ },
+ {
+  "id": "R02",
+  "assunto": "36 atributos iniciais",
+  "status": "RESOLVIDO",
+  "evidencia": "R531 + Beta161 + R55 + CSV concordam integralmente",
+  "proximo_passo": "Usar v_gc161r_galetario_documental e base_nivel=50"
+ },
+ {
+  "id": "R03",
+  "assunto": "Rotulo nivel100 em fichas antigas",
+  "status": "RESOLVIDO",
+  "evidencia": "Criador confirmou em 18/11/2026: atributos-base são do nível 50. Cópias corrigidas de 29 fichas oficiais no repositório (docs/acervo_corrigido, errata ERRATA_NIVEL_50).",
+  "proximo_passo": "Conferir fichas pelas cópias corrigidas; originais preservados como histórico."
+ },
+ {
+  "id": "R04",
+  "assunto": "IDs 016-018",
+  "status": "RESOLVIDO",
+  "evidencia": "Beta161 e R55: Libeloco, Castoroco e Mariposoco",
+  "proximo_passo": "Nao promover propostas antigas sobre esses IDs"
+ },
+ {
+  "id": "R05",
+  "assunto": "Sete campos de passivas",
+  "status": "VERIFICADO",
+  "evidencia": "19%,17%,12 energia,9%/10%,14%,3.5%,45% na camada documental",
+  "proximo_passo": "Nao reabrir homologacao; implementacao ainda separada"
+ },
+ {
+  "id": "R06",
+  "assunto": "Nexo #023",
+  "status": "RESOLVIDO_NA_BASE_UNICA",
+  "evidencia": "Fonte JSON e ata 15/11; 13 relacoes elementais; incorporado em current_*",
+  "proximo_passo": "Consultar camada vigente; não reabrir por fonte antiga."
+ },
+ {
+  "id": "R07",
+  "assunto": "Pirococo visual final",
+  "status": "INCORPORADO_DOCUMENTAL",
+  "evidencia": "PNG 15/11 SHA256 127ca9760e15ce9b53ebd7f25c58b9d4eb36eabf80d63fbb34ee68cf3ef297c1",
+  "proximo_passo": "Arte 13/11 preservada apenas como historico"
+ },
+ {
+  "id": "R08",
+  "assunto": "Concentracao e Mira sem texto integral",
+  "status": "RESOLVIDO_NO_PACOTE",
+  "evidencia": "Fontes integrais verificadas e embutidas, com Golpe Duplo e progressao",
+  "proximo_passo": "Consumir normas vigentes; nao executar texto livre como gameplay"
+ },
+ {
+  "id": "R09",
+  "assunto": "Peso Renacoco pendente em atas antigas",
+  "status": "RESOLVIDO_DOCUMENTAL",
+  "evidencia": "R55 referencia 6.8 kg e decisao anterior confirmada; 5.44 a10.20 kg",
+  "proximo_passo": "Nao repetir pendencia de design em novos relatorios"
+ },
+ {
+  "id": "R10",
+  "assunto": "Galeria por alas",
+  "status": "RESOLVIDO_NA_BASE_UNICA",
+  "evidencia": "Mapa V1.2 recuperado: oito alas, 22 especies, 14 duplas e oito simples; sexo atualizado em 16/11; incorporado em current_*",
+  "proximo_passo": "Consultar camada vigente; não reabrir por fonte antiga."
+ },
+ {
+  "id": "R11",
+  "assunto": "Tipagem Cocorvolt",
+  "status": "RESOLVIDO_NA_BASE_UNICA",
+  "evidencia": "Decisao direta do criador em 16/11/2026: Elétrico; incorporado em current_*",
+  "proximo_passo": "Consultar camada vigente; não reabrir por fonte antiga."
+ },
+ {
+  "id": "R12",
+  "assunto": "Arte 019 e020; modelo r82",
+  "status": "RESOLVIDO",
+  "evidencia": "Artes #019 (Renacocó com Face Azul Claro.png) e #020 (Ficha Oficial Frankocó #020.png) incorporadas em current_art na revisão 4, com SHA-256 conferido; modelo r82 do Renacocó no repositório (modelos/renacoco), exportado no mod.",
+  "proximo_passo": "Nenhum."
+ },
+ {
+  "id": "R13",
+  "assunto": "Curva1-49 e HP de referencia",
+  "status": "RESOLVIDO",
+  "evidencia": "Normas R5.4 (curva 1–49, HP nominal, HP_ref) adotadas em 18/11; ver progressao.norma_atributos_rev8",
+  "proximo_passo": "Nenhum; recalibrar só as faixas de EV (U12)"
+ },
+ {
+  "id": "R14",
+  "assunto": "Migracao funcional e Minecraft",
+  "status": "BLOQUEADO_RUNTIME",
+  "evidencia": "141 operacoes preservadas; 12 especies no nucleo historico",
+  "proximo_passo": "Integracao real no projeto fonte e testes separados"
+ },
+ {
+  "id": "R15",
+  "assunto": "Catalogo de golpes e marcos",
+  "status": "RECONCILIADO_COMO_CANDIDATA",
+  "evidencia": "660 vinculos, 5+25 por especie e332 marcos na R55; rev. 8: tabelas de aprendizado de 16 espécies na regra aprendizado",
+  "proximo_passo": "Golpes aprendíveis seguem sem efeito executável aprovado; aprendizado de #013–#018 e #023 sem dado (U11, U03)"
+ },
+ {
+  "id": "R16",
+  "assunto": "Parametros restantes da reproducao",
+  "status": "FONTE_FALTANTE",
+  "evidencia": "Etapas01,02,04, taxas de ovos e gêmeos incorporadas",
+  "proximo_passo": "Recuperar somente gatilhos especiais completos, critérios ambientais e elegibilidade de golpes entre espécies."
+ },
+ {
+  "id": "U01",
+  "assunto": "Herança de Bico entre espécies",
+  "status": "PENDENTE",
+  "evidencia": "Escopo não resolvido por esta consolidação",
+  "proximo_passo": "Recuperar critérios de elegibilidade, limites e vínculos ainda ausentes; não inferir pelos sexos ou alas."
+ },
+ {
+  "id": "U02",
+  "assunto": "Reprodução etapas03/05/06 e demais",
+  "status": "PENDENTE",
+  "evidencia": "Escopo não resolvido por esta consolidação",
+  "proximo_passo": "Etapa03 sem texto integral recuperado; Etapa05 apenas diretriz partículas; Etapa06 proposta; não declarar12/12."
+ },
+ {
+  "id": "U03",
+  "assunto": "Aprendizagem #023",
+  "status": "PENDENTE",
+  "evidencia": "Ficha #023 de 16/11: \"Pendente, não homologado nesta etapa: níveis e meios específicos de aprendizagem\"; nada mais novo no acervo",
+  "proximo_passo": "Distribuir níveis e treinamento mediante decisão;30golpes já homologados."
+ },
+ {
+  "id": "U04",
+  "assunto": "Maestria Elemental",
+  "status": "PENDENTE",
+  "evidencia": "Escopo não resolvido por esta consolidação",
+  "proximo_passo": "Recuperar texto integral citado pelo criador."
+ },
+ {
+  "id": "U05",
+  "assunto": "Integração automática a cada implementação",
+  "status": "RESOLVIDO_POR_GOVERNANCA",
+  "evidencia": "Desde 18/11/2026 a base vigente e o código do mod ficam no mesmo repositório, sob responsabilidade do Claude; cada alteração é um commit validado por galetobase.py validar.",
+  "proximo_passo": "Adicionar validação automática da base no CI quando o mod passar a ler a base."
+ },
+ {
+  "id": "U06",
+  "assunto": "Critérios ambientais Etapa02",
+  "status": "PENDENTE",
+  "evidencia": "Escopo não resolvido por esta consolidação",
+  "proximo_passo": "Preservar40/18min e30/5/10/10%; recuperar regras detalhadas de detecção."
+ },
+ {
+  "id": "U07",
+  "assunto": "Aparecimento no mundo (spawn)",
+  "status": "PENDENTE_SEM_DADO",
+  "evidencia": "Nenhuma regra de bioma, frequência, grupo, horário ou nível dos selvagens no acervo; só habitats narrativos de #010 e #016–#018 e \"Divinos não aparecem naturalmente\" (09/11)",
+  "proximo_passo": "Decidir biomas, pesos e faixas de nível por espécie"
+ },
+ {
+  "id": "U08",
+  "assunto": "Pena de Captura: obtenção e aparência",
+  "status": "PENDENTE_SEM_DADO",
+  "evidencia": "Oficial: pena com rubi central, uma por treinador, não consumível; nome_exato, design_exato, obtenção, recuperação, perda e receita são NULL (v1216)",
+  "proximo_passo": "Decidir como o treinador recebe e recupera a Pena; gerar a arte no ChatGPT"
+ },
+ {
+  "id": "U09",
+  "assunto": "Gerenciamento da equipe e escalação da Rinha",
+  "status": "PENDENTE_SEM_DADO",
+  "evidencia": "procedimento_troca_equipe_reservas, interface_gerenciamento e team_lead_selection_policy sem definição (hipótese de simulação: aleatória)",
+  "proximo_passo": "Decidir quais 3 dos 5 entram na Rinha, quem começa e como trocar com as reservas"
+ },
+ {
+  "id": "U10",
+  "assunto": "Galeto do treinador no mundo",
+  "status": "PENDENTE_SEM_DADO",
+  "evidencia": "Reprodução Etapa 01 e Peso V1.2 pressupõem Galetos do treinador no mundo, mas não há regra para soltar/recolher",
+  "proximo_passo": "Decidir como o Galeto sai da equipe para o mundo e volta"
+ },
+ {
+  "id": "U11",
+  "assunto": "Aprendizado de #013–#018",
+  "status": "PENDENTE_SEM_DADO",
+  "evidencia": "Nenhuma grade por nível ou treinamento no acervo; a ficha do #013 proíbe inventar nível de aprendizado",
+  "proximo_passo": "Distribuir os 30 golpes de cada espécie (15 por nível, 15 por treinamento)"
+ },
+ {
+  "id": "U12",
+  "assunto": "Faixas de dificuldade de EV",
+  "status": "PENDENTE_SEM_DADO",
+  "evidencia": "A V1.2 dobra o custo a cada 50% da soma de base \"no nível 100\" (totais antigos, 850 no Mítico); não há versão no nível 50",
+  "proximo_passo": "Recalibrar as faixas para os totais do nível 50 e definir os ganhos de EV em combate e treino"
+ }
+]

@@ -1,0 +1,35 @@
+// Núcleo de regras do Galetocraft: Java puro, sem Minecraft.
+// Lê a base vigente exportada (src/main/resources/galetocraft/dados) e implementa as regras oficiais.
+// Testes: gradlew :nucleo:test
+plugins {
+	id 'java-library'
+}
+
+group = 'br.galetocraft'
+version = '0.1.0'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// O Minecraft já traz o Gson em tempo de execução; aqui ele só é usado para compilar e testar.
+	compileOnly 'com.google.code.gson:gson:2.11.0'
+	testImplementation 'com.google.code.gson:gson:2.11.0'
+	testImplementation platform('org.junit:junit-bom:5.11.3')
+	testImplementation 'org.junit.jupiter:junit-jupiter'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 21
+	it.options.encoding = 'UTF-8'
+}
+
+test {
+	useJUnitPlatform()
+	testLogging {
+		events 'failed'
+		exceptionFormat 'full'
+	}
+}

@@ -27,7 +27,7 @@ import net.minecraft.sounds.SoundSource;
 public class GaleriaTesteCliente implements FabricClientGameTest {
 	@Override
 	public void runTest(ClientGameTestContext contexto) {
-		if (System.getenv("GALETO_BENCH") != null)
+		if (System.getenv("GALETO_BENCH") != null || Testes.pular("galeria"))
 			return;
 
 		final List<String> especies = new ArrayList<>();

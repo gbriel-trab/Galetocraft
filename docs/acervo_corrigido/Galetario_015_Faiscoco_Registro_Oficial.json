@@ -1,0 +1,352 @@
+{
+  "project": "Galetocraft",
+  "encyclopedia": "Galetário",
+  "species_number": "#015",
+  "name": "Faíscocó",
+  "epithet": "O Galo Tempestífugo",
+  "rarity": "Raro",
+  "elements": [
+    "Fogo",
+    "Elétrico"
+  ],
+  "approval_date": "2026-11-11",
+  "status": "Criação e ficha documental homologadas; jogo executável e simulações não verificados",
+  "base_stats_level_50": {
+    "HP": 70,
+    "Ataque Físico": 60,
+    "Defesa Física": 50,
+    "Ataque Mágico": 95,
+    "Defesa Mágica": 55,
+    "Velocidade": 100
+  },
+  "base_total": 430,
+  "passive": {
+    "name": "Indução Incandescente v2",
+    "full_rules": "INDUÇÃO INCANDESCENTE v2 — Faíscocó começa sua PRIMEIRA entrada em uma Rinha com 1 Carga Termoelétrica. Enquanto possuir carga, seu primeiro acerto VÁLIDO de um golpe MÁGICO OFENSIVO de Fogo ou Elétrico que cause dano consome a carga, aumenta APENAS ESSE ACERTO em 30% de dano e recupera 10 pontos de energia, limitados ao máximo universal de 100. Não afeta acertos adicionais da mesma ação. A recarga ofensiva ocorre ao FINAL de uma ação com golpe mágico ofensivo de Fogo/Elétrico (mesmo se errar), mas SOMENTE se Faíscocó INICIOU aquela ação sem Carga Termoelétrica; consumir uma carga durante a ação NÃO permite recarregar pelo mesmo ataque. Receber dano DIRETO de golpe inimigo também produz 1 carga se ainda não houver carga, excluídos danos indiretos de estados negativos, clima e armadilhas. Máximo 1 carga, sem acumular ou gerar ataques extras. Trocar para a reserva elimina a carga, e entradas posteriores não fornecem uma nova carga inicial.",
+    "first_entry_charge": 1,
+    "max_charges": 1,
+    "damage_bonus": 0.3,
+    "energy_refund": 10,
+    "recharge_requires_no_charge_at_action_start": true,
+    "offensive_recharge_at_end_of_action": true,
+    "direct_enemy_hit_can_charge_when_empty": true,
+    "leave_field_clears_charge": true
+  },
+  "original_moves": [
+    {
+      "slot": 1,
+      "name": "Crina Poderosa",
+      "element": "Neutro",
+      "category": "Mágico",
+      "power": 40,
+      "energy": 0,
+      "effect": "Golpe básico mágico sem efeito secundário; preserva a regra universal."
+    },
+    {
+      "slot": 2,
+      "name": "Concentração",
+      "element": "Sem elemento",
+      "category": "Suporte",
+      "power": null,
+      "energy": 0,
+      "effect": "Efeitos universais vigentes de Concentração; único golpe obrigatoriamente equipado. Não atribuir porcentagem nova."
+    },
+    {
+      "slot": 3,
+      "name": "Fio de Ionização v2",
+      "element": "Elétrico",
+      "category": "Mágico",
+      "power": 65,
+      "energy": 35,
+      "effect": "Após acerto com dano, 40% de reduzir Defesa Mágica do alvo em 10% por 2 turnos do alvo. Apenas 1 verificação ao final da ação, mesmo com ataque adicional por Velocidade. Não acumula."
+    },
+    {
+      "slot": 4,
+      "name": "Manto de Cinza Viva v2",
+      "element": "Fogo",
+      "category": "Mágico",
+      "power": 55,
+      "energy": 40,
+      "effect": "Golpe mágico ofensivo; ao final da ação cria proteção que reduz em 35% o dano do próximo acerto direto recebido, mesmo que o golpe ofensivo erre. Expira após proteger 1 acerto ou ao final do segundo turno próprio posterior à utilização, o que ocorrer primeiro. Não acumula, não bloqueia estados negativos; máximo 1 manto por ação."
+    },
+    {
+      "slot": 5,
+      "name": "Tormenta do Anel Rubro",
+      "element": "Fogo",
+      "category": "Mágico",
+      "power": 95,
+      "energy": 55,
+      "effect": "Depois de pelo menos 1 acerto que cause dano, 15% de chance de Queimadura, com apenas 1 verificação ao final da ação e regras universais de estados negativos."
+    }
+  ],
+  "additional_learnable_moves": [
+    {
+      "id": "G001",
+      "name": "Bico de Brasas",
+      "element": "Fogo",
+      "category": "Físico",
+      "power": 40,
+      "energy": 0,
+      "effect": "+10% de dano contra alvo já Queimado."
+    },
+    {
+      "id": "G002",
+      "name": "Espora Incandescente",
+      "element": "Fogo",
+      "category": "Físico",
+      "power": 65,
+      "energy": 30,
+      "effect": "20% de chance de Queimadura; contra alvo já Queimado, reduz a Defesa Física do alvo em 8% por duas ações."
+    },
+    {
+      "id": "G003",
+      "name": "Galope de Carvão",
+      "element": "Fogo",
+      "category": "Físico",
+      "power": 85,
+      "energy": 35,
+      "effect": "Poder 105 se o usuário sofreu dano de armadilha desde sua última ação."
+    },
+    {
+      "id": "G006",
+      "name": "Faísca de Terreiro",
+      "element": "Fogo",
+      "category": "Mágico",
+      "power": 40,
+      "energy": 0,
+      "effect": "Sob Ensolarado, 15% de reduzir o Ataque Mágico do alvo em 8% por uma ação."
+    },
+    {
+      "id": "G007",
+      "name": "Sopro de Cinzas",
+      "element": "Fogo",
+      "category": "Mágico",
+      "power": 65,
+      "energy": 30,
+      "effect": "Poder 80 sob Chuva; fora da Chuva, 20% de chance de Queimadura após causar dano."
+    },
+    {
+      "id": "G008",
+      "name": "Rosácea de Fagulhas",
+      "element": "Fogo",
+      "category": "Mágico",
+      "power": 85,
+      "energy": 40,
+      "effect": "Durante o cálculo de dano, reduz pela metade um bônus positivo de Ataque Mágico do alvo, sem removê-lo."
+    },
+    {
+      "id": "G011",
+      "name": "Chamado do Meio-Dia",
+      "element": "Fogo",
+      "category": "Suporte",
+      "power": null,
+      "energy": 30,
+      "effect": "Invoca Ensolarado por quatro rodadas; se substituir Chuva, concede +10% de Defesa Mágica ao usuário até sua próxima ação."
+    },
+    {
+      "id": "G013",
+      "name": "Cinzas da Discórdia",
+      "element": "Fogo",
+      "category": "Suporte",
+      "power": null,
+      "energy": 35,
+      "effect": "Reduz o Ataque Físico do alvo em 12% por duas ações; se já Queimado, reduz em 18%."
+    },
+    {
+      "id": "N001",
+      "name": "Brasa de Rebate",
+      "element": "Fogo",
+      "category": "Físico",
+      "power": 75,
+      "energy": 45,
+      "effect": "Poder 100 se o usuário recebeu dano físico direto desde sua última ação própria."
+    },
+    {
+      "id": "N002",
+      "name": "Cinza Desarmadora",
+      "element": "Fogo",
+      "category": "Mágico",
+      "power": 70,
+      "energy": 45,
+      "effect": "Após causar dano, remove o bônus temporário positivo mais forte de Ataque Mágico do alvo."
+    },
+    {
+      "id": "N003",
+      "name": "Fornalha Resguardada",
+      "element": "Fogo",
+      "category": "Suporte",
+      "power": null,
+      "energy": 40,
+      "effect": "Remove Queimadura do próprio usuário e concede +20% de Defesa Mágica por duas ações próprias."
+    },
+    {
+      "id": "N004",
+      "name": "Brilho de Carvão",
+      "element": "Fogo",
+      "category": "Mágico",
+      "power": 80,
+      "energy": 45,
+      "effect": "Sob Ensolarado, recupera 15 de energia após causar dano, uma vez por ação."
+    },
+    {
+      "id": "G071",
+      "name": "Bicada Elétrica",
+      "element": "Elétrico",
+      "category": "Físico",
+      "power": 40,
+      "energy": 0,
+      "effect": "Poder 50 contra alvo Paralisado."
+    },
+    {
+      "id": "G072",
+      "name": "Espora de Cobre",
+      "element": "Elétrico",
+      "category": "Físico",
+      "power": 65,
+      "energy": 30,
+      "effect": "18% de chance de Tonto após dano; se alvo já Tonto, recupera 8 de energia em vez de reaplicar."
+    },
+    {
+      "id": "G073",
+      "name": "Investida do Dínamo",
+      "element": "Elétrico",
+      "category": "Físico",
+      "power": 85,
+      "energy": 35,
+      "effect": "Poder 100 contra alvo com menos de 30 de energia."
+    },
+    {
+      "id": "G074",
+      "name": "Cascata de Centelhas",
+      "element": "Elétrico",
+      "category": "Físico",
+      "power": 100,
+      "energy": 50,
+      "effect": "Reduz Defesa Física do alvo em 12% por duas ações; sob Santuário dos Raios, reduz 16% por uma ação e recupera 5 de energia."
+    },
+    {
+      "id": "G076",
+      "name": "Arco de Faísca",
+      "element": "Elétrico",
+      "category": "Mágico",
+      "power": 40,
+      "energy": 0,
+      "effect": "Poder 50 sob Santuário dos Raios, sem produzir golpes adicionais."
+    },
+    {
+      "id": "G077",
+      "name": "Pulso Condutor",
+      "element": "Elétrico",
+      "category": "Mágico",
+      "power": 65,
+      "energy": 30,
+      "effect": "15% de chance de Tonto; contra alvo já Paralisado, drena 10 de energia em vez de tentar Tonto."
+    },
+    {
+      "id": "G078",
+      "name": "Círculo Voltaico",
+      "element": "Elétrico",
+      "category": "Mágico",
+      "power": 80,
+      "energy": 40,
+      "effect": "Reduz Ataque Mágico do alvo em 10% por duas ações após causar dano; ao final recupera 8 de energia se estava abaixo de 40 após pagar o custo."
+    },
+    {
+      "id": "G081",
+      "name": "Cântico dos Condutores",
+      "element": "Elétrico",
+      "category": "Suporte",
+      "power": null,
+      "energy": 35,
+      "effect": "Invoca Santuário dos Raios por quatro rodadas; se o usuário estiver Paralisado, recupera 10 de energia após a execução."
+    },
+    {
+      "id": "G083",
+      "name": "Campo de Centelhas",
+      "element": "Elétrico",
+      "category": "Suporte",
+      "power": null,
+      "energy": 45,
+      "effect": "Armadilha persistente que reduz Defesa Mágica do adversário que entrar por troca voluntária em 12% por duas ações; se entrar Paralisado, reduz 15% por uma ação."
+    },
+    {
+      "id": "G084",
+      "name": "Escudo Galvânico",
+      "element": "Elétrico",
+      "category": "Suporte",
+      "power": null,
+      "energy": 35,
+      "effect": "Concede a um aliado redução de 25% do dano mágico na próxima ação ofensiva recebida; aumenta para 35% se o protegido tiver menos de 40 de energia no impacto."
+    },
+    {
+      "id": "G110",
+      "name": "Descarga Sináptica",
+      "element": "Elétrico",
+      "category": "Suporte",
+      "power": null,
+      "energy": 60,
+      "effect": "Concede +18% Ataque Mágico e +15% Velocidade por duas ações; sob Santuário dos Raios, impede a primeira tentativa de reduzir Velocidade durante o efeito."
+    },
+    {
+      "id": "G057",
+      "name": "Asa Riscante",
+      "element": "Ar",
+      "category": "Físico",
+      "power": 40,
+      "energy": 0,
+      "effect": "Poder 50 se a Velocidade do usuário superar a do alvo, sem criar ataques adicionais."
+    },
+    {
+      "id": "N018",
+      "name": "Vórtice de Passagem",
+      "element": "Ar",
+      "category": "Suporte",
+      "power": null,
+      "energy": 45,
+      "effect": "Troca Faíscocó por aliado apto da reserva; somente nessa entrada o substituto ignora gatilhos das armadilhas aliadas, sem remover armadilhas ou proteger trocas futuras."
+    }
+  ],
+  "loadout": {
+    "slots": 5,
+    "mandatory_move": "Concentração",
+    "other_slots": 4,
+    "total_learnable": 30
+  },
+  "natural_maximum_weight_kg": 5.8,
+  "technical_reference_weight_kg": {
+    "80pct": 4.64,
+    "100pct": 5.8,
+    "150pct": 8.7
+  },
+  "battle_rules": {
+    "max_energy": 100,
+    "energy_regen_at_start_own_turn": 20,
+    "conventional_hits_max": 2,
+    "sequential_category_exception_max_hits": 5,
+    "sequential_probabilities_conditional": [
+      1,
+      0.7,
+      0.5,
+      0.3,
+      0.15
+    ],
+    "extra_hit_by_speed_not_stackable_with_sequential": true
+  },
+  "visual": {
+    "file": "Faiscoco_015_Arte_Original_Homologada_SEM_ALTERACOES.png",
+    "sha256": "bf37633893aa36a6db95d32224e4ed743cbf74dda32adac0224a8b2395b9e4d6",
+    "approved_without_pixel_edit": true,
+    "notes": "A prancha original aprovada mostra selo histórico Comum, anterior à promoção homologada para Raro. O dado oficial é Raro. A arte permanece intacta e correção do selo visual depende de autorização específica; chamadas gráficas de auditoria não comprovam implementação real."
+  },
+  "audits": {
+    "stats_sum": "CONFORME",
+    "rarity_scale": "CONFORME: 410–450, referencia 430",
+    "ids": "CONFORME: 25 únicos; G084 incluído e G079 excluído na aprovação final",
+    "move_category_distribution": "12 Mágicos, 9 Físicos, 9 Suportes",
+    "weight_reference": "CONFORME: 4,64–8,70 kg",
+    "visual_rarity_badge": "RESSALVA: selo Comum desatualizado",
+    "minecraft_in_game_test": "NÃO VERIFICADO",
+    "competitive_simulation": "NÃO REALIZADA",
+    "catalog_consistency": "Conforme homologações expressas do usuário; notas históricas mais antigas não substituem a revisão aprovada"
+  }
+}

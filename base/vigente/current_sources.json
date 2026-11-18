@@ -1,0 +1,74 @@
+[
+ {
+  "id": "14051b2b96fa5221da8c74e9e9a66a7bb021e26d6161fe8e8b42eab3380f1e1b",
+  "filename": "GalolpeTeca_023_Quetzacoco_30_Golpes_OFICIAL_2026-11-16.json",
+  "library_id": null,
+  "sha256": "14051b2b96fa5221da8c74e9e9a66a7bb021e26d6161fe8e8b42eab3380f1e1b",
+  "kind": "FONTE_DOCUMENTAL",
+  "arquivo": "fontes/GalolpeTeca_023_Quetzacoco_30_Golpes_OFICIAL_2026-11-16.json"
+ },
+ {
+  "id": "3106b418aec746e391c8ae30fca4fcbe54738a2ce6a43813ef05dc0f9a576bd2",
+  "filename": "Galetario_023_Identidade_Visual_Oficial_2026-11-16.md",
+  "library_id": null,
+  "sha256": "3106b418aec746e391c8ae30fca4fcbe54738a2ce6a43813ef05dc0f9a576bd2",
+  "kind": "FONTE_DOCUMENTAL",
+  "arquivo": "fontes/Galetario_023_Identidade_Visual_Oficial_2026-11-16.md"
+ },
+ {
+  "id": "6865da0e66d5bd34c9d1413a16e3a792ed2a0294729446e7a06bc02a579de2be",
+  "filename": "contexto_reproducao.json",
+  "library_id": null,
+  "sha256": "6865da0e66d5bd34c9d1413a16e3a792ed2a0294729446e7a06bc02a579de2be",
+  "kind": "CONTEXTO_RECUPERADO",
+  "arquivo": "fontes/contexto_reproducao.json"
+ },
+ {
+  "id": "6dc57c4346a587318321f3ef959f211f7ea90518ad1420c71ba79a47ac5f1359",
+  "filename": "Galetario_023_Homologacao_Visual_Oficial_2026-11-16.json",
+  "library_id": null,
+  "sha256": "6dc57c4346a587318321f3ef959f211f7ea90518ad1420c71ba79a47ac5f1359",
+  "kind": "FONTE_DOCUMENTAL",
+  "arquivo": "fontes/Galetario_023_Homologacao_Visual_Oficial_2026-11-16.json"
+ },
+ {
+  "id": "71eb495ee11bde9be20db16a7ba2de595cbcf4c3a8bdf7c21464dd8887f65290",
+  "filename": "Galetocraft_Reproducao_Etapa01_HOMOLOGADA_2026-11-16.json",
+  "library_id": null,
+  "sha256": "71eb495ee11bde9be20db16a7ba2de595cbcf4c3a8bdf7c21464dd8887f65290",
+  "kind": "FONTE_DOCUMENTAL",
+  "arquivo": "fontes/Galetocraft_Reproducao_Etapa01_HOMOLOGADA_2026-11-16.json"
+ },
+ {
+  "id": "b03d52c50621ba14f9903f9124b3ae06c93e37c1bf073fb1985789e2db96b48f",
+  "filename": "Galetario_023_Quetzacoco_OFICIAL_V2_30_Golpes_2026-11-16.json",
+  "library_id": null,
+  "sha256": "b03d52c50621ba14f9903f9124b3ae06c93e37c1bf073fb1985789e2db96b48f",
+  "kind": "FONTE_DOCUMENTAL",
+  "arquivo": "fontes/Galetario_023_Quetzacoco_OFICIAL_V2_30_Golpes_2026-11-16.json"
+ },
+ {
+  "id": "cebd208deb934c9aa400b213130f9b4fa11f42a6f9d4d0e5f382786159915118",
+  "filename": "GalolpeTeca_023_Manifesto_Homologacao_30_2026-11-16.json",
+  "library_id": null,
+  "sha256": "cebd208deb934c9aa400b213130f9b4fa11f42a6f9d4d0e5f382786159915118",
+  "kind": "FONTE_DOCUMENTAL",
+  "arquivo": "fontes/GalolpeTeca_023_Manifesto_Homologacao_30_2026-11-16.json"
+ },
+ {
+  "id": "dc4436714594bbcd8c34b2481b2e1a4f585721d28dab75dcc261df3c58a417c0",
+  "filename": "Quetzacoco_023_Arte_Visual_Oficial_2026-11-16.png",
+  "library_id": null,
+  "sha256": "dc4436714594bbcd8c34b2481b2e1a4f585721d28dab75dcc261df3c58a417c0",
+  "kind": "FONTE_DOCUMENTAL",
+  "arquivo": "fontes/Quetzacoco_023_Arte_Visual_Oficial_2026-11-16.png"
+ },
+ {
+  "id": "e0fa86330a29d1c907834f0997849a48fcc54d7c1ef72d2343a45f050835967e",
+  "filename": "Galetocraft_Reproducao_Etapa01_HOMOLOGADA_2026-11-16.md",
+  "library_id": null,
+  "sha256": "e0fa86330a29d1c907834f0997849a48fcc54d7c1ef72d2343a45f050835967e",
+  "kind": "FONTE_DOCUMENTAL",
+  "arquivo": "fontes/Galetocraft_Reproducao_Etapa01_HOMOLOGADA_2026-11-16.md"
+ }
+]

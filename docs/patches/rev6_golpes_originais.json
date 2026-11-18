@@ -1,0 +1,604 @@
+{
+ "expected_revision": 5,
+ "reason": "Completa os golpes próprios de #001–#011 que tinham só texto provisório na camada vigente: categoria, elemento, estado aplicado com chance e efeito estruturado, copiados da ficha original protegida (tabela histórica moves). Texto literal desses dados no lugar do provisório.",
+ "evidence": {
+  "fonte": "Galetocraft.sqlite rev. 2, tabela moves (ficha original protegida)",
+  "catalogo": "Galolpedia_Reforma_Integral_212_Golpes_Catalogo_2026-11-11.json (status PROTEGIDO_FICHA_ORIGINAL)",
+  "golpes": [
+   {
+    "especie": 1,
+    "golpe": "Cocócombustão",
+    "campos": [
+     "aplica_estado",
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 1,
+    "golpe": "Penas de Brasa",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 1,
+    "golpe": "Ave Fênix",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 2,
+    "golpe": "Revide das Marés",
+    "campos": [
+     "elemento",
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 2,
+    "golpe": "Prisão Abissal",
+    "campos": [
+     "aplica_estado",
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 2,
+    "golpe": "Punho da Fortaleza",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 3,
+    "golpe": "Esporos Venenosos",
+    "campos": [
+     "aplica_estado",
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 3,
+    "golpe": "Pólen Revigorante",
+    "campos": [
+     "elemento",
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 3,
+    "golpe": "Jardim da Discórdia",
+    "campos": [
+     "elemento",
+     "aplica_estado",
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 4,
+    "golpe": "Punho das Dunas",
+    "campos": [
+     "aplica_estado",
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 4,
+    "golpe": "Prisão das Areias",
+    "campos": [
+     "categoria",
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 4,
+    "golpe": "Sepultamento do Deserto",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 5,
+    "golpe": "Lâminas de Vento",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 5,
+    "golpe": "Dança dos Vendavais",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 5,
+    "golpe": "Julgamento dos Céus",
+    "campos": [
+     "categoria",
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 6,
+    "golpe": "Estalo Voltaico",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 6,
+    "golpe": "Palma Celeste",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 6,
+    "golpe": "Julgamento dos Raios",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 7,
+    "golpe": "Impacto Blindado",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 7,
+    "golpe": "Guarda do Tatu",
+    "campos": [
+     "elemento",
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 7,
+    "golpe": "Coro das Dunas",
+    "campos": [
+     "elemento",
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 8,
+    "golpe": "Estalo das Brânquias",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 8,
+    "golpe": "Elo Regenerativo",
+    "campos": [
+     "elemento",
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 8,
+    "golpe": "Dilúvio Branquial",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 9,
+    "golpe": "Relé Luminoso",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 9,
+    "golpe": "Cortina Cintilante",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 9,
+    "golpe": "Choque Estático",
+    "campos": [
+     "aplica_estado",
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 10,
+    "golpe": "Rasante Ressonante",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 10,
+    "golpe": "Ruído Branco",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 10,
+    "golpe": "Colapso Sonoro",
+    "campos": [
+     "aplica_estado",
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 11,
+    "golpe": "Espinho Venenoso",
+    "campos": [
+     "aplica_estado",
+     "efeito_canonico_para_integracao"
+    ]
+   },
+   {
+    "especie": 11,
+    "golpe": "Rajada de Espinhos",
+    "campos": [
+     "efeito_canonico_para_integracao"
+    ]
+   }
+  ]
+ },
+ "operations": [
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 1,
+    "grupo": "original",
+    "posicao": 3
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"magico\", \"categoria_normalizada\": \"magico\", \"chance_status_nucleo\": 0.2, \"efeito_canonico_para_integracao\": \"Após causar dano, 20% de chance de aplicar Queimadura.\", \"efeito_json_nucleo\": \"{}\", \"elemento\": \"Fogo\", \"energia_efetiva_json\": \"30\", \"especie\": 1, \"fonte_efeito_estruturado\": \"SEM_JSON_EXTRA_NO_NUCLEO\", \"grupo\": \"original\", \"id_canonico\": \"cococombustao\", \"id_movimento_nucleo\": \"cococombustao\", \"nome\": \"Cocócombustão\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"70\", \"posicao\": 3, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": \"Queimadura\", \"aplica_estado\": {\"estado\": \"Queimadura\", \"chance\": 0.2}, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 1,
+    "grupo": "original",
+    "posicao": 4
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"magico\", \"categoria_normalizada\": \"magico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Golpe sem efeito secundário registrado na ficha original protegida.\", \"efeito_json_nucleo\": \"{}\", \"elemento\": \"Fogo\", \"energia_efetiva_json\": \"45\", \"especie\": 1, \"fonte_efeito_estruturado\": \"SEM_JSON_EXTRA_NO_NUCLEO\", \"grupo\": \"original\", \"id_canonico\": \"penas_de_brasa\", \"id_movimento_nucleo\": \"penas_de_brasa\", \"nome\": \"Penas de Brasa\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"100\", \"posicao\": 4, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 1,
+    "grupo": "original",
+    "posicao": 5
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"magico\", \"categoria_normalizada\": \"magico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"exclusivo\\\":true}\", \"elemento\": \"Fogo\", \"energia_efetiva_json\": \"100\", \"especie\": 1, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"ave_fenix\", \"id_movimento_nucleo\": \"ave_fenix\", \"nome\": \"Ave Fênix\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"180\", \"posicao\": 5, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 2,
+    "grupo": "original",
+    "posicao": 3
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"contra-ataque\", \"categoria_normalizada\": \"contra-ataque\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"cobre_apenas_dano_fisico\\\": true, \\\"devolucao_dano_pos_reducao\\\": 1.0, \\\"golpes_multiplos_cobertos_individualmente\\\": true, \\\"hp_minimo_golpe_coberto\\\": 1, \\\"nao_pode_ser_derrotado_por_golpe_fisico_coberto\\\": true, \\\"reducao_dano_fisico\\\": 0.45, \\\"sem_esquiva_universal_para_golpes_cobertos\\\": true}\", \"elemento\": \"Sem elemento\", \"energia_efetiva_json\": \"45\", \"especie\": 2, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"revide_das_mares\", \"id_movimento_nucleo\": \"revide_das_mares\", \"nome\": \"Revide das Marés\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"null\", \"posicao\": 3, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 2,
+    "grupo": "original",
+    "posicao": 4
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"magico\", \"categoria_normalizada\": \"magico\", \"chance_status_nucleo\": 0.7, \"efeito_canonico_para_integracao\": \"Após causar dano, 70% de chance de aplicar Afogamento. Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"environment_invocation\\\":{\\\"field_id\\\":\\\"chuva\\\",\\\"field_type\\\":\\\"clima\\\",\\\"duration_rounds\\\":4,\\\"cast_mode\\\":\\\"integrado_ao_golpe_original_sem_modo_alternativo\\\",\\\"same_action_as_existing_effects\\\":true,\\\"on_valid_execution\\\":true,\\\"no_summon_if_paralysis_blocks_action\\\":true,\\\"no_summon_if_stun_cancels_action\\\":true,\\\"independent_of_hit_dodge_and_target_ko\\\":true,\\\"overrides_prior_same_field_category\\\":true,\\\"both_sides_benefit\\\":true,\\\"single_energy_payment\\\":true}}\", \"elemento\": \"Água\", \"energia_efetiva_json\": \"75\", \"especie\": 2, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"prisao_abissal\", \"id_movimento_nucleo\": \"prisao_abissal\", \"nome\": \"Prisão Abissal\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"65\", \"posicao\": 4, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": \"Afogamento\", \"aplica_estado\": {\"estado\": \"Afogamento\", \"chance\": 0.7}, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 2,
+    "grupo": "original",
+    "posicao": 5
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"fisico\", \"categoria_normalizada\": \"fisico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"fracao_defesa_fisica_para_calculo_ataque\\\":1.0,\\\"hereditario_exclusivo\\\":true,\\\"usa_defesa_fisica_em_vez_de_ataque_fisico\\\":true}\", \"elemento\": \"Água\", \"energia_efetiva_json\": \"50\", \"especie\": 2, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"punho_da_fortaleza\", \"id_movimento_nucleo\": \"punho_da_fortaleza\", \"nome\": \"Punho da Fortaleza\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"90\", \"posicao\": 5, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 3,
+    "grupo": "original",
+    "posicao": 3
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"magico\", \"categoria_normalizada\": \"magico\", \"chance_status_nucleo\": 0.7, \"efeito_canonico_para_integracao\": \"Após causar dano, 70% de chance de aplicar Envenenamento.\", \"efeito_json_nucleo\": \"{}\", \"elemento\": \"Planta\", \"energia_efetiva_json\": \"40\", \"especie\": 3, \"fonte_efeito_estruturado\": \"SEM_JSON_EXTRA_NO_NUCLEO\", \"grupo\": \"original\", \"id_canonico\": \"esporos_venenosos\", \"id_movimento_nucleo\": \"esporos_venenosos\", \"nome\": \"Esporos Venenosos\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"70\", \"posicao\": 3, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": \"Envenenamento\", \"aplica_estado\": {\"estado\": \"Envenenamento\", \"chance\": 0.7}, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 3,
+    "grupo": "original",
+    "posicao": 4
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"cura\", \"categoria_normalizada\": \"cura\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"cura_hp_maximo\\\":0.25}\", \"elemento\": \"Sem elemento\", \"energia_efetiva_json\": \"45\", \"especie\": 3, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"polen_revigorante\", \"id_movimento_nucleo\": \"polen_revigorante\", \"nome\": \"Pólen Revigorante\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"null\", \"posicao\": 4, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 3,
+    "grupo": "original",
+    "posicao": 5
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"suporte\", \"categoria_normalizada\": \"suporte\", \"chance_status_nucleo\": 0.3, \"efeito_canonico_para_integracao\": \"Após causar dano, 30% de chance de aplicar Envenenamento. Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"duracao_cada_aplicacao_acoes_do_alvo\\\":3,\\\"esquiva_cancela_efeitos\\\":true,\\\"max_acumulos\\\":3,\\\"max_reducao_atf_e_atm\\\":0.6,\\\"reaplicacao_quando_3_pilhas_nao_renova\\\":true,\\\"reducao_por_aplicacao_atf_e_atm\\\":0.2,\\\"veneno_por_alvo_atingido\\\":true,\\\"environment_invocation\\\":{\\\"field_id\\\":\\\"santuario_raizes\\\",\\\"field_type\\\":\\\"santuario\\\",\\\"duration_rounds\\\":4,\\\"cast_mode\\\":\\\"integrado_ao_golpe_original_sem_modo_alternativo\\\",\\\"same_action_as_existing_effects\\\":true,\\\"on_valid_execution\\\":true,\\\"no_summon_if_paralysis_blocks_action\\\":true,\\\"no_summon_if_stun_cancels_action\\\":true,\\\"independent_of_hit_dodge_and_target_ko\\\":true,\\\"overrides_prior_same_field_category\\\":true,\\\"both_sides_benefit\\\":true,\\\"single_energy_payment\\\":true}}\", \"elemento\": \"Sem elemento\", \"energia_efetiva_json\": \"80\", \"especie\": 3, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"jardim_da_discordia\", \"id_movimento_nucleo\": \"jardim_da_discordia\", \"nome\": \"Jardim da Discórdia\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"null\", \"posicao\": 5, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": \"Envenenamento\", \"aplica_estado\": {\"estado\": \"Envenenamento\", \"chance\": 0.3}, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 4,
+    "grupo": "original",
+    "posicao": 3
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"fisico\", \"categoria_normalizada\": \"fisico\", \"chance_status_nucleo\": 0.2, \"efeito_canonico_para_integracao\": \"Após causar dano, 20% de chance de aplicar Tonto.\", \"efeito_json_nucleo\": \"{}\", \"elemento\": \"Terra\", \"energia_efetiva_json\": \"60\", \"especie\": 4, \"fonte_efeito_estruturado\": \"SEM_JSON_EXTRA_NO_NUCLEO\", \"grupo\": \"original\", \"id_canonico\": \"punho_das_dunas\", \"id_movimento_nucleo\": \"punho_das_dunas\", \"nome\": \"Punho das Dunas\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"110\", \"posicao\": 3, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": \"Tontura\", \"aplica_estado\": {\"estado\": \"Tonto\", \"chance\": 0.2}, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 4,
+    "grupo": "original",
+    "posicao": 4
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"fisico\", \"categoria_normalizada\": \"fisico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"bloqueia_troca_voluntaria\\\":true,\\\"duracao_oportunidades_acao_alvo\\\":2,\\\"nao_bloqueia_substituicao_obrigatoria\\\":true,\\\"nao_renova_nem_empilha_aprisionamento\\\":true}\", \"elemento\": \"Terra\", \"energia_efetiva_json\": \"45\", \"especie\": 4, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"prisao_das_areias\", \"id_movimento_nucleo\": \"prisao_das_areias\", \"nome\": \"Prisão das Areias\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"75\", \"posicao\": 4, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 4,
+    "grupo": "original",
+    "posicao": 5
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"fisico\", \"categoria_normalizada\": \"fisico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"exclusivo\\\":true,\\\"poder_contra_alvo_preso\\\":240,\\\"environment_invocation\\\":{\\\"field_id\\\":\\\"tempestade_areia\\\",\\\"field_type\\\":\\\"clima\\\",\\\"duration_rounds\\\":4,\\\"cast_mode\\\":\\\"integrado_ao_golpe_original_sem_modo_alternativo\\\",\\\"same_action_as_existing_effects\\\":true,\\\"on_valid_execution\\\":true,\\\"no_summon_if_paralysis_blocks_action\\\":true,\\\"no_summon_if_stun_cancels_action\\\":true,\\\"independent_of_hit_dodge_and_target_ko\\\":true,\\\"overrides_prior_same_field_category\\\":true,\\\"both_sides_benefit\\\":true,\\\"single_energy_payment\\\":true}}\", \"elemento\": \"Terra\", \"energia_efetiva_json\": \"100\", \"especie\": 4, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"sepultamento_do_deserto\", \"id_movimento_nucleo\": \"sepultamento_do_deserto\", \"nome\": \"Sepultamento do Deserto\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"200\", \"posicao\": 5, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 5,
+    "grupo": "original",
+    "posicao": 3
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"fisico\", \"categoria_normalizada\": \"fisico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"adicional_velocidade_verificacao_independente\\\":true,\\\"chance_intrinseca\\\":0.25,\\\"limite_golpes_por_acao\\\":2,\\\"possui_chance_intrinseca_segundo_golpe\\\":true}\", \"elemento\": \"Ar\", \"energia_efetiva_json\": \"50\", \"especie\": 5, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"laminas_de_vento\", \"id_movimento_nucleo\": \"laminas_de_vento\", \"nome\": \"Lâminas de Vento\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"85\", \"posicao\": 3, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 5,
+    "grupo": "original",
+    "posicao": 4
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"fisico\", \"categoria_normalizada\": \"fisico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Golpe sem efeito secundário registrado na ficha original protegida.\", \"efeito_json_nucleo\": \"{}\", \"elemento\": \"Ar\", \"energia_efetiva_json\": \"70\", \"especie\": 5, \"fonte_efeito_estruturado\": \"SEM_JSON_EXTRA_NO_NUCLEO\", \"grupo\": \"original\", \"id_canonico\": \"danca_dos_vendavais\", \"id_movimento_nucleo\": \"danca_dos_vendavais\", \"nome\": \"Dança dos Vendavais\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"120\", \"posicao\": 4, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 5,
+    "grupo": "original",
+    "posicao": 5
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"fisico\", \"categoria_normalizada\": \"fisico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"condicao_para_poder_maximo\\\":{\\\"tipo\\\":\\\"comparacao_velocidade_efetiva\\\",\\\"velocidade_usuario\\\":\\\"velocidade_efetiva_do_Cocorion\\\",\\\"operador\\\":\\\">=\\\",\\\"multiplicador_velocidade_adversario\\\":1.5,\\\"velocidade_alvo\\\":\\\"velocidade_efetiva_do_adversario\\\",\\\"momento\\\":\\\"execucao_do_golpe\\\",\\\"poder_quando_atendida\\\":200,\\\"poder_quando_nao_atendida\\\":160}}\", \"elemento\": \"Ar\", \"energia_efetiva_json\": \"90\", \"especie\": 5, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"julgamento_dos_ceus\", \"id_movimento_nucleo\": \"julgamento_dos_ceus\", \"nome\": \"Julgamento dos Céus\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"160\", \"posicao\": 5, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 6,
+    "grupo": "original",
+    "posicao": 3
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"magico\", \"categoria_normalizada\": \"magico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"sem_chance_intrinseca_de_paralisia\\\": true, \\\"sem_chance_intrinseca_de_segundo_golpe\\\": true}\", \"elemento\": \"Elétrico\", \"energia_efetiva_json\": \"35\", \"especie\": 6, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"estalo_voltaico\", \"id_movimento_nucleo\": \"estalo_voltaico\", \"nome\": \"Estalo Voltaico\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"65\", \"posicao\": 3, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 6,
+    "grupo": "original",
+    "posicao": 4
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"magico\", \"categoria_normalizada\": \"magico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"sem_chance_intrinseca_de_paralisia\\\": true, \\\"sem_chance_intrinseca_de_segundo_golpe\\\": true}\", \"elemento\": \"Neutro\", \"energia_efetiva_json\": \"50\", \"especie\": 6, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"palma_celeste\", \"id_movimento_nucleo\": \"palma_celeste\", \"nome\": \"Palma Celeste\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"100\", \"posicao\": 4, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 6,
+    "grupo": "original",
+    "posicao": 5
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"magico\", \"categoria_normalizada\": \"magico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"especie_exclusiva\\\": 6, \\\"sem_chance_intrinseca_de_paralisia\\\": true, \\\"sem_chance_intrinseca_de_segundo_golpe\\\": true}\", \"elemento\": \"Elétrico\", \"energia_efetiva_json\": \"85\", \"especie\": 6, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"julgamento_dos_raios\", \"id_movimento_nucleo\": \"julgamento_dos_raios\", \"nome\": \"Julgamento dos Raios\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"140\", \"posicao\": 5, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 7,
+    "grupo": "original",
+    "posicao": 3
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"fisico\", \"categoria_normalizada\": \"fisico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"compartilhado\\\": true, \\\"fracao_defesa_fisica_para_calculo_ataque\\\": 0.8, \\\"hereditario\\\": false, \\\"sem_efeito_secundario\\\": true, \\\"usa_defesa_fisica_em_vez_de_ataque_fisico\\\": true, \\\"usa_formula_normal_dano_fisico\\\": true}\", \"elemento\": \"Terra\", \"energia_efetiva_json\": \"35\", \"especie\": 7, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"impacto_blindado\", \"id_movimento_nucleo\": \"impacto_blindado\", \"nome\": \"Impacto Blindado\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"70\", \"posicao\": 3, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 7,
+    "grupo": "original",
+    "posicao": 4
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"suporte/contra-ataque\", \"categoria_normalizada\": \"suporte/contra-ataque\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"alvo_protegido\\\": \\\"proprio_taturico_ou_um_aliado\\\", \\\"compartilhado\\\": true, \\\"contra_ataque_apenas_se_sofrer_dano_fisico\\\": true, \\\"devolucao_fracao_dano_fisico_efetivamente_sofrido\\\": 0.4, \\\"duracao\\\": \\\"ate_proximo_turno_do_usuario\\\", \\\"golpes_cobertos_por_acao\\\": 2, \\\"hereditario\\\": false, \\\"intercepta_proxima_acao_ofensiva\\\": true, \\\"limite_contra_ataques_por_ativacao\\\": 1, \\\"nao_acumula_com_bloqueio_da_passiva\\\": true, \\\"reducao_dano_fisico\\\": 0.35, \\\"reducao_dano_magico\\\": 0.2, \\\"tipo\\\": \\\"protecao_e_contra_ataque\\\"}\", \"elemento\": \"Sem elemento\", \"energia_efetiva_json\": \"40\", \"especie\": 7, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"guarda_do_tatu\", \"id_movimento_nucleo\": \"guarda_do_tatu\", \"nome\": \"Guarda do Tatu\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"null\", \"posicao\": 4, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 7,
+    "grupo": "original",
+    "posicao": 5
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"suporte\", \"categoria_normalizada\": \"suporte\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"environment_invocation\\\":{\\\"field_id\\\":\\\"tempestade_areia\\\",\\\"field_type\\\":\\\"clima\\\",\\\"duration_rounds\\\":4,\\\"on_valid_execution\\\":true,\\\"no_summon_if_paralysis_blocks_action\\\":true,\\\"no_summon_if_stun_cancels_action\\\":true,\\\"overrides_prior_same_field_category\\\":true,\\\"both_sides_benefit\\\":true},\\\"no_damage\\\":true,\\\"no_status_application\\\":true,\\\"requires_action\\\":true,\\\"future_species_only\\\":true,\\\"not_assigned_to_six_initial_species\\\":true}\", \"elemento\": \"Sem elemento\", \"energia_efetiva_json\": \"35\", \"especie\": 7, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"coro_das_dunas\", \"id_movimento_nucleo\": \"coro_das_dunas\", \"nome\": \"Coro das Dunas\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"null\", \"posicao\": 5, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 8,
+    "grupo": "original",
+    "posicao": 3
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"magico\", \"categoria_normalizada\": \"magico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"bonus_nao_acumula\\\": true, \\\"bonus_poder_se_recuperou_hp_desde_ultima_acao\\\": 95, \\\"compartilhado\\\": true, \\\"condicao\\\": \\\"recuperou_hp_desde_ultima_acao\\\", \\\"fontes_de_cura_aceitas\\\": [\\\"passiva\\\", \\\"golpe_de_cura\\\"], \\\"hereditario\\\": false, \\\"poder_normal\\\": 75, \\\"sem_efeito_secundario\\\": true}\", \"elemento\": \"Água\", \"energia_efetiva_json\": \"35\", \"especie\": 8, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"estalo_das_branquias\", \"id_movimento_nucleo\": \"estalo_das_branquias\", \"nome\": \"Estalo das Brânquias\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"75\", \"posicao\": 3, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 8,
+    "grupo": "original",
+    "posicao": 4
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"suporte/cura\", \"categoria_normalizada\": \"suporte/cura\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"alvos_permitidos\\\": [\\\"proprio_usuario_ativo\\\", \\\"aliado_na_reserva\\\"], \\\"compartilhado\\\": true, \\\"consome_acao\\\": true, \\\"cura_se_aliado_reserva_fracao_hp_maximo_do_aliado\\\": 0.2, \\\"cura_se_proprio_fracao_hp_maximo\\\": 0.25, \\\"cura_usuario_ao_curar_aliado_reserva_fracao_hp_maximo\\\": 0.05, \\\"energia\\\": 30, \\\"hereditario\\\": false, \\\"limite_hp_maximo\\\": true, \\\"nao_remove_estado_negativo\\\": true, \\\"nao_ressuscita\\\": true, \\\"tipo\\\": \\\"cura_suporte\\\", \\\"troca_para_curar\\\": false}\", \"elemento\": \"Sem elemento\", \"energia_efetiva_json\": \"45\", \"especie\": 8, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"elo_regenerativo\", \"id_movimento_nucleo\": \"elo_regenerativo\", \"nome\": \"Elo Regenerativo\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"null\", \"posicao\": 4, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 8,
+    "grupo": "original",
+    "posicao": 5
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"magico\", \"categoria_normalizada\": \"magico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"compartilhado\\\": true, \\\"custo_componente_golpe\\\": 25, \\\"custo_componente_invocacao\\\": 20, \\\"custo_energia_inclui_invocacao\\\": true, \\\"environment_invocation\\\": {\\\"duration_rounds\\\": 4, \\\"field_id\\\": \\\"chuva\\\", \\\"field_type\\\": \\\"clima\\\", \\\"independent_of_hit\\\": true, \\\"no_summon_when_action_blocked\\\": true, \\\"on_shared_field\\\": true, \\\"on_valid_execution\\\": true}, \\\"hereditario\\\": false, \\\"sem_status_negativo_adicional\\\": true, \\\"tipo\\\": \\\"dano_magico_e_invocacao_integrada\\\"}\", \"elemento\": \"Água\", \"energia_efetiva_json\": \"50\", \"especie\": 8, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"diluvio_branquial\", \"id_movimento_nucleo\": \"diluvio_branquial\", \"nome\": \"Dilúvio Branquial\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"85\", \"posicao\": 5, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 9,
+    "grupo": "original",
+    "posicao": 3
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"fisico\", \"categoria_normalizada\": \"fisico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"ate_2_golpes_na_acao\\\": true, \\\"compartilhado\\\": true, \\\"energia_cobrada_uma_vez\\\": true, \\\"hereditario\\\": false, \\\"nao_concede_acao_ao_substituto\\\": true, \\\"nao_troca_nem_ataca_se_acao_bloqueada\\\": true, \\\"requer_reserva_apta\\\": true, \\\"requer_troca_permitida\\\": true, \\\"sem_prioridade_de_troca_convencional\\\": true, \\\"sinergia_geracao_pulso_apenas_se_usuario_tem_codigo_luminescente\\\": true, \\\"substituto_escolhido_antes_da_execucao\\\": true, \\\"tipo\\\": \\\"ataque_fisico_com_revezamento\\\", \\\"troca_apos_golpes_permitidos_na_mesma_acao\\\": true, \\\"troca_mesmo_que_ataque_erre_se_acao_valida\\\": true}\", \"elemento\": \"Elétrico\", \"energia_efetiva_json\": \"45\", \"especie\": 9, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"rele_luminoso\", \"id_movimento_nucleo\": \"rele_luminoso\", \"nome\": \"Relé Luminoso\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"50\", \"posicao\": 3, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 9,
+    "grupo": "original",
+    "posicao": 4
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"suporte\", \"categoria_normalizada\": \"suporte\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"aciona_apos_execucao_valida\\\": true, \\\"compartilhado\\\": true, \\\"duracao\\\": \\\"ate_1_golpe_recebido_ou_ate_fim_da_proxima_rodada_o_que_ocorrer_primeiro\\\", \\\"falha_de_acao_nao_aplica_nem_troca_nem_gera_pulso\\\": true, \\\"hereditario\\\": false, \\\"interacao_com_codigo_luminescente\\\": \\\"se_2_pulsos_reducao_20_porcento_nao_soma_reducao_35_porcento;_aplica_maior_e_consumem_se_ambas_no_primeiro_golpe\\\", \\\"nao_acumula_com_outra_cortina\\\": true, \\\"nao_causa_dano\\\": true, \\\"quantidade_golpes_reduzidos\\\": 1, \\\"reducao_dano_aliado_entrante\\\": 0.35, \\\"requer_reserva_apta\\\": true, \\\"requer_troca_permitida\\\": true, \\\"sem_acao_extra_para_substituto\\\": true, \\\"sem_prioridade_especial\\\": true, \\\"tipo\\\": \\\"suporte_com_revezamento_defensivo\\\", \\\"tipos_cobertos\\\": [\\\"fisico\\\", \\\"magico\\\"]}\", \"elemento\": \"Elétrico\", \"energia_efetiva_json\": \"45\", \"especie\": 9, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"cortina_cintilante\", \"id_movimento_nucleo\": \"cortina_cintilante\", \"nome\": \"Cortina Cintilante\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"null\", \"posicao\": 4, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 9,
+    "grupo": "original",
+    "posicao": 5
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"fisico\", \"categoria_normalizada\": \"fisico\", \"chance_status_nucleo\": 0.8, \"efeito_canonico_para_integracao\": \"Após causar dano, 80% de chance de aplicar Paralisia. Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"chance_aplicacao\\\": 0.8, \\\"compartilhado\\\": true, \\\"condicao_para_checagem\\\": \\\"pelo_menos_um_acerto_que_cause_dano\\\", \\\"efeitos_do_estado\\\": \\\"usar_definicao_oficial_preenxistente_sem_modificar\\\", \\\"estado_negativo\\\": \\\"Paralisia\\\", \\\"hereditario\\\": false, \\\"nao_substitui_nao_acumula_nao_renova\\\": true, \\\"se_dois_acertos_na_mesma_acao\\\": \\\"uma_unica_checagem_de_80_por_cento\\\", \\\"sem_efeitos_secundarios_alem_do_estado\\\": true, \\\"sem_status_quando_alvo_ja_tem_estado_negativo_persistente\\\": true, \\\"verificacoes_status_por_acao\\\": 1}\", \"elemento\": \"Elétrico\", \"energia_efetiva_json\": \"40\", \"especie\": 9, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"choque_estatico\", \"id_movimento_nucleo\": \"choque_estatico\", \"nome\": \"Choque Estático\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"20\", \"posicao\": 5, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": \"Paralisia\", \"aplica_estado\": {\"estado\": \"Paralisia\", \"chance\": 0.8}, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 10,
+    "grupo": "original",
+    "posicao": 3
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"fisico\", \"categoria_normalizada\": \"fisico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"alvo_marcado\\\":\\\"usa 90% da Defesa Física atual do alvo para cálculo de dano; sem marca, defesa normal\\\"}\", \"elemento\": \"Ar\", \"energia_efetiva_json\": \"30\", \"especie\": 10, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"rasante_ressonante\", \"id_movimento_nucleo\": \"rasante_ressonante\", \"nome\": \"Rasante Ressonante\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"60\", \"posicao\": 3, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 10,
+    "grupo": "original",
+    "posicao": 4
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"suporte\", \"categoria_normalizada\": \"suporte\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"abrange\\\":\\\"até dois golpes da mesma ação, físicos ou mágicos\\\",\\\"expira\\\":\\\"após próxima ação ofensiva, fim da rodada seguinte ou saída de campo; o que vier antes\\\",\\\"interferencia_acustica\\\":\\\"próxima ação ofensiva do adversário: −15% de dano, ou −20% se alvo marcado na aplicação\\\",\\\"nao_acumula\\\":true,\\\"nao_e_estado_persistente\\\":true}\", \"elemento\": \"Ar\", \"energia_efetiva_json\": \"40\", \"especie\": 10, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"ruido_branco\", \"id_movimento_nucleo\": \"ruido_branco\", \"nome\": \"Ruído Branco\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"null\", \"posicao\": 4, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 10,
+    "grupo": "original",
+    "posicao": 5
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"magico\", \"categoria_normalizada\": \"magico\", \"chance_status_nucleo\": 0.2, \"efeito_canonico_para_integracao\": \"Após causar dano, 20% de chance de aplicar Tonto. Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"marca_consumida\\\":\\\"após a ação se ao menos um golpe causar dano em alvo marcado\\\",\\\"max_golpes_por_acao\\\":2,\\\"poder_primeiro_golpe\\\":85,\\\"poder_primeiro_golpe_se_marcado\\\":95,\\\"poder_segundo_golpe\\\":\\\"50% de 85\\\",\\\"sem_custo_extra_para_segundo_golpe\\\":true,\\\"status_chance\\\":\\\"20%, uma vez por ação se houve ao menos um acerto com dano e alvo elegível\\\"}\", \"elemento\": \"Ar\", \"energia_efetiva_json\": \"45\", \"especie\": 10, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"colapso_sonoro\", \"id_movimento_nucleo\": \"colapso_sonoro\", \"nome\": \"Colapso Sonoro\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"85\", \"posicao\": 5, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": \"Tontura\", \"aplica_estado\": {\"estado\": \"Tonto\", \"chance\": 0.2}, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 11,
+    "grupo": "original",
+    "posicao": 3
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"fisico\", \"categoria_normalizada\": \"fisico\", \"chance_status_nucleo\": 0.8, \"efeito_canonico_para_integracao\": \"Após causar dano, 80% de chance de aplicar Envenenamento. Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"chance_aplicacao\\\": 0.8, \\\"compartilhado\\\": true, \\\"condicao_para_checagem\\\": \\\"pelo_menos_um_acerto_que_cause_dano\\\", \\\"efeitos_do_estado\\\": \\\"usar_definicao_oficial_preenxistente_sem_modificar\\\", \\\"estado_negativo\\\": \\\"Envenenamento\\\", \\\"hereditario\\\": false, \\\"nao_substitui_nao_acumula_nao_renova\\\": true, \\\"se_dois_acertos_na_mesma_acao\\\": \\\"uma_unica_checagem_de_80_por_cento\\\", \\\"sem_efeitos_secundarios_alem_do_estado\\\": true, \\\"sem_status_quando_alvo_ja_tem_estado_negativo_persistente\\\": true, \\\"verificacoes_status_por_acao\\\": 1}\", \"elemento\": \"Planta\", \"energia_efetiva_json\": \"40\", \"especie\": 11, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"espinho_venenoso\", \"id_movimento_nucleo\": \"espinho_venenoso\", \"nome\": \"Espinho Venenoso\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"20\", \"posicao\": 3, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": \"Envenenamento\", \"aplica_estado\": {\"estado\": \"Envenenamento\", \"chance\": 0.8}, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  },
+  {
+   "table": "current_moves",
+   "key": {
+    "especie": 11,
+    "grupo": "original",
+    "posicao": 5
+   },
+   "values": {
+    "payload_json": "{\"categoria_complementada\": \"fisico\", \"categoria_normalizada\": \"fisico\", \"chance_status_nucleo\": null, \"efeito_canonico_para_integracao\": \"Demais efeitos definidos no efeito estruturado oficial (efeito_json_nucleo, ficha original protegida).\", \"efeito_json_nucleo\": \"{\\\"animacao_conceitual\\\":\\\"Espinhocó se contrai, ergue a plumagem e dispara espinhos vegetais contra o adversário\\\",\\\"compartilhado\\\":true,\\\"exclusivo\\\":false,\\\"hereditario\\\":false,\\\"sem_efeitos_secundarios\\\":true,\\\"slot\\\":5,\\\"species_id\\\":11}\", \"elemento\": \"Planta\", \"energia_efetiva_json\": \"45\", \"especie\": 11, \"fonte_efeito_estruturado\": \"ESTRUTURADO_JSON\", \"grupo\": \"original\", \"id_canonico\": \"rajada_de_espinhos\", \"id_movimento_nucleo\": \"rajada_de_espinhos\", \"nome\": \"Rajada de Espinhos\", \"norma_universal_vigente_json\": null, \"norma_universal_vigente_ref\": null, \"poder_json\": \"95\", \"posicao\": 5, \"status_consolidacao\": \"CANDIDATA_TECNICA_NAO_RUNTIME\", \"status_efeito\": \"FONTE_R533_PRESERVADA\", \"status_id_canonico\": \"ID_DOCUMENTAL_ANTERIOR\", \"status_nucleo\": null, \"fonte_complemento_rev6\": \"tabela histórica moves (Galetocraft.sqlite rev. 2), ficha original protegida\"}"
+   }
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+{
+  "projeto": "Galetocraft",
+  "data": "2026-11-16",
+  "especie": "#023 Quetzacocó",
+  "status": "HOMOLOGADO_30_GOLPES",
+  "source_proposal_sha256": "e8c2c7510a07500ddafa863110ce81b4339ec60def3f348cd0f8742f4e790f78",
+  "source_reformed_catalog_sha256": "6beab4289aa565209e3b141619dc008f8094d27b5d9f8b7fde12ce5708589619",
+  "verified_learnables": 25,
+  "verified_originals": 5,
+  "files": [
+    {
+      "file": "GalolpeTeca_023_Quetzacoco_30_Golpes_OFICIAL_2026-11-16.md",
+      "bytes": 11016,
+      "sha256": "5e316da92b66ba8ca1a66df2d98b80e1ea0eb62402335be0ac48835d71074707"
+    },
+    {
+      "file": "GalolpeTeca_023_Quetzacoco_30_Golpes_OFICIAL_2026-11-16.json",
+      "bytes": 16530,
+      "sha256": "14051b2b96fa5221da8c74e9e9a66a7bb021e26d6161fe8e8b42eab3380f1e1b"
+    },
+    {
+      "file": "Galetario_023_Quetzacoco_OFICIAL_V2_30_Golpes_2026-11-16.md",
+      "bytes": 10655,
+      "sha256": "a34164229a65f506b87292ec2498859a8501f6ec03956510e9910e9b740fca26"
+    },
+    {
+      "file": "Galetario_023_Quetzacoco_OFICIAL_V2_30_Golpes_2026-11-16.json",
+      "bytes": 20672,
+      "sha256": "b03d52c50621ba14f9903f9124b3ae06c93e37c1bf073fb1985789e2db96b48f"
+    }
+  ],
+  "historical_files_preserved": true,
+  "runtime_integration_attested": false
+}

@@ -40,6 +40,10 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 	modImplementation "software.bernie.geckolib:geckolib-fabric-${project.minecraft_version}:${project.geckolib_version}"
+
+	// Núcleo de regras (Java puro, em nucleo/), embutido no jar do mod
+	implementation project(":nucleo")
+	include project(":nucleo")
 }
 
 processResources {

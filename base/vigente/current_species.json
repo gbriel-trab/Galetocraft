@@ -1,0 +1,906 @@
+[
+ {
+  "numero": 1,
+  "nome": "Pirococó",
+  "raridade": "Mítico",
+  "elementos_json": [
+   "Fogo"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 35,
+   "Ataque Mágico": 185,
+   "Defesa Física": 60,
+   "Defesa Mágica": 95,
+   "HP": 90,
+   "Velocidade": 85
+  },
+  "peso_natural_kg": 5.8,
+  "passiva_json": {
+   "nome": "Chama Reencarnada",
+   "efeito_estruturado": {
+    "ativacoes_maximas_por_combate": 1,
+    "bonus_ataque_magico": 0.2,
+    "bonus_removido_ao_sair_campo": true,
+    "duracao_bonus_acoes_executadas": 3,
+    "hp_ressurreicao_fracao_hp_maximo": 0.15,
+    "nao_concede_segundo_golpe_apos_ko_antes_ressurreicao": true,
+    "remove_status_negativo": true
+   },
+   "status": "oficial"
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 2,
+  "nome": "Cocórrego",
+  "raridade": "Mítico",
+  "elementos_json": [
+   "Água"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 45,
+   "Ataque Mágico": 45,
+   "Defesa Física": 135,
+   "Defesa Mágica": 105,
+   "HP": 155,
+   "Velocidade": 65
+  },
+  "peso_natural_kg": 8.0,
+  "passiva_json": {
+   "nome": "Maré de Refluxo",
+   "efeito_estruturado": {
+    "passive": {
+     "effects": {
+      "direct_damage_reduction": {
+       "damage_categories": [
+        "physical",
+        "magical"
+       ],
+       "includes_second_attack_if_allowed": true,
+       "normal_fraction": 0.1,
+       "per_valid_direct_hit": true,
+       "rain_fraction": 0.15
+      },
+      "energy_recovery": {
+       "does_not_trigger_on": [
+        "miss",
+        "zero_damage",
+        "indirect_status_damage"
+       ],
+       "energy_cap": 100,
+       "maximum_triggers_per_enemy_action": 1,
+       "normal_points": 20,
+       "rain_points": 30,
+       "trigger": "survive enemy offensive action involving positive direct damage"
+      },
+      "rain_regeneration": {
+       "capped_at_max_hp": true,
+       "energy_cost": 0,
+       "fraction_of_max_hp": 0.05,
+       "requires_active_on_field": true,
+       "requires_alive": true,
+       "rounding": "not independently specified",
+       "trigger": "end of each round while Rain is active",
+       "works_in_reserve": false,
+       "works_without_rain": false
+      }
+     },
+     "name": "Maré de Refluxo",
+     "revide_das_mares_interaction": {
+      "damage_reductions": "successive",
+      "previously_approved_move_effects_unchanged": true
+     }
+    },
+    "source": "RoosterTeca_002_Cocorrego_Passiva_Mare_de_Refluxo_v4_OFICIAL.json",
+    "version": "4.0"
+   },
+   "status": "oficial"
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 3,
+  "nome": "Esporocó",
+  "raridade": "Mítico",
+  "elementos_json": [
+   "Planta"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 25,
+   "Ataque Mágico": 115,
+   "Defesa Física": 65,
+   "Defesa Mágica": 145,
+   "HP": 120,
+   "Velocidade": 80
+  },
+  "peso_natural_kg": 5.0,
+  "passiva_json": {
+   "nome": "Simbiose Venenosa",
+   "efeito_estruturado": {
+    "cura_fracao_hp_maximo_por_ocorrencia_dano_veneno": 0.1,
+    "exige_em_campo": true,
+    "limite_ativacoes_por_rodada": null,
+    "nao_ultrapassa_hp_maximo": true,
+    "resistencia_extra_fogo": false,
+    "resistencia_extra_terra": false
+   },
+   "status": "oficial"
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 4,
+  "nome": "Cocórak",
+  "raridade": "Mítico",
+  "elementos_json": [
+   "Terra"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 180,
+   "Ataque Mágico": 25,
+   "Defesa Física": 80,
+   "Defesa Mágica": 70,
+   "HP": 140,
+   "Velocidade": 55
+  },
+  "peso_natural_kg": 10.0,
+  "passiva_json": {
+   "nome": "Fúria do Deserto",
+   "efeito_estruturado": {
+    "bonus_adicional_sob_tempestade_areia": 0.1,
+    "bonus_dano_fisico": 0.3,
+    "bonus_dano_fisico_tempestade_areia": 0.4,
+    "clima_de_ativacao_do_bonus": "tempestade_areia",
+    "condicao_bonus_climatico": "tempestade_areia_ativa_no_momento_do_uso",
+    "condicoes_temporais_detalhadas": "sem_gatilho_temporal_a_passiva_e_disparada_por_golpe_fisico_ofensivo",
+    "desliga_bonus_quando_clima_termina": true,
+    "gatilho": "a_cada_uso_de_golpe_fisico_ofensivo_do_usuario",
+    "hp_minimo_apos_sacrificio": 1,
+    "limite_universal_golpes_por_acao": 2,
+    "nao_acumula_entre_golpes": true,
+    "nao_altera_custo_energia_ou_tipo_de_golpe": true,
+    "possui_ativacao_temporal": false,
+    "requer_ativacao_por_turnos": false,
+    "sacrificio_antes_do_dano": true,
+    "sacrificio_fracao_hp_maximo": 0.1
+   },
+   "status": "oficial"
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 5,
+  "nome": "Cocórion",
+  "raridade": "Mítico",
+  "elementos_json": [
+   "Ar"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 155,
+   "Ataque Mágico": 30,
+   "Defesa Física": 65,
+   "Defesa Mágica": 55,
+   "HP": 80,
+   "Velocidade": 165
+  },
+  "peso_natural_kg": 3.8,
+  "passiva_json": {
+   "nome": "Dançarino dos Ventos",
+   "efeito_estruturado": {
+    "bonus_consumido_no_primeiro_golpe_que_acertar": true,
+    "bonus_nao_acumula": true,
+    "bonus_proximo_golpe_fisico_que_acertar": 0.2,
+    "bonus_removido_ao_sair_campo": true,
+    "chance_esquiva_extra_apos_teste_universal": 0.25,
+    "limite_golpes_por_acao": 2,
+    "potencia_segundo_golpe_exclusiva_fracao_poder_original": 0.75
+   },
+   "status": "oficial"
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 6,
+  "nome": "Cocórvolt",
+  "raridade": "Mítico",
+  "elementos_json": [
+   "Elétrico"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 25,
+   "Ataque Mágico": 155,
+   "Defesa Física": 55,
+   "Defesa Mágica": 65,
+   "HP": 90,
+   "Velocidade": 160
+  },
+  "peso_natural_kg": 5.2,
+  "passiva_json": {
+   "nome": "Senhor da Tempestade",
+   "efeito_estruturado": {
+    "ativacao_paralisia": "apos_segundo_golpe_eletrico_que_acerta_mesmo_alvo_na_mesma_acao",
+    "paralisia_garantida_se_condicoes_validas": true,
+    "chance_aplicacao_ao_cumprir_condicoes": 1.0,
+    "requer_ambos_golpes_acertarem": true,
+    "requer_alvo_vivo_apos_segundo_golpe": true,
+    "nao_adiciona_golpes": true,
+    "limite_universal_dois_golpes_por_acao": 2,
+    "segundo_golpe_fracao_poder_original": 0.5,
+    "aplicacao_restrita_ataques_tipo": "Elétrico",
+    "respeita_limite_um_estado_negativo": true,
+    "estado_aplicado": "Paralisia",
+    "bonus_dano_ao_alvo_paralisado": 0.3,
+    "bonus_aplicavel_ataques_diretos_danificantes": "todos_os_golpes_de_cocorvolt",
+    "bonus_dano_aplicacao": "apos_dano_elemental_com_arredondamento_cima",
+    "bonus_nao_acumula_consigo_mesmo": true,
+    "bonus_valido_se_ja_paralisado_no_momento_do_calculo": true,
+    "sem_bonus_retroativo_a_golpes_que_aplicaram_paralisia": true,
+    "paralisia_na_reserva": "suspensa_conforme_regra_existente",
+    "status": "oficial_nome_e_efeitos_aprovados"
+   },
+   "status": "oficial"
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 7,
+  "nome": "Taturico",
+  "raridade": "Comum",
+  "elementos_json": [
+   "Terra"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 55,
+   "Ataque Mágico": 25,
+   "Defesa Física": 105,
+   "Defesa Mágica": 60,
+   "HP": 85,
+   "Velocidade": 40
+  },
+  "peso_natural_kg": 7.5,
+  "passiva_json": {
+   "nome": "Carapaça Reativa",
+   "efeito_estruturado": {
+    "bonus_defesa_fisica_permanente": 0.1,
+    "chance_bloqueio_ataque_fisico": 0.2,
+    "custo_energia_bloqueio": 0,
+    "nao_acumula_com_guarda_do_tatu": true,
+    "reducao_dano_fisico_no_bloqueio": 0.3,
+    "tentativas_de_bloqueio_maximas_por_rodada": 1,
+    "tipo": "passiva"
+   },
+   "status": "oficial"
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 8,
+  "nome": "Axococó",
+  "raridade": "Comum",
+  "elementos_json": [
+   "Água"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 35,
+   "Ataque Mágico": 90,
+   "Defesa Física": 50,
+   "Defesa Mágica": 60,
+   "HP": 95,
+   "Velocidade": 40
+  },
+  "peso_natural_kg": 5.8,
+  "passiva_json": {
+   "nome": "Memória das Brânquias",
+   "efeito_estruturado": {
+    "aprovado": true,
+    "ativacao": "inicio_da_proxima_acao_do_axococo",
+    "limite_cura_fracao_hp_maximo_chuva": 0.1,
+    "limite_cura_fracao_hp_maximo_normal": 0.08,
+    "reserva_regenerativa_fracao_dano_em_chuva": 0.35,
+    "reserva_regenerativa_fracao_dano_normal": 0.25,
+    "reservas_nao_acumulam_indefinidamente": true,
+    "sem_cura_sem_dano_previo": true,
+    "sem_reviver": true,
+    "trigger": "dano_inimigo_efetivamente_sofrido",
+    "varios_golpes_alimentam_mesma_reserva": true
+   },
+   "status": "oficial"
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 9,
+  "nome": "Vagaló",
+  "raridade": "Comum",
+  "elementos_json": [
+   "Elétrico"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 25,
+   "Ataque Mágico": 15,
+   "Defesa Física": 40,
+   "Defesa Mágica": 50,
+   "HP": 60,
+   "Velocidade": 180
+  },
+  "peso_natural_kg": 3.1,
+  "passiva_json": {
+   "nome": "Código Luminescente",
+   "efeito_estruturado": {
+    "buff_com_1_pulso": {
+     "duracao_acoes_aliado": 2,
+     "velocidade_pct": 0.1
+    },
+    "buff_com_2_pulsos": {
+     "duracao_acoes_aliado": 2,
+     "reducao_dano_primeiro_golpe_recebido_pct": 0.2,
+     "velocidade_pct": 0.2
+    },
+    "buff_desaparece_se_aliado_sair_de_campo": true,
+    "funcao": "Sinalizador Tático",
+    "max_pulsos_acumulados": 2,
+    "nao_acumula_consigomesma": true,
+    "nao_ativa_quando_substituicao_apos_derrota": true,
+    "nao_ativa_troca_impedida": true,
+    "nome": "Código Luminescente",
+    "pulso_por_acao_com_golpe_validamente_executado": 1,
+    "se_acao_bloqueada_pulso": 0,
+    "se_acao_tem_dois_golpes_pulso_total": 1,
+    "troca_voluntaria_valida_consumo_pulsos": true,
+    "trocas_por_movimento_valido_podem_acionar": true
+   },
+   "status": "oficial"
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 10,
+  "nome": "Morcegalo",
+  "raridade": "Comum",
+  "elementos_json": [
+   "Ar"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 50,
+   "Ataque Mágico": 40,
+   "Defesa Física": 45,
+   "Defesa Mágica": 90,
+   "HP": 80,
+   "Velocidade": 65
+  },
+  "peso_natural_kg": 5.2,
+  "passiva_json": {
+   "nome": "Sonar Predatório",
+   "efeito_estruturado": {
+    "beneficiarios": "toda a equipe",
+    "bonus_dano_recebido": 0.19,
+    "duracao": "3 ações da equipe do Morcegalo",
+    "esquiva_universal_e_adicional_anuladas": true,
+    "expira": [
+     "duração",
+     "troca/saída do alvo",
+     "derrota do alvo"
+    ],
+    "marca": "Presa Localizada",
+    "nao_acumula": true,
+    "nao_e_estado_negativo_persistente": true,
+    "persiste_apos_saida_morcegalo": true,
+    "sem_acao_gratis": true,
+    "sem_ignorar_imunidades": true,
+    "tipos_dano_afetados": [
+     "físico",
+     "mágico",
+     "contra-ataque",
+     "periódico de estados negativos"
+    ],
+    "trigger": "entrada_valida_em_campo"
+   },
+   "status": "oficial"
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 11,
+  "nome": "Espinhocó",
+  "raridade": "Comum",
+  "elementos_json": [
+   "Planta"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 95,
+   "Ataque Mágico": 20,
+   "Defesa Física": 85,
+   "Defesa Mágica": 55,
+   "HP": 75,
+   "Velocidade": 40
+  },
+  "peso_natural_kg": 6.2,
+  "passiva_json": {
+   "nome": "Espinheiro Territorial",
+   "efeito_estruturado": {
+    "passive": {
+     "name": "Espinheiro Territorial",
+     "per_hit_reflect_damage_pct_of_attacker_max_hp": 5,
+     "reflections_per_round_cap": null,
+     "status": "oficial",
+     "trap": {
+      "activation": "troca voluntaria do adversario",
+      "damage_pct_per_stack_of_incoming_opponent_max_hp": 6,
+      "mandatory_ko_switch_activates": false,
+      "persists_until_opponent_removes": true,
+      "round_duration_cap": null,
+      "stack_cap": null,
+      "stacks_added_per_hit": 1,
+      "stacks_cumulative": true,
+      "trigger": "cada golpe fisico direto recebido que cause dano"
+     },
+     "trigger": "cada golpe fisico direto recebido que cause dano, incluindo segundo golpe da ação"
+    },
+    "source": "Espinhoco_011_Dados_Oficiais.json"
+   },
+   "status": "oficial"
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 12,
+  "nome": "Salambrasa",
+  "raridade": "Comum",
+  "elementos_json": [
+   "Fogo"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 90,
+   "Ataque Mágico": 25,
+   "Defesa Física": 80,
+   "Defesa Mágica": 50,
+   "HP": 95,
+   "Velocidade": 30
+  },
+  "peso_natural_kg": 6.4,
+  "passiva_json": {
+   "nome": "Pele de Brasa",
+   "efeito_estruturado": {
+    "nome": "Pele de Brasa",
+    "efeito": "A cada golpe direto recebido que cause dano válido, físico ou mágico, Salambrasa tem 20% de chance independente de aplicar Queimadura ao atacante. Não há limite de tentativas por rodada. Se receber dois golpes diretos válidos, pode testar a passiva duas vezes. Não é ativada por erro, anulação completa ou dano indireto de estado. Não aplica Queimadura se o atacante já possuir estado negativo persistente, respeitando o limite de um. Não causa dano extra.",
+    "chance_por_acerto_valido_pct": 20,
+    "limite_tentativas_por_rodada": null,
+    "golpes_fisicos": true,
+    "golpes_magicos": true,
+    "danos_indiretos_de_status": false,
+    "estado_aplicado": "Queimadura",
+    "somente_proposta": false
+   },
+   "status": "oficial"
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 13,
+  "nome": "Quartzaló",
+  "raridade": "Comum",
+  "elementos_json": [
+   "Terra",
+   "Elétrico"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 45,
+   "Ataque Mágico": 80,
+   "Defesa Física": 65,
+   "Defesa Mágica": 65,
+   "HP": 70,
+   "Velocidade": 45
+  },
+  "peso_natural_kg": 8.5,
+  "passiva_json": {
+   "nome": "Quartzo Energizado",
+   "efeito_estruturado": {
+    "nome": "Quartzo Energizado",
+    "tipo": "automática/contínua durante rinha",
+    "efeito": "Golpes mágicos ofensivos do próprio Quartzaló dos elementos Terra e Elétrico causam +8% de dano.",
+    "bonus_percentual_dano": 8,
+    "nao_acumula_consigo": true,
+    "concede_ataque_adicional": false,
+    "afeta_golpes_fisicos": false,
+    "afeta_outros_elementos": false
+   },
+   "status": "homologada"
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 14,
+  "nome": "Carangocó",
+  "raridade": "Comum",
+  "elementos_json": [
+   "Água",
+   "Terra"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 80,
+   "Ataque Mágico": 40,
+   "Defesa Física": 75,
+   "Defesa Mágica": 55,
+   "HP": 75,
+   "Velocidade": 45
+  },
+  "peso_natural_kg": 10.5,
+  "passiva_json": {
+   "nome": "Pinças de Sedimento",
+   "efeito_estruturado": {
+    "nome": "Pinças de Sedimento",
+    "chance_ativacao_pct": 40,
+    "reducao_defesa_fisica_pct": 10,
+    "duracao": "Até o alvo sair de campo ou ser derrotado",
+    "convencional": "Uma verificação ao final de ação ofensiva física com dano",
+    "sequencial": "Uma verificação por acerto com dano até primeira ativação, efeito imediatamente após o acerto e aplicado nos próximos acertos da mesma sequência, sem acumular"
+   },
+   "status": "homologada"
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 15,
+  "nome": "Faíscocó",
+  "raridade": "Raro",
+  "elementos_json": [
+   "Fogo",
+   "Elétrico"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 60,
+   "Ataque Mágico": 95,
+   "Defesa Física": 50,
+   "Defesa Mágica": 55,
+   "HP": 70,
+   "Velocidade": 100
+  },
+  "peso_natural_kg": 5.8,
+  "passiva_json": {
+   "name": "Indução Incandescente v2",
+   "full_rules": "INDUÇÃO INCANDESCENTE v2 — Faíscocó começa sua PRIMEIRA entrada em uma Rinha com 1 Carga Termoelétrica. Enquanto possuir carga, seu primeiro acerto VÁLIDO de um golpe MÁGICO OFENSIVO de Fogo ou Elétrico que cause dano consome a carga, aumenta APENAS ESSE ACERTO em 30% de dano e recupera 10 pontos de energia, limitados ao máximo universal de 100. Não afeta acertos adicionais da mesma ação. A recarga ofensiva ocorre ao FINAL de uma ação com golpe mágico ofensivo de Fogo/Elétrico (mesmo se errar), mas SOMENTE se Faíscocó INICIOU aquela ação sem Carga Termoelétrica; consumir uma carga durante a ação NÃO permite recarregar pelo mesmo ataque. Receber dano DIRETO de golpe inimigo também produz 1 carga se ainda não houver carga, excluídos danos indiretos de estados negativos, clima e armadilhas. Máximo 1 carga, sem acumular ou gerar ataques extras. Trocar para a reserva elimina a carga, e entradas posteriores não fornecem uma nova carga inicial.",
+   "first_entry_charge": 1,
+   "max_charges": 1,
+   "damage_bonus": 0.3,
+   "energy_refund": 10,
+   "recharge_requires_no_charge_at_action_start": true,
+   "offensive_recharge_at_end_of_action": true,
+   "direct_enemy_hit_can_charge_when_empty": true,
+   "leave_field_clears_charge": true
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 16,
+  "nome": "Libelocó",
+  "raridade": "Comum",
+  "elementos_json": [
+   "Água",
+   "Ar"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 40,
+   "Ataque Mágico": 74,
+   "Defesa Física": 48,
+   "Defesa Mágica": 70,
+   "HP": 60,
+   "Velocidade": 62
+  },
+  "peso_natural_kg": 4.9,
+  "passiva_json": {
+   "name": "Voo de Remanso",
+   "trigger": "Ao concluir validamente uma ação própria que utilizou um golpe de Suporte com custo nominal de pelo menos 25 de energia.",
+   "effect": "Recupera 8 pontos de energia após pagar o custo e resolver o golpe; máximo 100.",
+   "limits": "Uma ativação por turno próprio; Concentração E0 não ativa; não reage a golpes ofensivos nem a ações canceladas; não gera ação adicional."
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 17,
+  "nome": "Castorocó",
+  "raridade": "Comum",
+  "elementos_json": [
+   "Planta",
+   "Terra"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 70,
+   "Ataque Mágico": 39,
+   "Defesa Física": 90,
+   "Defesa Mágica": 58,
+   "HP": 90,
+   "Velocidade": 27
+  },
+  "peso_natural_kg": 11.2,
+  "passiva_json": {
+   "name": "Barragem Reforçada",
+   "trigger": "Após receber dano mágico direto de um inimigo e sobreviver, estando ativo e sem o bônus desta passiva.",
+   "effect": "Obtém +17% de Defesa Mágica até o final do segundo turno próprio posterior à ativação.",
+   "limits": "Uma ativação por ação inimiga; não se reaplica enquanto durar; não retroage para reduzir o golpe que a ativou; sai ao trocar ou ser derrotado; não reage a dano indireto."
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 18,
+  "nome": "Mariposocó",
+  "raridade": "Comum",
+  "elementos_json": [
+   "Fogo",
+   "Planta"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 44,
+   "Ataque Mágico": 97,
+   "Defesa Física": 49,
+   "Defesa Mágica": 62,
+   "HP": 68,
+   "Velocidade": 68
+  },
+  "peso_natural_kg": 5.6,
+  "passiva_json": {
+   "name": "Escamas de Brasa",
+   "trigger": "Ao iniciar uma ação com alvo já Envenenado e causar dano com golpe mágico de Fogo, OU ao iniciar uma ação com alvo já Queimado e causar dano com golpe mágico de Planta.",
+   "effect": "Recupera 12 pontos de energia ao final da ação, respeitando o máximo de 100.",
+   "limits": "Uma ativação por ação própria, independentemente dos acertos; verifica o estado no início da ação, nunca um status causado naquela própria ação; não muda, remove ou acumula estados; não concede golpes extras."
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 19,
+  "nome": "Renacocó",
+  "raridade": "Mítico",
+  "elementos_json": [
+   "Fogo"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 80,
+   "Ataque Mágico": 40,
+   "Defesa Física": 100,
+   "Defesa Mágica": 100,
+   "HP": 180,
+   "Velocidade": 70
+  },
+  "peso_natural_kg": 6.8,
+  "passiva_json": {
+   "nome": "Três Chamas da Vida",
+   "chamas": [
+    {
+     "nome": "Renovação Própria",
+     "efeito": "+20% na eficácia das habilidades de cura aplicadas por Renacocó a si mesmo."
+    },
+    {
+     "nome": "Dádiva da Fênix",
+     "efeito": "+30% na eficácia das habilidades de cura aplicadas por Renacocó a aliados."
+    },
+    {
+     "nome": "Regeneração Eterna",
+     "efeito": "Ao final de cada turno próprio em campo: Renacocó recupera 9% do HP máximo e o aliado elegível em campo com menor percentual de HP recupera 10% de seu HP máximo."
+    }
+   ],
+   "restricoes": "Regeneração 1 vez por turno próprio, não acumula, não recebe amplificação dos bônus de cura, não ultrapassa HP máximo, não revive derrotados e cessa quando Renacocó sai de campo."
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 20,
+  "nome": "Frankocó",
+  "raridade": "Épico",
+  "elementos_json": [
+   "Terra",
+   "Elétrico"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 110,
+   "Ataque Mágico": 30,
+   "Defesa Física": 115,
+   "Defesa Mágica": 85,
+   "HP": 135,
+   "Velocidade": 35
+  },
+  "peso_natural_kg": 28.0,
+  "passiva_json": {
+   "nome": "Instinto de Reconstrução",
+   "limiares_HP": [
+    {
+     "hp_percentual": "<=75",
+     "bonus": {
+      "+Defesa Física (%)": 15
+     }
+    },
+    {
+     "hp_percentual": "<=50",
+     "bonus": {
+      "+Ataque Físico (%)": 15
+     }
+    },
+    {
+     "hp_percentual": "<=25",
+     "bonus": {
+      "+Defesa Mágica (%)": 15
+     }
+    }
+   ],
+   "regras": "Bônus cumulativos nos limiares correspondentes, removidos ao recuperar HP acima de cada limite. Não alteram modelo anatômico.",
+   "ultimo_remendo": "Uma vez por Rinha, ao sobreviver a ataque que deixa HP em 25% do máximo ou menos, concede blindagem de 14% do HP máximo. Não cura, não remove estados, não adiciona golpes."
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 21,
+  "nome": "Cabacocó",
+  "raridade": "Épico",
+  "elementos_json": [
+   "Planta",
+   "Terra"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 25,
+   "Ataque Mágico": 130,
+   "Defesa Física": 75,
+   "Defesa Mágica": 115,
+   "HP": 110,
+   "Velocidade": 45
+  },
+  "peso_natural_kg": 18.0,
+  "passiva_json": {
+   "nome": "Maldição do Lar Faminto",
+   "gatilho": "Ao acertar golpe que explicitamente aplica uma maldição, impõe Selo da Cabana ao adversário",
+   "selo": {
+    "duracao": "até 2 turnos próprios do alvo",
+    "reduz_cura_recebida_pct": 45,
+    "perda_HP_max_por_turno_pct": 3.5,
+    "alcance": "somente inimigo ativo alvo",
+    "empilhamento": "não acumula; técnica válida pode renovar duração",
+    "ao_sair_de_campo": "desaparece",
+    "consideracoes": "reduz também regeneração passiva; Selo não é novo estado negativo universal; não afeta reservas"
+   }
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 22,
+  "nome": "Sirenocó",
+  "raridade": "Mítico",
+  "elementos_json": [
+   "Água",
+   "Ar"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 25,
+   "Ataque Mágico": 160,
+   "Defesa Física": 70,
+   "Defesa Mágica": 100,
+   "HP": 100,
+   "Velocidade": 95
+  },
+  "peso_natural_kg": 7.2,
+  "passiva_json": {
+   "grande_finale": "Ao executar duas melodias especiais diferentes na mesma permanência em campo, prepara 1 Grande Finale por permanência: o próximo ataque mágico direto recebe +40% de dano final no primeiro acerto válido e concede +15 Energia após acertar, limite 100. Substitui o bônus de Crescendo, não soma.",
+   "interoperabilidade": "Concentração universal V2.3 e Pena de Ritmo são sistemas separados; preservar limites de energia, ações e acertos da Rinha. Não alterar efeitos compartilhados.",
+   "melodias": [
+    {
+     "efeito": "Próximo ataque mágico direto válido: +30% de dano final no primeiro acerto válido e ignora 20% da Defesa Mágica efetiva do alvo, por até 2 turnos próprios; consumido no primeiro acerto válido.",
+     "id": "CRESCENDO",
+     "nome": "Crescendo Oceânico",
+     "sequencia": [
+      "Dó",
+      "Ré",
+      "Mi"
+     ]
+    },
+    {
+     "efeito": "Adversário ativo perde imediatamente 25 Energia; seu próximo golpe ofensivo custa +10 Energia, válido por até 2 turnos próprios do alvo; não bloqueia Concentração nem recuperação universal.",
+     "id": "CONTRACANTO",
+     "nome": "Contracanto Abissal",
+     "sequencia": [
+      "Ré",
+      "Dó",
+      "Mi"
+     ]
+    },
+    {
+     "efeito": "Reduz em 30% o dano direto físico e mágico recebido durante as próximas 2 oportunidades próprias; não acumula.",
+     "id": "REFRAO",
+     "nome": "Refrão da Bruma",
+     "sequencia": [
+      "Mi",
+      "Dó",
+      "Ré"
+     ]
+    }
+   ],
+   "nome": "Partitura das Marés",
+   "notas": {
+    "Dó": "ação válida de golpe mágico ofensivo de Água",
+    "Mi": "ação válida de golpe de Suporte",
+    "Ré": "ação válida de golpe mágico ofensivo de Ar"
+   },
+   "regras_de_geracao": [
+    "No máximo 1 nota por ação própria válida, independentemente de múltiplos acertos.",
+    "Cada nota restaura +5 de Energia até o limite de 100.",
+    "Ao registrar duas notas diferentes na partitura incompleta, Sirenocó recebe +10% de Ataque Mágico, válido até concluir ou perder a partitura.",
+    "Ao registrar 3 notas, a sequência é resolvida automaticamente, sem ação extra. Sequência não reconhecida não dispara melodia especial.",
+    "Troca de campo apaga partitura e progresso do Grande Finale; não multiplica por acertos adicionais."
+   ],
+   "versao": "V2.0"
+  },
+  "source_ref": "gc161_galetario + gc161r_overrides + normas integrais gc161r_sources",
+  "runtime_validado": 0
+ },
+ {
+  "numero": 23,
+  "nome": "Quetzacocó",
+  "raridade": "Lendário Original",
+  "elementos_json": [
+   "Ar",
+   "Planta",
+   "Nexo"
+  ],
+  "base_nivel": 50,
+  "atributos_json": {
+   "Ataque Físico": 60,
+   "Ataque Mágico": 170,
+   "Defesa Física": 110,
+   "Defesa Mágica": 120,
+   "HP": 130,
+   "Velocidade": 110
+  },
+  "peso_natural_kg": 180.0,
+  "passiva_json": {
+   "nome_de_catalogo": "Soberania dos Ventos Eternos",
+   "efeito_de_entrada": "Ao entrar em campo pela primeira vez na Rinha, invoca Ventania gratuitamente, sem gastar ação nem Energia, no limite universal de uma invocação por passiva por galeto por Rinha.",
+   "clima_invocado": "Ventania",
+   "duracao_clima": "Indeterminada: até outro Clima substituir ou a Rinha terminar. Não termina apenas por troca ou saída do Quetzacocó.",
+   "bonus_proprio_ataque_magico": "Enquanto Ventania está ativa, +50 pontos percentuais ao Ataque Mágico de referência do Quetzacocó; soma-se aditivamente aos +50 p.p. por uso da Ascensão do Nexo.",
+   "excecao_propria_planta": "Durante Ventania, os movimentos de Planta usados pelo Quetzacocó NÃO sofrem a penalidade global de -25% de dano Planta; essa exceção não se aplica a outros galetos e não dá bônus ofensivo próprio adicional.",
+   "efeitos_universais_do_clima": "Enquanto Ventania: +25% dano de golpes Ar para qualquer atacante; +10% Defesa Mágica de galetos ativos Ar; -25% dano de golpes Planta de outros atacantes (exceto Quetzacocó).",
+   "substituicao": "Outra invocação válida de Clima substitui Ventania. Se Ventania voltar a ser Clima atual, o +50% Ataque Mágico da passiva volta a vigorar enquanto o galeto estiver ativo. A invocação gratuita de entrada não se reinicia ao reentrar na mesma Rinha.",
+   "coexiste_com_santuario": true
+  },
+  "source_ref": "Quetzacoco V2 16/11 + libfile_0ef5a9d2de4c8191acb66ce007a38157",
+  "runtime_validado": 0
+ }
+]

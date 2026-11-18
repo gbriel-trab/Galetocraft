@@ -1,0 +1,580 @@
+{
+  "projeto": "Galetocraft",
+  "data_homologacao": "2026-11-13",
+  "situacao": "OFICIAL — espécie do Galetário homologada integralmente pelo criador em conversa",
+  "numero": "#022",
+  "nome": "Sirenocó",
+  "epiteto": "A Maestrina das Marés",
+  "raridade": "Mítico",
+  "elementos": [
+    "Água",
+    "Ar"
+  ],
+  "funcao": "Mago musical de dano, controle de Energia e suporte tático",
+  "inspiracao": "Sereias aladas da mitologia grega, reinterpretadas como Cocorídeo original",
+  "visual": {
+    "status": "OFICIAL HOMOLOGADA",
+    "arquivo_arte": "Sirenoco_022_Arte_Oficial_APROVADA_2026-11-13.png",
+    "sha256": "912ec1e89baa0c5e3bb654eeef90c0ee870973ad81971418a45677c69bb15072",
+    "fonte_imagem_conversa": "Última prancha padrão voxel enviada e aprovada pelo criador com “Impecável, oficialize”; geração c35d5b6a-e614-45d1-8256-4b67be3bf41b",
+    "instrucao_preservacao": "Preservar bytes e anatomia da arte; jamais substituir/recriar sem autorização expressa."
+  },
+  "atributos_base_nivel_50": {
+    "HP": 100,
+    "Ataque Físico": 25,
+    "Defesa Física": 70,
+    "Ataque Mágico": 160,
+    "Defesa Mágica": 100,
+    "Velocidade": 95
+  },
+  "pontos_base": 550,
+  "faixa_mitico": {
+    "min": 530,
+    "max": 570
+  },
+  "peso": {
+    "natural_kg": 7.2,
+    "minimo_tecnico_80pct_kg": 5.76,
+    "maximo_tecnico_150pct_kg": 10.8,
+    "observacao": "Faixa técnica de referência; alimentação pode ultrapassar 150% conforme regra vigente."
+  },
+  "passiva": {
+    "nome": "Partitura das Marés",
+    "versao": "V2.0",
+    "notas": {
+      "Dó": "ação válida de golpe mágico ofensivo de Água",
+      "Ré": "ação válida de golpe mágico ofensivo de Ar",
+      "Mi": "ação válida de golpe de Suporte"
+    },
+    "regras_de_geracao": [
+      "No máximo 1 nota por ação própria válida, independentemente de múltiplos acertos.",
+      "Cada nota restaura +5 de Energia até o limite de 100.",
+      "Ao registrar duas notas diferentes na partitura incompleta, Sirenocó recebe +10% de Ataque Mágico, válido até concluir ou perder a partitura.",
+      "Ao registrar 3 notas, a sequência é resolvida automaticamente, sem ação extra. Sequência não reconhecida não dispara melodia especial.",
+      "Troca de campo apaga partitura e progresso do Grande Finale; não multiplica por acertos adicionais."
+    ],
+    "melodias": [
+      {
+        "id": "CRESCENDO",
+        "nome": "Crescendo Oceânico",
+        "sequencia": [
+          "Dó",
+          "Ré",
+          "Mi"
+        ],
+        "efeito": "Próximo ataque mágico direto válido: +30% de dano final no primeiro acerto válido e ignora 20% da Defesa Mágica efetiva do alvo, por até 2 turnos próprios; consumido no primeiro acerto válido."
+      },
+      {
+        "id": "CONTRACANTO",
+        "nome": "Contracanto Abissal",
+        "sequencia": [
+          "Ré",
+          "Dó",
+          "Mi"
+        ],
+        "efeito": "Adversário ativo perde imediatamente 25 Energia; seu próximo golpe ofensivo custa +10 Energia, válido por até 2 turnos próprios do alvo; não bloqueia Concentração nem recuperação universal."
+      },
+      {
+        "id": "REFRAO",
+        "nome": "Refrão da Bruma",
+        "sequencia": [
+          "Mi",
+          "Dó",
+          "Ré"
+        ],
+        "efeito": "Reduz em 30% o dano direto físico e mágico recebido durante as próximas 2 oportunidades próprias; não acumula."
+      }
+    ],
+    "grande_finale": "Ao executar duas melodias especiais diferentes na mesma permanência em campo, prepara 1 Grande Finale por permanência: o próximo ataque mágico direto recebe +40% de dano final no primeiro acerto válido e concede +15 Energia após acertar, limite 100. Substitui o bônus de Crescendo, não soma.",
+    "interoperabilidade": "Concentração universal V2.3 e Pena de Ritmo são sistemas separados; preservar limites de energia, ações e acertos da Rinha. Não alterar efeitos compartilhados."
+  },
+  "golpes_de_origem": [
+    {
+      "id": "UNIV_CRINA",
+      "nome": "Crina Poderosa",
+      "papel": "Universal básico",
+      "elemento": "Neutro",
+      "categoria": "mágico",
+      "poder": 40,
+      "energia": 0,
+      "efeito": "Golpe básico mágico, sem efeito secundário. Não gera nota da Partitura por ser Neutro."
+    },
+    {
+      "id": "UNIV_CONC",
+      "nome": "Concentração",
+      "papel": "Universal obrigatório",
+      "elemento": "Sem elemento",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 0,
+      "efeito": "Usa integralmente a regra universal vigente Concentração V2.3, sem cópia divergente de efeitos; ação de suporte válida registra Mi na Partitura."
+    },
+    {
+      "id": "ORIG_ARPEJO",
+      "nome": "Arpejo da Ressaca",
+      "papel": "Original próprio 1",
+      "elemento": "Água",
+      "categoria": "mágico",
+      "poder": 75,
+      "energia": 30,
+      "nota": "Dó",
+      "efeito": "Após acerto com dano, aplica Eco Submerso, marca não cumulativa válida nas duas próximas ações próprias de Sirenocó. O próximo ataque mágico de Ar que atingir o mesmo alvo consome a marca e recebe +12% de dano final apenas no primeiro acerto válido. Marca termina com troca do alvo, não concede acertos extras."
+    },
+    {
+      "id": "ORIG_CONTRAPONTO",
+      "nome": "Contraponto dos Ventos",
+      "papel": "Original próprio 2",
+      "elemento": "Ar",
+      "categoria": "mágico",
+      "poder": 85,
+      "energia": 40,
+      "nota": "Ré",
+      "efeito": "Após acerto, reduz Ataque Mágico do alvo em 12% durante suas duas próximas ações próprias. Se consumir Eco Submerso, recebe +12% de dano final no primeiro acerto válido e a redução de Ataque Mágico é 15% em vez de 12%, sem somar. Teste uma vez por ação, efeito não cumulativo."
+    },
+    {
+      "id": "ORIG_ARIA",
+      "nome": "Ária da Maré Eterna",
+      "papel": "Original próprio 3, exclusivo/hereditário",
+      "elemento": "Água",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 40,
+      "nota": "Mi",
+      "exclusivo": true,
+      "hereditario_pelo_pai": true,
+      "efeito": "Cria Escudo Harmônico equivalente a 20% do HP máximo de Sirenocó, com duração máxima de duas oportunidades próprias ou até ser absorvido. Se essa ação concluir uma das três melodias especiais, o escudo passa a 25% do HP máximo e recupera +10 de Energia adicionais à nota de +5, respeitando teto 100. Escudos próprios não acumulam; não cura HP, não remove estado negativo nem concede ação."
+    }
+  ],
+  "aprendiveis_compartilhados": [
+    {
+      "id_catalogo": "G020",
+      "nome": "Gota Disparada",
+      "elemento": "Água",
+      "categoria": "mágico",
+      "poder": 40,
+      "energia": 0,
+      "efeito_oficial_literal": "Se o usuário recebeu cura desde sua ação anterior, poder 55 em vez de 40; não ativa curas adicionais.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G021",
+      "nome": "Orvalho Cortante",
+      "elemento": "Água",
+      "categoria": "mágico",
+      "poder": 60,
+      "energia": 20,
+      "efeito_oficial_literal": "Após causar dano, se Chuva estiver ativa recupera 8 de energia; se não estiver, reduz Defesa Mágica inimiga em 6% até a próxima ação do alvo.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G022",
+      "nome": "Coluna de Espuma",
+      "elemento": "Água",
+      "categoria": "mágico",
+      "poder": 80,
+      "energia": 40,
+      "efeito_oficial_literal": "Após causar dano tem 20% de chance de Afogamento; se o usuário possuir bônus temporário de Defesa Mágica, a chance cai para 10%, mas poder sobe para 95.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G023",
+      "nome": "Vórtice Azul",
+      "elemento": "Água",
+      "categoria": "mágico",
+      "poder": 100,
+      "energia": 50,
+      "efeito_oficial_literal": "Se o inimigo já tiver Ataque Físico reduzido, poder 115 em vez de 100; caso contrário aplica −12% de Ataque Físico por 2 ações após dano.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G024",
+      "nome": "Tsunami de Bolhas",
+      "elemento": "Água",
+      "categoria": "mágico",
+      "poder": 130,
+      "energia": 70,
+      "efeito_oficial_literal": "Sob Chuva, poder 145 em vez de 130; sem Chuva, após causar dano, 15% de chance de reduzir Velocidade do alvo em 15% por 1 ação.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "N008",
+      "nome": "Pressão do Manancial",
+      "elemento": "Água",
+      "categoria": "mágico",
+      "poder": 70,
+      "energia": 45,
+      "efeito_oficial_literal": "Poder 95, em vez de 70, se o alvo tiver 40 ou menos pontos de energia atual no momento do cálculo do primeiro acerto.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G062",
+      "nome": "Sopro Circular",
+      "elemento": "Ar",
+      "categoria": "mágico",
+      "poder": 40,
+      "energia": 0,
+      "efeito_oficial_literal": "Quando Ventania estiver ativa, projétil básico tem poder 55 em vez de 40; caso contrário permanece básico sem efeito.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G063",
+      "nome": "Assobio Rasante",
+      "elemento": "Ar",
+      "categoria": "mágico",
+      "poder": 65,
+      "energia": 25,
+      "efeito_oficial_literal": "Após causar dano reduz Ataque Mágico em 8% por 2 ações; se o alvo estiver sob uma proteção de Suporte, a redução é de 12% por apenas 1 ação.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G064",
+      "nome": "Espinho de Pressão",
+      "elemento": "Ar",
+      "categoria": "mágico",
+      "poder": 85,
+      "energia": 35,
+      "efeito_oficial_literal": "Se uma esquiva completa do usuário ocorreu no turno anterior, poder 105 em vez de 85; não concede esquiva nova.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G065",
+      "nome": "Cone de Vácuo",
+      "elemento": "Ar",
+      "categoria": "mágico",
+      "poder": 105,
+      "energia": 50,
+      "efeito_oficial_literal": "Após dano reduz Velocidade do alvo em 12% por 2 ações; sob Ventania, em vez disso recupera 10 de energia própria e reduz Velocidade em 8% por 1 ação.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G066",
+      "nome": "Aurora do Zênite",
+      "elemento": "Ar",
+      "categoria": "mágico",
+      "poder": 130,
+      "energia": 70,
+      "efeito_oficial_literal": "Se o alvo recebeu um segundo golpe desde sua última ação, poder 150 em vez de 130; caso contrário, 10% de chance de Tonto após dano.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "N017",
+      "nome": "Pluma Vazia",
+      "elemento": "Ar",
+      "categoria": "mágico",
+      "poder": 70,
+      "energia": 45,
+      "efeito_oficial_literal": "Poder 90, em vez de 70, se o peso do usuário for igual ou inferior a 100% de seu peso natural de referência no retrato de início da Rinha.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G093",
+      "nome": "Grito Harmônico",
+      "elemento": "Neutro",
+      "categoria": "mágico",
+      "poder": 90,
+      "energia": 40,
+      "efeito_oficial_literal": "Após causar dano reduz Ataque Mágico em 12% por 1 ação; se Ventania estiver ativa, a redução passa para 8% por 2 ações.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G025",
+      "nome": "Canto das Nuvens",
+      "elemento": "Água",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 30,
+      "efeito_oficial_literal": "Invoca Chuva por 4 rodadas; caso substitua Ensolarado, cura 8% do HP máximo próprio sem afetar a reserva.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G026",
+      "nome": "Névoa Protetora",
+      "elemento": "Água",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 30,
+      "efeito_oficial_literal": "O aliado escolhido recebe −25% de dano mágico na próxima ação ofensiva recebida; se já estiver Afogado, recupera 12 de energia ao ativar a barreira.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G028",
+      "nome": "Banho Reparador",
+      "elemento": "Água",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 40,
+      "efeito_oficial_literal": "Cura 20% do HP máximo de um aliado vivo, inclusive reserva; se o alvo estiver com menos de 30% do HP, acrescenta mais 5%, uma única vez.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G067",
+      "nome": "Assobio dos Quatro Ventos",
+      "elemento": "Ar",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 30,
+      "efeito_oficial_literal": "Invoca Ventania por 4 rodadas; se substituir Tempestade de Areia, o usuário recebe +10% de Velocidade até sua próxima ação.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G068",
+      "nome": "Corrente de Evasão",
+      "elemento": "Ar",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 35,
+      "efeito_oficial_literal": "Concede +8 pontos percentuais de esquiva ao usuário por suas próximas 2 ações; se esquivar efetivamente de um golpe, recupera 12 de energia após a ação ofensiva adversária, uma vez.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G070",
+      "nome": "Redemoinho de Penas",
+      "elemento": "Ar",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 45,
+      "efeito_oficial_literal": "Instala armadilha persistente que reduz o Ataque Físico do entrante voluntário em 12% por 2 ações; sob Ventania reduz em 15% por 1 ação, sem acumular.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G104",
+      "nome": "Véu de Maré",
+      "elemento": "Água",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 45,
+      "efeito_oficial_literal": "Eleva Defesa Mágica própria em 20% por 2 ações; caso esteja Afogado, protege 10 pontos de energia da próxima perda por Afogamento, sem remover o estado.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G107",
+      "nome": "Maré da Consciência",
+      "elemento": "Água",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 60,
+      "efeito_oficial_literal": "Eleva Ataque Mágico e Defesa Mágica próprios em 18% por 2 ações; se Chuva estiver ativa, ao receber dano mágico uma vez nesse período recupera 10 de energia após o ataque.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G129",
+      "nome": "Ruído de Barragem",
+      "elemento": "Ar",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 45,
+      "efeito_oficial_literal": "Reduz Ataque Mágico do alvo em 18% por 2 ações; se Ventania estiver ativa, a primeira tentativa de recuperar energia por golpe do alvo é reduzida em 8 pontos.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G135",
+      "nome": "Vácuo de Eco",
+      "elemento": "Ar",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 65,
+      "efeito_oficial_literal": "Exige Ventania ativa; reduz Defesa Mágica do alvo em 25% por 1 ação; se ele já teve esquiva completa neste turno, a redução dura 2 ações.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "N006",
+      "nome": "Redemoinho Exaustivo",
+      "elemento": "Água",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 45,
+      "efeito_oficial_literal": "Instala no lado adversário uma armadilha persistente que retira 15 pontos da energia atual de cada Cocorídeo que entra por troca voluntária, nunca abaixo de zero.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    },
+    {
+      "id_catalogo": "G100",
+      "nome": "Terreiro Purificado",
+      "elemento": "Sem elemento",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 45,
+      "efeito_oficial_literal": "Remove integralmente todas as armadilhas e cargas do lado do usuário; se pelo menos uma armadilha foi removida, recupera 10 de energia após a execução.",
+      "origem": "Galolpédia Reforma Integral Beta 1.2.27, 11/11/2026"
+    }
+  ],
+  "aprendizagem_por_nivel": [
+    {
+      "nivel": 1,
+      "id_golpe": "UNIV_CRINA",
+      "nome": "Crina Poderosa",
+      "origem": "golpe próprio/universal"
+    },
+    {
+      "nivel": 1,
+      "id_golpe": "UNIV_CONC",
+      "nome": "Concentração",
+      "origem": "golpe próprio/universal"
+    },
+    {
+      "nivel": 5,
+      "id_golpe": "G020",
+      "nome": "Gota Disparada",
+      "origem": "catálogo geral"
+    },
+    {
+      "nivel": 9,
+      "id_golpe": "G062",
+      "nome": "Sopro Circular",
+      "origem": "catálogo geral"
+    },
+    {
+      "nivel": 13,
+      "id_golpe": "G025",
+      "nome": "Canto das Nuvens",
+      "origem": "catálogo geral"
+    },
+    {
+      "nivel": 17,
+      "id_golpe": "ORIG_ARPEJO",
+      "nome": "Arpejo da Ressaca",
+      "origem": "golpe próprio/universal"
+    },
+    {
+      "nivel": 21,
+      "id_golpe": "G021",
+      "nome": "Orvalho Cortante",
+      "origem": "catálogo geral"
+    },
+    {
+      "nivel": 25,
+      "id_golpe": "G063",
+      "nome": "Assobio Rasante",
+      "origem": "catálogo geral"
+    },
+    {
+      "nivel": 29,
+      "id_golpe": "G026",
+      "nome": "Névoa Protetora",
+      "origem": "catálogo geral"
+    },
+    {
+      "nivel": 33,
+      "id_golpe": "G093",
+      "nome": "Grito Harmônico",
+      "origem": "catálogo geral"
+    },
+    {
+      "nivel": 37,
+      "id_golpe": "ORIG_CONTRAPONTO",
+      "nome": "Contraponto dos Ventos",
+      "origem": "golpe próprio/universal"
+    },
+    {
+      "nivel": 41,
+      "id_golpe": "G022",
+      "nome": "Coluna de Espuma",
+      "origem": "catálogo geral"
+    },
+    {
+      "nivel": 44,
+      "id_golpe": "G067",
+      "nome": "Assobio dos Quatro Ventos",
+      "origem": "catálogo geral"
+    },
+    {
+      "nivel": 47,
+      "id_golpe": "G065",
+      "nome": "Cone de Vácuo",
+      "origem": "catálogo geral"
+    },
+    {
+      "nivel": 50,
+      "id_golpe": "ORIG_ARIA",
+      "nome": "Ária da Maré Eterna",
+      "origem": "golpe próprio/universal"
+    }
+  ],
+  "aprendizagem_por_treinamento": [
+    {
+      "id_golpe": "G023",
+      "nome": "Vórtice Azul"
+    },
+    {
+      "id_golpe": "G024",
+      "nome": "Tsunami de Bolhas"
+    },
+    {
+      "id_golpe": "N008",
+      "nome": "Pressão do Manancial"
+    },
+    {
+      "id_golpe": "G064",
+      "nome": "Espinho de Pressão"
+    },
+    {
+      "id_golpe": "G066",
+      "nome": "Aurora do Zênite"
+    },
+    {
+      "id_golpe": "N017",
+      "nome": "Pluma Vazia"
+    },
+    {
+      "id_golpe": "G028",
+      "nome": "Banho Reparador"
+    },
+    {
+      "id_golpe": "G068",
+      "nome": "Corrente de Evasão"
+    },
+    {
+      "id_golpe": "G070",
+      "nome": "Redemoinho de Penas"
+    },
+    {
+      "id_golpe": "G104",
+      "nome": "Véu de Maré"
+    },
+    {
+      "id_golpe": "G107",
+      "nome": "Maré da Consciência"
+    },
+    {
+      "id_golpe": "G129",
+      "nome": "Ruído de Barragem"
+    },
+    {
+      "id_golpe": "G135",
+      "nome": "Vácuo de Eco"
+    },
+    {
+      "id_golpe": "N006",
+      "nome": "Redemoinho Exaustivo"
+    },
+    {
+      "id_golpe": "G100",
+      "nome": "Terreiro Purificado"
+    }
+  ],
+  "mestres_sugeridos_por_elemento": {
+    "Água": [
+      "G023",
+      "G024",
+      "N008",
+      "G028",
+      "G104",
+      "G107",
+      "N006"
+    ],
+    "Ar": [
+      "G064",
+      "G066",
+      "N017",
+      "G068",
+      "G070",
+      "G129",
+      "G135"
+    ],
+    "Sem elemento": [
+      "G100"
+    ]
+  },
+  "politica_compatibilidade": "Apenas 3 golpes próprios e 2 universais; todos os demais 25 existentes e compartilhados, com nome/poder/custo/efeito literalmente preservados da Galolpédia reformulada de 11/11/2026. O golpe exclusivo/hereditário não é ensinado por Mestres.",
+  "situacao_implementacao": "Homologação de design/documentação; não foi realizado neste ato patch do banco oficial SQLite, assets de mod ou código Java. Integração jogável requer validação específica.",
+  "fonte_catalogo": "Galolpedia_Relatorio_Auditores_Reforma_Integral_2026-11-11.md"
+}

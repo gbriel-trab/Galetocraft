@@ -10,3 +10,6 @@ pluginManagement {
 }
 
 rootProject.name = 'galetocraft'
+
+// Núcleo de regras (Java puro, testado sem Minecraft)
+include 'nucleo'

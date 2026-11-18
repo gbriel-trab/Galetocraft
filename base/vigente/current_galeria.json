@@ -1,0 +1,200 @@
+[
+ {
+  "numero": 1,
+  "nome": "Pirococó",
+  "ala_principal": "Arcanos",
+  "ala_secundaria": null,
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 2,
+  "nome": "Cocórrego",
+  "ala_principal": "Hidromorfos",
+  "ala_secundaria": "Colossais",
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 3,
+  "nome": "Esporocó",
+  "ala_principal": "Fitomorfos",
+  "ala_secundaria": null,
+  "probabilidade_macho": 0.0,
+  "probabilidade_femea": 1.0,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 4,
+  "nome": "Cocórak",
+  "ala_principal": "Colossais",
+  "ala_secundaria": null,
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 5,
+  "nome": "Cocórion",
+  "ala_principal": "Galiformes",
+  "ala_secundaria": null,
+  "probabilidade_macho": 1.0,
+  "probabilidade_femea": 0.0,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 6,
+  "nome": "Cocórvolt",
+  "ala_principal": "Galiformes",
+  "ala_secundaria": null,
+  "probabilidade_macho": 1.0,
+  "probabilidade_femea": 0.0,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 7,
+  "nome": "Taturico",
+  "ala_principal": "Couraçados",
+  "ala_secundaria": "Zoomorfos",
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 8,
+  "nome": "Axococó",
+  "ala_principal": "Hidromorfos",
+  "ala_secundaria": "Zoomorfos",
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 9,
+  "nome": "Vagaló",
+  "ala_principal": "Alígeros",
+  "ala_secundaria": "Zoomorfos",
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 10,
+  "nome": "Morcegalo",
+  "ala_principal": "Zoomorfos",
+  "ala_secundaria": "Alígeros",
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 11,
+  "nome": "Espinhocó",
+  "ala_principal": "Couraçados",
+  "ala_secundaria": "Fitomorfos",
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 12,
+  "nome": "Salambrasa",
+  "ala_principal": "Zoomorfos",
+  "ala_secundaria": "Couraçados",
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 13,
+  "nome": "Quartzaló",
+  "ala_principal": "Couraçados",
+  "ala_secundaria": "Arcanos",
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 14,
+  "nome": "Carangocó",
+  "ala_principal": "Zoomorfos",
+  "ala_secundaria": "Couraçados",
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 15,
+  "nome": "Faíscocó",
+  "ala_principal": "Galiformes",
+  "ala_secundaria": null,
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 16,
+  "nome": "Libelocó",
+  "ala_principal": "Alígeros",
+  "ala_secundaria": "Zoomorfos",
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 17,
+  "nome": "Castorocó",
+  "ala_principal": "Zoomorfos",
+  "ala_secundaria": "Fitomorfos",
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 18,
+  "nome": "Mariposocó",
+  "ala_principal": "Alígeros",
+  "ala_secundaria": "Zoomorfos",
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 19,
+  "nome": "Renacocó",
+  "ala_principal": "Arcanos",
+  "ala_secundaria": null,
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 20,
+  "nome": "Frankocó",
+  "ala_principal": "Colossais",
+  "ala_secundaria": null,
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 21,
+  "nome": "Cabacocó",
+  "ala_principal": "Arcanos",
+  "ala_secundaria": "Fitomorfos",
+  "probabilidade_macho": 0.5,
+  "probabilidade_femea": 0.5,
+  "fonte": "galeria_20261116"
+ },
+ {
+  "numero": 22,
+  "nome": "Sirenocó",
+  "ala_principal": "Hidromorfos",
+  "ala_secundaria": "Alígeros",
+  "probabilidade_macho": 0.0,
+  "probabilidade_femea": 1.0,
+  "fonte": "galeria_20261116"
+ }
+]

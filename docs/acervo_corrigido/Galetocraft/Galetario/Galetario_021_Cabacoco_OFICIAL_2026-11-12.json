@@ -1,0 +1,524 @@
+{
+  "projeto": "Galetocraft",
+  "registrado_em": "2026-11-12",
+  "estado": "FICHA COMPLETA DE DESIGN HOMOLOGADA — implementação Java/NeoForge/SQLite não confirmada",
+  "especie": {
+    "numero": 21,
+    "nome": "Cabacocó",
+    "epiteto": "A Cabana Errante",
+    "raridade": "Épico",
+    "elementos": [
+      "Planta",
+      "Terra"
+    ],
+    "papel": [
+      "mago de maldições",
+      "anti-cura",
+      "debuffs mágicos",
+      "confinamento territorial"
+    ],
+    "atributos_base_nivel50": {
+      "HP": 110,
+      "Ataque Físico": 25,
+      "Defesa Física": 75,
+      "Ataque Mágico": 130,
+      "Defesa Mágica": 115,
+      "Velocidade": 45
+    },
+    "pontos_base": 500,
+    "peso_natural_kg": 18.0,
+    "peso_referencia_80_150_pct_kg": [
+      14.4,
+      27.0
+    ]
+  },
+  "arte_oficial": {
+    "arquivo": "Cabacoco_021_Arte_Oficial_APROVADA_2026-11-12.png",
+    "sha256": "6f38aa6c1dc5185dbd4c0da4e71a6e34a87dcbe890c5f547924a6677815c1259",
+    "preservacao": "Cópia binária idêntica do último visual aprovado, sem edições ou redesenho",
+    "observacao": "Textos ilustrativos da prancha não substituem valores homologados desta ficha."
+  },
+  "passiva": {
+    "nome": "Maldição do Lar Faminto",
+    "gatilho": "Ao acertar golpe que explicitamente aplica uma maldição, impõe Selo da Cabana ao adversário",
+    "selo": {
+      "duracao": "até 2 turnos próprios do alvo",
+      "reduz_cura_recebida_pct": 50,
+      "perda_HP_max_por_turno_pct": 4,
+      "alcance": "somente inimigo ativo alvo",
+      "empilhamento": "não acumula; técnica válida pode renovar duração",
+      "ao_sair_de_campo": "desaparece",
+      "consideracoes": "reduz também regeneração passiva; Selo não é novo estado negativo universal; não afeta reservas"
+    }
+  },
+  "origem_5_golpes": [
+    {
+      "nome": "Crina Poderosa",
+      "origem": "universal",
+      "elemento": "Neutro",
+      "categoria": "mágico",
+      "poder": 40,
+      "energia": 0,
+      "efeito": "Ataque mágico básico universal; sem efeito adicional."
+    },
+    {
+      "nome": "Concentração",
+      "origem": "universal",
+      "elemento": "Neutro/sem elemento",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 0,
+      "efeito": "Técnica universal de suporte que recupera Energia, concede bônus aleatório e tem 20% de chance de remover estado negativo, conforme sistema global aprovado; obrigatoriamente equipada."
+    },
+    {
+      "nome": "Sussurro do Assoalho",
+      "origem": "proprio",
+      "elemento": "Planta",
+      "categoria": "mágico",
+      "poder": 65,
+      "energia": 35,
+      "efeito": "Após acerto aplica maldição ativadora do Selo da Cabana da passiva (duração até 2 turnos do alvo); 20% de chance de Envenenamento, testada somente uma vez por ação."
+    },
+    {
+      "nome": "Pátio Sem Saída",
+      "origem": "proprio",
+      "elemento": "Terra",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 50,
+      "efeito": "Confinamento Territorial do adversário por 2 turnos próprios dele, impedindo trocas voluntárias; pode ser removido por limpeza universal de armadilhas. Golpes, itens e Concentração continuam permitidos. Troca obrigatória após derrota sempre permitida e encerra confinamento. Após encerramento/remoção, a vítima tem oportunidade de agir com troca livre antes de nova prisão."
+    },
+    {
+      "nome": "Veredito da Porta Fechada",
+      "origem": "proprio_exclusivo_hereditario",
+      "elemento": "Terra",
+      "categoria": "mágico",
+      "poder": 110,
+      "energia": 70,
+      "efeito": "Golpe mágico P110. Se ao acertar o alvo estiver simultaneamente sob Selo da Cabana e Confinamento Territorial, o primeiro acerto válido recebe +20% de dano final, tem 25% de chance de Tonto (teste uma vez por ação) e consome o Selo após o acerto; não cria acertos extras."
+    }
+  ],
+  "aprendiveis_25_do_catalogo": [
+    {
+      "id_catalogo": "G007",
+      "nome": "Sopro de Cinzas",
+      "elemento": "Fogo",
+      "categoria": "mágico",
+      "poder": 65,
+      "energia": 30,
+      "efeito_oficial_literal": "Acertar inimigo sob Chuva causa poder 80 em vez de 65; se não chover, 20% de chance de Queimadura após dano.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G035",
+      "nome": "Perfume Ácido",
+      "elemento": "Planta",
+      "categoria": "mágico",
+      "poder": 60,
+      "energia": 25,
+      "efeito_oficial_literal": "Após dano tem 20% de Envenenamento; se o alvo estiver sob Santuário das Raízes e já Envenenado, em vez disso reduz Ataque Mágico em 8% por 1 ação.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G036",
+      "nome": "Néctar Corrosivo",
+      "elemento": "Planta",
+      "categoria": "mágico",
+      "poder": 80,
+      "energia": 40,
+      "efeito_oficial_literal": "Após causar dano reduz Defesa Mágica em 12% por 2 ações; se atingir alvo com bônus positivo de Defesa Mágica, remove primeiro o bônus mais recente, sem aplicar a redução.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G037",
+      "nome": "Espiral de Clorofila",
+      "elemento": "Planta",
+      "categoria": "mágico",
+      "poder": 100,
+      "energia": 45,
+      "efeito_oficial_literal": "Se o usuário curou um aliado da reserva desde sua última ação, poder 120 em vez de 100; de outro modo, concede 8 de energia ao usuário após dano sob Santuário das Raízes.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G038",
+      "nome": "Chuva de Folhas-Lança",
+      "elemento": "Planta",
+      "categoria": "mágico",
+      "poder": 125,
+      "energia": 75,
+      "efeito_oficial_literal": "Após causar dano, 20% de Envenenamento; se já estiver Envenenado, transfere uma redução temporária de Ataque Mágico do usuário para o alvo, caso exista, sem duplicá-la.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G049",
+      "nome": "Lodo Pressurizado",
+      "elemento": "Terra",
+      "categoria": "mágico",
+      "poder": 65,
+      "energia": 30,
+      "efeito_oficial_literal": "Após causar dano reduz Defesa Mágica em 10% por 2 ações; se o alvo estiver sob Chuva, em vez disso reduz Defesa Física em 10% por 1 ação.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G050",
+      "nome": "Ondulação Rochosa",
+      "elemento": "Terra",
+      "categoria": "mágico",
+      "poder": 85,
+      "energia": 35,
+      "efeito_oficial_literal": "Quando o alvo possui Velocidade superior à do usuário, poder 100 em vez de 85; após dano, retira 5 pontos de energia do alvo.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G051",
+      "nome": "Fenda da Garganta",
+      "elemento": "Terra",
+      "categoria": "mágico",
+      "poder": 105,
+      "energia": 50,
+      "efeito_oficial_literal": "Após causar dano 15% de Tonto; contra alvo com peso até 100% do natural, poder sobe de 105 para 120 sem alterar a chance.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G052",
+      "nome": "Erupção de Geodo",
+      "elemento": "Terra",
+      "categoria": "mágico",
+      "poder": 130,
+      "energia": 70,
+      "efeito_oficial_literal": "Se o alvo possui proteção temporária contra dano mágico, poder 145 em vez de 130; após dano, consome a proteção normalmente, sem apagá-la antes do ataque.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G063",
+      "nome": "Assobio Rasante",
+      "elemento": "Ar",
+      "categoria": "mágico",
+      "poder": 65,
+      "energia": 25,
+      "efeito_oficial_literal": "Após causar dano reduz Ataque Mágico em 8% por 2 ações; se o alvo estiver sob uma proteção de Suporte, a redução é de 12% por apenas 1 ação.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G065",
+      "nome": "Cone de Vácuo",
+      "elemento": "Ar",
+      "categoria": "mágico",
+      "poder": 105,
+      "energia": 50,
+      "efeito_oficial_literal": "Após dano reduz Velocidade do alvo em 12% por 2 ações; sob Ventania, em vez disso recupera 10 de energia própria e reduz Velocidade em 8% por 1 ação.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G066",
+      "nome": "Aurora do Zênite",
+      "elemento": "Ar",
+      "categoria": "mágico",
+      "poder": 130,
+      "energia": 70,
+      "efeito_oficial_literal": "Se o alvo recebeu um segundo golpe desde sua última ação, poder 150 em vez de 130; caso contrário, 10% de chance de Tonto após dano.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G093",
+      "nome": "Grito Harmônico",
+      "elemento": "Neutro",
+      "categoria": "mágico",
+      "poder": 90,
+      "energia": 40,
+      "efeito_oficial_literal": "Após causar dano reduz Ataque Mágico em 12% por 1 ação; se Ventania estiver ativa, a redução passa para 8% por 2 ações.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "N016",
+      "nome": "Pedra da Impaciência",
+      "elemento": "Terra",
+      "categoria": "mágico",
+      "poder": 75,
+      "energia": 45,
+      "efeito_oficial_literal": "Poder 100, em vez de 75, se a última ação efetivamente executada pelo alvo, antes desta, foi um golpe de Suporte (incluindo Concentração).",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G039",
+      "nome": "Hino das Raízes",
+      "elemento": "Planta",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 35,
+      "efeito_oficial_literal": "Invoca Santuário das Raízes por 4 rodadas; se uma armadilha inimiga estiver ativa, reduz em 10% o dano da próxima entrada de um aliado por troca voluntária, sem remover a armadilha.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G040",
+      "nome": "Armadilha de Pólen",
+      "elemento": "Planta",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 45,
+      "efeito_oficial_literal": "Instala armadilha persistente que reduz o Ataque Mágico do entrante voluntário em 12% por suas 2 próximas ações; se já estiver Envenenado, reduz 18% em vez disso, sem acumular.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G053",
+      "nome": "Tambor da Areia",
+      "elemento": "Terra",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 30,
+      "efeito_oficial_literal": "Invoca Tempestade de Areia por 4 rodadas; se substituir Ventania, o usuário ganha 10% de Defesa Física até sua próxima ação.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G055",
+      "nome": "Ninho de Pedregulhos",
+      "elemento": "Terra",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 45,
+      "efeito_oficial_literal": "Instala armadilha persistente que causa 8% do HP máximo do entrante voluntário; se ele estiver acima de 120% do peso natural, causa 11%, sem afetar entradas obrigatórias.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G098",
+      "nome": "Cocoricó Desafiador",
+      "elemento": "Sem elemento",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 35,
+      "efeito_oficial_literal": "Reduz Ataque Físico e Ataque Mágico do inimigo em 8% pelas próximas 2 ações; se ele estiver Tonto, reduz só 5% mas devolve 10 de energia ao usuário.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G109",
+      "nome": "Seiva de Ferro",
+      "elemento": "Planta",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 60,
+      "efeito_oficial_literal": "Eleva as duas Defesas próprias em 18% por 2 ações; no Santuário das Raízes, a primeira redução de atributo recebida é ignorada, sem impedir estados negativos.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G121",
+      "nome": "Resina nas Articulações",
+      "elemento": "Planta",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 45,
+      "efeito_oficial_literal": "Reduz Ataque Físico do alvo em 18% por 2 ações dele; se o alvo tentar um segundo acerto por Velocidade durante a redução, a penalidade é 25% apenas naquele segundo acerto.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G124",
+      "nome": "Quebra-Ímpeto",
+      "elemento": "Terra",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 70,
+      "efeito_oficial_literal": "Exige alvo com estado negativo persistente; reduz seu Ataque Físico em 25% e Velocidade em 8% por 1 ação, sem reaplicar nem remover o estado.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G133",
+      "nome": "Pólen Desarmônico",
+      "elemento": "Planta",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 45,
+      "efeito_oficial_literal": "Reduz Defesa Mágica do alvo em 18% por 2 ações; se Santuário das Raízes estiver ativo, cura 5% do HP máximo do usuário ao aplicar a redução, uma vez.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G136",
+      "nome": "Silêncio do Selo",
+      "elemento": "Neutro",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 70,
+      "efeito_oficial_literal": "Exige alvo com estado negativo persistente; reduz Defesa Mágica em 25% por 1 ação e reduz em 5 pontos percentuais a chance de ativação da próxima defesa especial válida do alvo, sem mudar o limiar de 120%.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    },
+    {
+      "id_catalogo": "G141",
+      "nome": "Dissipação Absoluta",
+      "elemento": "Neutro",
+      "categoria": "suporte",
+      "poder": null,
+      "energia": 35,
+      "efeito_oficial_literal": "Remove todos os bônus temporários positivos de atributos do inimigo ativo; se remover pelo menos 2 efeitos distintos, recupera 8 de energia própria após execução; não remove clima, Santuário, armadilhas, passivas ou equipamentos.",
+      "origem": "Catalogo geral homologado — Reforma Integral Beta 1.2.27 de 11/11/2026"
+    }
+  ],
+  "progressao_nivel_15": [
+    {
+      "nivel": 1,
+      "nome": "Crina Poderosa",
+      "origem": "universal",
+      "id_catalogo": null
+    },
+    {
+      "nivel": 1,
+      "nome": "Concentração",
+      "origem": "universal",
+      "id_catalogo": null
+    },
+    {
+      "nivel": 5,
+      "nome": "Perfume Ácido",
+      "origem": "catalogo",
+      "id_catalogo": "G035"
+    },
+    {
+      "nivel": 9,
+      "nome": "Resina nas Articulações",
+      "origem": "catalogo",
+      "id_catalogo": "G121"
+    },
+    {
+      "nivel": 13,
+      "nome": "Lodo Pressurizado",
+      "origem": "catalogo",
+      "id_catalogo": "G049"
+    },
+    {
+      "nivel": 17,
+      "nome": "Sussurro do Assoalho",
+      "origem": "proprio",
+      "id_catalogo": null
+    },
+    {
+      "nivel": 21,
+      "nome": "Armadilha de Pólen",
+      "origem": "catalogo",
+      "id_catalogo": "G040"
+    },
+    {
+      "nivel": 25,
+      "nome": "Néctar Corrosivo",
+      "origem": "catalogo",
+      "id_catalogo": "G036"
+    },
+    {
+      "nivel": 29,
+      "nome": "Pólen Desarmônico",
+      "origem": "catalogo",
+      "id_catalogo": "G133"
+    },
+    {
+      "nivel": 33,
+      "nome": "Pedra da Impaciência",
+      "origem": "catalogo",
+      "id_catalogo": "N016"
+    },
+    {
+      "nivel": 37,
+      "nome": "Pátio Sem Saída",
+      "origem": "proprio",
+      "id_catalogo": null
+    },
+    {
+      "nivel": 41,
+      "nome": "Fenda da Garganta",
+      "origem": "catalogo",
+      "id_catalogo": "G051"
+    },
+    {
+      "nivel": 44,
+      "nome": "Ninho de Pedregulhos",
+      "origem": "catalogo",
+      "id_catalogo": "G055"
+    },
+    {
+      "nivel": 47,
+      "nome": "Quebra-Ímpeto",
+      "origem": "catalogo",
+      "id_catalogo": "G124"
+    },
+    {
+      "nivel": 50,
+      "nome": "Veredito da Porta Fechada",
+      "origem": "proprio",
+      "id_catalogo": null
+    }
+  ],
+  "treinamento_15": [
+    {
+      "id_catalogo": "G007",
+      "nome": "Sopro de Cinzas"
+    },
+    {
+      "id_catalogo": "G037",
+      "nome": "Espiral de Clorofila"
+    },
+    {
+      "id_catalogo": "G038",
+      "nome": "Chuva de Folhas-Lança"
+    },
+    {
+      "id_catalogo": "G050",
+      "nome": "Ondulação Rochosa"
+    },
+    {
+      "id_catalogo": "G052",
+      "nome": "Erupção de Geodo"
+    },
+    {
+      "id_catalogo": "G063",
+      "nome": "Assobio Rasante"
+    },
+    {
+      "id_catalogo": "G065",
+      "nome": "Cone de Vácuo"
+    },
+    {
+      "id_catalogo": "G066",
+      "nome": "Aurora do Zênite"
+    },
+    {
+      "id_catalogo": "G093",
+      "nome": "Grito Harmônico"
+    },
+    {
+      "id_catalogo": "G039",
+      "nome": "Hino das Raízes"
+    },
+    {
+      "id_catalogo": "G053",
+      "nome": "Tambor da Areia"
+    },
+    {
+      "id_catalogo": "G098",
+      "nome": "Cocoricó Desafiador"
+    },
+    {
+      "id_catalogo": "G109",
+      "nome": "Seiva de Ferro"
+    },
+    {
+      "id_catalogo": "G136",
+      "nome": "Silêncio do Selo"
+    },
+    {
+      "id_catalogo": "G141",
+      "nome": "Dissipação Absoluta"
+    }
+  ],
+  "conformidade": {
+    "ataque_basico_universal": 1,
+    "concentracao_universal": 1,
+    "golpes_proprios": 3,
+    "golpes_compartilhados_existentes": 25,
+    "total_repertorio": 30,
+    "total_nivel": 15,
+    "total_treinamento": 15,
+    "golpes_novos_criados_na_etapa_de_aprendiveis": 0,
+    "golpes_descartados": "lista anterior de 25 novos golpes inventados não homologada; excluída",
+    "teste_de_combates": "não realizado"
+  },
+  "fontes": {
+    "catalogo_existente": "Galolpedia_Relatorio_Auditores_Reforma_Integral_2026-11-11.md",
+    "aprovacoes": "Conversa do criador em 12/11/2026; aprovação expressa de espécie, aparência, atributos, passiva, três golpes próprios, seleção dos 25 catalogados, progressão e peso"
+  },
+  "integracao": "Somente registros documentais; não houve mutação do banco canônico, modelos, outros golpes ou código Java."
+}

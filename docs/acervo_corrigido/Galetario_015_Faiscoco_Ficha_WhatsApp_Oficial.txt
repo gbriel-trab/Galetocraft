@@ -1,0 +1,104 @@
+🐓 **GALETOCRAFT — GALETÁRIO OFICIAL**
+
+**#015 — FAÍSCOCÓ**
+*O Galo Tempestífugo*
+✅ **STATUS: CRIAÇÃO OFICIALMENTE HOMOLOGADA**
+📅 11/11/2026
+
+### 📋 INFORMAÇÕES GERAIS
+- **Raridade:** Raro
+- **Tipagem dupla:** Fogo + Elétrico
+- **Especialidade:** Ataque Mágico e Velocidade; atacante ágil com resistência física baixa
+- **Conceito:** ave termoelétrica curiosa e teimosa, adaptada a áreas quentes e de alta atividade elétrica
+
+### 🎨 VISUAL OFICIAL
+Galo voxel em tons de vermelho, cobre, creme e carvão, com crista incandescente assimétrica, manto termoelétrico marcado por espiral, anel condutor segmentado na cauda e pequenos geradores de faíscas/lanternas. Prancha aprovada com vista frontal, laterais, traseira, expressões e detalhes de design; modelagem 3D real ainda não verificada.
+**Nota visual:** a imagem histórica aprovada ainda diz 'Comum' no selo, mas a classificação oficial homologada POSTERIORMENTE é **Raro**. A imagem foi preservada pixel a pixel; selo visual requer correção autorizada separadamente.
+
+### 📊 ATRIBUTOS BASE — NÍVEL 50
+- **HP:** 70
+- **Ataque Físico:** 60
+- **Defesa Física:** 50
+- **Ataque Mágico:** 95
+- **Defesa Mágica:** 55
+- **Velocidade:** 100
+**TOTAL: 430 PONTOS** (faixa oficial Raro: 410–450)
+
+### ⚡🔥 PASSIVA OFICIAL — INDUÇÃO INCANDESCENTE v2
+INDUÇÃO INCANDESCENTE v2 — Faíscocó começa sua PRIMEIRA entrada em uma Rinha com 1 Carga Termoelétrica. Enquanto possuir carga, seu primeiro acerto VÁLIDO de um golpe MÁGICO OFENSIVO de Fogo ou Elétrico que cause dano consome a carga, aumenta APENAS ESSE ACERTO em 30% de dano e recupera 10 pontos de energia, limitados ao máximo universal de 100. Não afeta acertos adicionais da mesma ação. A recarga ofensiva ocorre ao FINAL de uma ação com golpe mágico ofensivo de Fogo/Elétrico (mesmo se errar), mas SOMENTE se Faíscocó INICIOU aquela ação sem Carga Termoelétrica; consumir uma carga durante a ação NÃO permite recarregar pelo mesmo ataque. Receber dano DIRETO de golpe inimigo também produz 1 carga se ainda não houver carga, excluídos danos indiretos de estados negativos, clima e armadilhas. Máximo 1 carga, sem acumular ou gerar ataques extras. Trocar para a reserva elimina a carga, e entradas posteriores não fornecem uma nova carga inicial.
+
+### 🥊 CINCO GOLPES ORIGINAIS — HOMOLOGADOS
+**#1 — Crina Poderosa** · Mágico/Neutro · P40 E0. Golpe básico mágico sem efeito secundário; preserva a regra universal.
+
+**#2 — Concentração** · Suporte/Sem elemento · P— E0. Efeitos universais vigentes de Concentração; único golpe obrigatoriamente equipado. Não atribuir porcentagem nova.
+
+**#3 — Fio de Ionização v2** · Mágico/Elétrico · P65 E35. Após acerto com dano, 40% de reduzir Defesa Mágica do alvo em 10% por 2 turnos do alvo. Apenas 1 verificação ao final da ação, mesmo com ataque adicional por Velocidade. Não acumula.
+
+**#4 — Manto de Cinza Viva v2** · Mágico/Fogo · P55 E40. Golpe mágico ofensivo; ao final da ação cria proteção que reduz em 35% o dano do próximo acerto direto recebido, mesmo que o golpe ofensivo erre. Expira após proteger 1 acerto ou ao final do segundo turno próprio posterior à utilização, o que ocorrer primeiro. Não acumula, não bloqueia estados negativos; máximo 1 manto por ação.
+
+**#5 — Tormenta do Anel Rubro** · Mágico/Fogo · P95 E55. Depois de pelo menos 1 acerto que cause dano, 15% de chance de Queimadura, com apenas 1 verificação ao final da ação e regras universais de estados negativos.
+
+### 📚 25 GOLPES ADICIONAIS APRENDÍVEIS — HOMOLOGADOS
+**🔥 FOGO — 12 GOLPES**
+
+**G001 — Bico de Brasas** · Físico/Fogo · P40 E0. +10% de dano contra alvo já Queimado.
+**G002 — Espora Incandescente** · Físico/Fogo · P65 E30. 20% de chance de Queimadura; contra alvo já Queimado, reduz a Defesa Física do alvo em 8% por duas ações.
+**G003 — Galope de Carvão** · Físico/Fogo · P85 E35. Poder 105 se o usuário sofreu dano de armadilha desde sua última ação.
+**G006 — Faísca de Terreiro** · Mágico/Fogo · P40 E0. Sob Ensolarado, 15% de reduzir o Ataque Mágico do alvo em 8% por uma ação.
+**G007 — Sopro de Cinzas** · Mágico/Fogo · P65 E30. Poder 80 sob Chuva; fora da Chuva, 20% de chance de Queimadura após causar dano.
+**G008 — Rosácea de Fagulhas** · Mágico/Fogo · P85 E40. Durante o cálculo de dano, reduz pela metade um bônus positivo de Ataque Mágico do alvo, sem removê-lo.
+**G011 — Chamado do Meio-Dia** · Suporte/Fogo · P— E30. Invoca Ensolarado por quatro rodadas; se substituir Chuva, concede +10% de Defesa Mágica ao usuário até sua próxima ação.
+**G013 — Cinzas da Discórdia** · Suporte/Fogo · P— E35. Reduz o Ataque Físico do alvo em 12% por duas ações; se já Queimado, reduz em 18%.
+**N001 — Brasa de Rebate** · Físico/Fogo · P75 E45. Poder 100 se o usuário recebeu dano físico direto desde sua última ação própria.
+**N002 — Cinza Desarmadora** · Mágico/Fogo · P70 E45. Após causar dano, remove o bônus temporário positivo mais forte de Ataque Mágico do alvo.
+**N003 — Fornalha Resguardada** · Suporte/Fogo · P— E40. Remove Queimadura do próprio usuário e concede +20% de Defesa Mágica por duas ações próprias.
+**N004 — Brilho de Carvão** · Mágico/Fogo · P80 E45. Sob Ensolarado, recupera 15 de energia após causar dano, uma vez por ação.
+
+**⚡ ELÉTRICO — 11 GOLPES**
+
+**G071 — Bicada Elétrica** · Físico/Elétrico · P40 E0. Poder 50 contra alvo Paralisado.
+**G072 — Espora de Cobre** · Físico/Elétrico · P65 E30. 18% de chance de Tonto após dano; se alvo já Tonto, recupera 8 de energia em vez de reaplicar.
+**G073 — Investida do Dínamo** · Físico/Elétrico · P85 E35. Poder 100 contra alvo com menos de 30 de energia.
+**G074 — Cascata de Centelhas** · Físico/Elétrico · P100 E50. Reduz Defesa Física do alvo em 12% por duas ações; sob Santuário dos Raios, reduz 16% por uma ação e recupera 5 de energia.
+**G076 — Arco de Faísca** · Mágico/Elétrico · P40 E0. Poder 50 sob Santuário dos Raios, sem produzir golpes adicionais.
+**G077 — Pulso Condutor** · Mágico/Elétrico · P65 E30. 15% de chance de Tonto; contra alvo já Paralisado, drena 10 de energia em vez de tentar Tonto.
+**G078 — Círculo Voltaico** · Mágico/Elétrico · P80 E40. Reduz Ataque Mágico do alvo em 10% por duas ações após causar dano; ao final recupera 8 de energia se estava abaixo de 40 após pagar o custo.
+**G081 — Cântico dos Condutores** · Suporte/Elétrico · P— E35. Invoca Santuário dos Raios por quatro rodadas; se o usuário estiver Paralisado, recupera 10 de energia após a execução.
+**G083 — Campo de Centelhas** · Suporte/Elétrico · P— E45. Armadilha persistente que reduz Defesa Mágica do adversário que entrar por troca voluntária em 12% por duas ações; se entrar Paralisado, reduz 15% por uma ação.
+**G084 — Escudo Galvânico** · Suporte/Elétrico · P— E35. Concede a um aliado redução de 25% do dano mágico na próxima ação ofensiva recebida; aumenta para 35% se o protegido tiver menos de 40 de energia no impacto.
+**G110 — Descarga Sináptica** · Suporte/Elétrico · P— E60. Concede +18% Ataque Mágico e +15% Velocidade por duas ações; sob Santuário dos Raios, impede a primeira tentativa de reduzir Velocidade durante o efeito.
+
+**🌬️ AR — 2 GOLPES**
+
+**G057 — Asa Riscante** · Físico/Ar · P40 E0. Poder 50 se a Velocidade do usuário superar a do alvo, sem criar ataques adicionais.
+**N018 — Vórtice de Passagem** · Suporte/Ar · P— E45. Troca Faíscocó por aliado apto da reserva; somente nessa entrada o substituto ignora gatilhos das armadilhas aliadas, sem remover armadilhas ou proteger trocas futuras.
+
+### 📊 DISTRIBUIÇÃO DE TODOS OS 30 GOLPES
+- 12 mágicos
+- 9 físicos
+- 9 de suporte
+- **TOTAL: 30** = 5 originais + 25 adicionais, sem IDs repetidos.
+
+### ⚙️ MECÂNICAS DAS RINHAS
+- Energia máxima: 100; recupera 20 no início do turno próprio.
+- Cinco movimentos equipados simultaneamente; Concentração é o único golpe fixo.
+- Golpes convencionais: máximo dois acertos por ação, com regra vigente de ataque adicional por Velocidade.
+- Golpes sequenciais, quando utilizados: categoria excepcional de até cinco acertos condicionais (100%, 70%, 50%, 30%, 15%), sem ataque extra por Velocidade. Essa regra geral não transforma automaticamente nenhum golpe original do Faíscocó em sequencial.
+- Indução Incandescente fortalece somente o primeiro acerto mágico válido de Fogo/Elétrico enquanto houver carga; outros acertos não recebem novamente o bônus.
+
+### ⚖️ PESO NATURAL MÁXIMO
+**5,8 kg — HOMOLOGADO**
+Faixa técnica de referência: 80% = 4,64 kg; 100% = 5,8 kg; 150% = 8,70 kg. Não se trata de um peso obrigatório de nascimento nem de teto absoluto por alimentação.
+
+### 🔒 CONFORMIDADE E IMPLEMENTAÇÃO
+✅ Design original aprovado e integralmente preservado
+✅ Raridade Raro e atributos 430 homologados
+✅ Passiva e seu esclarecimento de recarga homologados
+✅ Cinco golpes originais homologados
+✅ 25 golpes adicionais homologados
+✅ Peso natural máximo 5,8 kg homologado
+✅ Verificação documental e aritmética concluída
+⚠️ Selo 'Comum' na imagem é vestígio histórico; classificação oficial atual: RARO. Sem modificação de pixels.
+⏳ Modelagem real em Blockbench/GeckoLib e integração ao jogo: não verificadas.
+⏳ Simulações completas de meta 1v1/3v3: não realizadas.
+**PRESERVAÇÃO:** não modificar arte, atributos, golpes, passiva, valores ou registros homologados sem autorização prévia e explícita do criador.

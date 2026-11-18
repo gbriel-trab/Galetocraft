@@ -1,0 +1,55 @@
+{
+  "projeto": "Galetocraft",
+  "sistema": "Reprodução V2.0",
+  "etapa": 1,
+  "nome": "Ninhos Especializados e Terreiro de Encontro",
+  "status": "HOMOLOGADO_DESIGN",
+  "data": "2026-11-16",
+  "criador_aprovou_expressamente": true,
+  "etapas_concluidas": 1,
+  "etapas_restantes": 11,
+  "ninhos": {
+    "alas": [
+      "Galiformes",
+      "Alígeros",
+      "Colossais",
+      "Couraçados",
+      "Fitomorfos",
+      "Hidromorfos",
+      "Zoomorfos",
+      "Arcanos"
+    ],
+    "por_especie": false,
+    "capacidade_ovos": 3,
+    "obrigatorio_para_incubar": true,
+    "obrigatorio_para_reproduzir": false,
+    "eclosao_manual": true,
+    "tempo_multiplicador_com_afinidade": 0.7,
+    "refinamento": {
+      "ativacao": 0.5,
+      "atributos_alvo": "1 entre os 3 IVs não herdados",
+      "regra": "maior(IV original, novo sorteio 1..40); se não houve ganho e IV<40, +1",
+      "limite": 40,
+      "tentativas_maximas_por_ovo": 1
+    }
+  },
+  "terreiro": {
+    "tempo_minutos_por_leva": 10,
+    "ovos_distribuicao": {
+      "1": 0.25,
+      "2": 0.5,
+      "3": 0.25
+    },
+    "ovos_por_leva_min": 1,
+    "ovos_por_leva_max": 3,
+    "cooldown_adicional_minutos": 0,
+    "bandeja_capacidade": 3
+  },
+  "status_implementacao": "NAO_VERIFICADO_NO_MOD",
+  "etapa02_status": "PENDENTE_HOMOLOGACAO",
+  "pendencias_externas": [
+    "gatilhos especiais dos gêmeos",
+    "catálogo compatível da Herança de Bico",
+    "incubação ambiental/tempo-base — Etapa 02"
+  ]
+}
