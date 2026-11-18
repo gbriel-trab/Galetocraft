@@ -49,7 +49,16 @@ Veja `blockbench_mcp.md`. As *skills* do projeto `jasonjgardner/blockbench-mcp-p
   - o dedo do meio dos dois pés fica 0,5 px à frente do pé;
   - a base da cauda se descola 0,37 px no andar;
   - os pés afundam 1,1 px no andar.
-- **Lição:** compare as vistas de frente, lado e costas, não só a pose de destaque.
+- O subagente crítico, com a folha e as perguntas, achou o que as medidas não pegam:
+  - a cauda escondida de lado;
+  - a pose `render` espelhada;
+  - o olho de "óculos escuros";
+  - o bico de "charuto";
+  - a perna atravessando o manto.
+
+  Nas medidas, a nota do guia estava em 15/15.
+- **Lição:** compare as vistas de frente, lado e costas, não só a pose de destaque. Uma nota cheia no guia não quer
+  dizer que o modelo ficou bom.
 
 ## Fontes
 - [jasonjgardner/blockbench-mcp-plugin](https://github.com/jasonjgardner/blockbench-mcp-plugin).

@@ -20,6 +20,11 @@ Formato: **nome**: como reconhecer, e depois → como corrigir.
   no chão. É a falha nº 1 do 3DCodeBench. → `pecas_soltas.py` acusa com a distância e a peça do corpo mais perto.
   Encoste (vão ≤ 0,25 px) ou enterre a raiz da peça 1 px no corpo; confira nas animações, não só na pose neutra.
   O vão de 0,1 px à frente para evitar que as faces pisquem (*z-fighting*) é técnica, não defeito.
+- **Peça atravessando:** perna que passa por dentro do manto no andar, chifre que sai pela lateral do elmo. O
+  `pecas_soltas.py` não pega isso: olhe de lado e nos quadros das animações. → Afaste a peça, reduza o giro na
+  animação ou mova a peça da frente junto.
+- **Garra rombuda:** garras em cubo 1x1xN que parecem dedos. → Planos com a ponta curva recortada na textura.
+- **Franja de tapete:** ponta de pena recortada em palitos de 1 px. → Ponta única afinando (4 → 2 → 1 px).
 - **Plano de lado:** um plano visto de quina some, e uma crista de planos paralelos vira uma linha no perfil. → Abra
   os planos em leque (o fogo do Blaziken usa ±60–65°) ou cruze dois planos em X.
 
@@ -30,12 +35,20 @@ Formato: **nome**: como reconhecer, e depois → como corrigir.
 - **Proporção realista:** cabeça pequena e pernas de ave real, quando a arte tem cabeça grande, olho grande e
   pernas estilizadas. → Meça na arte (cabeça/altura, perna/altura) e copie a proporção; a ficha manda, não a
   anatomia.
+- **Perfil de coluna:** de lado, mantos ou asas laterais tapam o peito e as pernas, a cauda cai rente ao corpo e a
+  criatura vira uma coluna. → Recue e incline os painéis laterais para trás, e leve a cauda para longe do corpo.
+- **Pose de destaque espelhada:** a `render` só encaixa na arte espelhada, e a cabeça e a cauda saem para o lado
+  errado. → Inverta o yaw da cabeça e do pescoço e mande a cauda para o lado oposto ao bico, como na arte.
 - **Elemento marcante perdido:** a crista, a barbela, a cauda ou o manto da ficha ficaram pequenos ou sumiram na
   simplificação. → Simplifique o desenho interno, nunca o contorno marcante; ele vira geometria (guia, seção 13).
 
 ## Rosto
 - **Olho chapado:** olho pintado direto na face da cabeça, sem pupila em plano nem pálpebra. → Olho em plano a +0,01
   da face, pupila a +0,01 do olho e pálpebra escondida, que o `piscar` mostra (guia, seção 4, "Rosto e olho").
+- **Olho de óculos escuros:** olho pequeno quase todo escuro, sem o claro da arte. → Escuro só na pupila e na
+  linha da pálpebra; o resto do olho claro (esclera ou íris).
+- **Bico de charuto:** bico reto e comprido de lado, quando a arte tem bico curto em gancho. → Encurte e gire o osso
+  do bico 10 a 20° com a ponta para baixo.
 - **Expressão neutra demais:** sobrancelha e pálpebra retas, quando a arte tem um olhar decidido ou bravo. →
   Sobrancelha em plano girado (as faces da cunha do rosto do Blaziken vão a ±38,5°) e o recorte do olho
   inclinado na textura.

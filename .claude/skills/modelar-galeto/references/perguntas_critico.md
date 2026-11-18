@@ -1,9 +1,10 @@
 # Perguntas do crítico
 
 ## Como responder
-Responda a cada pergunta com **sim**, **não** ou **não sei**, olhando as imagens. Quando a resposta for "não" ou
-"não sei", diga **onde** está o problema (vista, região, osso se souber) e **o que mudar**, em uma linha. Não
-responda pelo que o modelo "deveria" ter, só pelo que dá para ver. Se a vista já bate com a arte, a resposta é
+Responda a cada pergunta com **sim**, **não** ou **não sei**, olhando as imagens. Todas estão escritas para que
+"sim" seja a resposta boa. Quando a resposta for "não" ou "não sei", diga **onde** está o problema (vista, região,
+osso se souber) e **o que mudar**, em uma linha. Não responda pelo que o modelo "deveria" ter, só pelo que dá para
+ver. Se a vista já bate com a arte, a resposta é
 "sim": não invente melhorias.
 
 ## Silhueta e proporção (1_vistas, 3_arte)
@@ -12,8 +13,8 @@ responda pelo que o modelo "deveria" ter, só pelo que dá para ver. Se a vista 
 3. Os elementos marcantes da ficha estão todos lá (crista, barbela, cauda, manto, chamas, armadura...)?
 4. A simetria só aparece onde a arte é simétrica? A postura do `parado` tem vida (peso, curva), sem cara de
    manequim?
-5. Os pés tocam o chão, e nenhuma peça parece solta, flutuando ou atravessando outra sem querer? (Confira com a
-   lista de peças soltas nas medidas.)
+5. Os pés tocam o chão, e nenhuma peça parece solta, flutuando ou atravessando outra sem querer? (A lista de peças
+   soltas nas medidas não pega peça que atravessa outra: procure isso nas imagens, de lado e nas animações.)
 
 ## Rosto (2_rosto)
 6. Os olhos têm a forma e a posição da arte, com pupila e pálpebra (que fecha no piscar)?
@@ -21,8 +22,8 @@ responda pelo que o modelo "deveria" ter, só pelo que dá para ver. Se a vista 
 
 ## Bordas e geometria (1_vistas, 2_rosto)
 8. Franjas, penas, chamas e garras são planos com recorte na textura, e não escadinhas de cubos?
-9. Alguma curva foi feita com degraus de cubos pequenos onde um plano girado ou a textura resolveria?
-10. Há "poeira de cubos" (muitos cubos de 1 px imitando detalhe que a textura faria)?
+9. As curvas são feitas com planos girados ou na textura, sem degraus de cubos pequenos?
+10. Os detalhes miúdos estão na textura, sem "poeira de cubos" (muitos cubos de 1 px imitando detalhe)?
 
 ## Textura (1_vistas, 2_rosto)
 11. Cada material tem 3 a 5 tons, sem contorno preto, sem degradê de "travesseiro" e sem luz pintada de um lado?

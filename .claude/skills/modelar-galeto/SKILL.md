@@ -79,6 +79,7 @@ decidem.
 4. **Chame o crítico** (`agents/critico.md`) no fim de cada etapa e antes de entregar. Para retoques pequenos entre
    etapas, basta você mesmo responder às perguntas. Passe ao subagente:
    - os caminhos das imagens, o `perguntas.md` e a arte ou ficha;
+   - o `.geo.json`, a animação e a textura, para ele dar as correções com números;
    - **nunca** o seu raciocínio ou a sua opinião ("acho que ficou bom"), porque um crítico que recebe a hipótese
      tende a confirmá-la.
 5. **Corrija só o que deu "não"**, do defeito maior para o menor. Ao refinar, mude uma coisa por volta, para saber o
@@ -129,7 +130,7 @@ e fica melhor a cada galeto.
 | script | para quê |
 |---|---|
 | `folha_critica.py` | a folha do crítico num comando: vistas (com a ficha), rosto ampliado, arte e sobreposição, escala do jogo, quadros do parado e do andar, e o `perguntas.md` com as medidas |
-| `pecas_soltas.py` | grupos de cubos que não encostam no corpo e o ponto mais baixo, na pose neutra e em 4 quadros de cada animação; sai com código 1 se achar problema |
+| `pecas_soltas.py` | grupos de cubos que não encostam no corpo e o ponto mais baixo, na pose neutra e em 4 quadros de cada animação; sai com código 1 se achar problema. Não pega peça que atravessa outra: isso fica com o crítico |
 
 Ferramentas do repositório que o laço usa:
 - `ferramentas/analisar_geo.py --estilo`: os 15 critérios do guia;

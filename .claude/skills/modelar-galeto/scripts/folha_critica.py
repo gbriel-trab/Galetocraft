@@ -156,7 +156,7 @@ def folha_arte(arte_path, geo, tex, anims, nome_pose, saida):
     dados = ag.faces(geo, tex, pose)
     alvo = ca.normalizar(ca.silhueta_arte(arte))
     _, yaw, pitch, esp = ca.melhor_angulo(dados, alvo, yaws=range(-90, 91, 10), pitches=(-10, 0, 10))
-    return ca.folha(arte, dados, yaw, pitch, esp, saida, f"pose {nome_pose or 'neutra'}"), yaw, pitch
+    return ca.folha(arte, dados, yaw, pitch, esp, saida, f"pose {nome_pose or 'neutra'}"), yaw, pitch, esp
 
 
 # ----------------------------------------------------------------------------------------------------------------
@@ -190,10 +190,13 @@ def main():
     else:
         medidas.append("- rosto: não achei o osso da cabeça (use --cabeca)")
     if a.arte:
-        nota, yaw, pitch = folha_arte(a.arte, geo, tex, anims, a.pose_arte, out / "3_arte.png")
+        nota, yaw, pitch, esp = folha_arte(a.arte, geo, tex, anims, a.pose_arte, out / "3_arte.png")
         imagens.append("3_arte.png")
         medidas.append(f"- sobreposição com a arte (IoU), pose `{a.pose_arte}`: **{100 * nota:.0f}%** "
                        f"(yaw {yaw}, pitch {pitch}; meta ≥ 60%)")
+        if esp:
+            medidas.append("  - o melhor encaixe só veio **espelhado**: confira se a cabeça e a cauda saem para o "
+                           "mesmo lado que na arte")
     folha_escala(dados, a.escala_jogo).save(out / "4_escala_jogo.png"); imagens.append("4_escala_jogo.png")
     fa = folha_animacoes(geo, tex, anims)
     if fa:
