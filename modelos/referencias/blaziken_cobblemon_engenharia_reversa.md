@@ -2,7 +2,8 @@
 
 Estudo de como o Cobblemon monta, texturiza e anima o Blaziken (o "galo de fogo" da franquia), para tirar
 técnicas aplicáveis aos Cocorídeos, em especial ao Pirococó (#001). Feito em 18/11/2026 com
-`ferramentas/analisar_geo.py`.
+`ferramentas/analisar_geo.py`. O Combusken (a evolução anterior, com andar procedural) está em
+`combusken_cobblemon_engenharia_reversa.md`.
 
 **Nada do Cobblemon foi copiado para este repositório.** Aqui ficam só medidas, contagens e técnicas
 (fatos sobre o arquivo). Os arquivos originais e as imagens geradas ficam fora do Git (ver "Licença" e

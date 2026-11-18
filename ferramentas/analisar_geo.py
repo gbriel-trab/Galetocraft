@@ -470,6 +470,11 @@ def relatorio(geo, tex, dados_repouso, anims=None, escala_jogo=None):
         for a in resumo_animacoes(anims):
             L.append(f"| `{a['nome']}` | {a['duracao'] if a['duracao'] is not None else '—'} | {a['loop']} | {a['ossos']} | "
                      f"{a['keyframes']} | {a['canais_molang']} | {', '.join(a['canais'])} | {', '.join(a['extras']) or '—'} |")
+        existentes = {o["name"] for o in geo["ossos"]}
+        orfaos = {n: sorted(set(a.get("bones", {})) - existentes) for n, a in anims.items()}
+        orfaos = {n: o for n, o in orfaos.items() if o}
+        L += ["", "Ossos animados que não existem no modelo (esses canais não têm efeito): "
+              + ("; ".join(f"`{n}`: {', '.join(o)}" for n, o in orfaos.items()) if orfaos else "nenhum.")]
     return "\n".join(L) + "\n"
 
 
