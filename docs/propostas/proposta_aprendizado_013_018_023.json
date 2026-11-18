@@ -1,0 +1,996 @@
+{
+ "13": [
+  {
+   "nome": "Crina Poderosa",
+   "metodo": "nivel",
+   "nivel": 1,
+   "origem": true
+  },
+  {
+   "nome": "Concentração",
+   "metodo": "nivel",
+   "nivel": 1,
+   "origem": true
+  },
+  {
+   "nome": "Arco de Faísca",
+   "metodo": "nivel",
+   "nivel": 5
+  },
+  {
+   "nome": "Grão de Pedra",
+   "metodo": "nivel",
+   "nivel": 9
+  },
+  {
+   "nome": "Tambor da Areia",
+   "metodo": "nivel",
+   "nivel": 13
+  },
+  {
+   "nome": "Lascas de Quartzo",
+   "metodo": "nivel",
+   "nivel": 17,
+   "origem": true
+  },
+  {
+   "nome": "Lodo Pressurizado",
+   "metodo": "nivel",
+   "nivel": 21
+  },
+  {
+   "nome": "Pulso Condutor",
+   "metodo": "nivel",
+   "nivel": 25
+  },
+  {
+   "nome": "Bateria Compartilhada",
+   "metodo": "nivel",
+   "nivel": 29
+  },
+  {
+   "nome": "Cântico dos Condutores",
+   "metodo": "nivel",
+   "nivel": 33
+  },
+  {
+   "nome": "Faíscas do Geodo",
+   "metodo": "nivel",
+   "nivel": 37,
+   "origem": true
+  },
+  {
+   "nome": "Muralha Escavada",
+   "metodo": "nivel",
+   "nivel": 41
+  },
+  {
+   "nome": "Pedra de Revezamento",
+   "metodo": "nivel",
+   "nivel": 44
+  },
+  {
+   "nome": "Ondulação Rochosa",
+   "metodo": "nivel",
+   "nivel": 47
+  },
+  {
+   "nome": "Tempestade Cristalina",
+   "metodo": "nivel",
+   "nivel": 50,
+   "origem": true
+  },
+  {
+   "nome": "Sopro Circular",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Escudo Galvânico",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Coluna de Guarda",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Círculo Voltaico",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Pena de Eco",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Couraça do Subsolo",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Foco Centelhante",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Ninho de Pedregulhos",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Pedra da Impaciência",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Rede de Relâmpagos",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Fenda da Garganta",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Descarga Sináptica",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Aurora do Zênite",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Erupção de Geodo",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Ruptura de Alta Tensão",
+   "metodo": "treinamento"
+  }
+ ],
+ "14": [
+  {
+   "nome": "Garra Afiada",
+   "metodo": "nivel",
+   "nivel": 1,
+   "origem": true
+  },
+  {
+   "nome": "Concentração",
+   "metodo": "nivel",
+   "nivel": 1,
+   "origem": true
+  },
+  {
+   "nome": "Bico de Marola",
+   "metodo": "nivel",
+   "nivel": 5
+  },
+  {
+   "nome": "Chute de Cascalho",
+   "metodo": "nivel",
+   "nivel": 9
+  },
+  {
+   "nome": "Cauda de Ressaca",
+   "metodo": "nivel",
+   "nivel": 13
+  },
+  {
+   "nome": "Pinçada da Ressaca",
+   "metodo": "nivel",
+   "nivel": 17,
+   "origem": true
+  },
+  {
+   "nome": "Canto das Nuvens",
+   "metodo": "nivel",
+   "nivel": 21
+  },
+  {
+   "nome": "Névoa Protetora",
+   "metodo": "nivel",
+   "nivel": 25
+  },
+  {
+   "nome": "Tambor da Areia",
+   "metodo": "nivel",
+   "nivel": 29
+  },
+  {
+   "nome": "Marreta de Barro",
+   "metodo": "nivel",
+   "nivel": 33
+  },
+  {
+   "nome": "Couraça de Lodo",
+   "metodo": "nivel",
+   "nivel": 37,
+   "origem": true
+  },
+  {
+   "nome": "Muralha Escavada",
+   "metodo": "nivel",
+   "nivel": 41
+  },
+  {
+   "nome": "Pancada de Maré",
+   "metodo": "nivel",
+   "nivel": 44
+  },
+  {
+   "nome": "Maré de Retirada",
+   "metodo": "nivel",
+   "nivel": 47
+  },
+  {
+   "nome": "Cerco das Pinças",
+   "metodo": "nivel",
+   "nivel": 50,
+   "origem": true
+  },
+  {
+   "nome": "Gota Disparada",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Ferrão de Trepadeira",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Assobio dos Quatro Ventos",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Cabeçada de Basalto",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Coluna de Guarda",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Fôlego de Ressaca",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Coluna de Espuma",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Banho Sereno",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Ninho de Pedregulhos",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Redemoinho Exaustivo",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Pisada de Lastro",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Açoite de Corredeira",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Pisão Sísmico",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Cinzel Quebra-Manto",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Quebra-Cais",
+   "metodo": "treinamento"
+  }
+ ],
+ "15": [
+  {
+   "nome": "Crina Poderosa",
+   "metodo": "nivel",
+   "nivel": 1,
+   "origem": true
+  },
+  {
+   "nome": "Concentração",
+   "metodo": "nivel",
+   "nivel": 1,
+   "origem": true
+  },
+  {
+   "nome": "Arco de Faísca",
+   "metodo": "nivel",
+   "nivel": 5
+  },
+  {
+   "nome": "Faísca de Terreiro",
+   "metodo": "nivel",
+   "nivel": 9
+  },
+  {
+   "nome": "Chamado do Meio-Dia",
+   "metodo": "nivel",
+   "nivel": 13
+  },
+  {
+   "nome": "Fio de Ionização v2",
+   "metodo": "nivel",
+   "nivel": 17,
+   "origem": true
+  },
+  {
+   "nome": "Pulso Condutor",
+   "metodo": "nivel",
+   "nivel": 21
+  },
+  {
+   "nome": "Sopro de Cinzas",
+   "metodo": "nivel",
+   "nivel": 25
+  },
+  {
+   "nome": "Cinzas da Discórdia",
+   "metodo": "nivel",
+   "nivel": 29
+  },
+  {
+   "nome": "Cântico dos Condutores",
+   "metodo": "nivel",
+   "nivel": 33
+  },
+  {
+   "nome": "Manto de Cinza Viva v2",
+   "metodo": "nivel",
+   "nivel": 37,
+   "origem": true
+  },
+  {
+   "nome": "Escudo Galvânico",
+   "metodo": "nivel",
+   "nivel": 41
+  },
+  {
+   "nome": "Fornalha Resguardada",
+   "metodo": "nivel",
+   "nivel": 44
+  },
+  {
+   "nome": "Rosácea de Fagulhas",
+   "metodo": "nivel",
+   "nivel": 47
+  },
+  {
+   "nome": "Tormenta do Anel Rubro",
+   "metodo": "nivel",
+   "nivel": 50,
+   "origem": true
+  },
+  {
+   "nome": "Asa Riscante",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Bicada Elétrica",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Bico de Brasas",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Espora Incandescente",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Espora de Cobre",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Galope de Carvão",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Investida do Dínamo",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Círculo Voltaico",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Campo de Centelhas",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Vórtice de Passagem",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Cinza Desarmadora",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Brasa de Rebate",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Brilho de Carvão",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Cascata de Centelhas",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Descarga Sináptica",
+   "metodo": "treinamento"
+  }
+ ],
+ "16": [
+  {
+   "nome": "Crina Poderosa",
+   "metodo": "nivel",
+   "nivel": 1,
+   "origem": true
+  },
+  {
+   "nome": "Concentração",
+   "metodo": "nivel",
+   "nivel": 1,
+   "origem": true
+  },
+  {
+   "nome": "Gota Disparada",
+   "metodo": "nivel",
+   "nivel": 5
+  },
+  {
+   "nome": "Sopro Circular",
+   "metodo": "nivel",
+   "nivel": 9
+  },
+  {
+   "nome": "Orvalho Cortante",
+   "metodo": "nivel",
+   "nivel": 13
+  },
+  {
+   "nome": "Corte de Corrente",
+   "metodo": "nivel",
+   "nivel": 17,
+   "origem": true
+  },
+  {
+   "nome": "Assobio Rasante",
+   "metodo": "nivel",
+   "nivel": 21
+  },
+  {
+   "nome": "Assobio dos Quatro Ventos",
+   "metodo": "nivel",
+   "nivel": 25
+  },
+  {
+   "nome": "Canto das Nuvens",
+   "metodo": "nivel",
+   "nivel": 29
+  },
+  {
+   "nome": "Névoa Protetora",
+   "metodo": "nivel",
+   "nivel": 33
+  },
+  {
+   "nome": "Redoma de Orvalho",
+   "metodo": "nivel",
+   "nivel": 37,
+   "origem": true
+  },
+  {
+   "nome": "Corrente de Evasão",
+   "metodo": "nivel",
+   "nivel": 41
+  },
+  {
+   "nome": "Banho Reparador",
+   "metodo": "nivel",
+   "nivel": 44
+  },
+  {
+   "nome": "Coluna de Espuma",
+   "metodo": "nivel",
+   "nivel": 47
+  },
+  {
+   "nome": "Espiral de Monção",
+   "metodo": "nivel",
+   "nivel": 50,
+   "origem": true
+  },
+  {
+   "nome": "Asa Riscante",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Bico de Marola",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Eco do Cocoricó",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Cauda de Ressaca",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Pluma de Corte",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Túnel de Retorno",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Bicada Turbilhão",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Espinho de Pressão",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Cuidado de Plumagem",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Maré de Retirada",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Banho Sereno",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Redemoinho de Penas",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Terreiro Purificado",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Pluma Vazia",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Pressão do Manancial",
+   "metodo": "treinamento"
+  }
+ ],
+ "17": [
+  {
+   "nome": "Garra Afiada",
+   "metodo": "nivel",
+   "nivel": 1,
+   "origem": true
+  },
+  {
+   "nome": "Concentração",
+   "metodo": "nivel",
+   "nivel": 1,
+   "origem": true
+  },
+  {
+   "nome": "Chicotada de Talos",
+   "metodo": "nivel",
+   "nivel": 5
+  },
+  {
+   "nome": "Chute de Cascalho",
+   "metodo": "nivel",
+   "nivel": 9
+  },
+  {
+   "nome": "Ferrão de Trepadeira",
+   "metodo": "nivel",
+   "nivel": 13
+  },
+  {
+   "nome": "Pedrada de Seiva",
+   "metodo": "nivel",
+   "nivel": 17,
+   "origem": true
+  },
+  {
+   "nome": "Casca Compartilhada",
+   "metodo": "nivel",
+   "nivel": 21
+  },
+  {
+   "nome": "Tambor da Areia",
+   "metodo": "nivel",
+   "nivel": 25
+  },
+  {
+   "nome": "Marreta de Barro",
+   "metodo": "nivel",
+   "nivel": 29
+  },
+  {
+   "nome": "Hino das Raízes",
+   "metodo": "nivel",
+   "nivel": 33
+  },
+  {
+   "nome": "Círculo de Rebentos",
+   "metodo": "nivel",
+   "nivel": 37,
+   "origem": true
+  },
+  {
+   "nome": "Muralha Escavada",
+   "metodo": "nivel",
+   "nivel": 41
+  },
+  {
+   "nome": "Arranco de Tronco",
+   "metodo": "nivel",
+   "nivel": 44
+  },
+  {
+   "nome": "Armadilha de Pólen",
+   "metodo": "nivel",
+   "nivel": 47
+  },
+  {
+   "nome": "Arrebento de Raiz-Pedra",
+   "metodo": "nivel",
+   "nivel": 50,
+   "origem": true
+  },
+  {
+   "nome": "Grão de Pedra",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Semente Atirada",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Patada Rasteira",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Perfume Ácido",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Lodo Pressurizado",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Pedra de Revezamento",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Cabeçada de Basalto",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Ondulação Rochosa",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Tesoura de Folhas",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Fotossíntese de Poleiro",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Ninho de Pedregulhos",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Terreiro Purificado",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Casco de Bromélia",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Pisão Sísmico",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Seiva de Ferro",
+   "metodo": "treinamento"
+  }
+ ],
+ "18": [
+  {
+   "nome": "Crina Poderosa",
+   "metodo": "nivel",
+   "nivel": 1,
+   "origem": true
+  },
+  {
+   "nome": "Concentração",
+   "metodo": "nivel",
+   "nivel": 1,
+   "origem": true
+  },
+  {
+   "nome": "Faísca de Terreiro",
+   "metodo": "nivel",
+   "nivel": 5
+  },
+  {
+   "nome": "Semente Atirada",
+   "metodo": "nivel",
+   "nivel": 9
+  },
+  {
+   "nome": "Perfume Ácido",
+   "metodo": "nivel",
+   "nivel": 13
+  },
+  {
+   "nome": "Pólen de Cinzas",
+   "metodo": "nivel",
+   "nivel": 17,
+   "origem": true
+  },
+  {
+   "nome": "Casca Compartilhada",
+   "metodo": "nivel",
+   "nivel": 21
+  },
+  {
+   "nome": "Chamado do Meio-Dia",
+   "metodo": "nivel",
+   "nivel": 25
+  },
+  {
+   "nome": "Sopro de Cinzas",
+   "metodo": "nivel",
+   "nivel": 29
+  },
+  {
+   "nome": "Cinzas da Discórdia",
+   "metodo": "nivel",
+   "nivel": 33
+  },
+  {
+   "nome": "Clarão de Pólen",
+   "metodo": "nivel",
+   "nivel": 37,
+   "origem": true
+  },
+  {
+   "nome": "Hino das Raízes",
+   "metodo": "nivel",
+   "nivel": 41
+  },
+  {
+   "nome": "Retorno de Cinzas",
+   "metodo": "nivel",
+   "nivel": 44
+  },
+  {
+   "nome": "Rosácea de Fagulhas",
+   "metodo": "nivel",
+   "nivel": 47
+  },
+  {
+   "nome": "Floração da Fornalha",
+   "metodo": "nivel",
+   "nivel": 50,
+   "origem": true
+  },
+  {
+   "nome": "Bico de Brasas",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Chicotada de Talos",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Sopro Circular",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Ferrão de Trepadeira",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Assobio dos Quatro Ventos",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Espora Incandescente",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Galope de Carvão",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Reacender",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Néctar Corrosivo",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Tesoura de Folhas",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Armadilha de Pólen",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Fotossíntese de Poleiro",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Terreiro Purificado",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Cinza Desarmadora",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Garra Vulcânica",
+   "metodo": "treinamento"
+  }
+ ],
+ "23": [
+  {
+   "nome": "Crina Poderosa",
+   "metodo": "nivel",
+   "nivel": 1,
+   "origem": true
+  },
+  {
+   "nome": "Concentração",
+   "metodo": "nivel",
+   "nivel": 1,
+   "origem": true
+  },
+  {
+   "nome": "Semente Atirada",
+   "metodo": "nivel",
+   "nivel": 5
+  },
+  {
+   "nome": "Sopro Circular",
+   "metodo": "nivel",
+   "nivel": 9
+  },
+  {
+   "nome": "Perfume Ácido",
+   "metodo": "nivel",
+   "nivel": 13
+  },
+  {
+   "nome": "Cataclismo Celeste",
+   "metodo": "nivel",
+   "nivel": 17,
+   "origem": true
+  },
+  {
+   "nome": "Assobio Rasante",
+   "metodo": "nivel",
+   "nivel": 21
+  },
+  {
+   "nome": "Assobio dos Quatro Ventos",
+   "metodo": "nivel",
+   "nivel": 25
+  },
+  {
+   "nome": "Corrente de Evasão",
+   "metodo": "nivel",
+   "nivel": 29
+  },
+  {
+   "nome": "Túnel de Retorno",
+   "metodo": "nivel",
+   "nivel": 33
+  },
+  {
+   "nome": "Eclosão das Mil Coroas",
+   "metodo": "nivel",
+   "nivel": 37,
+   "origem": true
+  },
+  {
+   "nome": "Espinho de Pressão",
+   "metodo": "nivel",
+   "nivel": 41
+  },
+  {
+   "nome": "Armadilha de Pólen",
+   "metodo": "nivel",
+   "nivel": 44
+  },
+  {
+   "nome": "Fotossíntese de Poleiro",
+   "metodo": "nivel",
+   "nivel": 47
+  },
+  {
+   "nome": "Ascensão do Nexo",
+   "metodo": "nivel",
+   "nivel": 50,
+   "origem": true
+  },
+  {
+   "nome": "Orvalho Cortante",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Dissipação Absoluta",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Ondulação Rochosa",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Banho Reparador",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Néctar Corrosivo",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Grito Harmônico",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Pólen Desarmônico",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Redemoinho de Penas",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Espiral de Clorofila",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Rede de Relâmpagos",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Cone de Vácuo",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Raízes na Espora",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Vácuo de Eco",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Aurora do Zênite",
+   "metodo": "treinamento"
+  },
+  {
+   "nome": "Chuva de Folhas-Lança",
+   "metodo": "treinamento"
+  }
+ ]
+}

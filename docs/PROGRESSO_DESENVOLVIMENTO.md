@@ -234,6 +234,10 @@ Instrução do criador: "Resolve esses problemas todos com base nos dados mais r
 
 No mod, esses pontos continuam com as soluções provisórias já descritas. Nada foi inventado.
 
+**Propostas para o criador decidir** (18/11): `docs/propostas/PROPOSTAS_PENDENCIAS_2026-11-18.md`.
+- Cobre U07–U12, U03, o Lendário Original, o balanceamento e a confirmação das cinco decisões por extensão.
+- As tabelas de aprendizado propostas para #013–#018 e #023 foram geradas por `ferramentas/propostas/propor_aprendizado.py` e estão em `docs/propostas/proposta_aprendizado_013_018_023.json`.
+
 ### Implementação
 - **Núcleo:**
   - `Progressao` (curva 1–49, HP nominal, IV/EV, peso, HP_ref, Vitalidade).

@@ -74,7 +74,7 @@ O fluxo completo está em `base/LEIA_ME.md`. Em resumo:
   - Atributos pela regra `progressao` (rev. 8): curva 1–49, HP nominal, IV/EV e peso; Vitalidade V5.6.1 no dano.
   - Aprendizado de golpes por nível e slots (`/galetocraft golpes`), pela regra `aprendizado`.
 - **Ainda falta:** tela própria da Rinha, Galetário no jogo, Mestres (golpes por treinamento), passivas e efeitos de golpes, alimentação (EV e peso) e reprodução.
-- **Pendências sem nenhum dado no acervo** (`current_issues` U07–U12): spawn, obtenção e arte da Pena, escalação e gerenciamento da equipe, Galeto do treinador no mundo, aprendizado de #013–#018 e faixas de EV. Não inventar; pedir a decisão ao criador. O roteiro está em `docs/ANALISE_DESENVOLVIMENTO.md` e o andamento em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
+- **Pendências sem nenhum dado no acervo** (`current_issues` U07–U12): spawn, obtenção e arte da Pena, escalação e gerenciamento da equipe, Galeto do treinador no mundo, aprendizado de #013–#018 e faixas de EV. Não inventar; pedir a decisão ao criador. As propostas aguardando aprovação estão em `docs/propostas/PROPOSTAS_PENDENCIAS_2026-11-18.md`. O roteiro está em `docs/ANALISE_DESENVOLVIMENTO.md` e o andamento em `docs/PROGRESSO_DESENVOLVIMENTO.md`.
 - **Modelos:** rode `ferramentas/especies/<id>.py` e depois `ferramentas/exportar_especie.py <id>`, como descrito em `galetocraft/LEIAME.md`.
 - **Git LFS:** os arquivos de `modelos/*/revisao/` e os PNGs do benchmark estão no LFS. Nesta cópia há só ponteiros.
 
