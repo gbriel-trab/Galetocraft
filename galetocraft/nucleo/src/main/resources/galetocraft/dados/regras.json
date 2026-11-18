@@ -2296,6 +2296,965 @@
      "nome": "Vórtice Azul",
      "metodo": "treinamento"
     }
+   ],
+   "13": [
+    {
+     "nome": "Crina Poderosa",
+     "metodo": "nivel",
+     "nivel": 1
+    },
+    {
+     "nome": "Concentração",
+     "metodo": "nivel",
+     "nivel": 1
+    },
+    {
+     "nome": "Arco de Faísca",
+     "metodo": "nivel",
+     "nivel": 5
+    },
+    {
+     "nome": "Grão de Pedra",
+     "metodo": "nivel",
+     "nivel": 9
+    },
+    {
+     "nome": "Tambor da Areia",
+     "metodo": "nivel",
+     "nivel": 13
+    },
+    {
+     "nome": "Lascas de Quartzo",
+     "metodo": "nivel",
+     "nivel": 17
+    },
+    {
+     "nome": "Lodo Pressurizado",
+     "metodo": "nivel",
+     "nivel": 21
+    },
+    {
+     "nome": "Pulso Condutor",
+     "metodo": "nivel",
+     "nivel": 25
+    },
+    {
+     "nome": "Bateria Compartilhada",
+     "metodo": "nivel",
+     "nivel": 29
+    },
+    {
+     "nome": "Cântico dos Condutores",
+     "metodo": "nivel",
+     "nivel": 33
+    },
+    {
+     "nome": "Faíscas do Geodo",
+     "metodo": "nivel",
+     "nivel": 37
+    },
+    {
+     "nome": "Muralha Escavada",
+     "metodo": "nivel",
+     "nivel": 41
+    },
+    {
+     "nome": "Pedra de Revezamento",
+     "metodo": "nivel",
+     "nivel": 44
+    },
+    {
+     "nome": "Ondulação Rochosa",
+     "metodo": "nivel",
+     "nivel": 47
+    },
+    {
+     "nome": "Tempestade Cristalina",
+     "metodo": "nivel",
+     "nivel": 50
+    },
+    {
+     "nome": "Sopro Circular",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Escudo Galvânico",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Coluna de Guarda",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Círculo Voltaico",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Pena de Eco",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Couraça do Subsolo",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Foco Centelhante",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Ninho de Pedregulhos",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Pedra da Impaciência",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Rede de Relâmpagos",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Fenda da Garganta",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Descarga Sináptica",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Aurora do Zênite",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Erupção de Geodo",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Ruptura de Alta Tensão",
+     "metodo": "treinamento"
+    }
+   ],
+   "14": [
+    {
+     "nome": "Garra Afiada",
+     "metodo": "nivel",
+     "nivel": 1
+    },
+    {
+     "nome": "Concentração",
+     "metodo": "nivel",
+     "nivel": 1
+    },
+    {
+     "nome": "Bico de Marola",
+     "metodo": "nivel",
+     "nivel": 5
+    },
+    {
+     "nome": "Chute de Cascalho",
+     "metodo": "nivel",
+     "nivel": 9
+    },
+    {
+     "nome": "Cauda de Ressaca",
+     "metodo": "nivel",
+     "nivel": 13
+    },
+    {
+     "nome": "Pinçada da Ressaca",
+     "metodo": "nivel",
+     "nivel": 17
+    },
+    {
+     "nome": "Canto das Nuvens",
+     "metodo": "nivel",
+     "nivel": 21
+    },
+    {
+     "nome": "Névoa Protetora",
+     "metodo": "nivel",
+     "nivel": 25
+    },
+    {
+     "nome": "Tambor da Areia",
+     "metodo": "nivel",
+     "nivel": 29
+    },
+    {
+     "nome": "Marreta de Barro",
+     "metodo": "nivel",
+     "nivel": 33
+    },
+    {
+     "nome": "Couraça de Lodo",
+     "metodo": "nivel",
+     "nivel": 37
+    },
+    {
+     "nome": "Muralha Escavada",
+     "metodo": "nivel",
+     "nivel": 41
+    },
+    {
+     "nome": "Pancada de Maré",
+     "metodo": "nivel",
+     "nivel": 44
+    },
+    {
+     "nome": "Maré de Retirada",
+     "metodo": "nivel",
+     "nivel": 47
+    },
+    {
+     "nome": "Cerco das Pinças",
+     "metodo": "nivel",
+     "nivel": 50
+    },
+    {
+     "nome": "Gota Disparada",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Ferrão de Trepadeira",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Assobio dos Quatro Ventos",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Cabeçada de Basalto",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Coluna de Guarda",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Fôlego de Ressaca",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Coluna de Espuma",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Banho Sereno",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Ninho de Pedregulhos",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Redemoinho Exaustivo",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Pisada de Lastro",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Açoite de Corredeira",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Pisão Sísmico",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Cinzel Quebra-Manto",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Quebra-Cais",
+     "metodo": "treinamento"
+    }
+   ],
+   "15": [
+    {
+     "nome": "Crina Poderosa",
+     "metodo": "nivel",
+     "nivel": 1
+    },
+    {
+     "nome": "Concentração",
+     "metodo": "nivel",
+     "nivel": 1
+    },
+    {
+     "nome": "Arco de Faísca",
+     "metodo": "nivel",
+     "nivel": 5
+    },
+    {
+     "nome": "Faísca de Terreiro",
+     "metodo": "nivel",
+     "nivel": 9
+    },
+    {
+     "nome": "Chamado do Meio-Dia",
+     "metodo": "nivel",
+     "nivel": 13
+    },
+    {
+     "nome": "Fio de Ionização v2",
+     "metodo": "nivel",
+     "nivel": 17
+    },
+    {
+     "nome": "Pulso Condutor",
+     "metodo": "nivel",
+     "nivel": 21
+    },
+    {
+     "nome": "Sopro de Cinzas",
+     "metodo": "nivel",
+     "nivel": 25
+    },
+    {
+     "nome": "Cinzas da Discórdia",
+     "metodo": "nivel",
+     "nivel": 29
+    },
+    {
+     "nome": "Cântico dos Condutores",
+     "metodo": "nivel",
+     "nivel": 33
+    },
+    {
+     "nome": "Manto de Cinza Viva v2",
+     "metodo": "nivel",
+     "nivel": 37
+    },
+    {
+     "nome": "Escudo Galvânico",
+     "metodo": "nivel",
+     "nivel": 41
+    },
+    {
+     "nome": "Fornalha Resguardada",
+     "metodo": "nivel",
+     "nivel": 44
+    },
+    {
+     "nome": "Rosácea de Fagulhas",
+     "metodo": "nivel",
+     "nivel": 47
+    },
+    {
+     "nome": "Tormenta do Anel Rubro",
+     "metodo": "nivel",
+     "nivel": 50
+    },
+    {
+     "nome": "Asa Riscante",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Bicada Elétrica",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Bico de Brasas",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Espora Incandescente",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Espora de Cobre",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Galope de Carvão",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Investida do Dínamo",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Círculo Voltaico",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Campo de Centelhas",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Vórtice de Passagem",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Cinza Desarmadora",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Brasa de Rebate",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Brilho de Carvão",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Cascata de Centelhas",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Descarga Sináptica",
+     "metodo": "treinamento"
+    }
+   ],
+   "16": [
+    {
+     "nome": "Crina Poderosa",
+     "metodo": "nivel",
+     "nivel": 1
+    },
+    {
+     "nome": "Concentração",
+     "metodo": "nivel",
+     "nivel": 1
+    },
+    {
+     "nome": "Gota Disparada",
+     "metodo": "nivel",
+     "nivel": 5
+    },
+    {
+     "nome": "Sopro Circular",
+     "metodo": "nivel",
+     "nivel": 9
+    },
+    {
+     "nome": "Orvalho Cortante",
+     "metodo": "nivel",
+     "nivel": 13
+    },
+    {
+     "nome": "Corte de Corrente",
+     "metodo": "nivel",
+     "nivel": 17
+    },
+    {
+     "nome": "Assobio Rasante",
+     "metodo": "nivel",
+     "nivel": 21
+    },
+    {
+     "nome": "Assobio dos Quatro Ventos",
+     "metodo": "nivel",
+     "nivel": 25
+    },
+    {
+     "nome": "Canto das Nuvens",
+     "metodo": "nivel",
+     "nivel": 29
+    },
+    {
+     "nome": "Névoa Protetora",
+     "metodo": "nivel",
+     "nivel": 33
+    },
+    {
+     "nome": "Redoma de Orvalho",
+     "metodo": "nivel",
+     "nivel": 37
+    },
+    {
+     "nome": "Corrente de Evasão",
+     "metodo": "nivel",
+     "nivel": 41
+    },
+    {
+     "nome": "Banho Reparador",
+     "metodo": "nivel",
+     "nivel": 44
+    },
+    {
+     "nome": "Coluna de Espuma",
+     "metodo": "nivel",
+     "nivel": 47
+    },
+    {
+     "nome": "Espiral de Monção",
+     "metodo": "nivel",
+     "nivel": 50
+    },
+    {
+     "nome": "Asa Riscante",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Bico de Marola",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Eco do Cocoricó",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Cauda de Ressaca",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Pluma de Corte",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Túnel de Retorno",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Bicada Turbilhão",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Espinho de Pressão",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Cuidado de Plumagem",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Maré de Retirada",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Banho Sereno",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Redemoinho de Penas",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Terreiro Purificado",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Pluma Vazia",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Pressão do Manancial",
+     "metodo": "treinamento"
+    }
+   ],
+   "17": [
+    {
+     "nome": "Garra Afiada",
+     "metodo": "nivel",
+     "nivel": 1
+    },
+    {
+     "nome": "Concentração",
+     "metodo": "nivel",
+     "nivel": 1
+    },
+    {
+     "nome": "Chicotada de Talos",
+     "metodo": "nivel",
+     "nivel": 5
+    },
+    {
+     "nome": "Chute de Cascalho",
+     "metodo": "nivel",
+     "nivel": 9
+    },
+    {
+     "nome": "Ferrão de Trepadeira",
+     "metodo": "nivel",
+     "nivel": 13
+    },
+    {
+     "nome": "Pedrada de Seiva",
+     "metodo": "nivel",
+     "nivel": 17
+    },
+    {
+     "nome": "Casca Compartilhada",
+     "metodo": "nivel",
+     "nivel": 21
+    },
+    {
+     "nome": "Tambor da Areia",
+     "metodo": "nivel",
+     "nivel": 25
+    },
+    {
+     "nome": "Marreta de Barro",
+     "metodo": "nivel",
+     "nivel": 29
+    },
+    {
+     "nome": "Hino das Raízes",
+     "metodo": "nivel",
+     "nivel": 33
+    },
+    {
+     "nome": "Círculo de Rebentos",
+     "metodo": "nivel",
+     "nivel": 37
+    },
+    {
+     "nome": "Muralha Escavada",
+     "metodo": "nivel",
+     "nivel": 41
+    },
+    {
+     "nome": "Arranco de Tronco",
+     "metodo": "nivel",
+     "nivel": 44
+    },
+    {
+     "nome": "Armadilha de Pólen",
+     "metodo": "nivel",
+     "nivel": 47
+    },
+    {
+     "nome": "Arrebento de Raiz-Pedra",
+     "metodo": "nivel",
+     "nivel": 50
+    },
+    {
+     "nome": "Grão de Pedra",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Semente Atirada",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Patada Rasteira",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Perfume Ácido",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Lodo Pressurizado",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Pedra de Revezamento",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Cabeçada de Basalto",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Ondulação Rochosa",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Tesoura de Folhas",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Fotossíntese de Poleiro",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Ninho de Pedregulhos",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Terreiro Purificado",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Casco de Bromélia",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Pisão Sísmico",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Seiva de Ferro",
+     "metodo": "treinamento"
+    }
+   ],
+   "18": [
+    {
+     "nome": "Crina Poderosa",
+     "metodo": "nivel",
+     "nivel": 1
+    },
+    {
+     "nome": "Concentração",
+     "metodo": "nivel",
+     "nivel": 1
+    },
+    {
+     "nome": "Faísca de Terreiro",
+     "metodo": "nivel",
+     "nivel": 5
+    },
+    {
+     "nome": "Semente Atirada",
+     "metodo": "nivel",
+     "nivel": 9
+    },
+    {
+     "nome": "Perfume Ácido",
+     "metodo": "nivel",
+     "nivel": 13
+    },
+    {
+     "nome": "Pólen de Cinzas",
+     "metodo": "nivel",
+     "nivel": 17
+    },
+    {
+     "nome": "Casca Compartilhada",
+     "metodo": "nivel",
+     "nivel": 21
+    },
+    {
+     "nome": "Chamado do Meio-Dia",
+     "metodo": "nivel",
+     "nivel": 25
+    },
+    {
+     "nome": "Sopro de Cinzas",
+     "metodo": "nivel",
+     "nivel": 29
+    },
+    {
+     "nome": "Cinzas da Discórdia",
+     "metodo": "nivel",
+     "nivel": 33
+    },
+    {
+     "nome": "Clarão de Pólen",
+     "metodo": "nivel",
+     "nivel": 37
+    },
+    {
+     "nome": "Hino das Raízes",
+     "metodo": "nivel",
+     "nivel": 41
+    },
+    {
+     "nome": "Retorno de Cinzas",
+     "metodo": "nivel",
+     "nivel": 44
+    },
+    {
+     "nome": "Rosácea de Fagulhas",
+     "metodo": "nivel",
+     "nivel": 47
+    },
+    {
+     "nome": "Floração da Fornalha",
+     "metodo": "nivel",
+     "nivel": 50
+    },
+    {
+     "nome": "Bico de Brasas",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Chicotada de Talos",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Sopro Circular",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Ferrão de Trepadeira",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Assobio dos Quatro Ventos",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Espora Incandescente",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Galope de Carvão",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Reacender",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Néctar Corrosivo",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Tesoura de Folhas",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Armadilha de Pólen",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Fotossíntese de Poleiro",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Terreiro Purificado",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Cinza Desarmadora",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Garra Vulcânica",
+     "metodo": "treinamento"
+    }
+   ],
+   "23": [
+    {
+     "nome": "Crina Poderosa",
+     "metodo": "nivel",
+     "nivel": 1
+    },
+    {
+     "nome": "Concentração",
+     "metodo": "nivel",
+     "nivel": 1
+    },
+    {
+     "nome": "Semente Atirada",
+     "metodo": "nivel",
+     "nivel": 5
+    },
+    {
+     "nome": "Sopro Circular",
+     "metodo": "nivel",
+     "nivel": 9
+    },
+    {
+     "nome": "Perfume Ácido",
+     "metodo": "nivel",
+     "nivel": 13
+    },
+    {
+     "nome": "Cataclismo Celeste",
+     "metodo": "nivel",
+     "nivel": 17
+    },
+    {
+     "nome": "Assobio Rasante",
+     "metodo": "nivel",
+     "nivel": 21
+    },
+    {
+     "nome": "Assobio dos Quatro Ventos",
+     "metodo": "nivel",
+     "nivel": 25
+    },
+    {
+     "nome": "Corrente de Evasão",
+     "metodo": "nivel",
+     "nivel": 29
+    },
+    {
+     "nome": "Túnel de Retorno",
+     "metodo": "nivel",
+     "nivel": 33
+    },
+    {
+     "nome": "Eclosão das Mil Coroas",
+     "metodo": "nivel",
+     "nivel": 37
+    },
+    {
+     "nome": "Espinho de Pressão",
+     "metodo": "nivel",
+     "nivel": 41
+    },
+    {
+     "nome": "Armadilha de Pólen",
+     "metodo": "nivel",
+     "nivel": 44
+    },
+    {
+     "nome": "Fotossíntese de Poleiro",
+     "metodo": "nivel",
+     "nivel": 47
+    },
+    {
+     "nome": "Ascensão do Nexo",
+     "metodo": "nivel",
+     "nivel": 50
+    },
+    {
+     "nome": "Orvalho Cortante",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Dissipação Absoluta",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Ondulação Rochosa",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Banho Reparador",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Néctar Corrosivo",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Grito Harmônico",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Pólen Desarmônico",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Redemoinho de Penas",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Espiral de Clorofila",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Rede de Relâmpagos",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Cone de Vácuo",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Raízes na Espora",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Vácuo de Eco",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Aurora do Zênite",
+     "metodo": "treinamento"
+    },
+    {
+     "nome": "Chuva de Folhas-Lança",
+     "metodo": "treinamento"
+    }
    ]
   },
   "conciliacao_001_012": {
@@ -2504,20 +3463,19 @@
     10,
     11,
     12,
-    19,
-    20,
-    21,
-    22
-   ],
-   "sem_dado_no_acervo": [
     13,
     14,
     15,
     16,
     17,
     18,
+    19,
+    20,
+    21,
+    22,
     23
-   ]
+   ],
+   "sem_dado_no_acervo": []
   },
   "fontes": [
    {
@@ -2552,7 +3510,23 @@
     "data": "2026-11-10",
     "sha256": "a9535a2a5f9a2e3b500532f1ce49e85397f825ec911106ea6f4fda7601bcab41"
    }
-  ]
+  ],
+  "tabelas_rev9": {
+   "especies": [
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    23
+   ],
+   "status": "OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18",
+   "criterio": "padrão medido nas 16 tabelas: origem nos níveis 1/1/17/37/50; aprendíveis do elemento da espécie, alternando os elementos; dano na categoria do ataque mais forte; metade suporte; Energia crescente com o nível",
+   "gerador": "ferramentas/propostas/propor_aprendizado.py",
+   "aprovacao": "Criador, 18/11/2026: \"Todas menos B e H estão aprovadas. No caso eu quero que o nível seja independente do local completamente variável do 1 até o 70. No caso do lendário único ele será extremamente raro, mas quando aparecer uma mensagem de chat aparecerá global avisando\"; esclarecimentos no mesmo dia: resto do B como proposto; Quetzacocó em selva ou montanha durante tempestade e depois dos 6 elementos; sempre nível 70; Pena nível 5 e fator 0,14.",
+   "proposta": "docs/propostas/PROPOSTAS_PENDENCIAS_2026-11-18.md (F)"
+  }
  },
  "captura": {
   "parametros": {
@@ -2652,7 +3626,7 @@
     "adversario_pendente_age_na_ordem": 1,
     "status": "oficial_homologado",
     "fonte_aprovacao": "Aprovo oficialmente o balanceamento final de capturas contido no documento Galetocraft_Proposta_Final_Capturas_Progressao_Pena_Mais_Dificil_2026-11-12.md, incluindo a progressão mais difícil da Pena de Captura com custos de 1.000, 3.000, 7.000 e 15.000 XP por evolução, total de 26.000 XP, além das fórmulas de captura e XP descritas no documento. Preserve todas as regras homologadas anteriormente, registre em nova versão do banco SQLite, audite e apresente o sistema de capturas finalizado.",
-    "posicao_na_rodada": "na vez do treinador, pela Velocidade do Galeto ativo dele (ordem regular: trocas, depois ações por Velocidade, empate 50/50); OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18",
+    "posicao_na_rodada": "na vez do treinador, pela Velocidade do Galeto ativo dele (ordem regular: trocas, depois ações por Velocidade, empate 50/50); OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18 (confirmado na rev. 9)",
     "fonte_posicao": "captura_pena_rinha_falha_acao_adversario_v1252: \"depende de sua posição na ordem regular e de haver uma ação pendente\""
    }
   ],
@@ -2730,7 +3704,7 @@
    "outras_raridades_sem_nova_restricao": 1,
    "nao_garante_sucesso": 1,
    "sem_alterar_xp_evolucao": 1,
-   "comportamento_tentativa_inelegivel": "tentativa indisponível: não começa, não consome ação nem gera espera, com aviso ao treinador; vale para Lendário sem Pena 5 e para classes sem fator de captura (Lendário Original, Divino); proposta do auditor na Auditoria Geral de Capturas 1.2.58 (12/11), adotada: OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18",
+   "comportamento_tentativa_inelegivel": "tentativa indisponível: não começa, não consome ação nem gera espera, com aviso ao treinador; vale para Lendário sem Pena 5 e para classes sem fator de captura (Lendário Original, Divino); proposta do auditor na Auditoria Geral de Capturas 1.2.58 (12/11), adotada: OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18 (confirmado na rev. 9)",
    "efeitos_adicionais": null,
    "probabilidades_adicionais": null,
    "descricao": "A Pena nivel 5 e o requisito para capturar Cocorideos de raridade Lendario nas duas modalidades, mantendo chance probabilistica e sem garantir sucesso; nenhum requisito novo criado para Mitico/Divino ou outras raridades.",
@@ -2783,7 +3757,25 @@
     "todas as homologações da Pena tratam de \"Cocorídeo selvagem\" (Betas 1.2.33 a 1.2.59)",
     "Reprodução Etapa 01 (16/11): indivíduos não podem ser usados simultaneamente em Terreiros ou Rinhas"
    ],
-   "status": "OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18"
+   "status": "OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18 (confirmado na rev. 9)"
+  },
+  "pena_rev9": {
+   "status": "OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18",
+   "obtencao": "kit de início de jornada: na primeira entrada no mundo o treinador recebe a Pena de Captura nível 1 e escolhe um dos seis iniciais (Pirococó, Cocórrego, Esporocó, Cocórak, Cocórion ou Cocórvolt) no nível 5, com IVs sorteados",
+   "posse": "a Pena traz o dono e só funciona com ele; não cai na morte; se for destruída, volta ao inventário do dono ao entrar no mundo ou ao acordar numa cama; uma Pena nova invalida as anteriores; sem receita",
+   "aparencia": "pena clara com rubi lapidado no centro preso por aro dourado; a cor da pena muda por nível (1 branca, 2 bronze, 3 prata, 4 ouro, 5 carmesim com brilho); a dica mostra nível e XP; arte a gerar no ChatGPT",
+   "feixe_do_rubi": "só no sucesso: linha de partículas #E0115F da Pena ao Galeto por 0,5 s; o Galeto encolhe e some em 10 ticks; som curto de \"plim\"",
+   "aprovacao": "Criador, 18/11/2026: \"Todas menos B e H estão aprovadas. No caso eu quero que o nível seja independente do local completamente variável do 1 até o 70. No caso do lendário único ele será extremamente raro, mas quando aparecer uma mensagem de chat aparecerá global avisando\"; esclarecimentos no mesmo dia: resto do B como proposto; Quetzacocó em selva ou montanha durante tempestade e depois dos 6 elementos; sempre nível 70; Pena nível 5 e fator 0,14.",
+   "proposta": "docs/propostas/PROPOSTAS_PENDENCIAS_2026-11-18.md (C)"
+  },
+  "lendario_original": {
+   "status": "OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18",
+   "especie": 23,
+   "fator_R": 0.14,
+   "nivel_minimo_pena": 5,
+   "regra": "Quetzacocó (Lendário Original) usa o fator R do Lendário (0,14) e exige Pena nível 5, nas duas modalidades",
+   "aprovacao": "Criador, 18/11/2026: \"Todas menos B e H estão aprovadas. No caso eu quero que o nível seja independente do local completamente variável do 1 até o 70. No caso do lendário único ele será extremamente raro, mas quando aparecer uma mensagem de chat aparecerá global avisando\"; esclarecimentos no mesmo dia: resto do B como proposto; Quetzacocó em selva ou montanha durante tempestade e depois dos 6 elementos; sempre nível 70; Pena nível 5 e fator 0,14.",
+   "proposta": "docs/propostas/PROPOSTAS_PENDENCIAS_2026-11-18.md (H)"
   }
  },
  "climas": {
@@ -2904,7 +3896,7 @@
    "voluntarias_prioridade_absoluta": true,
    "ordem_resolucao_voluntarias_simultaneas": "velocidade_galo_ativo_mais_rapido_sai_primeiro",
    "entradas_durante_trocas_simultaneas": "entrou_substituto_ativa_passiva_antes_da_proxima_troca",
-   "criterio_desempate_trocas_voluntarias_mesma_velocidade": "sorteio 50/50 a cada rodada — extensão da regra oficial desempate_velocidade (Balanceamento v1.1, 09/11); OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18"
+   "criterio_desempate_trocas_voluntarias_mesma_velocidade": "sorteio 50/50 a cada rodada — extensão da regra oficial desempate_velocidade (Balanceamento v1.1, 09/11); OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18 (confirmado na rev. 9)"
   },
   "desempate_velocidade": {
    "velocidade_igual_sorteio_50_50_nova_rodada": true
@@ -2925,7 +3917,7 @@
    "negative_status_suspended_in_reserve": true,
    "temporary_stat_modifiers_removed_on_leaving_field": true,
    "ko_all_three_to_win": true,
-   "species_duplicate_policy": "permitida: o formato oficial dos Mestres (10/11) tem trios de 3 Galetos com 2 espécies; a hipótese \"distintas\" era só de simulação; OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18",
+   "species_duplicate_policy": "permitida: o formato oficial dos Mestres (10/11) tem trios de 3 Galetos com 2 espécies; a hipótese \"distintas\" era só de simulação; OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18 (confirmado na rev. 9)",
    "team_lead_selection_policy": "PENDENTE - hipótese de simulação: aleatória",
    "strategy_AI_not_part_of_official_game_rules": true,
    "simultaneous_swaps_order": "comparar_velocidade_do_galo_ativo_origem; mais_veloz_sai_primeiro",
@@ -2966,8 +3958,9 @@
    "precisao_original": 1.0,
    "regra": "todos os golpes têm precisão original de 100%; a Mira multiplica essa precisão e a esquiva universal se aplica",
    "evidencia": "nenhuma tabela, catálogo ou ficha traz precisão por golpe; a ideia #03 \"Ataques de Precisão\" não foi aprovada",
-   "status": "OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18"
-  }
+   "status": "OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18 (confirmado na rev. 9)"
+  },
+  "balanceamento_rev9": "I — sem mudança na fórmula agora; medir de novo depois das passivas e dos efeitos dos golpes; se o 1×1 seguir abaixo de 4 rodadas, testar dano ×0,88 (arena V5.1, não homologado)"
  },
  "concentracao": {
   "norma_integral": {
@@ -3761,6 +4754,444 @@
   },
   "precedencia": "Histórico interno da fonte preservado; decisões posteriores de current_rules/current_species prevalecem por campo."
  },
+ "mundo_aparecimento": {
+  "status": "OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18",
+  "aprovacao": "Criador, 18/11/2026: \"Todas menos B e H estão aprovadas. No caso eu quero que o nível seja independente do local completamente variável do 1 até o 70. No caso do lendário único ele será extremamente raro, mas quando aparecer uma mensagem de chat aparecerá global avisando\"; esclarecimentos no mesmo dia: resto do B como proposto; Quetzacocó em selva ou montanha durante tempestade e depois dos 6 elementos; sempre nível 70; Pena nível 5 e fator 0,14.",
+  "proposta": "docs/propostas/PROPOSTAS_PENDENCIAS_2026-11-18.md (B e H)",
+  "nivel_selvagem": {
+   "regra": "sorteado de forma uniforme entre 1 e 70, independente do local, da dimensão e da raridade",
+   "minimo": 1,
+   "maximo": 70
+  },
+  "pesos_por_raridade": {
+   "Comum": 6,
+   "Raro": 2,
+   "Épico": 1,
+   "referencia": "galinha vanilla = 10"
+  },
+  "limite": {
+   "selvagens_por_jogador": 6,
+   "raio_blocos": 64
+  },
+  "desaparecimento": "como os animais vanilla quando longe, exceto em Rinha ou com espera de captura ativa",
+  "encontros_raros": {
+   "especies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    19,
+    22
+   ],
+   "chance": 0.01,
+   "quando": "uma checagem por jogador a cada período elegível: manhã para os diurnos, anoitecer para os noturnos e os de qualquer hora; os que dependem de tempestade checam a cada minuto de tempestade",
+   "maximo_ativos_por_jogador": 1
+  },
+  "iniciais": "fora do aparecimento comum: um vem no kit de início e os outros cinco aparecem como encontros raros",
+  "divinos": "não aparecem naturalmente (decisão de 09/11)",
+  "especies": [
+   {
+    "numero": 1,
+    "nome": "Pirococó",
+    "raridade": "Mítico",
+    "modo": "encontro",
+    "biomas": [
+     "c:is_desert",
+     "c:is_badlands"
+    ],
+    "horario": "dia",
+    "condicao": null,
+    "grupo": [
+     1,
+     1
+    ],
+    "peso": null
+   },
+   {
+    "numero": 2,
+    "nome": "Cocórrego",
+    "raridade": "Mítico",
+    "modo": "encontro",
+    "biomas": [
+     "c:is_river",
+     "c:is_beach",
+     "c:is_swamp"
+    ],
+    "horario": "qualquer",
+    "condicao": null,
+    "grupo": [
+     1,
+     1
+    ],
+    "peso": null
+   },
+   {
+    "numero": 3,
+    "nome": "Esporocó",
+    "raridade": "Mítico",
+    "modo": "encontro",
+    "biomas": [
+     "c:is_forest",
+     "c:is_jungle"
+    ],
+    "horario": "qualquer",
+    "condicao": null,
+    "grupo": [
+     1,
+     1
+    ],
+    "peso": null
+   },
+   {
+    "numero": 4,
+    "nome": "Cocórak",
+    "raridade": "Mítico",
+    "modo": "encontro",
+    "biomas": [
+     "c:is_desert",
+     "c:is_mountain_slope"
+    ],
+    "horario": "dia",
+    "condicao": "mais provável (×2) com chuva ou tempestade no mundo, no deserto (aproximação da \"tempestade de areia\")",
+    "grupo": [
+     1,
+     1
+    ],
+    "peso": null
+   },
+   {
+    "numero": 5,
+    "nome": "Cocórion",
+    "raridade": "Mítico",
+    "modo": "encontro",
+    "biomas": [
+     "c:is_plains",
+     "c:is_hill",
+     "c:is_plateau"
+    ],
+    "horario": "dia",
+    "condicao": null,
+    "grupo": [
+     1,
+     1
+    ],
+    "peso": null
+   },
+   {
+    "numero": 6,
+    "nome": "Cocórvolt",
+    "raridade": "Mítico",
+    "modo": "encontro",
+    "biomas": [
+     "c:is_windswept",
+     "c:is_mountain_peak",
+     "c:is_plateau"
+    ],
+    "horario": "qualquer",
+    "condicao": "só durante tempestade (trovoada)",
+    "grupo": [
+     1,
+     1
+    ],
+    "peso": null
+   },
+   {
+    "numero": 7,
+    "nome": "Taturico",
+    "raridade": "Comum",
+    "modo": "comum",
+    "biomas": [
+     "c:is_savanna",
+     "c:is_dry_overworld",
+     "c:is_mountain_slope"
+    ],
+    "horario": "dia",
+    "condicao": null,
+    "grupo": [
+     1,
+     2
+    ],
+    "peso": 6
+   },
+   {
+    "numero": 8,
+    "nome": "Axococó",
+    "raridade": "Comum",
+    "modo": "comum",
+    "biomas": [
+     "minecraft:lush_caves",
+     "c:is_swamp",
+     "c:is_river"
+    ],
+    "horario": "qualquer",
+    "condicao": null,
+    "grupo": [
+     1,
+     2
+    ],
+    "peso": 6
+   },
+   {
+    "numero": 9,
+    "nome": "Vagaló",
+    "raridade": "Comum",
+    "modo": "comum",
+    "biomas": [
+     "c:is_swamp",
+     "c:is_forest",
+     "c:is_plains"
+    ],
+    "horario": "noite",
+    "condicao": null,
+    "grupo": [
+     1,
+     3
+    ],
+    "peso": 6
+   },
+   {
+    "numero": 10,
+    "nome": "Morcegalo",
+    "raridade": "Comum",
+    "modo": "comum",
+    "biomas": [
+     "c:is_cave",
+     "c:is_stony_shores",
+     "c:is_windswept",
+     "c:is_mountain_peak"
+    ],
+    "horario": "noite_ou_subterraneo",
+    "condicao": null,
+    "grupo": [
+     1,
+     2
+    ],
+    "peso": 6
+   },
+   {
+    "numero": 11,
+    "nome": "Espinhocó",
+    "raridade": "Comum",
+    "modo": "comum",
+    "biomas": [
+     "c:is_forest",
+     "c:is_jungle"
+    ],
+    "horario": "dia",
+    "condicao": null,
+    "grupo": [
+     1,
+     2
+    ],
+    "peso": 6
+   },
+   {
+    "numero": 12,
+    "nome": "Salambrasa",
+    "raridade": "Comum",
+    "modo": "comum",
+    "biomas": [
+     "c:is_desert",
+     "c:is_badlands",
+     "minecraft:basalt_deltas"
+    ],
+    "horario": "dia",
+    "condicao": "no Nether (Deltas de Basalto) com peso 1",
+    "grupo": [
+     1,
+     1
+    ],
+    "peso": 6
+   },
+   {
+    "numero": 13,
+    "nome": "Quartzaló",
+    "raridade": "Comum",
+    "modo": "comum",
+    "biomas": [
+     "c:is_mountain",
+     "minecraft:dripstone_caves",
+     "c:is_mountain_slope"
+    ],
+    "horario": "qualquer",
+    "condicao": null,
+    "grupo": [
+     1,
+     1
+    ],
+    "peso": 6
+   },
+   {
+    "numero": 14,
+    "nome": "Carangocó",
+    "raridade": "Comum",
+    "modo": "comum",
+    "biomas": [
+     "c:is_beach",
+     "minecraft:mangrove_swamp",
+     "c:is_river"
+    ],
+    "horario": "dia",
+    "condicao": null,
+    "grupo": [
+     1,
+     2
+    ],
+    "peso": 6
+   },
+   {
+    "numero": 15,
+    "nome": "Faíscocó",
+    "raridade": "Raro",
+    "modo": "comum",
+    "biomas": [
+     "c:is_savanna",
+     "c:is_badlands",
+     "c:is_plateau"
+    ],
+    "horario": "qualquer",
+    "condicao": "peso ×2 durante tempestade",
+    "grupo": [
+     1,
+     1
+    ],
+    "peso": 2
+   },
+   {
+    "numero": 16,
+    "nome": "Libelocó",
+    "raridade": "Comum",
+    "modo": "comum",
+    "biomas": [
+     "c:is_swamp",
+     "c:is_river"
+    ],
+    "horario": "dia",
+    "condicao": null,
+    "grupo": [
+     1,
+     2
+    ],
+    "peso": 6
+   },
+   {
+    "numero": 17,
+    "nome": "Castorocó",
+    "raridade": "Comum",
+    "modo": "comum",
+    "biomas": [
+     "c:is_river",
+     "c:is_forest"
+    ],
+    "horario": "dia",
+    "condicao": null,
+    "grupo": [
+     1,
+     1
+    ],
+    "peso": 6
+   },
+   {
+    "numero": 18,
+    "nome": "Mariposocó",
+    "raridade": "Comum",
+    "modo": "comum",
+    "biomas": [
+     "minecraft:flower_forest",
+     "minecraft:meadow",
+     "c:is_forest"
+    ],
+    "horario": "noite",
+    "condicao": null,
+    "grupo": [
+     1,
+     2
+    ],
+    "peso": 6
+   },
+   {
+    "numero": 19,
+    "nome": "Renacocó",
+    "raridade": "Mítico",
+    "modo": "encontro",
+    "biomas": [
+     "minecraft:soul_sand_valley",
+     "minecraft:basalt_deltas"
+    ],
+    "horario": "qualquer",
+    "condicao": "Nether",
+    "grupo": [
+     1,
+     1
+    ],
+    "peso": null
+   },
+   {
+    "numero": 20,
+    "nome": "Frankocó",
+    "raridade": "Épico",
+    "modo": "comum",
+    "biomas": [
+     "c:is_mountain",
+     "c:is_plateau"
+    ],
+    "horario": "qualquer",
+    "condicao": "só durante tempestade (trovoada)",
+    "grupo": [
+     1,
+     1
+    ],
+    "peso": 1
+   },
+   {
+    "numero": 21,
+    "nome": "Cabacocó",
+    "raridade": "Épico",
+    "modo": "comum",
+    "biomas": [
+     "minecraft:dark_forest",
+     "minecraft:pale_garden"
+    ],
+    "horario": "noite",
+    "condicao": null,
+    "grupo": [
+     1,
+     1
+    ],
+    "peso": 1
+   },
+   {
+    "numero": 22,
+    "nome": "Sirenocó",
+    "raridade": "Mítico",
+    "modo": "encontro",
+    "biomas": [
+     "c:is_ocean"
+    ],
+    "horario": "noite",
+    "condicao": "só com chuva",
+    "grupo": [
+     1,
+     1
+    ],
+    "peso": null
+   }
+  ],
+  "quetzacoco": {
+   "regra": "Lendário Original único por mundo: extremamente raro, só em selva (inclui bambuzal) ou montanha alta durante tempestade (trovoada), e só para um treinador que tenha registrado Galetos dos 6 elementos; aparece sempre no nível 70; ao aparecer, mensagem global no chat para todos os jogadores, sem coordenadas; se não for capturado, foge no fim da tempestade e pode voltar numa próxima elegível; depois de capturado, nunca mais aparece no mundo",
+   "chance": 0.002,
+   "chance_unidade": "por minuto de tempestade, por jogador elegível (cerca de 1,6% por tempestade média de 8 min)",
+   "nivel": 70,
+   "biomas": [
+    "c:is_jungle",
+    "minecraft:bamboo_jungle",
+    "c:is_mountain_peak"
+   ],
+   "mensagem_global": "O Quetzacocó, Lendário Original, apareceu em algum lugar do mundo durante a tempestade!"
+  }
+ },
  "nexo": {
   "norma_integral": {
    "auditoria": {
@@ -4216,7 +5647,7 @@
    }
   },
   "norma_atributos_rev8": {
-   "status": "OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18",
+   "status": "OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18 (confirmado na rev. 9)",
    "aprovacao": "Instrução expressa do criador em 18/11/2026: \"Resolve esses problemas todos com base nos dados mais recentes que temos disponíveis\".",
    "atributos_1_49": "A(L) = A50 × (49 + 3(L−1))/196, 1 ≤ L ≤ 49 (25% no nível 1; 98,47% no 49)",
    "atributos_50_100": "A(L) = A50 × (L+50)/100 (Nível 50 V1, homologada em 13/11)",
@@ -4733,7 +6164,7 @@
      "hp_ref": 189
     }
    ],
-   "pendente": "faixas de dificuldade de EV recalibradas para os totais do nível 50 (a V1.2 usa os totais antigos)",
+   "pendente": "nenhum",
    "fontes": [
     {
      "tabela": "gc54_normas (Galetocraft.sqlite rev. 2)",
@@ -4766,7 +6197,15 @@
      "registro": "gc161_decisoes_index beta0:ev_system (OFICIAL_APROVADO, 08/11)",
      "trecho": "EVs independentes e sem teto; bônus de EV 0,5×√EV; IV 0,25% por ponto"
     }
-   ]
+   ],
+   "ev_rev9": {
+    "status": "OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18",
+    "faixas": "o custo de EV dobra a cada faixa de 0,5 × total-base vigente da espécie no nível 50 (Comum 177–194, Raro 215, Épico 250–255, Mítico 275–285, Quetzacocó 350): EV efetivo = ganho / 2^floor(EV_total / limiar), dividindo o ganho através das fronteiras (estrutura da V1.2)",
+    "combate": "cada Galeto que entrou em campo numa Rinha vencida ganha +0,1 EV por oponente derrotado, no atributo-base mais alto do oponente (empate: ordem HP, Atq. Físico, Def. Física, Atq. Mágico, Def. Mágica, Velocidade), pelas mesmas faixas",
+    "treino": "alimentação da V1.2 (12 alimentos; comum +0,1 EV, raro +1,0 EV; peso +0,8% / +2,5%; 1 a cada 5 min por Galeto)",
+    "aprovacao": "Criador, 18/11/2026: \"Todas menos B e H estão aprovadas. No caso eu quero que o nível seja independente do local completamente variável do 1 até o 70. No caso do lendário único ele será extremamente raro, mas quando aparecer uma mensagem de chat aparecerá global avisando\"; esclarecimentos no mesmo dia: resto do B como proposto; Quetzacocó em selva ou montanha durante tempestade e depois dos 6 elementos; sempre nível 70; Pena nível 5 e fator 0,14.",
+    "proposta": "docs/propostas/PROPOSTAS_PENDENCIAS_2026-11-18.md (G)"
+   }
   }
  },
  "reproducao_etapa01": {
@@ -4984,7 +6423,7 @@
    "limite_numerico_reservas": null,
    "procedimento_troca_equipe_reservas": null,
    "interface_gerenciamento": null,
-   "regra_duplicatas": "permitidas (mesma evidência de combate_universal.equipes_3v3); OFICIAL_POR_DECISAO_DO_CRIADOR_2026-11-18",
+   "regra_duplicatas": "permitidas (mesma evidência de combate_universal.equipes_3v3); OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18 (confirmado na rev. 9)",
    "formula_captura": null,
    "chance_captura_json": null,
    "experiencia_pena_json": null,
@@ -4993,6 +6432,22 @@
    "fonte_aprovacao": "Aprovação por referência imediata à proposta de reservas ilimitadas e encaminhamento automático: Manteremos sim, vamos voltar ao sistema de capturas e finalizar",
    "data_aprovacao": "2026-11-12"
   },
-  "migrado_em": "2026-11-18"
+  "migrado_em": "2026-11-18",
+  "escalacao_rev9": {
+   "status": "OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18",
+   "regra": "antes de cada Rinha o treinador escolhe 3 dos 5 da equipe principal e quem começa; o padrão marcado são os 3 primeiros da ordem, com o 1º começando",
+   "reservas_acessiveis_mestres": "a equipe principal (5)",
+   "troca_equipe_reservas": "em qualquer lugar fora da Rinha, sem custo, pelo Galetário (aba Equipe e Reservas)",
+   "aprovacao": "Criador, 18/11/2026: \"Todas menos B e H estão aprovadas. No caso eu quero que o nível seja independente do local completamente variável do 1 até o 70. No caso do lendário único ele será extremamente raro, mas quando aparecer uma mensagem de chat aparecerá global avisando\"; esclarecimentos no mesmo dia: resto do B como proposto; Quetzacocó em selva ou montanha durante tempestade e depois dos 6 elementos; sempre nível 70; Pena nível 5 e fator 0,14.",
+   "proposta": "docs/propostas/PROPOSTAS_PENDENCIAS_2026-11-18.md (D)"
+  },
+  "companheiro_rev9": {
+   "status": "OFICIAL_APROVADO_PELO_CRIADOR_2026-11-18",
+   "regra": "1 Galeto da equipe pode seguir o treinador no mundo: teleporta se passar de 24 blocos, não ataca mobs, é invulnerável fora da Rinha, não pode ser desafiado nem capturado por outros; volta à equipe ao começar uma Rinha, quando o jogador sai ou ao ser tocado com a Pena de Captura; conta como ativo e carregado para o Peso V1.2",
+   "terreiro": "o Terreiro recebe os dois Galetos direto da equipe e os mostra sobre o bloco",
+   "libertar": "soltar um Galeto para sempre, com confirmação dupla: vira selvagem no lugar, mantém nível e IVs; não vale para o último Galeto da equipe",
+   "aprovacao": "Criador, 18/11/2026: \"Todas menos B e H estão aprovadas. No caso eu quero que o nível seja independente do local completamente variável do 1 até o 70. No caso do lendário único ele será extremamente raro, mas quando aparecer uma mensagem de chat aparecerá global avisando\"; esclarecimentos no mesmo dia: resto do B como proposto; Quetzacocó em selva ou montanha durante tempestade e depois dos 6 elementos; sempre nível 70; Pena nível 5 e fator 0,14.",
+   "proposta": "docs/propostas/PROPOSTAS_PENDENCIAS_2026-11-18.md (E)"
+  }
  }
 }

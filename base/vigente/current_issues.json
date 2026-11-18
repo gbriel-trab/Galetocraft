@@ -128,9 +128,9 @@
  {
   "id": "U03",
   "assunto": "Aprendizagem #023",
-  "status": "PENDENTE",
-  "evidencia": "Ficha #023 de 16/11: \"Pendente, não homologado nesta etapa: níveis e meios específicos de aprendizagem\"; nada mais novo no acervo",
-  "proximo_passo": "Distribuir níveis e treinamento mediante decisão;30golpes já homologados."
+  "status": "RESOLVIDO",
+  "evidencia": "Tabela do #023 aprovada na rev. 9 (regra aprendizado)",
+  "proximo_passo": "Nenhum"
  },
  {
   "id": "U04",
@@ -156,43 +156,43 @@
  {
   "id": "U07",
   "assunto": "Aparecimento no mundo (spawn)",
-  "status": "PENDENTE_SEM_DADO",
-  "evidencia": "Nenhuma regra de bioma, frequência, grupo, horário ou nível dos selvagens no acervo; só habitats narrativos de #010 e #016–#018 e \"Divinos não aparecem naturalmente\" (09/11)",
-  "proximo_passo": "Decidir biomas, pesos e faixas de nível por espécie"
+  "status": "RESOLVIDO",
+  "evidencia": "Regra mundo_aparecimento (rev. 9): biomas, horários, pesos, encontros raros, nível 1–70",
+  "proximo_passo": "Nenhum"
  },
  {
   "id": "U08",
   "assunto": "Pena de Captura: obtenção e aparência",
-  "status": "PENDENTE_SEM_DADO",
-  "evidencia": "Oficial: pena com rubi central, uma por treinador, não consumível; nome_exato, design_exato, obtenção, recuperação, perda e receita são NULL (v1216)",
-  "proximo_passo": "Decidir como o treinador recebe e recupera a Pena; gerar a arte no ChatGPT"
+  "status": "RESOLVIDO_ARTE_A_GERAR",
+  "evidencia": "captura.pena_rev9: kit de início, posse, aparência e Feixe do Rubi; falta só gerar a arte no ChatGPT",
+  "proximo_passo": "Gerar a arte da Pena no ChatGPT (pedido em docs/propostas/PROPOSTAS_PENDENCIAS_2026-11-18.md, C4)"
  },
  {
   "id": "U09",
   "assunto": "Gerenciamento da equipe e escalação da Rinha",
-  "status": "PENDENTE_SEM_DADO",
-  "evidencia": "procedimento_troca_equipe_reservas, interface_gerenciamento e team_lead_selection_policy sem definição (hipótese de simulação: aleatória)",
-  "proximo_passo": "Decidir quais 3 dos 5 entram na Rinha, quem começa e como trocar com as reservas"
+  "status": "RESOLVIDO",
+  "evidencia": "treinador.escalacao_rev9",
+  "proximo_passo": "Nenhum"
  },
  {
   "id": "U10",
   "assunto": "Galeto do treinador no mundo",
-  "status": "PENDENTE_SEM_DADO",
-  "evidencia": "Reprodução Etapa 01 e Peso V1.2 pressupõem Galetos do treinador no mundo, mas não há regra para soltar/recolher",
-  "proximo_passo": "Decidir como o Galeto sai da equipe para o mundo e volta"
+  "status": "RESOLVIDO",
+  "evidencia": "treinador.companheiro_rev9",
+  "proximo_passo": "Nenhum"
  },
  {
   "id": "U11",
   "assunto": "Aprendizado de #013–#018",
-  "status": "PENDENTE_SEM_DADO",
-  "evidencia": "Nenhuma grade por nível ou treinamento no acervo; a ficha do #013 proíbe inventar nível de aprendizado",
-  "proximo_passo": "Distribuir os 30 golpes de cada espécie (15 por nível, 15 por treinamento)"
+  "status": "RESOLVIDO",
+  "evidencia": "Tabelas de #013–#018 aprovadas na rev. 9 (regra aprendizado)",
+  "proximo_passo": "Nenhum"
  },
  {
   "id": "U12",
   "assunto": "Faixas de dificuldade de EV",
-  "status": "PENDENTE_SEM_DADO",
-  "evidencia": "A V1.2 dobra o custo a cada 50% da soma de base \"no nível 100\" (totais antigos, 850 no Mítico); não há versão no nível 50",
-  "proximo_passo": "Recalibrar as faixas para os totais do nível 50 e definir os ganhos de EV em combate e treino"
+  "status": "RESOLVIDO",
+  "evidencia": "progressao.norma_atributos_rev8.ev_rev9",
+  "proximo_passo": "Nenhum"
  }
 ]
