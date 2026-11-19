@@ -161,13 +161,12 @@ espessura das tranças, fica em ~2,25.
 
 ---
 
-> **Mudança do dono:** as 3 tranças da cauda saem **na horizontal, lado a lado**, das costas da armadura superior.
-> - Altura: y ≈ 26,5, a partir de um fecho prata em z +3..+4.
-> - Leque: ±18° vistas de cima.
-> - Pontas: em z ≈ +26 a +28.
+> **Mudança do dono:** as 3 tranças da cauda saem lado a lado das costas da armadura superior (y 26,5, fecho prata
+> em z +3..+4), partem na horizontal e **caem com a gravidade** atrás da capa:
+> - a central termina em (z 18,8, y 6);
+> - as laterais, abertas ±15°, terminam em (z 18,5, y 12).
 >
-> Isso substitui as pontas das caudas A, B e C da tabela acima, que descrevem a ficha. O comprimento total passa a
-> ~38 u.
+> Isso substitui as pontas das caudas A, B e C da tabela acima. A planta mostra o caminho novo em vermelho.
 
 ## 6. Peças, contagens e formas
 

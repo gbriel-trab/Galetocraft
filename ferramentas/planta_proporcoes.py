@@ -83,10 +83,13 @@ PLANTAS = {
             ("capa", C_CAPA, [(-3, 29.5), (4, 30), (9, 22), (13.5, 7), (12, 1.5), (5, 1.5), (0, 9), (-3, 18)]),
         ],
         # cadeias (nome, cor, [(z, y), ...]) desenhadas como linhas grossas com contas
+        # cauda redesenhada pelo dono: 3 tranças saem das costas da armadura superior e caem com a gravidade
+        # (central: 8 segmentos de 3 u + lâmina; laterais: 6 + lâmina, abertas 15°, aqui projetadas no perfil)
         "lado_cadeias": [
-            ("cauda A (alta)", C_CAUDA, [(3.5, 25.5), (13.5, 25.5), (19, 24), (22.5, 21), (24.5, 16.5)]),
-            ("cauda B (média)", C_CAUDA, [(3.5, 24.5), (11, 22.5), (17, 20), (20.5, 15), (23.5, 4.5)]),
-            ("cauda C (baixa)", C_CAUDA, [(3.5, 23.5), (10.5, 18), (15.3, 13.3), (18, 7), (19.5, 1.5)]),
+            ("trança central", C_CAUDA, [(4, 26.5), (7, 26.5), (10, 26.5), (12.9, 25.7), (15.5, 24.2), (17.4, 21.9),
+                                         (18.5, 19.1), (18.7, 16.1), (18.8, 13.1), (18.8, 6.1)]),
+            ("tranças laterais", C_CAUDA, [(4, 26.5), (6.9, 26.5), (9.8, 26.5), (12.6, 25.7), (15.1, 24.2), (17.0, 21.9),
+                                           (18.0, 19.1), (18.5, 12.1)]),
         ],
     },
 }
