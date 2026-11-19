@@ -1,53 +1,56 @@
 # Pirococó (#001): relatório do modelo
 
-## Estado atual (correção 1)
+## Estado atual (correção 2)
 
-- **Cubos:** 157 (orçamento 110–170): 70 caixas e 87 planos (55%).
-- **Cubos girados:** 21 (13%): colar, viseira, tiara, ombreiras, garras e a borda do peito.
-- **Ângulos de penas:** ficam nos ossos (111 ossos, 82 com giro). Cada pena da crista e da capa tem o seu osso, como nos modelos do Cobblemon.
-- **Textura:** 128×128, 1 px por unidade, 31 cores da paleta da ficha.
-- **Medidas no 1º quadro do idle:**
-  - altura: de 0 a 44,6 u;
-  - largura: 20 u nas ombreiras, 16–17 u na cintura (y 22–24), 22 u em y 18, ~29 u em y 9–12 e 28 u na barra;
-  - capa: chega a z +13 de lado;
-  - tranças: pontas em z 25–26, com as laterais em x ±7,6.
-- **Conferido no laço:** nada desce abaixo do chão (−0,09 u). A capa fica a ≥ 2,3 u das pernas e a ≥ 0,57 u das tranças, em 8 instantes do idle e 8 do walk.
+- **Cubos:** 171 (orçamento desta rodada: até 190): 85 caixas e 86 planos.
+- **Cubos girados:** 21 (12%).
+- **Penas:** cada pena da crista e da capa tem o seu osso (114 ossos).
+- **Textura:** 128×128, 1 px por unidade, 32 cores da paleta.
+- **Altura:** de 0 a 45,2 u.
+- **Capa:** borda de trás em z 12,0 (limite 13,5) e largura máxima de 25,8 u.
+- **Tranças:** pontas em (x 0; y 5,1; z 18,8) na central e (x ±5,9; y 11,1; z 18,6) nas laterais.
+- **Folgas nos laços** (8 instantes do idle e 8 do walk):
+  - chão: −0,01 u;
+  - capa × pernas: ≥ 0,75 u;
+  - capa × tranças: ≥ 0,47 u.
 
-## Correção 1: item → mudança → estado
+## Correção 2: item → mudança → estado
 
-1. **Tronco e peito — resolvido.**
-   - Núcleo 10×14×10 vermelho.
-   - Peito creme em 3 degraus (8×6×2 → 6×4×2 → 4×3×1), recuando de z −9 a −7,5.
-   - Borda recortada em 3 pontas, inclinada 10°.
-   - 2 chevrons em V e nenhuma moldura escura.
-   - Pescoço 5×3×5 aparecendo entre o queixo e o colar.
-2. **Cabeça e rosto — resolvido.**
-   - Cabeça 8×8×7: topo e lados vermelhos; garganta e bochecha creme.
-   - Olhos de quina 2×1×2 (branco por fora, íris #9e1020 do lado do bico) e pálpebras.
-   - Viseira 3×1×2 girada ±15°, com a ponta de dentro mais baixa.
-   - Tiara 1×2×7 subindo 15° para trás, com asinhas a 30°.
-   - Bico de 4 u (base 3×3×2, meio, gancho caindo 1 u abaixo da base e mandíbula escura).
-   - **Diferença:** a gema tem 3×4 em vez de 2×4, porque um losango com ponta central precisa de largura ímpar.
-3. **Crista — resolvido.**
-   - 20 planos, todos com base ≥ 3 px: 2 penas em U (3×8, 20° para trás), a central (3×6, 25°), 3 chamas por lado (4×7 a 35°, 55° e 75°), 5 lâminas na nuca (−10° a −50°, a mais longa até z 12) e 3 tufos de bochecha por lado (±40°).
-   - De frente, a coroa tem 9 pontas.
-4. **Ombreiras e colar — resolvido.**
-   - Sem os blocos dourados: cada ombreira tem 3 placas prata (15°, 22,5° e 35°) com miolo roxo; o dourado fica só no filete de fora e na ponta 2×1×3.
-   - **Diferença:** as placas do colar têm 7×2×1 a 45° em vez de 5×2×1 a 30°. Com 5 u a 30°, o colar não chega à ombreira.
-5. **Capa — resolvido, com diferenças.**
-   - 3 fileiras em telha (6, 7 e 8 penas de 4 px por lado, incluindo as de trás), uma pena por osso.
-   - Nenhum plano a 0° nem a 90° e nenhuma linha pontilhada.
-   - **Diferenças:** para bater a tabela de larguras e a barra em y 1,5, o sino abre até 34° em vez de 8–15°, e as penas medem 4×10, 4×15 e 4×18.
-6. **Cauda — resolvido.**
-   - Fecho prata 6×3×1 com filete dourado.
-   - 3 tranças horizontais em y 26,5, de 5 segmentos 2×2×3 pintados em listras, com queda de 0°, 0°, 2°, 4° e 6°.
-   - Lâminas 3×7 em X, com losango de brilho dos dois lados.
-   - **Diferenças:** as laterais saem de x ±2 e abrem ±15°, em vez de x ±1,5 e ±18°. Isso evita a sobreposição na raiz e deixa as pontas em x ±7,6.
-7. **Pés — resolvido.**
-   - Pé 3×2×3 roxo-escuro escamado.
-   - 3 dedos 1×1×4 abertos (−25°, 0° e +25°), com garras 1×1×2 caídas 35°.
-   - Esporão de trás com garra a 45°. **Diferença:** o pé vai até z +2,4 em vez de +1,5.
-8. **Pintura — resolvido.**
-   - Grão em ~5%, sem escurecer até #960429. Esse tom ficou em 5% do vermelho, só em raízes e junções.
-   - Prata na rampa lilás.
-   - Oclusão de 1 px só sob as ombreiras, na base do pescoço, entre as coxas e na junção peito/coxas.
+1. **Capa — resolvido.**
+   - Penas de 5 px num anel em volta do tronco: 4, 5 e 6 por lado nas fileiras 1, 2 e 3, mais 3 por fileira no leque das costas.
+   - A 1ª de cada lado fica na frente do flanco (x ±5, z −7,3; 30° em y e 25° de leque para fora).
+   - Giro em y das laterais entre 30° e 65° ou entre 115° e 155°, a ≥ 25° de perfil.
+   - Pontas em V com degraus de 1 px. A fileira 1 tem filete prata; nas outras, o roxo vai até 75% e 45% do comprimento.
+   - Penas vizinhas alternam claro e base.
+2. **Juba — resolvido.**
+   - 20 planos com base de 5 px (os tufos de bochecha, 3 px): 2 penas em U (curvas para dentro, 20° para trás), a central, 3 chamas por lado (30°, 50° e 70° em z, 25° para trás), 3 chamas do leque de trás, 4 lâminas na nuca (−15° a −55°) e 2 tufos por lado.
+   - **Diferença:** o pedido era de 14–16 planos. As 3 chamas de trás preenchem o leque visto de costas.
+   - As penas que ficam de frente também giram 15–25° em y, para não virarem fio de perfil.
+3. **Cauda com gravidade — resolvido.**
+   - A central tem 8 segmentos (dobras de 0°, 0°, 15°, 15°, 20°, 20°, 15° e 3°); as laterais, 6 segmentos mais a lâmina, chegando a ~85°.
+   - Cordão pintado com sulco em diagonal, sem xadrez.
+   - Lâmina de chama 4×8 em X, com losango em brilho dos dois lados.
+   - Pêndulo de ±3° em z e ±2° em x no idle, e ±6° no walk.
+4. **Ombreiras — resolvido.** Concha 6×3×7 + chanfro 5×1×5, giradas 20°. Aba frontal a −10°. Ponta dourada 3×1×3 a 45°. Miolo roxo no topo e na frente.
+5. **Elmo e cabeça — resolvido.**
+   - Faixa 1×2×7 colada na lateral, subindo 15° para trás, e aletas 3×3.
+   - Tampa 6×1×5 e nuca 6×6×1 (chanfro).
+   - Sombra #b68b78 de 1 px sob o olho.
+6. **Tronco — resolvido.**
+   - Peito em degraus: z −10 (y 21–27), −9 (17–21) e −8 (15–17).
+   - Quinas em tom mais escuro, chevrons em zigue-zague e borda recortada em 3 pontas.
+7. **Pernas e pés — resolvido.**
+   - Joelheira com placa em ponta de flecha (3×4, 15° para a frente) e tornozeleira com ponta para baixo.
+   - Coxa com 2 penas 3×4 sobre a joelheira.
+   - 3 dedos abertos (−30°, 0° e +30°) com garra em 2 cubos (ponta caída 40°), mais o esporão de trás.
+8. **Pintura — parcial.**
+   - O grão nunca escurece abaixo do tom base.
+   - Creme: 44% luz, 43% base, 12% sombra.
+   - Prata com chanfro de 1 px em cima e embaixo.
+   - **Pendente:** o vermelho da textura inteira tem 26% de luz, porque o corpo fica em base/sombra (separado das penas) e o núcleo, quase todo coberto pela capa, ocupa 960 px.
+
+## As 3 maiores diferenças que ainda restam
+
+1. **De lado, a capa é um bloco que desce quase reto e cobre a perna até o joelho.** Na ficha, ela é uma faixa diagonal que deixa a perna à mostra. De frente, ela abre até 25,8 u, contra ~29 na ficha.
+2. **A juba de perfil varre para trás e para baixo.** Na ficha, as lâminas sobem e curvam para cima. De costas, ainda aparece um pouco da nuca vermelha.
+3. **As pontas douradas das ombreiras parecem palitos curtos**, não as garras curvas da ficha. A faixa do elmo, vista de lado, lê como barra prata reta.
