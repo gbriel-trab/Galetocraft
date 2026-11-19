@@ -218,14 +218,14 @@ def grao(area, rnd):
     pix = [k for k, v in area.items() if v[2]]
     if len(pix) < 8:
         return
-    for _ in range(max(1, round(len(pix) * 0.035))):
+    for _ in range(max(1, round(len(pix) * 0.025))):
         x, y = rnd.choice(pix)
         d = rnd.choice((-1, 1))
         m0 = area[(x, y)][0]
         for _ in range(rnd.choice((1, 2, 2, 3))):
             v = area.get((x, y))
-            if v and v[2] and v[0] == m0:
-                area[(x, y)] = (v[0], max(0, min(4, v[1] + d)), True)
+            if v and v[2] and v[0] == m0 and v[1] <= BASE:
+                area[(x, y)] = (v[0], max(LUZ, min(SOMBRA, v[1] + d)), True)
             x, y = x + rnd.choice((-1, 0, 1)), y + rnd.choice((-1, 0, 1))
 
 
@@ -342,57 +342,6 @@ class Arte:
         return self
 
 
-def chama(a, raiz, ponta, larg, curva=0.0, mat="verm", borda=False):
-    """Língua de fogo/pena de crista: forma cheia, raiz escura, núcleo 1 tom mais claro, ponta clara."""
-    return a.pena(raiz, ponta, larg, curva=curva, cores=rampa_t(mat, (SOMBRA, BASE, CLARO, LUZ), (0.15, 0.5, 0.85)),
-                  perfil="chama", haste=0, borda_baixo=borda, folga=0.35)
-
-
-def arte_leque(W, H, raiz, ang0, ang1, compr, camada, filete=True):
-    """Painel de penas em leque com a barra recortada em zigue-zague (pontas em degrau).
-    raiz (u, v): de onde as penas saem; ângulos em graus a partir da vertical para baixo (positivo = para a
-    coluna 0); compr: comprimento de cada pena. Camada 0 = vermelha comprida, 1 = roxa->vermelha,
-    2 = roxa curta com filete prata. As divisões entre penas são 1 px mais escuras."""
-    a = Arte(W, H)
-    n = len(compr)
-    passo = math.radians((ang1 - ang0) / n)
-    for j in range(H):
-        for i in range(W):
-            du, dv = i + .5 - raiz[0], j + .5 - raiz[1]
-            if dv <= 0:
-                continue
-            rho = math.hypot(du, dv)
-            th = math.degrees(math.atan2(-du, dv))
-            f = (th - ang0) / (ang1 - ang0) * n
-            if f < 0 or f >= n:
-                continue
-            k = int(f)
-            fr = f - k
-            L = compr[k]
-            ponta = 0.85 * L * passo          # profundidade do recorte entre penas
-            borda = L - ponta * abs(2 * fr - 1)
-            if rho > borda:
-                continue
-            t = rho / L
-            arco = rho * passo * min(fr, 1 - fr)
-            if camada == 0:
-                m, tom = "verm", (SOMBRA if t < 0.5 else BASE if t < 0.8 else CLARO if t < 0.93 else LUZ)
-            elif camada == 1:
-                m, tom = (("roxo", SOMBRA) if t < 0.2 else ("roxo", BASE) if t < 0.62 else ("roxo", CLARO) if t < 0.76
-                          else ("verm", SOMBRA) if t < 0.83 else ("verm", BASE) if t < 0.94 else ("verm", CLARO))
-            else:
-                m, tom = "roxo", (SOMBRA if t < 0.18 else BASE if t < 0.6 else CLARO)
-                arco_fora = rho * passo * (1 - fr)
-                if filete and 0.6 < arco_fora < 1.6 and 0.2 < t < 0.9:
-                    m, tom = "prata", BASE if t < 0.5 else CLARO
-            if arco < 0.6 and t > 0.3:
-                tom += 1                          # divisão entre penas
-            if camada and rho > borda - 1.0:
-                tom += 1                          # borda de baixo, onde sobrepõe a camada de trás
-            a.put(i, j, (m, min(FUNDA, tom)))
-    return a
-
-
 def rampa_t(mat, tons=(SOMBRA, BASE, CLARO, LUZ), cortes=(0.22, 0.55, 0.85)):
     """Cor ao longo da pena: raiz escura -> ponta clara, em degraus."""
     def f(t):
@@ -401,148 +350,120 @@ def rampa_t(mat, tons=(SOMBRA, BASE, CLARO, LUZ), cortes=(0.22, 0.55, 0.85)):
     return f
 
 
-def roxo_verm(corte=0.5):
-    """Pena roxa na raiz que vira vermelha na ponta (camada do meio da capa)."""
-    def f(t):
-        if t < corte * 0.45: return "roxo", SOMBRA
-        if t < corte: return "roxo", BASE
-        if t < corte + 0.12: return "verm", SOMBRA
-        if t < 0.85: return "verm", BASE
-        return "verm", CLARO
-    return f
+def _R(eixo, g):
+    """Rotação padrão (mão direita) em graus, no espaço do JSON."""
+    c, s = math.cos(math.radians(g)), math.sin(math.radians(g))
+    if eixo == "x": return np.array([[1, 0, 0], [0, c, -s], [0, s, c]])
+    if eixo == "y": return np.array([[c, 0, s], [0, 1, 0], [-s, 0, c]])
+    return np.array([[c, -s, 0], [s, c, 0], [0, 0, 1]])
 
 
-# ======================================================================================================
-# A criatura
-# ======================================================================================================
+ESPELHO = np.diag([-1.0, 1.0, 1.0])
+
+
+def euler(R):
+    """Ângulos Bedrock [rx, ry, rz] de uma matriz de rotação, arredondados a 2,5° (inverso de rot_json)."""
+    b = math.degrees(math.asin(max(-1.0, min(1.0, -R[2, 0]))))
+    a = math.degrees(math.atan2(R[2, 1], R[2, 2]))
+    c = math.degrees(math.atan2(R[1, 0], R[0, 0]))
+    q = lambda v: round(v / 2.5) * 2.5 + 0.0
+    return [q(-a), q(b), q(-c)]
+
+
+def lado_nome(lado):
+    return "d" if lado < 0 else "e"
+
+
+def arte_mapa(linhas, legenda=None, espelhar=False):
+    a = Arte(len(linhas[0]), len(linhas)).mapa(linhas, legenda or LEG_CHAMA)
+    return a.espelho() if espelhar else a
+
+
+LEG_CHAMA = {"L": ("verm", LUZ), "C": ("verm", CLARO), "B": ("verm", BASE), "S": ("verm", SOMBRA),
+             "F": ("verm", FUNDA)}
+LEG_PRATA = {"L": ("prata", LUZ), "C": ("prata", CLARO), "B": ("prata", BASE), "S": ("prata", SOMBRA),
+             "F": ("prata", FUNDA), "O": ("ouro", BASE)}
+
+
+def pena_reta(W, H, cor, filete=None, haste=None):
+    """Pena reta de W px de largura e H de comprimento (linha 0 = raiz), ponta em degrau de 2 px.
+    cor(j) -> (material, tom) por linha; filete = (coluna, material, tom); haste = (coluna, desvio de tom)."""
+    a = Arte(W, H)
+    for j in range(H):
+        larg = W if j < H - 2 else max(1, W - 2)
+        i0 = (W - larg) // 2
+        for i in range(i0, i0 + larg):
+            m, tom = cor(j)
+            if haste and i == haste[0] and 1 < j < H - 3:
+                tom += haste[1]
+            if filete and i == filete[0] and 0 < j < H - 2:
+                m, tom = filete[1], filete[2]
+            a.put(i, j, (m, max(0, min(FUNDA, tom))))
+    return a
+
+
+def deitar(a):
+    """Pena vertical (raiz em cima) -> deitada para plano em x apontando para trás (coluna 0 = trás = ponta)."""
+    b = Arte(a.h, a.w)
+    for j in range(a.w):
+        for i in range(a.h):
+            b.g[j][i] = a.g[a.h - 1 - i][j]
+    return b
+
+
+# ---------------------------------------- montagem ----------------------------------------
 def montar():
     raiz = osso(ID, None, (0, 0, 0))
     corpo = osso("corpo", raiz, (0, 15, -1))
     montar_tronco(corpo)
     pescoco = osso("pescoco", corpo, (0, 29, -4))
-    caixa(pescoco, (-2.5, 27, -7), (5, 5, 5), pintor_pescoco, nome="pescoco")
+    caixa(pescoco, (-2.5, 28.5, -6.5), (5, 3, 5), pintor_pescoco, nome="pescoco")
     cabeca = osso("cabeca", pescoco, (0, 31.5, -3.5))
     montar_cabeca(cabeca)
     montar_crista(cabeca)
-    montar_capa(corpo)
     montar_ombreiras(corpo)
+    montar_capa(corpo)
     montar_cauda(corpo)
     for lado in (-1, 1):
         montar_perna(raiz, lado)
 
 
-# ---------------------------------------- tronco, peitoral ----------------------------------------
-def pintor_tronco(t):
+# ---------------------------------------- 1. tronco e peito ----------------------------------------
+def pintor_nucleo(t):
     x, y, z = t.p
-    if t.face == "north":
-        if abs(x) < 3.5:
-            if y < 16 and (int(x + 10) + int(y)) % 2 == 0: return "verm", BASE    # franja das penas do peito
-            return "creme", BASE if y > 16 else SOMBRA
-        return "roxo", SOMBRA                                                     # forro da capa
-    if t.face in ("east", "west") and z < -4.0 and y > 14.5:
-        if y < 16 and int(math.floor(z)) % 2 == 0: return "verm", BASE
-        return "creme", BASE if y > 16 else SOMBRA
     if t.face == "down": return "verm", SOMBRA
+    if t.face == "up": return "verm", BASE
+    if t.face in ("east", "west") and 25 <= y < 26: return "verm", FUNDA        # junção sob as ombreiras
+    if t.face == "north" and y < 16: return "verm", SOMBRA                        # junção peito/coxas (1 px)
+    if t.face == "north" and y >= 28 and abs(x) < 3: return "creme", BASE        # creme do pescoço descendo
     return "verm", faixa(t)
+
+
+# peito em 3 degraus (creme, sem moldura): (origem, tamanho)
+DEGRAUS = (((-4, 22, -9), (8, 6, 2)), ((-3, 18, -8.5), (6, 4, 2)), ((-2, 15, -7.5), (4, 3, 1)))
+CHEVRONS = ((24.0, 3.0), (19.5, 2.0))       # (y do vértice, meia largura) dos V de 1 px
 
 
 def pintor_peito(t):
     x, y, z = t.p
-    if t.face == "north":
-        # chevrons de pena (V de 1 px, um tom abaixo)
-        for yc in (19.5, 23.0):
-            if abs((y - yc) - (abs(x) * 0.55)) < 0.5 and abs(x) < 3.5:
-                return "creme", SOMBRA
-        return "creme", CLARO if y > 24 else BASE
     if t.face == "down": return "creme", SOMBRA
-    if t.face == "up": return "creme", CLARO
-    return "creme", CLARO if y > 24 else BASE
+    if t.face == "up": return "creme", LUZ
+    if t.face == "north":
+        for yc, mx in CHEVRONS:
+            if abs(x) < mx and 0 <= y - (yc + 0.5 * abs(x)) < 1:
+                return "creme", SOMBRA
+    if y >= 27: return "creme", LUZ if t.face == "north" else CLARO
+    if y >= 23.5: return "creme", CLARO
+    return "creme", BASE
 
 
 def pintor_pescoco(t):
     x, y, z = t.p
-    if t.face == "north" or (t.face in ("east", "west") and z < -5):
-        return "creme", BASE if y > 28 else SOMBRA
+    frente = t.face == "north" or (t.face in ("east", "west") and z < -4.5)
+    if y < 29.5:                                                    # base do pescoço (1 px de oclusão)
+        return ("creme", SOMBRA) if frente else ("verm", FUNDA)
+    if frente: return "creme", BASE
     return "verm", faixa(t)
-
-
-def montar_tronco(corpo):
-    caixa(corpo, (-5, 15, -6.5), (10, 13, 9), pintor_tronco, nome="tronco")
-    caixa(corpo, (-4, 17, -8.5), (8, 10, 2), pintor_peito, nome="peito")
-    # gola: anel prateado em volta da base do pescoço
-    caixa(corpo, (-4, 28, -7.5), (8, 2, 7), pintor_gola, nome="gola")
-    # colar em V (camada 1) e moldura da gema (camada 2): placas com recorte
-    caixa(corpo, (-5, 21, -9.5), (10, 9, 1), pintor_v(ARTE_V1), nome="colar_v")
-    caixa(corpo, (-3, 22, -10), (6, 7, 1), pintor_v(ARTE_V2), nome="colar_moldura")
-    # placa das costas (V prateado com losango roxo pintado)
-    caixa(corpo, (-4, 25, 2.5), (8, 5, 1), pintor_v(ARTE_COSTAS, costas=True), nome="colar_costas")
-    gema = osso("gema_peito_brilho", corpo, (0, 25.5, -10.5))
-    caixa(gema, (-1.5, 23, -10.5), (3, 5, 1), pintor_gema_peito, nome="gema_peito")
-
-
-def pintor_gola(t):
-    x, y, z = t.p
-    if t.face == "up": return "prata", LUZ if abs(x) > 2.5 or z < -6.5 else CLARO
-    if t.face == "down": return "prata", SOMBRA
-    return "prata", CLARO if y > 29 else BASE
-
-
-# V do colar (10 x 9, y 30 -> 21). S = prata, L = luz (chanfro de cima), B = sombra (borda de baixo), R = roxo
-ARTE_V1 = [
-    "LLL....LLL",
-    "SSSL..LSSS",
-    "BSSS..SSSB",
-    ".BSSLLSSB.",
-    "..BSSSSB..",
-    "..BSSSSB..",
-    "...BSSB...",
-    "...BSSB...",
-    "....BB....",
-]
-# moldura da gema (6 x 7, y 29 -> 22)
-ARTE_V2 = [
-    "L....L",
-    "SL..LS",
-    ".S..S.",
-    ".S..S.",
-    ".BSSB.",
-    "..SS..",
-    "..BB..",
-]
-# costas (8 x 5, y 30 -> 25)
-ARTE_COSTAS = [
-    "LLL..LLL",
-    "BSSLLSSB",
-    ".BSRRSB.",
-    "..BSSB..",
-    "...BB...",
-]
-LEG_V = {"S": ("prata", BASE), "L": ("prata", LUZ), "B": ("prata", SOMBRA), "R": ("roxo", CLARO), ".": None}
-
-
-def pintor_v(arte, costas=False):
-    def f(t):
-        x, y, z = t.p
-        c = t.c
-        w = c.tam[0]
-        col = int(math.floor(x - c.origem[0]))
-        lin = int(math.floor(c.origem[1] + c.tam[1] - y))
-        col = min(max(col, 0), w - 1)
-        lin = min(max(lin, 0), c.tam[1] - 1)
-        ch = arte[lin][col]
-        frente = "south" if costas else "north"
-        if t.face == frente:
-            return LEG_V[ch]
-        if t.face in ("north", "south"):
-            return None if ch == "." else ("prata", SOMBRA)
-        # laterais/topo/base: só onde a face da frente tem metal na borda
-        if t.face == "up":
-            return None if arte[0][col] == "." else ("prata", LUZ)
-        if t.face == "down":
-            return None if arte[-1][col] == "." else ("prata", FUNDA)
-        borda = w - 1 if t.face == "west" else 0   # west = +x (lado esquerdo), east = -x (direito)
-        return None if arte[lin][borda] == "." else ("prata", SOMBRA)
-    return f
 
 
 def pintor_gema_peito(t):
@@ -554,73 +475,71 @@ def pintor_gema_peito(t):
     ch = forma[min(max(lin, 0), 4)][min(max(col, 0), 2)]
     if ch == ".": return None
     tom = {"L": LUZ, "C": CLARO, "B": BASE, "S": SOMBRA, "F": FUNDA}[ch]
-    if t.face in ("east", "west", "up", "down", "south"):
-        tom = min(4, tom + 1)
+    if t.face != "north":
+        tom = min(FUNDA, tom + 1)
     return "rubi", tom
 
 
-# ---------------------------------------- cabeça ----------------------------------------
+def pintor_placa(t, ouro_fora=None):
+    """Placa prata: aresta de cima #f6f6f6, base #d2bed1, aresta de baixo #ac93ae."""
+    x, y, z = t.p
+    c = t.c
+    if t.face == "up": return "prata", LUZ
+    if t.face == "down": return "prata", SOMBRA
+    if y > c.origem[1] + c.tam[1] - 1 and c.tam[1] >= 2: return "prata", LUZ
+    if y < c.origem[1] + 1 and c.tam[1] >= 2: return "prata", SOMBRA
+    return "prata", BASE
+
+
+def pintor_fecho(t):
+    x, y, z = t.p
+    c = t.c
+    if t.face == "south":
+        borda = (x < c.origem[0] + 1 or x > c.origem[0] + c.tam[0] - 1 or y < c.origem[1] + 1
+                 or y > c.origem[1] + c.tam[1] - 1)
+        return ("ouro", BASE) if borda else ("prata", BASE)
+    return pintor_placa(t)
+
+
+def montar_tronco(corpo):
+    caixa(corpo, (-5, 15, -7), (10, 14, 10), pintor_nucleo, nome="tronco")
+    for k, (org, tam) in enumerate(DEGRAUS):
+        caixa(corpo, org, tam, pintor_peito, nome=f"peito_{k}")
+    borda = arte_mapa(["CCCCCC", "BBBBBB", "B.BB.B"], {"C": ("creme", BASE), "B": ("creme", SOMBRA)})
+    plano(corpo, (-3, 12, -7.05), (6, 3, 0), plana(borda), rot=(10, 0, 0), pivo=(0, 15, -7.05), nome="peito_borda")
+    # colar em V: 2 placas prata que se encontram em y 21,5 e sobem até as ombreiras
+    for lado in (-1, 1):
+        x0 = -7 if lado < 0 else 0
+        caixa(corpo, (x0, 21.5, -9.5 - (0.02 if lado > 0 else 0)), (7, 2, 1), pintor_placa,
+              rot=(0, 0, 45 * -lado), pivo=(0, 21.5, -9), nome=f"colar_{lado_nome(lado)}")
+    gema = osso("gema_peito_brilho", corpo, (0, 25.5, -10))
+    caixa(gema, (-1.5, 23, -10.5), (3, 5, 1), pintor_gema_peito, nome="gema_peito")
+
+
+# ---------------------------------------- 2. cabeça, rosto e bico ----------------------------------------
 def pintor_cabeca(t):
     x, y, z = t.p
     if t.face == "north":
-        if y < 32.9 and abs(x) < 2.6:
-            return "creme", BASE if y > 32 else SOMBRA
-        return "verm", CLARO if y > 36 else (BASE if y > 32 else SOMBRA)
+        if y < 34 and abs(x) < 2: return "creme", BASE if y > 32 else SOMBRA      # garganta
+        return "verm", CLARO if y > 36.3 else BASE
     if t.face in ("east", "west"):
-        # bochecha creme embaixo do olho, descendo para a garganta
-        if z < -4.5 and y < 33.9:
-            return "creme", BASE if y > 32 else SOMBRA
-        if z < -2.5 and y < 32.9:
-            return "creme", SOMBRA
+        if y < 34.5 and z < -3.5: return "creme", BASE if y > 32 else SOMBRA     # bochecha
         return "verm", faixa(t)
-    if t.face == "down":
-        return ("creme", SOMBRA) if z < -3.5 else ("verm", SOMBRA)
-    if t.face == "up":
-        return "verm", SOMBRA if (int(math.floor(z - abs(x) * 0.8)) % 3 == 0) else BASE
-    if t.face == "south":
-        return "verm", SOMBRA if (int(math.floor(y - abs(x) * 0.8)) % 3 == 0) else faixa(t)
-    return "verm", faixa(t)
+    if t.face == "up": return "verm", SOMBRA
+    if t.face == "down": return ("creme", SOMBRA) if z < -3.5 else ("verm", SOMBRA)
+    return "verm", SOMBRA if (int(math.floor(y - abs(x) * 0.8)) % 3 == 0) else faixa(t)    # nuca em V
 
 
-# viseira/elmo (sobreposição 7 x 4 x 6, y 35 -> 39): frente, lados, topo
-ELMO_FRENTE = [
-    "S.....S",
-    "SS...SS",
-    ".SS.SS.",
-    "..S.S..",
-]
-ELMO_LADO = [      # coluna 0 = trás (z -0.5) ... 5 = frente (z -6.5)
-    "SS....",
-    ".SS..S",
-    "..SSSS",
-    "......",
-]
-
-
-def pintor_elmo(t):
-    x, y, z = t.p
-    c = t.c
-    lin = min(max(int(math.floor(c.origem[1] + c.tam[1] - y)), 0), 3)
-    if t.face == "north":
-        col = min(max(int(math.floor(x + 3.5)), 0), 6)
-        ch = ELMO_FRENTE[lin][col]
-    elif t.face in ("east", "west"):
-        col = min(max(int(math.floor(-0.5 - z)), 0), 5)     # 0 = trás, 5 = frente
-        ch = ELMO_LADO[lin][col]
-    elif t.face == "up":
-        ch = "S" if z > -2.5 else "."
-    else:
-        ch = "."
-    if ch == ".": return None
-    # chanfro pintado: aresta de cima mais clara
-    tom = BASE
-    col = min(max(int(math.floor(x + 3.5)), 0), 6)
-    if t.face == "up": tom = CLARO
-    elif t.face == "north" and (lin == 0 or ELMO_FRENTE[lin - 1][col] == "."):
-        tom = CLARO
-    elif t.face == "north" and (lin == 3 or ELMO_FRENTE[lin + 1][col] == "."):
-        tom = SOMBRA
-    return "prata", tom
+def pintor_olho(lado):
+    """Olho de quina: frente = branco por fora + íris do lado do bico; lado = íris na frente + branco atrás."""
+    def f(t):
+        x, y, z = t.p
+        if t.face == "north":
+            return ("olho", BASE) if abs(x) < 3 else ("olho", LUZ)
+        if (t.face == "east" and lado < 0) or (t.face == "west" and lado > 0):
+            return ("olho", BASE) if z < -6 else ("olho", LUZ)
+        return "verm", SOMBRA
+    return f
 
 
 def pintor_gema_testa(t):
@@ -628,331 +547,276 @@ def pintor_gema_testa(t):
     c = t.c
     col = int(math.floor(x - c.origem[0]))
     lin = int(math.floor(c.origem[1] + c.tam[1] - y))
-    forma = ["LC", "CB", "BS", "SF"]
-    ch = forma[min(max(lin, 0), 3)][min(max(col, 0), 1)]
-    tom = {"L": LUZ, "C": CLARO, "B": BASE, "S": SOMBRA, "F": FUNDA}[ch]
+    forma = [".L.", "LCB", "CBS", ".S."]
+    ch = forma[min(max(lin, 0), 3)][min(max(col, 0), 2)]
+    if ch == ".": return None
+    tom = {"L": LUZ, "C": CLARO, "B": BASE, "S": SOMBRA}[ch]
     if t.face != "north":
-        tom = min(4, tom + 1)
+        tom = min(FUNDA, tom + 1)
     return "rubi", tom
 
 
 def pintor_bico(t):
-    x, y, z = t.p
-    if t.face == "up": return "ouro", CLARO
+    if t.face == "up": return "ouro", LUZ if t.c.tam[0] >= 3 else CLARO
     if t.face == "down": return "ouro", SOMBRA
-    c = t.c
-    if (y - c.origem[1]) < 1.0 and c.tam[1] >= 2: return "ouro", SOMBRA
     return "ouro", BASE
 
 
-def pintor_olho(lado):
-    """Olho no canto da cara: frente 2x1 (íris fora, pupila dentro), lado 2x1 (branco atrás, íris na frente)."""
-    def f(t):
-        x, y, z = t.p
-        if t.face == "north":
-            dentro = abs(x) < 2.5
-            return ("olho", FUNDA) if dentro else ("olho", LUZ)
-        if (t.face == "east" and lado < 0) or (t.face == "west" and lado > 0):
-            frente = z < -5.5
-            return ("olho", FUNDA) if frente else ("olho", LUZ)
-        return "verm", SOMBRA
-    return f
+def pintor_gancho(t):
+    x, y, z = t.p
+    if t.face == "up": return "ouro", CLARO
+    if t.face == "down" or y < t.c.origem[1] + 1: return "ouro", SOMBRA          # ponta do gancho
+    return "ouro", BASE
+
+
+ASA_TIARA = ["L...", "CCB.", ".BBS"]      # plano em x, coluna 0 = trás: ponta para cima e para trás
 
 
 def montar_cabeca(cabeca):
-    caixa(cabeca, (-3.5, 31, -6.5), (7, 8, 6), pintor_cabeca, nome="cabeca")
-    caixa(cabeca, (-3.5, 35, -6.5), (7, 4, 6), pintor_elmo, inflate=0.03, nome="elmo")
-    # bico de rapina em degrau: base 3, meio 2, gancho 1
-    caixa(cabeca, (-1.5, 32, -8.5), (3, 2, 2), pintor_bico, nome="bico_base")
-    caixa(cabeca, (-1, 31, -10), (2, 2, 2), pintor_bico, nome="bico_meio")
-    caixa(cabeca, (-0.5, 30.5, -11), (1, 2, 2), pintor_bico, nome="bico_gancho")
-    mand = osso("mandibula", cabeca, (0, 31.5, -6.5))
-    caixa(mand, (-0.5, 30.5, -8.5), (1, 1, 2), pintor_bico, nome="mandibula")
+    caixa(cabeca, (-4, 31, -7), (8, 8, 7), pintor_cabeca, nome="cabeca")
+    # bico curto em degrau, com gancho caído
+    caixa(cabeca, (-1.5, 31.5, -9), (3, 3, 2), pintor_bico, nome="bico_base")
+    caixa(cabeca, (-1, 31.5, -10), (2, 2, 1), pintor_bico, nome="bico_meio")
+    caixa(cabeca, (-1, 30.5, -11), (2, 2, 1), pintor_gancho, nome="bico_gancho")
+    mand = osso("mandibula", cabeca, (0, 31.5, -7))
+    caixa(mand, (-1, 30.5, -9), (2, 1, 2), lambda t: ("ouro", SOMBRA if t.face != "down" else FUNDA),
+          nome="mandibula")
     gema = osso("gema_testa_brilho", cabeca, (0, 37, -7))
-    caixa(gema, (-1, 35, -7.5), (2, 4, 1), pintor_gema_testa, nome="gema_testa")
-    olhos = osso("olhos", cabeca, (0, 35.5, -6))
+    caixa(gema, (-1.5, 35, -7.5), (3, 4, 1), pintor_gema_testa, nome="gema_testa")
+    olhos = osso("olhos", cabeca, (0, 35, -6))
     for lado in (-1, 1):
-        x0 = -3.5 if lado < 0 else 1.5
-        caixa(olhos, (x0, 35, -6.5), (2, 1, 2), pintor_olho(lado), inflate=0.02, nome=f"olho_{'d' if lado < 0 else 'e'}")
-        pal = osso(f"palpebra_{'d' if lado < 0 else 'e'}", cabeca, (x0 + 1, 35.5, -5.5))
-        caixa(pal, (x0, 35, -6.5), (2, 1, 2), lambda t: ("verm", SOMBRA if t.face == "down" else BASE),
-              inflate=0.01, nome=f"palpebra_{'d' if lado < 0 else 'e'}")
-    # asas da tiara (sobem para trás nas laterais)
-    asa = Arte(4, 4).pena((3.6, 3.4), (0.3, 0.3), 2.2, curva=-0.4, cores=rampa_t("prata", (SOMBRA, BASE, CLARO, LUZ)),
-                          haste=0, borda_baixo=False)
-    for lado in (-1, 1):
-        plano(cabeca, (3.58 * lado, 37, -3), (0, 4, 4), plana(asa), nome=f"tiara_{'d' if lado < 0 else 'e'}")
-    # nuca: as duas lâminas de baixo da vista lateral + leque de trás (vista de costas)
-    chama_x(cabeca, (0.0, 35.0), (7.0, 30.5), 4.0, 0.8, 0, "nuca_1")
-    chama_x(cabeca, (-1.0, 33.5), (2.0, 30.6), 3.0, 0.4, 0.01, "nuca_2")
-    chama_z(cabeca, (0, 33.5), (0, 41.6), 4.0, 0.0, -0.3, -1, "nuca_tras", borda=False)
+        s = lado_nome(lado)
+        x0 = -4 if lado < 0 else 2
+        caixa(olhos, (x0, 34.5, -7), (2, 1, 2), pintor_olho(lado), inflate=0.02, nome=f"olho_{s}")
+        pal = osso(f"palpebra_{s}", cabeca, (x0 + 1, 35, -6))
+        caixa(pal, (x0, 34.5, -7), (2, 1, 2), lambda t: ("verm", SOMBRA if t.face == "down" else BASE),
+              inflate=0.01, nome=f"palpebra_{s}")
+        # viseira/sobrancelha: ponta de dentro mais baixa (cara séria)
+        xv = -4.5 if lado < 0 else 1.5
+        caixa(cabeca, (xv, 35.5, -7.5), (3, 1, 2), pintor_placa, rot=(0, 0, 15 * -lado),
+              pivo=(xv + 1.5, 36, -6.5), nome=f"viseira_{s}")
+        # tiara: lâmina pela lateral, traseira mais alta, terminando numa asinha
+        xt = -5 if lado < 0 else 4
+        caixa(cabeca, (xt, 36, -7), (1, 2, 7), pintor_placa, inflate=0.02, rot=(15, 0, 0),
+              pivo=(xt + 0.5, 37, -7), nome=f"tiara_{s}")
+        o = osso(f"tiara_asa_{s}", cabeca, (xt + 0.5, 38.5, -0.5), (30, 0, 0))
+        plano(o, (xt + 0.5, 37.5, -0.5), (0, 3, 4), plana(arte_mapa(ASA_TIARA, LEG_PRATA)), par="asa_tiara",
+              nome=f"tiara_asa_{s}")
 
 
-def espelho_x(arte):
-    """Para planos em x (face east), a coluna 0 é a traseira; desenho em 'frente à esquerda' -> inverte."""
-    return arte.espelho()
+# ---------------------------------------- 3. crista e juba ----------------------------------------
+PENA_U = ["..L", ".CC", "CC.", "CB.", "CB.", "BB.", "BBS", "SSS"]     # 3 x 8, coluna 0 = fora
+PENA_CENTRAL = [".L.", ".C.", "BCB", "BCB", "BCB", "SSS"]           # 3 x 6
+FLAMA = ["..L.", "..C.", ".BC.", ".BC.", "BBCB", "BBCB", "SSSS"]     # 4 x 7, raiz embaixo
+TUFO = ["SSS", "BCB", "BC.", ".L."]                                  # 3 x 4, raiz em cima
+#        leque (graus para fora), raiz (x, y) do lado direito, z
+CHAMAS = ((35, (-2.0, 38.0), -2.0), (55, (-2.0, 37.0), -1.5), (75, (-2.0, 36.0), -1.0))
+LAMINAS = ((-10, 12, -0.8), (-20, 11, -0.4), (-30, 11, 0.0), (-40, 10, 0.4), (-50, 10, 0.8))   # (inclinação, comprimento, x)
+TUFOS = ((33.5, 30), (32.5, 45), (31.5, 60))                        # (y da raiz, giro para fora)
 
 
-# ---------------------------------------- crista / juba ----------------------------------------
-def aparar(a):
-    """Corta linhas/colunas vazias da arte; devolve (arte, coluna inicial, linha inicial)."""
-    cols = [i for i in range(a.w) if any(a.g[j][i] for j in range(a.h))]
-    lins = [j for j in range(a.h) if any(a.g[j][i] for i in range(a.w))]
-    i0, i1, j0, j1 = min(cols), max(cols) + 1, min(lins), max(lins) + 1
-    b = Arte(i1 - i0, j1 - j0)
-    b.g = [l[i0:i1] for l in a.g[j0:j1]]
-    return b, i0, j0
-
-
-def chama_z(o, raiz, ponta, larg, curva, z, lado, nome, borda=True):
-    """Chama num plano em z. raiz/ponta em (x, y) do mundo, para o lado direito; o esquerdo sai espelhado."""
-    m = larg / 2 + 1 + abs(curva)
-    x0, x1 = math.floor(min(raiz[0], ponta[0]) - m), math.ceil(max(raiz[0], ponta[0]) + m)
-    y0, y1 = math.floor(min(raiz[1], ponta[1]) - m), math.ceil(max(raiz[1], ponta[1]) + m)
-    a = chama(Arte(x1 - x0, y1 - y0), (raiz[0] - x0, y1 - raiz[1]), (ponta[0] - x0, y1 - ponta[1]), larg, curva,
-              borda=borda)
-    a, i0, j0 = aparar(a)
-    ox, oy = x0 + i0, y1 - j0 - a.h
-    if lado > 0:
-        ox, a = -(ox + a.w), a.espelho()
-    return plano(o, (ox, oy, z), (a.w, a.h, 0), plana(a), nome=nome)
-
-
-def chama_x(o, raiz, ponta, larg, curva, x, nome, borda=True, par=None):
-    """Chama num plano em x (de perfil). raiz/ponta em (z, y) do mundo; coluna 0 da arte = trás."""
-    m = larg / 2 + 1 + abs(curva)
-    z0, z1 = math.floor(min(raiz[0], ponta[0]) - m), math.ceil(max(raiz[0], ponta[0]) + m)
-    y0, y1 = math.floor(min(raiz[1], ponta[1]) - m), math.ceil(max(raiz[1], ponta[1]) + m)
-    a = chama(Arte(z1 - z0, y1 - y0), (z1 - raiz[0], y1 - raiz[1]), (z1 - ponta[0], y1 - ponta[1]), larg, curva,
-              borda=borda)
-    a, i0, j0 = aparar(a)
-    return plano(o, (x, y1 - j0 - a.h, z1 - i0 - a.w), (0, a.h, a.w), plana(a), par=par, nome=nome)
-
-
-PENA_U = [            # 5 x 8, x -5,5 -> -0,5, y 45,5 -> 37,5: "(" que sobe, abre para fora e curva a ponta para dentro
-    "...L.",
-    "..LC.",
-    ".CC..",
-    "CCB..",
-    "CB...",
-    "BB...",
-    "SBB..",
-    ".SBS.",
-]
-PENA_CENTRAL = [      # 3 x 5, y 42,5 -> 37,5
-    ".L.",
-    ".C.",
-    "CCC",
-    "BCB",
-    "SBS",
-]
-LEG_CHAMA = {"L": ("verm", LUZ), "C": ("verm", CLARO), "B": ("verm", BASE), "S": ("verm", SOMBRA),
-             "F": ("verm", FUNDA)}
-
-
-def pixel_z(o, linhas, x0, y0, z, lado, nome):
-    """Plano em z desenhado à mão (lado direito, coluna 0 = fora); o lado esquerdo sai espelhado."""
-    a = Arte(len(linhas[0]), len(linhas)).mapa(linhas, LEG_CHAMA)
-    if lado > 0:
-        x0, a = -(x0 + a.w), a.espelho()
-    return plano(o, (x0, y0, z), (a.w, a.h, 0), plana(a), nome=nome)
+def cor_lamina(H):
+    def f(j):
+        if j == 0: return "verm", FUNDA
+        if j == 1: return "verm", SOMBRA
+        if j >= H - 1: return "verm", LUZ
+        if j >= H - 3: return "verm", CLARO
+        return "verm", BASE
+    return f
 
 
 def montar_crista(cabeca):
     crista = osso("crista", cabeca, (0, 38.5, -2))
-    # de frente: pena central atrás da gema (ponta em y 42,5)
-    pixel_z(crista, PENA_CENTRAL, -1.5, 37.5, -4.5, -1, "crista_central")
-    # de perfil (planos em x, sem giro): lâminas varridas para trás, medidas na vista lateral da ficha
-    chama_x(crista, (-1.0, 38.0), (11.7, 36.6), 4.4, 1.2, 0, "crista_lamina_1")
-    chama_x(crista, (-2.0, 39.5), (8.4, 43.3), 4.2, 1.0, 0.01, "crista_lamina_2")
+    o = osso("crista_central", crista, (0, 37, -4.5), (-25, 0, 0))
+    plano(o, (-1.5, 37, -4.5), (3, 6, 0), plana(arte_mapa(PENA_CENTRAL)), nome="crista_central")
     for lado in (-1, 1):
-        s = "d" if lado < 0 else "e"
-        chama_x(crista, (-3.0, 38.5), (2.3, 45.0), 3.6, 0.8, 2.6 * lado, f"crista_{s}_lamina_alta", par="lamina_alta")
-        chama_x(crista, (-5.2, 38.5), (-3.0, 42.7), 2.6, -0.6, 1.4 * lado, f"crista_{s}_lamina_testa", par="lamina_testa")
-        # de frente, num setor virado 15°: pena em U (ponta para dentro) e chamas
-        setor = osso(f"crista_{s}", crista, (2.5 * lado, 38.5, -2), (0, 15 * -lado, 0))
-        pixel_z(setor, PENA_U, -5.5, 37.5, -2.5, lado, f"crista_{s}_u")
-        chama_z(setor, (-3.0, 38.0), (-6.9, 41.4), 3.2, 0.8, -1.5, lado, f"crista_{s}_chama_1")
-        chama_z(setor, (-3.2, 36.0), (-8.0, 36.9), 3.2, 0.5, -1.0, lado, f"crista_{s}_chama_3")
-        # tufos da bochecha, num setor virado 30°
-        boch = osso(f"bochecha_{s}", cabeca, (3.5 * lado, 33, -4), (0, 30 * -lado, 0))
-        chama_z(boch, (-3.0, 34.0), (-6.6, 32.1), 3.0, -0.5, -4.0, lado, f"bochecha_{s}_1")
-        chama_z(boch, (-2.8, 32.5), (-4.6, 30.3), 2.6, -0.4, -4.5, lado, f"bochecha_{s}_2")
-        chama_z(boch, (-2.6, 31.5), (-5.6, 29.6), 2.4, -0.3, -3.0, lado, f"bochecha_{s}_3")
+        s = lado_nome(lado)
+        o = osso(f"crista_u_{s}", crista, (3 * lado, 38, -4), (-20, 15 * -lado, 0))
+        plano(o, (3 * lado - 1.5, 37.5, -4), (3, 8, 0), plana(arte_mapa(PENA_U, espelhar=lado > 0)), nome=f"crista_u_{s}")
+        for k, (leque, (rx0, ry0), z) in enumerate(CHAMAS):
+            px = rx0 * -lado
+            o = osso(f"crista_chama_{s}_{k}", crista, (px, ry0, z), (-20, 0, leque * lado))
+            plano(o, (px - 2, ry0, z), (4, 7, 0), plana(arte_mapa(FLAMA, espelhar=lado > 0)),
+                  par=f"flama_{s}", nome=f"crista_chama_{s}_{k}")
+        for k, (y0, giro) in enumerate(TUFOS):
+            px, zt = 3.5 * lado, -3 - 0.3 * k
+            o = osso(f"bochecha_{s}_{k}", cabeca, (px, y0, zt), (0, 40 * -lado, giro * -lado))
+            plano(o, (px - 1.5, y0 - 4, zt), (3, 4, 0), plana(arte_mapa(TUFO, espelhar=lado > 0)),
+                  par=f"tufo_{s}", nome=f"bochecha_{s}_{k}")
+    # 5 lâminas varridas para trás, presas na nuca (planos em x)
+    for k, (incl, L, x) in enumerate(LAMINAS):
+        a = deitar(pena_reta(4, L, cor_lamina(L), haste=(1, -1)))
+        o = osso(f"crista_lamina_{k}", crista, (x, 38.5, 0), (incl, 0, 0))
+        plano(o, (x, 36.5, -0.5), (0, 4, L), plana(a), nome=f"crista_lamina_{k}")
 
 
-# ---------------------------------------- capa (asas) ----------------------------------------
-# Cada lado tem 3 setores (frente, lado, trás), cada um com 3 camadas de penas em leque, da mais funda (vermelha
-# comprida) à de cima (roxa curta com filete prata). O ângulo de cada setor vem do osso, não dos cubos.
-#            pivô (lado direito)   rotação          largura, raiz da arte, ângulos, comprimentos por camada
-SETORES = {
-    "frente": ((-4.5, 27, -5.5), (15, 30, 0), 15, (14.0, -2.0), (9, 42),
-               ([28.5, 26, 21], [23, 21.5], [16.5])),
-    "lado":   ((-9.0, 27, -4.5), (0, 0, 12.5), 18, (16.5, -2.0), (12, 46),
-               ([27, 27.5, 25], [22.5, 21.5], [16.5])),
-    "tras":   ((-0.5, 26.5, 2.8), (22.5, -10, 0), 14, (13.0, -2.0), (-2, 34),
-               ([30, 27.5, 22.5], [23.5, 22], [16.5])),
-}
-
-
-def montar_capa(corpo):
-    for lado in (-1, 1):
-        s = "d" if lado < 0 else "e"
-        asa = osso(f"asa_{s}", corpo, (5 * lado, 28.5, 0))
-        for nome, ((px, py, pz), (rx, ry, rz), W, raiz, angs, comps) in SETORES.items():
-            setor = osso(f"asa_{s}_{nome}", asa, (px * -lado, py, pz), (rx, ry * -lado, rz * -lado))
-            for k, desloc in ((0, 0.0), (1, 0.5), (2, 1.0)):
-                comp = comps[k]
-                H = min(int(math.ceil(max(comp) - 2.0 + 0.5)), 28)
-                arte = arte_leque(W, H, raiz, angs[0], angs[1], comp, k, filete=nome != "tras")
-                if nome == "lado":
-                    xc = setor.pivo[0] + lado * desloc
-                    plano(setor, (xc, py - H, pz), (0, H, W), plana(arte), par=f"capa_lado_{k}", nome=f"capa_{s}_{nome}_{k}")
-                else:
-                    zc = pz + (-desloc if nome == "frente" else desloc)     # camada de cima fica por fora
-                    x0 = setor.pivo[0] - W if lado < 0 else setor.pivo[0]
-                    plano(setor, (x0, py - H, zc), (W, H, 0), plana(arte if lado < 0 else arte.espelho()),
-                          nome=f"capa_{s}_{nome}_{k}")
-
-
-# ---------------------------------------- ombreiras ----------------------------------------
+# ---------------------------------------- 4. ombreiras ----------------------------------------
 def pintor_ombro(lado, ponta=False):
-    """Ombreira: miolo roxo, aro prata (chanfro claro em cima, sombra embaixo), ponta dourada."""
+    """Ombreira prata em camadas: miolo roxo no topo, filete dourado só na aresta de fora."""
     def f(t):
         x, y, z = t.p
         c = t.c
         o, s = c.origem, c.tam
-        dx = (x - o[0]) if lado > 0 else (o[0] + s[0] - x)     # 0 = junto ao pescoço, cresce para fora
-        if ponta and dx > s[0] - 2:
+        dx = (o[0] + s[0] - x) if lado < 0 else (x - o[0])        # 0 = borda de dentro, cresce para fora
+        if ponta:
             return "ouro", CLARO if t.face == "up" else (SOMBRA if t.face == "down" else BASE)
-        if t.face == "down": return "prata", FUNDA
+        fora = dx > s[0] - 1
         if t.face == "up":
-            aro = z < o[2] + 1 or z > o[2] + s[2] - 1 or dx < 1 or dx > s[0] - 1
-            return ("prata", LUZ) if aro else ("roxo", CLARO)
-        topo = y > o[1] + s[1] - 1
-        baixo = y < o[1] + 1
-        if topo: return "prata", CLARO                      # chanfro de cima
-        if t.face in ("north", "south", "east", "west"):
-            return "roxo", SOMBRA if baixo else BASE          # miolo roxo, borda de baixo mais escura
-        return "prata", BASE
+            if fora: return "ouro", CLARO
+            aro = dx < 1 or z < o[2] + 1 or z > o[2] + s[2] - 1
+            return ("prata", LUZ) if aro else ("roxo", BASE)
+        if t.face == "down": return "prata", FUNDA
+        if (t.face == "east" and lado < 0) or (t.face == "west" and lado > 0):       # aresta de fora
+            return ("ouro", BASE) if y > o[1] + s[1] - 1 else ("prata", SOMBRA)
+        if fora and y > o[1] + s[1] - 1: return "ouro", BASE
+        return pintor_placa(t)
     return f
 
 
 def montar_ombreiras(corpo):
     for lado in (-1, 1):
-        s = "d" if lado < 0 else "e"
-        o = osso(f"ombro_{s}", corpo, (4.5 * lado, 28, -1.5))
-        x0 = -9 if lado < 0 else 4
-        caixa(o, (x0, 26.5, -5), (5, 3, 7), pintor_ombro(lado), par="ombro", nome=f"ombro_{s}")
-        x1 = -11 if lado < 0 else 5
-        caixa(o, (x1, 26, -4.5), (6, 3, 6), pintor_ombro(lado, ponta=True), rot=(0, 0, 20 * -lado), par="ombro_ponta",
-              pivo=(5 * lado, 27.5, -1.5), nome=f"ombro_{s}_ponta")
+        s = lado_nome(lado)
+        o = osso(f"ombro_{s}", corpo, (4 * lado, 27, -0.5))
+        x0 = -10 if lado < 0 else 4
+        caixa(o, (x0, 26, -4), (6, 2, 7), pintor_ombro(lado), rot=(0, 0, 15 * -lado), pivo=(4 * lado, 27, -0.5),
+              par="ombro_baixo", nome=f"ombro_{s}_baixo")
+        x1 = -9.5 if lado < 0 else 4.5
+        caixa(o, (x1, 28, -3), (5, 1, 5), pintor_ombro(lado), rot=(0, 0, 22.5 * -lado),
+              pivo=(4.5 * lado, 28, -0.5), par="ombro_cima", nome=f"ombro_{s}_cima")
+        x2 = -11 if lado < 0 else 9
+        caixa(o, (x2, 28.1, -2), (2, 1, 3), pintor_ombro(lado, ponta=True), rot=(0, 0, 35 * -lado),
+              pivo=(9 * lado, 28.6, -0.5), par="ombro_ponta", nome=f"ombro_{s}_ponta")
 
 
-# ---------------------------------------- cauda tripla ----------------------------------------
-TRANCAS = {   # nome: (x, y, z da raiz), comprimento do segmento, dobra no 3º segmento, dobra da lâmina, alvo (z, y)
-    "a": ((0.0, 25.5, 3.5), 3, -10.0, -30.0, (24.5, 16.5), 0.0),
-    "b": ((-1.1, 24.0, 3.5), 4, -5.0, -15.0, (23.5, 4.5), 5.0),
-    "c": ((1.1, 23.5, 3.5), 4, -5.0, -10.0, (19.5, 1.5), -5.0),
-}
+# ---------------------------------------- 5. capa em telhas ----------------------------------------
+# Cada fileira é um anel de penas largas (4 px) em volta do corpo: a posição sai de uma elipse, o giro em y
+# acompanha a normal da elipse (nunca 0° nem 90°), o leque inclina a ponta para trás/para fora e a base abre
+# para fora (sino). Cada pena tem um osso próprio (o ângulo fica no osso, não no cubo).
+#   (topo nas laterais, topo atrás, comprimento, elipse (semieixo x, semieixo z, centro z),
+#    penas da frente para trás: (t na elipse, leque, abertura do sino))
+FILEIRAS = (
+    (28, 24, 10, (5.8, 5.5, -1.0),
+     ((60, 12, 6), (82, 15, 10), (104, 15, 12), (126, 12, 14), (148, 8, 18), (170, 5, 18))),
+    (23, 21, 15, (6.2, 5.8, -1.0),
+     ((72, 45, 18), (88, 38, 30), (104, 32, 34), (120, 26, 34), (136, 18, 32), (153, 10, 32), (170, 6, 32))),
+    (16.5, 16, 18, (7.0, 6.2, -0.5),
+     ((82, 34, 16), (94, 30, 20), (106, 26, 22), (118, 22, 22), (130, 18, 24), (143, 14, 26), (157, 8, 28),
+      (171, 6, 28))),
+)
+
+
+def cor_capa(fileira, H):
+    def f(j):
+        if fileira == 0:
+            return "roxo", SOMBRA if j == 0 else (CLARO if j >= H - 3 else BASE)
+        if fileira == 1:
+            corte = round(H * 0.6)
+            if j == 0: return "roxo", SOMBRA
+            if j < corte: return "roxo", BASE if j < corte - 2 else CLARO
+            if j == corte: return "verm", SOMBRA
+            return "verm", CLARO if j >= H - 3 else BASE
+        return "verm", SOMBRA if j <= 1 else (CLARO if j >= H - 3 else BASE)
+    return f
+
+
+def guinada(t, a, b):
+    """Giro em y da pena pela normal da elipse, longe de 90° (para nenhum plano virar linha de frente)."""
+    g = math.degrees(math.atan2(b * math.sin(math.radians(t)), a * math.cos(math.radians(t))))
+    if 80 <= g < 90: g = 77.5
+    elif 90 <= g <= 100: g = 102.5
+    return g
+
+
+def montar_capa(corpo):
+    for lado in (-1, 1):
+        s = lado_nome(lado)
+        asa = osso(f"asa_{s}", corpo, (5 * lado, 28.5, 0))
+        for f, (topo, topo_tras, H, (a, b, zc), penas) in enumerate(FILEIRAS):
+            filete = (3, "prata", CLARO) if f == 0 else None
+            haste = (2, -1) if f else None
+            arte = pena_reta(4, H, cor_capa(f, H), filete=filete, haste=haste)
+            n = len(penas)
+            for k, (t, leque, sino) in enumerate(penas):
+                g = guinada(t, a, b)
+                desloc = 0.25 * (n - 1 - k)            # as da frente ficam por cima (telhas)
+                nx, nz = -math.sin(math.radians(g)), -math.cos(math.radians(g))
+                px = -a * math.sin(math.radians(t)) + nx * desloc
+                pz = zc - b * math.cos(math.radians(t)) + nz * desloc
+                py = topo if t < 140 else topo_tras
+                R = _R("y", g) @ _R("x", sino) @ _R("z", -leque)
+                if lado > 0:
+                    R = ESPELHO @ R @ ESPELHO
+                    px = -px
+                px, pz = round(px, 2), round(pz, 2)
+                o = osso(f"capa_{s}_{f}_{k}", asa, (px, py, pz), euler(R))
+                plano(o, (px - 2, py - H, pz), (4, H, 0), plana(arte if lado < 0 else arte.espelho()),
+                      par=f"capa_{f}_{s}", nome=f"capa_{s}_{f}_{k}")
+
+
+# ---------------------------------------- 6. cauda tripla horizontal ----------------------------------------
+TRANCAS = (("a", 0.0, 0.0), ("b", -2.0, -15.0), ("c", 2.0, 15.0))     # nome, x da raiz, abertura em y
+QUEDA = (0, 0, 2, 4, 6)
+SEG = 3
 LAMINA = 7
+Y_CAUDA = 26.5
 
 
 def pintor_tranca(t):
+    """Trança pintada: listras diagonais alternando 3 tons de dourado."""
     x, y, z = t.p
     c = t.c
-    if t.face in ("north", "south"): return "ouro", SOMBRA
-    junta = (z - c.origem[2]) < 1.0
-    tom = CLARO if t.face == "up" else SOMBRA if t.face == "down" else BASE
-    if junta and t.face not in ("up", "down"): tom = SOMBRA
-    if t.face in ("east", "west") and (y - c.origem[1]) > 1.0 and not junta: tom = CLARO
+    u = (z - c.origem[2])
+    v = (y - c.origem[1]) if t.face in ("east", "west") else (x - c.origem[0])
+    k = int(math.floor(u + v)) % 3
+    tom = (CLARO, BASE, SOMBRA)[k]
+    if t.face == "down": tom = min(SOMBRA, tom + 1)
     return "ouro", tom
 
 
+LAMINA_X = [".lllO..", "lOOOOOO", ".ooooo."]       # 7 x 3, coluna 0 = ponta (trás)
+LAMINA_Y = [".O.", "OOO", "OlO", "OlO", "OlO", "OOO", ".O."]     # 3 x 7, simétrica
+LOSANGO = ["CLC", "SBS"]                            # 3 x 2
+LEG_LAMINA = {"O": ("ouro", BASE), "o": ("ouro", SOMBRA), "l": ("ouro", CLARO)}
+LEG_LOSANGO = {"L": ("rubi", LUZ), "C": ("rubi", CLARO), "B": ("rubi", BASE), "S": ("rubi", SOMBRA)}
+
+
 def montar_cauda(corpo):
-    cauda = osso("cauda", corpo, (0, 24.5, 3.5))
-    for nome, ((x0, y0, z0), L, b1, b2, alvo, giro) in TRANCAS.items():
+    caixa(corpo, (-3, 25, 3), (6, 3, 1), pintor_fecho, nome="fecho_cauda")
+    cauda = osso("cauda", corpo, (0, Y_CAUDA, 3.5))
+    for nome, x0, abre in TRANCAS:
         pai = cauda
-        for k in range(6):
-            zk = z0 + k * L
-            rot = (0, 0, 0)
-            if k == 0: rot = (-30, giro, 0)      # ajustado por mirar_trancas()
-            if k == 3: rot = (b1, 0, 0)
-            seg = osso(f"cauda_{nome}_{k}", pai, (x0, y0, zk), rot)
-            caixa(seg, (x0 - 1, y0 - 1, zk), (2, 2, L), pintor_tranca,
-                  rot=(0, 0, 45) if k % 2 else None, pivo=(x0, y0, zk + L / 2), par=f"tranca_{L}",
-                  nome=f"tranca_{nome}_{k}")
+        z = 4.0
+        for k, queda in enumerate(QUEDA):
+            seg = osso(f"cauda_{nome}_{k}", pai, (x0, Y_CAUDA, z), (-queda, abre if k == 0 else 0, 0))
+            caixa(seg, (x0 - 1, Y_CAUDA - 1, z), (2, 2, SEG), pintor_tranca, par="tranca", nome=f"tranca_{nome}_{k}")
             pai = seg
-        zf = z0 + 6 * L
-        lam = osso(f"lamina_{nome}", pai, (x0, y0, zf), (b2, 0, 0))
-        # lâmina em cruz: plano em x (de perfil) e plano em y (de cima/de trás); o losango é um furo nos dois,
-        # preenchido por planos próprios no osso de brilho
-        px_ = Arte(LAMINA, 5).mapa(LAMINA_X, LEG_LAMINA)      # coluna 0 = ponta (trás), última = raiz
-        py_ = Arte(4, LAMINA).mapa(LAMINA_Y, LEG_LAMINA)      # linha 0 = raiz (frente), 5 = ponta
-        plano(lam, (x0, y0 - 2.5, zf - 0.5), (0, 5, LAMINA), plana(px_.copia(sem="P")), par="lamina_x", nome=f"lamina_{nome}_x")
-        plano(lam, (x0 - 2, y0, zf - 0.5), (4, 0, LAMINA), plana(py_.copia(sem="P")), par="lamina_y", nome=f"lamina_{nome}_y")
-        bri = osso(f"losango_{nome}_brilho", lam, (x0, y0, zf + 2.5))
-        plano(bri, (x0 + 0.01, y0 - 2.5, zf - 0.5), (0, 5, LAMINA), plana(px_.copia(so="P")), par="losango_x", nome=f"losango_{nome}_x")
-        plano(bri, (x0 - 2, y0 + 0.01, zf - 0.5), (4, 0, LAMINA), plana(py_.copia(so="P")), par="losango_y", nome=f"losango_{nome}_y")
+            z += SEG
+        lam = osso(f"lamina_{nome}", pai, (x0, Y_CAUDA, z), (-4, 0, 0))
+        plano(lam, (x0, Y_CAUDA - 1.5, z), (0, 3, LAMINA), plana(arte_mapa(LAMINA_X, LEG_LAMINA)),
+              par="lamina_x", nome=f"lamina_{nome}_x")
+        plano(lam, (x0 - 1.5, Y_CAUDA, z), (3, 0, LAMINA), plana(arte_mapa(LAMINA_Y, LEG_LAMINA)),
+              par="lamina_y", nome=f"lamina_{nome}_y")
+        bri = osso(f"losango_{nome}_brilho", lam, (x0, Y_CAUDA, z + 2.5))
+        for d in (0.0, 0.02):        # uma plaquinha de cada lado da lâmina (o plano tem uma face só)
+            plano(bri, (x0 + d, Y_CAUDA - 1, z + 2), (0, 2, 3), plana(arte_mapa(LOSANGO, LEG_LOSANGO)),
+                  inflate=0.01, par="losango", nome=f"losango_{nome}_{'a' if d else 'b'}")
 
 
-# lâmina dourada (6 x 5 de perfil; 4 x 6 de cima). O = ouro, o = ouro sombra, l = ouro luz, P/p/Q = losango
-LAMINA_X = [
-    "..lll..",
-    ".lOPOO.",
-    "lOPpPOO",
-    ".OOQOo.",
-    "..ooo..",
-]
-LAMINA_Y = [         # simétrica nos dois eixos: a orientação da UV da face "up" não muda o desenho
-    ".OO.",
-    "OOOO",
-    "oPPo",
-    "oQQo",
-    "oPPo",
-    "OOOO",
-    ".OO.",
-]
-LEG_LAMINA = {"O": ("ouro", BASE, "O"), "o": ("ouro", SOMBRA, "O"), "l": ("ouro", CLARO, "O"),
-              "P": ("rubi", CLARO, "P"), "p": ("rubi", BASE, "P"), "Q": ("rubi", SOMBRA, "P")}
-
-
-def mirar_trancas():
-    """Escolhe a inclinação da raiz e as duas dobras (3º segmento e lâmina) de cada trança para a ponta cair no
-    alvo da ficha (z, y), preferindo dobras pequenas."""
-    for nome, ((x0, y0, z0), L, b1, b2, alvo, giro) in TRANCAS.items():
-        melhor = None
-        r0, r3, rl = POR_NOME[f"cauda_{nome}_0"], POR_NOME[f"cauda_{nome}_3"], POR_NOME[f"lamina_{nome}"]
-        for d1 in np.arange(0, -22.5, -2.5):
-            for d2 in np.arange(-5, -45, -5):
-                for rx in np.arange(-80, 5, 2.5):
-                    r0.rot[0], r3.rot[0], rl.rot[0] = float(rx), float(d1), float(d2)
-                    p = mundo(f"lamina_{nome}", (x0, y0, z0 + 6 * L + LAMINA - 0.5))
-                    err = math.hypot(p[2] - alvo[0], p[1] - alvo[1]) + 0.01 * (abs(d1) + abs(d2))
-                    if p[1] < 0.5:
-                        err += 10
-                    if melhor is None or err < melhor[0]:
-                        melhor = (err, rx, d1, d2, p)
-        err, rx, d1, d2, p = melhor
-        r0.rot[0], r3.rot[0], rl.rot[0] = float(rx), float(d1), float(d2)
-        print(f"  trança {nome}: raiz {rx:.1f}°, dobras {d1:.1f}°/{d2:.1f}°, ponta (z={p[2]:.1f}, y={p[1]:.1f}),"
-              f" alvo {alvo}")
-
-
-# ---------------------------------------- pernas ----------------------------------------
+# ---------------------------------------- pernas e 7. pés ----------------------------------------
 def pintor_pe(t):
     x, y, z = t.p
-    tom = faixa(t)
-    if t.face in ("east", "west", "north", "south") and (int(math.floor(z)) + int(math.floor(y))) % 2 == 0:
-        tom = min(FUNDA, tom + 1)   # escamas
+    if t.face == "up": return "roxoe", CLARO
+    if t.face == "down": return "roxoe", SOMBRA
+    tom = BASE
+    if (int(math.floor(z)) + int(math.floor(y))) % 2 == 0 and t.face != "south":
+        tom = SOMBRA                                     # escamas
     return "roxoe", tom
 
 
 def pintor_garra(t):
-    x, y, z = t.p
     if t.face == "up": return "ouro", LUZ
     if t.face == "down": return "ouro", SOMBRA
-    return "ouro", CLARO if (y - t.c.origem[1]) >= 1 else BASE
+    return "ouro", CLARO
 
 
 def pintor_canela(t):
@@ -963,17 +827,22 @@ def pintor_metal(t):
     x, y, z = t.p
     c = t.c
     if t.face == "up": return "prata", LUZ
-    if t.face == "down": return "prata", FUNDA
-    if y > c.origem[1] + c.tam[1] - 1: return "prata", CLARO
+    if t.face == "down": return "prata", SOMBRA
+    if y > c.origem[1] + c.tam[1] - 1: return "prata", LUZ
     return "prata", SOMBRA if (y - c.origem[1]) < 0.9 else BASE
 
 
+def pintor_coxa(t):
+    x, y, z = t.p
+    if t.face in ("east", "west") and abs(x) < 1.0: return "verm", FUNDA     # entre as coxas
+    return "verm", faixa(t)
+
+
 def montar_perna(raiz, lado):
-    s = "d" if lado < 0 else "e"
+    s = lado_nome(lado)
     cx = 2.6 * lado
     perna = osso(f"perna_{s}", raiz, (cx, 15, 0))
-    caixa(perna, (cx - 2, 10, -3), (4, 6, 4), liso("verm"), par="coxa", nome=f"coxa_{s}")
-    # saia de penas vermelhas: frente, fora e trás
+    caixa(perna, (cx - 2, 10, -3), (4, 6, 4), pintor_coxa, par="coxa", nome=f"coxa_{s}")
     saia_f = Arte(5, 6)
     for r0, p0 in (((1.2, 0), (1.3, 5.9)), ((3.6, 0), (3.6, 5.9)), ((2.4, 0), (2.5, 5.0))):
         saia_f.pena(r0, p0, 2.6, cores=rampa_t("verm", (SOMBRA, BASE, BASE, CLARO)), perfil="pena")
@@ -984,19 +853,22 @@ def montar_perna(raiz, lado):
     plano(perna, (cx + 2.15 * lado, 9.5, -3.4), (0, 6, 5), plana(saia_l), par="saia_l", nome=f"saia_{s}_l")
     plano(perna, (cx - 2.5, 9.5, 1.15), (5, 6, 0), plana(saia_f), par="saia_t", nome=f"saia_{s}_t")
     caixa(perna, (cx - 1.5, 8.5, -2.5), (3, 2, 3), pintor_metal, par="metal_perna", nome=f"joelheira_{s}")
-    ponta = Arte(3, 3).mapa([".L.", "SLS", "BSB"], {"L": ("prata", LUZ), "S": ("prata", BASE),
-                                                  "B": ("prata", SOMBRA)})
+    ponta = Arte(3, 3).mapa([".L.", "BLB", "SBS"], {"L": ("prata", LUZ), "B": ("prata", BASE),
+                                                  "S": ("prata", SOMBRA)})
     plano(perna, (cx - 1.5, 8.5, -2.53), (3, 3, 0), plana(ponta), par="ponta_perna", nome=f"joelheira_{s}_ponta")
-    caixa(perna, (cx - 1, 3, -2), (2, 6, 2), pintor_canela, par="canela", nome=f"canela_{s}")
+    caixa(perna, (cx - 1, 2, -2), (2, 7, 2), pintor_canela, par="canela", nome=f"canela_{s}")
     caixa(perna, (cx - 1.5, 3.5, -2.5), (3, 2, 3), pintor_metal, par="metal_perna", nome=f"tornozeleira_{s}")
     plano(perna, (cx - 1.5, 3.5, -2.53), (3, 3, 0), plana(ponta), par="ponta_perna", nome=f"tornozeleira_{s}_ponta")
     pe = osso(f"pe_{s}", perna, (cx, 3.5, -1))
-    caixa(pe, (cx - 1.5, 0, -2.5), (3, 3, 3), pintor_pe, par="pe", nome=f"pe_{s}")
+    caixa(pe, (cx - 1.5, 0, -2.5), (3, 2, 3), pintor_pe, par="pe", nome=f"pe_{s}")
     for k, giro in enumerate((0, 25, -25)):
-        dedo = osso(f"dedo_{s}_{k}", pe, (cx, 0.5, -2.5), (0, giro * -lado if k else 0, 0))
+        dedo = osso(f"dedo_{s}_{k}", pe, (cx, 0.5, -2), (0, giro * -lado if k else 0, 0))
         caixa(dedo, (cx - 0.5, 0, -6.5), (1, 1, 4), pintor_pe, par="dedo", nome=f"dedo_{s}_{k}")
-        caixa(dedo, (cx - 0.5, 0, -8.5), (1, 2, 2), pintor_garra, par="garra", nome=f"garra_{s}_{k}")
-    caixa(pe, (cx - 0.5, 0, 0.5), (1, 1, 1), pintor_garra, par="garra_tras", nome=f"garra_{s}_tras")
+        caixa(dedo, (cx - 0.5, 1, -8.5), (1, 1, 2), pintor_garra, rot=(35, 0, 0), pivo=(cx, 2, -6.5),
+              par="garra", nome=f"garra_{s}_{k}")
+    caixa(pe, (cx - 0.5, 0, -1), (1, 1, 2), pintor_pe, par="dedo_tras", nome=f"dedo_{s}_tras")
+    caixa(pe, (cx - 0.5, 1, 1), (1, 1, 2), pintor_garra, rot=(-45, 0, 0), pivo=(cx, 2, 1),
+          par="garra", nome=f"garra_{s}_tras")
 
 
 # ======================================================================================================
@@ -1009,35 +881,30 @@ def S(k, fase, amp, L=4):
     return f"math.sin(query.anim_time*{w}{f})*{amp}"
 
 
-def L(k, fase, amp, L=4):
-    """Onda que só levanta (0 -> amp): a trança nunca desce abaixo da pose e não atravessa o chão."""
-    return f"({S(k, fase, 0.5, L)}+0.5)*{amp}"
-
-
 def animacoes():
     idle, walk = {}, {}
+    W = lambda k, fase, amp: S(k, fase, amp, L=2)
     # ---------------- idle (L = 4) ----------------
     idle["corpo"] = {"rotation": [S(2, 0, 1.5), 0, 0], "position": [0, S(2, -90, 0.2), 0]}
     idle["pescoco"] = {"rotation": [S(2, -40, -1.0), 0, 0]}
     idle["cabeca"] = {"rotation": [S(2, -60, 2), S(1, 0, 3), 0]}
-    idle["crista"] = {"rotation": [S(2, -120, 4), 0, S(1, -60, 2)]}
+    idle["crista"] = {"rotation": [S(2, -120, 4), 0, S(1, -60, 1.5)]}
+    for k in range(len(LAMINAS)):
+        idle[f"crista_lamina_{k}"] = {"rotation": [S(2, -150 - 30 * k, 3), 0, 0]}
     for s, sg in (("d", 1), ("e", -1)):
         idle[f"asa_{s}"] = {"rotation": [S(2, -60, 1), 0, S(2, -90, 2 * sg)]}
-        idle[f"crista_{s}"] = {"rotation": [0, S(2, -150, 3 * sg), 0]}
-        idle[f"bochecha_{s}"] = {"rotation": [0, S(2, -100, 3 * sg), 0]}
-    for nome in TRANCAS:
-        for k in range(6):
-            # A (alta) ondula para os dois lados; B e C, que pendem perto do chão, só levantam
-            # fases escolhidas para o 1º quadro ficar na pose da ficha (soma das juntas ~0 em t = 0)
-            onda_x = S(2, 75 - 30 * k, round(4 + 0.6 * k, 1)) if nome == "a" else L(2, -15 - 30 * k, round(2.5 + 0.5 * k, 1))
-            idle[f"cauda_{nome}_{k}"] = {"rotation": [onda_x, 0, S(1, -30 * k, round(2 + 0.4 * k, 1))]}
-        idle[f"lamina_{nome}"] = {"rotation": [S(2, -105, 8) if nome == "a" else L(2, -195, 6), 0, S(1, -180, 5)]}
+        for k in range(len(CHAMAS)):
+            idle[f"crista_chama_{s}_{k}"] = {"rotation": [0, 0, S(2, -150 - 30 * k, 3 * sg)]}
+    for nome, _, _ in TRANCAS:
+        oposta = 180 if nome == "b" else 0          # as laterais balançam em fase oposta
+        for k in range(len(QUEDA)):
+            idle[f"cauda_{nome}_{k}"] = {"rotation": [S(2, -30 * k, 2), S(1, oposta - 30 * k, 3), 0]}
+        idle[f"lamina_{nome}"] = {"rotation": [S(2, -150, 3), S(1, oposta - 150, 4), 0]}
     for s, sg in (("d", -1), ("e", 1)):
         z = [0, 0, 0]
         f = [round(0.12 * sg, 2), 0, -0.12]
         idle[f"palpebra_{s}"] = {"position": {"0.0": z, "3.7": z, "3.72": f, "3.84": f, "3.86": z, "4.0": z}}
     # ---------------- walk (L = 2) ----------------
-    W = lambda k, fase, amp: S(k, fase, amp, L=2)
     walk["perna_d"] = {"rotation": [W(1, 0, 25), 0, 0]}
     walk["perna_e"] = {"rotation": [W(1, 180, 25), 0, 0]}
     walk["pe_d"] = {"rotation": [W(1, 0, -25), 0, 0]}
@@ -1046,16 +913,14 @@ def animacoes():
                      "position": [0, f"{W(2, 90, 0.2)}+0.2", 0]}
     walk["cabeca"] = {"rotation": [W(2, -60, -1.5), W(1, 0, -1.5), W(1, 0, -2.5)]}
     walk["crista"] = {"rotation": [W(2, -120, 4), 0, W(1, -60, 2)]}
+    for k in range(len(LAMINAS)):
+        walk[f"crista_lamina_{k}"] = {"rotation": [W(2, -150 - 30 * k, 4), 0, 0]}
     for s, sg in (("d", 1), ("e", -1)):
         walk[f"asa_{s}"] = {"rotation": [W(2, -60, 2), 0, W(1, -60, 3)]}
-        walk[f"crista_{s}"] = {"rotation": [0, W(2, -150, 4 * sg), 0]}
-    for nome in TRANCAS:
-        for k in range(6):
-            onda_x = (W(2, -40 * k - 40, round(5 + 1.0 * k, 1)) if nome == "a"
-                      else L(2, -40 * k - 40, round(3.5 + 0.7 * k, 1), L=2))
-            walk[f"cauda_{nome}_{k}"] = {"rotation": [onda_x, 0, W(1, -40 * k, round(3 + 0.6 * k, 1))]}
-        walk[f"lamina_{nome}"] = {"rotation": [W(2, -280, 12) if nome == "a" else L(2, -280, 9, L=2), 0,
-                                               W(1, -240, 8)]}
+    for nome, _, _ in TRANCAS:
+        for k in range(len(QUEDA)):
+            walk[f"cauda_{nome}_{k}"] = {"rotation": [W(2, -40 * k - 40, 1.5), W(1, -40 * k - 60, 6 if k == 0 else 2), 0]}
+        walk[f"lamina_{nome}"] = {"rotation": [W(2, -240, 3), W(1, -260, 4), 0]}
     return {
         "format_version": "1.8.0",
         "animations": {
@@ -1247,6 +1112,13 @@ def validar(geo, anim, W, H, png):
     n = len(cubos)
     planos = sum(1 for c in cubos if c.plano)
     girados = sum(1 for c in cubos if c.rot)
+    if girados > 0.15 * n:
+        erros.append(f"{girados} cubos girados ({100 * girados / n:.0f}%) passam de 15%")
+    for c in cubos:
+        if c.plano and c.osso.nome.startswith(("crista", "bochecha", "capa")):
+            base = min(v for v in c.tam if v)
+            if base < 3:
+                erros.append(f"{c.nome}: plano com base de {base} px (mínimo 3)")
     if not (ORCAMENTO[0] <= n <= ORCAMENTO[1]):
         avisos.append(f"{n} cubos fora do orçamento {ORCAMENTO}")
     if n > 200:
@@ -1380,13 +1252,38 @@ def imagens(geo, tex, anim, pasta):
     out.save(pasta / f"{ID}_andar.png")
 
 
+def antes_depois(pasta_antes, pasta, escala=6):
+    """Vistas do modelo anterior (em cima) e do atual (embaixo), na mesma escala, no 1º quadro do idle."""
+    vistas = ((0, 0, "frente"), (270, 0, "lado"), (180, 0, "trás"), (35, -20, "3/4"))
+    linhas = []
+    for rotulo, p in (("antes", Path(pasta_antes)), ("depois", Path(pasta))):
+        geo = json.load(open(p / f"{ID}.geo.json", encoding="utf-8"))
+        tex = np.asarray(Image.open(p / f"{ID}.png").convert("RGBA")).astype(np.float32)
+        an = rg.carregar_animacao(str(p / f"{ID}.animation.json"), f"animation.{ID}.idle")
+        faces = rg.faces_do_modelo(geo, an)
+        linhas.append((rotulo, [(n, rg.desenhar(faces, tex, y, pi, escala)) for y, pi, n in vistas]))
+    larg = [max(l[1][k][1].width for l in linhas) for k in range(len(vistas))]
+    alt = [max(im.height for _, im in l[1]) for l in linhas]
+    out = Image.new("RGB", (sum(larg) + 90, sum(alt) + 50), FUNDO)
+    d = ImageDraw.Draw(out)
+    y = 10
+    for (rotulo, ims), h in zip(linhas, alt):
+        d.text((8, y + h // 2), rotulo, fill=(30, 30, 30), font=fonte(15))
+        x = 80
+        for (n, im), w in zip(ims, larg):
+            out.paste(im, (x + (w - im.width) // 2, y + h - im.height))
+            d.text((x + 4, y), n, fill=(60, 60, 60), font=fonte(12))
+            x += w
+        y += h + 20
+    out.save(pasta / f"{ID}_antes_depois.png")
+
+
 # ======================================================================================================
-def gerar(pasta=AQUI, instalar=False, conferir=True):
+def gerar(pasta=AQUI, instalar=False, conferir=True, antes=None):
     OSSOS.clear()
     POR_NOME.clear()
     PARES.clear()
     montar()
-    mirar_trancas()
     cubos = [c for o in OSSOS for c in o.cubos]
     W, H = empacotar(cubos)
     tex = pintar_textura(cubos, W, H)
@@ -1399,6 +1296,8 @@ def gerar(pasta=AQUI, instalar=False, conferir=True):
     ok = validar(geo, anim, W, H, pasta / f"{ID}.png")
     if conferir:
         imagens(geo, tex.astype(np.float32), anim, pasta)
+        if antes:
+            antes_depois(antes, pasta)
     if instalar:
         shutil.copyfile(pasta / f"{ID}.geo.json", ASSETS / f"geckolib/models/entity/{ID}.geo.json")
         shutil.copyfile(pasta / f"{ID}.animation.json", ASSETS / f"geckolib/animations/entity/{ID}.animation.json")
@@ -1409,4 +1308,6 @@ def gerar(pasta=AQUI, instalar=False, conferir=True):
 
 
 if __name__ == "__main__":
-    sys.exit(0 if gerar(instalar="--instalar" in sys.argv, conferir="--sem-imagens" not in sys.argv) else 1)
+    a = sys.argv
+    antes = a[a.index("--antes") + 1] if "--antes" in a else None
+    sys.exit(0 if gerar(instalar="--instalar" in a, conferir="--sem-imagens" not in a, antes=antes) else 1)
