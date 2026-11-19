@@ -487,7 +487,7 @@ def pintor_nucleo(t):
 
 
 # peito estufado: o degrau de cima é o mais à frente; recua 2 u até o quadril
-DEGRAUS = (((-4, 21, -10), (8, 6, 2)), ((-3, 17, -9), (6, 4, 2)), ((-2, 15, -8), (4, 2, 1)))
+DEGRAUS = (((-4, 21, -9.5), (8, 6, 3)), ((-3, 17, -8.5), (6, 4, 2)), ((-2, 15, -7.5), (4, 2, 1)))
 ZIGUE = (23.5, 18.5)        # y das linhas de chevron em zigue-zague
 
 
@@ -553,17 +553,17 @@ def pintor_fecho(t):
 
 
 def montar_tronco(corpo):
-    caixa(corpo, (-5, 15, -7), (10, 14, 10), pintor_nucleo, nome="tronco")
+    caixa(corpo, (-4, 15, -7), (8, 14, 10), pintor_nucleo, nome="tronco")
     for k, (org, tam) in enumerate(DEGRAUS):
         caixa(corpo, org, tam, pintor_peito, nome=f"peito_{k}")
     borda = arte_mapa(["CCCCCC", "BBBBBB", "B.BB.B"], {"C": ("creme", CLARO), "B": ("creme", BASE)})
-    plano(corpo, (-3, 12, -8.05), (6, 3, 0), plana(borda), rot=(10, 0, 0), pivo=(0, 15, -8.05), nome="peito_borda")
+    plano(corpo, (-3, 12, -7.55), (6, 3, 0), plana(borda), rot=(10, 0, 0), pivo=(0, 15, -7.55), nome="peito_borda")
     for lado in (-1, 1):
         x0 = -7 if lado < 0 else 0
-        caixa(corpo, (x0, 21.5, -10.5 - (0.02 if lado > 0 else 0)), (7, 2, 1), pintor_placa,
-              rot=(0, 0, 45 * -lado), pivo=(0, 21.5, -10), nome=f"colar_{lado_nome(lado)}")
-    gema = osso("gema_peito_brilho", corpo, (0, 25.5, -11))
-    caixa(gema, (-1.5, 23, -11.5), (3, 5, 1), pintor_gema_peito, nome="gema_peito")
+        caixa(corpo, (x0, 21.5, -10 - (0.02 if lado > 0 else 0)), (7, 2, 1), pintor_placa,
+              rot=(0, 0, 45 * -lado), pivo=(0, 21.5, -9.5), nome=f"colar_{lado_nome(lado)}")
+    gema = osso("gema_peito_brilho", corpo, (0, 25.5, -10.5))
+    caixa(gema, (-1.5, 23, -11), (3, 5, 1), pintor_gema_peito, nome="gema_peito")
 
 
 # ---------------------------------------- 5. cabeça, elmo e rosto ----------------------------------------
@@ -670,7 +670,7 @@ def montar_cabeca(cabeca):
 #                  (leque em z para fora, raiz (x, y, z) do lado direito)
 CHAMAS = ((30, (-1.5, 37.0, -2.5), [5, 5, 5, 4, 3, 3, 2, 1]), (50, (-1.5, 36.0, -2.0), [5, 5, 5, 4, 3, 3, 2, 1]),
           (70, (-1.0, 34.5, -1.5), [5, 5, 4, 3, 3, 2, 1]))
-LAMINAS = ((-15, 12, -0.6), (-28, 12, -0.2), (-42, 12, 0.2), (-55, 11, 0.6))   # (inclinação, comprimento, x)
+LAMINAS = ((-2.5, 12, -0.6), (-12.5, 12, -0.2), (-22.5, 11, 0.2), (-35, 9, 0.6))   # (inclinação, comprimento, x)
 TUFOS = ((33.5, 35), (31.8, 55))                                            # (y da raiz, giro para fora)
 L_U = [5, 5, 5, 4, 4, 3, 3, 2, 2, 1]
 L_CENTRAL = [5, 5, 5, 4, 3, 3, 2, 1]
@@ -687,7 +687,7 @@ def montar_crista(cabeca):
         for k, (leque, (x, y, z), larg) in enumerate(CHAMAS):
             a = virar(pena_larga(5, len(larg), "verm", k % 2, larg, curva=-1.2))
             pena_z(crista, f"crista_chama_{s}_{k}", (x * -lado, y, z), a if lado < 0 else a.espelho(),
-                   (-25, 25 * -lado, leque * lado), par=f"chama_{k}_{s}")
+                   (-35, 25 * -lado, leque * lado), par=f"chama_{k}_{s}")
         for k, (y0, giro) in enumerate(TUFOS):
             a = pena_larga(3, 5, "verm", k % 2, L_TUFO)
             pena_z(cabeca, f"bochecha_{s}_{k}", (3.6 * lado, y0, -2.5 - 0.4 * k), a if lado < 0 else a.espelho(),
@@ -702,8 +702,8 @@ def montar_crista(cabeca):
     # lâminas da nuca (planos em x, vistos de lado), varrendo para trás
     for k, (incl, L, x) in enumerate(LAMINAS):
         a = deitar(pena_larga(5, L, "verm", k % 2, [5] * (L - 6) + [3] * 3 + [1] * 3, curva=-1.0))
-        o = osso(f"crista_lamina_{k}", crista, (x, 38, -0.5), (incl, 0, 0))
-        plano(o, (x, 35.5, -0.5), (0, 5, L), plana(a), nome=f"crista_lamina_{k}")
+        o = osso(f"crista_lamina_{k}", crista, (x, 38.5, -0.5), (incl, 0, 0))
+        plano(o, (x, 36, -0.5), (0, 5, L), plana(a), nome=f"crista_lamina_{k}")
 
 
 # ---------------------------------------- 4. ombreiras em concha ----------------------------------------
@@ -733,17 +733,17 @@ def pintor_ponta_ombro(t):
 def montar_ombreiras(corpo):
     for lado in (-1, 1):
         s = lado_nome(lado)
-        o = osso(f"ombro_{s}", corpo, (4 * lado, 28, 0), (0, 0, 20 * -lado))
+        o = osso(f"ombro_{s}", corpo, (4 * lado, 27.5, 0), (0, 0, 10 * -lado))
         x0 = -10 if lado < 0 else 4
-        caixa(o, (x0, 26, -6), (6, 3, 7), pintor_concha(lado), par="concha", nome=f"ombro_{s}_concha")
+        caixa(o, (x0, 25.5, -4), (6, 3, 8), pintor_concha(lado), par="concha", nome=f"ombro_{s}_concha")
         x1 = -9.5 if lado < 0 else 4.5
-        caixa(o, (x1, 29, -5), (5, 1, 5), pintor_concha(lado), par="chanfro", nome=f"ombro_{s}_chanfro")
+        caixa(o, (x1, 28.5, -3), (5, 1, 6), pintor_concha(lado), par="chanfro", nome=f"ombro_{s}_chanfro")
         x2 = -9 if lado < 0 else 4
-        caixa(o, (x2, 25.5, -7.5), (5, 2, 1), pintor_concha(lado), rot=(0, 0, 10 * lado),
-              pivo=(4 * lado, 26.5, -7), par="aba", nome=f"ombro_{s}_aba")
+        caixa(o, (x2, 25, -5.5), (5, 2, 1), pintor_concha(lado), rot=(0, 0, 10 * lado),
+              pivo=(4 * lado, 26, -5), par="aba", nome=f"ombro_{s}_aba")
         x3 = -12 if lado < 0 else 9
-        caixa(o, (x3, 27.5, -4), (3, 1, 3), pintor_ponta_ombro, rot=(0, 0, 25 * -lado),
-              pivo=(9 * lado, 28, -2.5), par="ombro_ponta", nome=f"ombro_{s}_ponta")
+        caixa(o, (x3, 27, -1.5), (3, 1, 3), pintor_ponta_ombro, rot=(0, 0, 25 * -lado),
+              pivo=(9 * lado, 27.5, 0), par="ombro_ponta", nome=f"ombro_{s}_ponta")
 
 
 # ---------------------------------------- 1. capa ----------------------------------------
@@ -753,17 +753,17 @@ def montar_ombreiras(corpo):
 #   pena = (x, y, z do topo, lado direito), giro em y, leque, abertura
 CAPA = (
     (11, "roxo", None, (
-        ((-5.0, 25.5, -7.3), 30, 25, 10), ((-6.6, 26.5, -3.6), 55, 28, 12),
-        ((-6.6, 26.5, 0.6), 125, 28, 14), ((-4.6, 24.3, 3.8), 150, 20, 16))),
-    (13, "roxo", (0.75, "verm"), (
-        ((-5.4, 22.0, -6.8), 32, 32, 10), ((-6.4, 22.5, -4.0), 50, 34, 15), ((-6.8, 22.5, -1.0), 62, 32, 18),
-        ((-6.6, 22.5, 1.9), 120, 30, 18), ((-4.8, 22.0, 4.3), 148, 22, 18))),
+        ((-5.0, 25.5, -7.3), 30, 28, 10), ((-6.6, 26.5, -3.6), 55, 34, 18),
+        ((-6.8, 26.5, 0.6), 125, 20, 24), ((-4.6, 24.3, 3.8), 150, 14, 20))),
+    (15, "roxo", (0.7, "verm"), (
+        ((-6.4, 22.0, 3.4), 50, 20, 8), ((-7.2, 22.5, 3.2), 118, -14, 30), ((-6.8, 22.5, 5.0), 128, -10, 28),
+        ((-5.4, 22.0, 6.4), 140, -6, 24), ((-3.6, 22.0, 7.2), 152, 0, 20))),
     (14, "roxo", (0.45, "verm"), (
-        ((-6.0, 15.0, -4.4), 45, 26, 14), ((-7.0, 15.0, -1.9), 58, 28, 18), ((-7.4, 15.5, 0.6), 65, 28, 20),
-        ((-7.2, 15.5, 3.0), 118, 28, 20), ((-6.2, 15.5, 5.0), 132, 24, 20), ((-4.4, 15.0, 6.2), 150, 18, 20))),
+        ((-6.6, 15.5, 3.8), 50, 18, 8), ((-7.6, 15.5, 3.8), 118, -14, 30), ((-7.6, 15.5, 5.4), 125, -12, 28),
+        ((-6.8, 15.5, 6.8), 132, -10, 26), ((-5.4, 15.5, 7.8), 142, -6, 22), ((-3.6, 15.0, 8.5), 152, 0, 18))),
 )
 #   costas, por fileira: (y do topo, z do meio, abertura)
-COSTAS = ((23.5, 5.0, 16), (20.5, 5.6, 18), (15.0, 6.6, 20))
+COSTAS = ((23.5, 5.0, 16), (20.5, 7.4, 16), (15.0, 8.8, 16))
 
 
 def montar_capa(corpo):
@@ -1299,6 +1299,59 @@ def imagens(geo, tex, anim, pasta):
     out.save(pasta / f"{ID}_andar.png")
 
 
+PLANTA = RAIZ / "modelos/referencias/001_pirococo_planta_proporcoes.png"
+PLANTA_ESCALA = 18.2                 # px por unidade
+PLANTA_CHAO = 895                    # y da imagem no chão (y = 0)
+PLANTA_FRENTE_X0 = 314               # x da imagem no centro da vista de frente (x = 0)
+PLANTA_LADO_Z0 = 863                 # x da imagem em z = 0 na vista de lado (frente para a esquerda)
+
+
+def pontos_opacos(geo, tex, anim, n=10):
+    """Pontos (x, y, z) do mundo, no espaço do JSON, dos texels opacos do modelo numa pose."""
+    H, W = tex.shape[:2]
+    pts = []
+    for P, (u1, v1, u2, v2), _ in rg.faces_do_modelo(geo, anim):
+        p0, p1, p2 = (np.array(p) for p in P)
+        nu = max(2, int(abs(u2 - u1) * 3)); nv = max(2, int(abs(v2 - v1) * 3))
+        for a in np.linspace(0.01, 0.99, nu):
+            for b in np.linspace(0.01, 0.99, nv):
+                tu = min(max(int(math.floor(u1 + a * (u2 - u1))), 0), W - 1)
+                tv = min(max(int(math.floor(v1 + b * (v2 - v1))), 0), H - 1)
+                if tex[tv, tu, 3] > 0:
+                    pts.append(p0 + a * (p1 - p0) + b * (p2 - p0))
+    p = np.array(pts)
+    p[:, 0] *= -1
+    return p
+
+
+def sobre_planta(geo, tex, anim, pasta):
+    """Contorno do modelo (1º quadro do idle) em ciano sobre a planta de proporções, na mesma escala."""
+    if not PLANTA.exists():
+        return
+    planta = Image.open(PLANTA).convert("RGB")
+    p = pontos_opacos(geo, tex.astype(np.uint8) if tex.dtype != np.uint8 else tex, anim)
+    k = PLANTA_ESCALA
+    mascara = np.zeros((planta.height, planta.width), bool)
+    for xs in ((PLANTA_FRENTE_X0 + p[:, 0] * k), (PLANTA_LADO_Z0 + p[:, 2] * k)):
+        ys = PLANTA_CHAO - p[:, 1] * k
+        for dx in range(-3, 4):
+            for dy in range(-3, 4):
+                xi = np.clip((xs + dx).astype(int), 0, planta.width - 1)
+                yi = np.clip((ys + dy).astype(int), 0, planta.height - 1)
+                mascara[yi, xi] = True
+    # a vista de frente não pode vazar para a de lado e vice-versa
+    borda = mascara & ~(np.roll(mascara, 1, 0) & np.roll(mascara, -1, 0) & np.roll(mascara, 1, 1) & np.roll(mascara, -1, 1))
+    a = np.asarray(planta).copy()
+    clara = (a * 0.55 + 255 * 0.45).astype(np.uint8)
+    clara[mascara] = (clara[mascara] * 0.75 + np.array([0, 170, 220]) * 0.25).astype(np.uint8)
+    for d in (0, 1):
+        clara[np.roll(borda, d, 1)] = (0, 120, 200)
+    out = Image.fromarray(clara)
+    ImageDraw.Draw(out).text((10, 2), "modelo (contorno azul, área ciano) sobre a planta de proporções", fill=(0, 60, 120),
+                             font=fonte(14))
+    out.save(pasta / f"{ID}_planta.png")
+
+
 def antes_depois(pasta_antes, pasta, escala=6):
     """Vistas do modelo anterior (em cima) e do atual (embaixo), na mesma escala, no 1º quadro do idle."""
     vistas = ((0, 0, "frente"), (270, 0, "lado"), (180, 0, "trás"), (35, -20, "3/4"))
@@ -1343,6 +1396,7 @@ def gerar(pasta=AQUI, instalar=False, conferir=True, antes=None):
     ok = validar(geo, anim, W, H, pasta / f"{ID}.png")
     if conferir:
         imagens(geo, tex.astype(np.float32), anim, pasta)
+        sobre_planta(geo, tex, rg.carregar_animacao(str(pasta / f"{ID}.animation.json"), f"animation.{ID}.idle"), pasta)
         if antes:
             antes_depois(antes, pasta)
     if instalar:

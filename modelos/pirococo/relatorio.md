@@ -49,8 +49,22 @@
    - Prata com chanfro de 1 px em cima e embaixo.
    - **Pendente:** o vermelho da textura inteira tem 26% de luz, porque o corpo fica em base/sombra (separado das penas) e o núcleo, quase todo coberto pela capa, ocupa 960 px.
 
+## Ajuste pela planta de proporções
+
+A planta chegou depois da entrega da correção 2. Ela está salva em `modelos/referencias/001_pirococo_planta_proporcoes.png`.
+
+O gerador agora grava `pirococo_planta.png`, com o contorno do modelo por cima da planta na mesma escala (18,2 px/u). Fiz estas mudanças para seguir a planta:
+
+- **Capa de lado:** as fileiras 2 e 3 começam atrás da linha das pernas, em z +3,4 e +3,8, em vez de z −6,8 e −4,4. Sem as pernas, a frente da capa fica em z +1,5 em y 9 e em +4,1 em y 1,5; a planta pede +0,4 a +4,8. As pernas aparecem inteiras de lado.
+- **Capa de frente:** larguras de 23,9 u em y 18, 27,9 em y 12 e 29,0 em y 9; a planta pede 25,8, 28,4 e 29,6. A fileira 2 passou de 4×13 para 4×15.
+- **Tronco:** 8 u de largura, em vez de 10 (a planta tem 7 abaixo da armadura). O peito foi 0,5 u para trás: a frente do degrau de cima ficou em z −9,5, como na caixa da planta.
+- **Ombreiras:** giradas 10° em vez de 20°, em y 25,5–29,5 e z −4 a +4. A caixa da planta vai de y 25,8 a 29,3.
+- **Juba de lado:** as lâminas da nuca ficaram entre −2,5° e −35°, em vez de −15° a −55°, e as chamas deitam 35° para trás. A crista agora cabe na cunha da planta: pico em (z 2,5; y 45), ponta de trás em (z 12; y 36,6) e nada abaixo de y 33.
+- **Cauda:** sem mudança; já seguia a linha vermelha. A ponta central fica em (z 18,8; y 5,1).
+- **Folgas nos laços:** capa × pernas ≥ 0,33 u e capa × tranças ≥ 0,65 u. Nada fica abaixo de y −0,01.
+
 ## As 3 maiores diferenças que ainda restam
 
-1. **De lado, a capa é um bloco que desce quase reto e cobre a perna até o joelho.** Na ficha, ela é uma faixa diagonal que deixa a perna à mostra. De frente, ela abre até 25,8 u, contra ~29 na ficha.
-2. **A juba de perfil varre para trás e para baixo.** Na ficha, as lâminas sobem e curvam para cima. De costas, ainda aparece um pouco da nuca vermelha.
-3. **As pontas douradas das ombreiras parecem palitos curtos**, não as garras curvas da ficha. A faixa do elmo, vista de lado, lê como barra prata reta.
+1. **De frente, entre o peito e a capa (x ±2 a ±4, y 15–21), aparece o vermelho do tronco.** Na planta, ali fica a caixa do tronco; na ficha, há penas roxas.
+2. **De perfil, a juba ainda é menos curva que a da ficha.** As lâminas são retas e só a pintura curva a ponta. De costas, o leque cobre só parte da nuca.
+3. **As pontas douradas das ombreiras passam ~1 u acima da caixa da planta** e parecem palitos curtos, não as garras curvas da ficha.
