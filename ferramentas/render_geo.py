@@ -15,6 +15,7 @@ gerados por outros chats) e é o mesmo código que vai no prompt de modelagem.
   coincidentes piscam aqui também.
 
 Uso: python ferramentas/render_geo.py modelo.geo.json textura.png saida.png [animacao.json nome_da_animacao] [escala]
+     [--sem-planos]   (esconde os cubos de espessura 0: teste "massa sólida + franja")
 """
 import ast
 import json
@@ -124,7 +125,7 @@ def carregar_animacao(caminho, nome):
 
 
 # ---------------- montagem das faces ----------------
-def faces_do_modelo(geo, anim=None, ocultos=()):
+def faces_do_modelo(geo, anim=None, ocultos=(), sem_planos=False):
     g = geo["minecraft:geometry"][0]
     anim = anim or {}
     ossos = {b["name"]: b for b in g["bones"]}
@@ -145,6 +146,8 @@ def faces_do_modelo(geo, anim=None, ocultos=()):
         A = rot(-(r[0] + ar[0]), -(r[1] + ar[1]), r[2] + ar[2]) @ np.diag(sc)
         Mn = compor(M, em_volta(A, (-p[0], p[1], p[2]), (-pos[0], pos[1], pos[2])))
         for c in b.get("cubes", []):
+            if sem_planos and min(abs(v) for v in c["size"]) == 0:
+                continue
             o, s, i = c["origin"], c["size"], c.get("inflate", 0)
             de = [-(o[0] + s[0]) - i, o[1] - i, o[2] - i]; ate = [-o[0] + i, o[1] + s[1] + i, o[2] + s[2] + i]
             Mc = Mn
@@ -226,10 +229,10 @@ def desenhar(faces, tex, yaw, pitch=0.0, escala=8, fundo=(235, 235, 230), margem
 VISTAS = ((0, 0, "frente"), (90, 0, "lado direito"), (180, 0, "tras"), (270, 0, "lado esquerdo"), (35, -20, "3/4"))
 
 
-def folha(geo_path, png_path, saida, anim_path=None, anim_nome=None, escala=8, vistas=VISTAS):
+def folha(geo_path, png_path, saida, anim_path=None, anim_nome=None, escala=8, vistas=VISTAS, sem_planos=False):
     geo = json.load(open(geo_path, encoding="utf-8-sig"))
     tex = np.asarray(Image.open(png_path).convert("RGBA")).astype(np.float32)
-    faces = faces_do_modelo(geo, carregar_animacao(anim_path, anim_nome))
+    faces = faces_do_modelo(geo, carregar_animacao(anim_path, anim_nome), sem_planos=sem_planos)
     imgs = []
     for y, p, n in vistas:
         im = desenhar(faces, tex, y, p, escala)
@@ -249,11 +252,12 @@ def folha(geo_path, png_path, saida, anim_path=None, anim_nome=None, escala=8, v
 
 
 if __name__ == "__main__":
-    a = sys.argv[1:]
+    a = [x for x in sys.argv[1:] if x != "--sem-planos"]
+    sem = "--sem-planos" in sys.argv
     if len(a) < 3:
         sys.exit(__doc__)
     anim = a[3] if len(a) > 4 else None
     nome = a[4] if len(a) > 4 else None
     esc = float(a[5]) if len(a) > 5 else (float(a[3]) if len(a) == 4 else 8)
-    folha(a[0], a[1], a[2], anim, nome, esc)
+    folha(a[0], a[1], a[2], anim, nome, esc, sem_planos=sem)
     print("gravado", a[2])

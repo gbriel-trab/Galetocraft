@@ -23,12 +23,22 @@ Para remontar depois de mudar o mestre ou a criatura:
 python prompts/montar.py pirococo "Pirococó" 2
 ```
 
+## Base de construção (blockout)
+
+Desde a v4, cada criatura sai com uma **base de volumes** feita e conferida aqui contra a ficha
+(ex.: `ferramentas/blockout_pirococo.py`). Ela resolve a construção e a silhueta, e o outro chat faz o acabamento.
+
+A base usa a técnica do Cobblemon: massa sólida (asas e capa em placas grossas, juba em blocos) + franja de planos.
+O motivo da mudança: nas 3 primeiras rodadas, a construção só com planos não passava do "papel e vassoura".
+
+Todos os anexos de uma versão ficam juntos em `prompts/anexos/<id>_vN/`.
+
 ## Ciclo
 
 **1. Abra um chat novo do Claude** com **execução de código / criação de arquivos** ligada. Sem isso, ele não
 consegue rodar o script gerador nem o renderizador.
 
-**2. Anexe:**
+**2. Anexe** (desde a v4, tudo o que está em `prompts/anexos/<id>_vN/`):
 
 - **A ficha da criatura** (ex.: `modelos/referencias/001_pirococo_anime_ficha.png`).
 - **Opcional, mas ajuda muito:** `estudos/cobblemon/imagens/galeria_aves.png` e `rostos_cabecas.png`, como

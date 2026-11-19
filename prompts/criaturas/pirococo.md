@@ -1,19 +1,60 @@
 ## Ficha da criatura — Pirococó (#001), "O Galo Fênix"
 
+> **Se esta conversa já tem um modelo anterior do Pirococó, descarte-o.** Este pedido é uma **reconstrução** a partir
+> da base anexa. Não reaproveite a construção antiga (capa de planos soltos, crista em raios), só utilitários (UV,
+> validações).
+
 **Quem é:** um mítico do tipo fogo. É uma ave de rapina nobre e imponente, com cerca de 5 cabeças de altura (não é
 filhote nem chibi), e usa armadura prateada de cavaleiro. Os elementos que o identificam de longe:
 
 - **Juba de penas vermelhas** em chama, em volta de um rosto pequeno e afiado.
 - **Elmo-tiara prateado** com gema rubi na testa.
 - **Colar em V prateado** com gema no peito.
-- **Ombreiras** que abrem como asas, com ponta dourada.
-- **Capa de penas em sino:** roxa em cima e vermelha embaixo.
+- **Ombreiras em concha** que abrem para cima, com ponta dourada.
+- **Capa-asa de penas em triângulo:** roxa (com filetes prata) em cima, vermelha embaixo. Ela emoldura o peito creme
+  e abre em sino.
 - **Pernas longas e finas** com joelheira e tornozeleira prateadas.
 - **Garras douradas.**
-- **3 tranças douradas** que saem lado a lado das costas da armadura superior, partem na horizontal e **caem com a
-  gravidade** atrás da capa, cada uma terminando numa pena-lâmina.
+- **3 tranças douradas** que descem **retas** pelas costas da capa, cada uma terminando numa pena-lâmina dourada com
+  losango rubi.
 
 **Expressão:** a neutra da ficha ("NORMAL"), séria e determinada.
+
+### Ponto de partida (OBRIGATÓRIO): a base anexa
+
+**Arquivos anexos da base:**
+
+- `blockout_pirococo.py`: o gerador da base;
+- `pirococo_blockout.geo.json` e `pirococo_blockout.png`;
+- as imagens `pirococo_blockout_vistas.png`, `pirococo_blockout_sem_planos.png` e
+  `pirococo_blockout_comparacao.png`.
+
+**Como usar:**
+
+1. Salve o `render_geo.py` (no apêndice) e o `blockout_pirococo.py` na mesma pasta.
+2. Rode `python blockout_pirococo.py saida ficha.png`.
+3. Faça do `blockout_pirococo.py` o esqueleto do seu `gerar_pirococo.py`: copie e evolua.
+
+**O que a base já resolve** (conferido contra a ficha):
+
+- **A construção:** 116 cubos, 34% de planos, e passa no teste "sem planos".
+- **As proporções** e a posição de todas as peças.
+- **Os pivôs** e os sinais de rotação.
+- **A silhueta** de frente e de costas: um triângulo, com a capa abrindo dos ombros.
+
+**O que NÃO mudar sem motivo forte:**
+
+- o tamanho e a posição dos volumes sólidos;
+- as alturas;
+- o triângulo da capa;
+- a cauda reta para baixo;
+- os nomes dos ossos.
+
+**O seu trabalho é o ACABAMENTO** (o "salto"):
+
+1. **Repintar a textura inteira** no padrão B6. A pintura da base é provisória: serve só para ler os materiais.
+2. **Refinar as formas** listadas na tabela abaixo.
+3. **Fazer o `_glowmask`, as pálpebras e as animações.**
 
 ### Escala e orçamento
 
@@ -21,133 +62,82 @@ filhote nem chibi), e usa armadura prateada de cavaleiro. Os elementos que o ide
 |---|---|
 | altura total (chão → ponta da crista) | **45 u** (2,8 blocos) |
 | largura máxima (capa, na frente) | ~29 u |
-| comprimento (ponta do bico → ponta da cauda) | ~38 u |
-| cubos | **110–170** (teto 200), dos quais ~40–50% planos |
-| textura | 128×128 ou 256×128 (no máximo 256×256), 1 px por u |
+| cubos | **110–170** (a base tem 116); planos ≤ ~35% |
+| textura | 256×128 (no máximo 256×256), 1 px por u |
 
-### Divisão vertical (y a partir do chão)
-
-| faixa | y (u) |
-|---|---|
-| crista acima do elmo | 39 → 45 |
-| cabeça (topo do elmo → queixo) | 31 → 39 |
-| pescoço visível / colar | 29,5 → 31 |
-| tronco (colar → quadril) | 15 → 29,5 |
-| coxas (saia de penas vermelhas) | 10,5 → 15 |
-| perna visível (joelho → chão) | 0 → 10,5 |
-
-**Marcos:**
+### Marcos de altura (y a partir do chão)
 
 | marco | y (u) |
 |---|---|
-| ponta das 2 penas externas em U | 45 |
-| pena central da crista | 42 |
-| topo do elmo / topo da gema da testa | 39 |
-| linha dos olhos | 35 |
-| bico (base → ponta do gancho) | 34 → 30,5 |
-| colar e topo das ombreiras | 29,5 |
-| pontas das ombreiras | 29 → 26 |
-| gema do peito | 28 → 23 |
-| ponta do V do peitoral | 21,5 |
-| joelheira | 10,5 → 8,5 |
-| canela | 8,5 → 5,5 |
-| tornozeleira | 5,5 → 3,5 |
-| pé + dedos | 3,5 → 0 |
-| barra da capa | 1,5 (não encosta no chão) |
+| crista acima do elmo | 39 → 45 |
+| cabeça (topo do elmo → queixo) | 31 → 39; olhos em 35; bico de 34 a 30,5 |
+| colar e topo das ombreiras | 28–29,5 |
+| gema do peito | 22 → 27; ponta do V do colar em ~21,5 |
+| tronco | 15 → 28 |
+| coxas | 10,5 → 15 |
+| joelheira | 8,5 → 10,5 |
+| canela | 5,5 → 8,5 |
+| tornozeleira | 3,5 → 5,5 |
+| pé + garras | 3 → 0 |
+| barra da capa | ~2 (não encosta no chão) |
 
-### Larguras (x, vista de frente)
+### Construção por região: o que a base tem e o que refinar
 
-| peça | largura (u) |
-|---|---|
-| juba (crista + chamas laterais), máx. em y ≈ 37 | 15 |
-| par de penas em U | 9 |
-| cabeça | 7–8 |
-| gema da testa | 2 × 4 (losango vertical) |
-| bico | 3 de largura na base |
-| pescoço | 5 |
-| ombreiras (ponta a ponta) | 21 |
-| peitoral | 10 |
-| peito creme visível | 7 |
-| capa | sino: 21 no ombro → 29 em y ≈ 9 → 27 na barra |
-| pernas | centros em x = ±2,6 |
-| coxa | 3–4 |
-| joelheira / tornozeleira | 3 |
-| canela | 2 (**não engrossar**) |
-| cada pé | ~6, com os dedos abertos |
-
-### Profundidades (z; 0 = quadril; frente negativa)
-
-| peça | z (u) | nota |
+| região | na base (manter) | refino pedido |
 |---|---|---|
-| ponta do bico | −11 | |
-| bico | −11 → −6,5 | |
-| cabeça | −6,5 → 0 | |
-| frente do peitoral | −9,5 | o peito estufa quase até a linha do bico |
-| tronco | −9,5 → +2,5 | |
-| crista | −5 → +12 | varre para trás; a pena mais alta fica em z ≈ +2,5 |
-| capa: borda de trás | até +13,5 (em y ≈ 7) | |
-| pé | −8 → +1,5 | 3 dedos na frente, 1 atrás |
-
-**Cauda** (definida pelo dono: substitui a da ficha):
-
-- **Fecho:** placa prata 6×3×1 nas costas da armadura superior, em x −3..3, y 25..28, z +3..+4.
-- **Saída:** a trança central fica em x 0; as laterais ficam em x ±2, abertas ±15° (vistas de cima). Todas começam
-  em y 26,5.
-- **Curva:** as tranças saem na horizontal, fazem uma curva suave e **caem com a gravidade** quase na vertical atrás
-  da capa. Cada segmento tem 2×2×3, e cada junta dobra para baixo em relação à anterior:
-
-  | trança | dobra de cada junta | ponta da lâmina (z, y) |
-  |---|---|---|
-  | central (8 segmentos) | 0°, 0°, 15°, 15°, 20°, 20°, 15°, 3° | (18,8, 6) |
-  | laterais (6 segmentos) | 0°, 0°, 15°, 15°, 20°, 20° | (18,5, 12), com x ≈ ±6 |
-
-- **Folga:** a borda de trás da capa fica em z ≤ +13,5, para as tranças não encostarem.
-
-**Perfil em S:** a cabeça vai para a frente, o peito estufa e a capa desce para trás. As tranças saem na altura das
-ombreiras e caem atrás da capa.
-
-### Peças e como fazer
-
-| parte | o que a ficha mostra | como fazer |
-|---|---|---|
-| crista / juba | 2 penas externas em U (as mais altas, com a ponta curvando para dentro), 1 central, ~3 chamas por lado e ~3 tufos de bochecha por lado; de lado, 5 lâminas varridas para trás | leque de planos recortados (20–30 planos), em vários ângulos para ter volume de frente e de lado; vermelho em 4–5 tons, raiz escura e pontas claras |
-| elmo | tiara prateada com 2 asas que sobem para trás e gema rubi vertical no centro; viseira prateada por cima dos olhos | placa prateada sobre a caixa da cabeça (`inflate` 0,02–0,04); gema 2×4 com facetas pintadas, em osso `_brilho` |
-| olhos | estreitos, inclinados para dentro, íris vermelho-escura, cara séria | plaquinhas de 2×1 px na face da frente; a viseira passa inclinada por cima; pálpebra para piscar |
-| bico | gancho de rapina dourado | 2–3 caixas em degrau (base 3×3, meio, gancho caído); mandíbula separada |
-| colar e peitoral | V prateado em 2 camadas, gema losango no centro | 2 placas em V; gema saltada, em osso `_brilho` |
-| ombreiras | prata com miolo roxo e ponta dourada | 2–3 placas por lado; a de fora inclinada ~20° para cima e para fora |
-| peito | creme com 2–3 chevrons de pena | pintura (não geometria) |
-| capa / asas | 3 camadas de penas: roxa com filetes prata (~4 por lado), roxa → vermelha (~5) e vermelha comprida (~6) | planos recortados em ponta, em leque, presos em `asa_d` e `asa_e`. **Não cobre a frente do peito:** a capa abre dos ombros para trás e para os lados |
-| coxas | saia de penas vermelhas (3–4 por coxa) | uma caixa vermelha + planos recortados por cima |
-| pernas | joelheira prata pontuda, canela roxa, tornozeleira prata | caixas de 3 / 2 / 3 u |
-| pés | roxo-escuro escamado, 3 dedos na frente + 1 atrás, garras douradas grossas | dedos em caixas de 1–2 u; garra dourada caída na ponta |
-| cauda tripla | 3 tranças douradas, cada uma com uma pena-lâmina dourada e um losango roxo no fim (caem com a gravidade, ver acima) | segmentos de 2×2×3, **sem** giro de 45°; a trança é pintada em gomos diagonais (`<<<`) de 3 tons, sem xadrez; lâmina dourada em forma de chama, 4×8, em 2 planos cruzados (X), com o losango numa plaquinha `_brilho`, apontando para baixo |
+| tronco | 2 caixas sobrepostas (10×13×10 + 8×11×12), frente com V creme pintado | pintura: V creme claro afinando para baixo, vermelho em faixas |
+| peito | bloco creme 8×8×3 saltado (peito de pombo) + 6×4×2 abaixo + franja creme em pontas | chevrons em zigue-zague de 1 px (#d9b398), luz no topo, quinas com 1 px de sombra |
+| pescoço | caixa 6×5×6 | frente creme e nuca vermelha, com faixa de sombra sob o queixo |
+| cabeça | caixa 8×8×7 + tampa 6×1×5 + nuca 6×6×1 (contorno chanfrado) | rosto: creme embaixo (garganta e bochecha); marcas de pena de 1 px nas laterais; topo escuro sob a juba |
+| bico | base 3×3×2, meio 2×2×2, gancho 2×2×1 caído | topo #ffe138, lados #fcb419, gancho e base de baixo #d87b08; 1 px de narina |
+| olhos | cubos de quina 2×1×2 (`inflate` 0,02) + viseira prata girada | 1 px #fff6e0 + 1 px de íris #9e1020; acrescente **pálpebras** (`palpebra_d`/`palpebra_e`, cubo igual vermelho, `inflate` 0,01) para piscar |
+| elmo | casca prata 9×2×8 em volta da cabeça, traseira mais alta, + gema 2×4 | chanfro pintado (1 px #f6f6f6 em cima, #ac93ae embaixo); gema com 3 facetas; 2 aletas planas de 3×4 saindo para trás, de dentro da juba |
+| juba | 2 blocos sólidos (8×2×8 em cima; 6×4×6 varrendo para trás e para cima) + 2 penas em U de 5×8 (a lira) + pena central de 5×5 + 3 chamas de 5×8 por lado (abrindo 14°, 26° e 38°) + 4 lâminas de nuca de 5×11 com ponta para trás + tufos de bochecha | pinte cada chama com raiz escura, haste clara e ponta curva na luz; pinte os blocos com mechas de 1 px; pode acrescentar 1–2 lâminas de 4×10 varrendo para trás (de lado, a juba deve mostrar ~5 pontas); mantenha a ponta mais alta em y ≤ 45,5 |
+| ombreiras | concha prata 6×4×8 + tampa roxa 5×1×7 + ponta dourada 3×1×5, abrindo 20° (borda de fora SOBE) | losango roxo pintado na tampa, borda prata chanfrada, a ponta dourada só no filete de fora |
+| colar + gema | V de 2 placas prata 5×2×1 + faixa 10×2×3 + gema 3×5×1 | chanfro pintado; gema com facetas e brilho (`gema_peito_brilho`) |
+| asas-capa (`asa_d`/`asa_e`) | **3 placas sólidas** por lado (3×13×10, 3×13×12, 2×11×13), abrindo 20°, 23° e 24° e recuando 6°, 12° e 16°; franja de 4 u em pontas embaixo de cada placa | **repinte as penas** (B6: penas de 5 px em 2 fileiras, filete prata em penas alternadas nas roxas; vermelhas com pontas claras). Acrescente **2–3 planos de pena 4×8 por lado** saindo da borda de trás da placa de baixo, apontando para trás e para baixo: de lado, a capa precisa mostrar pontas como na ficha DIREITA |
+| costas da capa | 3 placas sólidas em leque (12×13×2, 18×13×2, 22×10×2), mais abertas embaixo, + franja | mesma pintura; pena central marcada (o "eixo" do leque da ficha TRÁS) |
+| cauda | fecho prata 7×3×1 nas costas + 3 tranças **retas para baixo**, encostadas por fora da capa, em x 0 e ±3: a central com 5 segmentos 2×3×2 e as laterais com 3. Inclinadas 17° para trás (seguem a capa); as laterais abrem 5°. Lâminas em X (5×8 na central, 4×7 nas laterais) com losango. Pontas em y ≈ 2 (central) e ≈ 8 (laterais) | trança pintada em gomos diagonais (`<<<`, 3 tons de dourado); lâmina em forma de chama apontando para baixo, com o losango rubi; **sem curva nenhuma** |
+| pernas | coxa vermelha 4×5×5 + franja; joelheira 3×2×3 + espora triangular; canela roxa 2×3×2; tornozeleira 3×2×3 + ponta para baixo | coxa com penas pintadas; chanfro nas peças prata |
+| pés | pé 3×2×4 roxo-escuro, 3 dedos 1×1×3 abertos −28°, 0° e +28°, garras douradas 1×1×2 caídas 30°, dedo de trás | escamas de 1 px nos dedos; garra com ponta clara |
 
 **Atenção:**
 
 - As penas em U da crista são **vermelhas**. Não há chifres dourados.
-- A armadura é **prateada** (com um leve tom lilás), não dourada nem roxa.
-- O dourado aparece só no bico, nas garras, nas tranças e nas pontas das ombreiras.
+- A armadura é **prateada** (com um leve tom lilás).
+- O dourado aparece só no bico, nas garras, nas tranças, nas lâminas da cauda, nas pontas das ombreiras e no fecho.
 
-### Ossos e pivôs
+### Ossos (os da base) e animação
 
-| osso | pai | pivô (x, y, z) | animação |
-|---|---|---|---|
-| `pirococo` | — | (0, 0, 0) | raiz |
-| `corpo` | pirococo | (0, 15, −1) | respiração, balanço do andar |
-| `pescoco` | corpo | (0, 29, −4) | |
-| `cabeca` | pescoco | (0, 31,5, −3,5) | olhar e balanço leve |
-| `crista` | cabeca | (0, 38,5, −2) | ondula com atraso |
-| `olhos`, `palpebra_d`, `palpebra_e` | cabeca | — | piscar |
-| `asa_d` / `asa_e` | corpo | (−5 / +5, 28,5, 0) | a capa; balança leve |
-| `cauda` | corpo | (0, 26,5, +3,5) | |
-| `cauda_a_0..7` (central), `cauda_b_0..5` (−x), `cauda_c_0..5` (+x) | cauda (em cadeia) | na junta de cada segmento | balançam com fase crescente |
-| `lamina_a`, `lamina_b`, `lamina_c` | último segmento de cada trança | — | |
-| `perna_d` / `perna_e` | pirococo | (−2,6 / +2,6, 15, 0) | andar |
-| `pe_d` / `pe_e` | perna | (∓2,6, 3,5, −1) | compensa a perna no andar |
+**Ossos:**
 
-Ossos de brilho (por exemplo `gema_testa_brilho`, `gema_peito_brilho`, `losango_a_brilho`) ficam dentro dos ossos
-acima. **O que brilha:** só as gemas da testa e do peito e os losangos roxos das lâminas da cauda.
+- **Raiz:** `pirococo`.
+- **`corpo`:** pescoco → cabeca → crista; gema_peito_brilho; ombreira_d e ombreira_e; asa_d e asa_e; capa_costas;
+  cauda.
+- **`cauda`:** cauda_a_0..4, cauda_b_0..2 e cauda_c_0..2, encadeados; cada um termina em lamina_a/b/c, com
+  losango_a/b/c_brilho.
+- **Pernas:** perna_d e perna_e, filhas da raiz, com dedo_d_0..2 e dedo_e_0..2.
+- **A acrescentar:** `palpebra_d` e `palpebra_e` (filhas de cabeca).
+
+**idle (L = 4):**
+
+- **Corpo:** respira com ±1,5° em x e sobe e desce 0,2 u.
+- **Cabeça:** ±2° em x e ±3° em y, defasada do corpo.
+- **Crista:** ±3°, atrasada da cabeça.
+- **Asas-capa:** ±2° em z, espelhadas entre os lados.
+- **Tranças:** pêndulo pequeno, ±3° em z no 1º segmento e ±1,5° nos seguintes, com atraso de −30° por segmento; as
+  laterais em fase oposta.
+- **Piscar:** 1 vez no fim do laço.
+
+**walk (L = 2):**
+
+- **Pernas:** ±25° alternadas.
+- **Corpo:** sobe e desce 0,4 u, 2 vezes por ciclo, e balança ±3° em z.
+- **Cabeça:** mais estável que o corpo.
+- **Capa:** com atraso.
+- **Tranças:** ±6° em z e ±3° em x, defasadas.
+
+**Brilho:** só as gemas e os losangos (ossos `_brilho`).
 
 ### Paleta (da ficha) e rampas sugeridas (luz → sombra funda)
 
@@ -162,32 +152,17 @@ acima. **O que brilha:** só as gemas da testa e do peito e os losangos roxos da
 | rubi (gemas, losangos) | #da3879 | #c82775 | **#b61972** | #920b6a | #6f0459 |
 | olho (íris) | — | #e8352b | **#9e1020** | #5a0812 | — |
 
-O olho leva ainda 1 px de pupila #210826 e, se o olho tiver mais de 2 px, 1 px de brilho #fff6e0.
-
-### Animação desta criatura
-
-**idle (L = 4):**
-
-- **Corpo:** respira com rotação em x de ±1,5° e sobe e desce 0,2 u.
-- **Cabeça:** ±2° em x e ±3° em y, defasada do corpo.
-- **Crista:** ±4°, atrasada da cabeça.
-- **Capa** (`asa_d`/`asa_e`): ±2° em z, espelhada entre os lados.
-- **Tranças:** pêndulo pequeno, ±3° em z e ±2° em x, com atraso de −30° por segmento; as laterais em fase oposta.
-- **Piscar:** 1 vez no fim do laço.
-
-**walk (L = 2):**
-
-- **Pernas:** ±25° alternadas; os pés compensam.
-- **Corpo:** sobe e desce 0,4 u, 2 vezes por ciclo, e balança ±3° em z.
-- **Cabeça:** contrabalança, ficando mais estável que o corpo.
-- **Capa:** acompanha com atraso.
-- **Tranças:** ±6° em z, defasadas do corpo.
-
 ### Pontos de reprovação específicos desta criatura
 
-- Cabeça grande demais (fofa) ou rosto genérico de galinha. É uma ave de rapina séria.
-- Pernas grossas ou curtas: a perna visível tem 10,5 u (23% da altura).
-- Capa fechada na frente, escondendo o colar e o peito creme.
-- Tranças fundidas numa peça só, sem a lâmina na ponta, retas e duras como bastão, encostando na capa ou penduradas
-  entre as pernas.
-- Pés gigantes. O desenho 2D exagera as garras em perspectiva: use as medidas acima.
+- **Construção:**
+  - capa ou crista feitas de planos soltos ("vassoura", "sol", cortina);
+  - qualquer coisa que falhe no teste "sem planos".
+- **Cabeça:** grande demais (fofa) ou rosto genérico de galinha. É uma ave de rapina séria.
+- **Pernas:** grossas ou curtas (a perna visível tem 10,5 u).
+- **Capa:**
+  - escondendo o peito creme;
+  - ou, ao contrário, ausente nos flancos ("caixote" vermelho).
+- **Tranças:**
+  - fundidas numa peça só, com curva, encostando no chão ou penduradas entre as pernas;
+  - pintadas em xadrez.
+- **Pés:** gigantes ou em barra.

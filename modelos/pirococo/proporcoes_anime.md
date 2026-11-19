@@ -161,12 +161,12 @@ espessura das tranças, fica em ~2,25.
 
 ---
 
-> **Mudança do dono:** as 3 tranças da cauda saem lado a lado das costas da armadura superior (y 26,5, fecho prata
-> em z +3..+4), partem na horizontal e **caem com a gravidade** atrás da capa:
-> - a central termina em (z 18,8, y 6);
-> - as laterais, abertas ±15°, terminam em (z 18,5, y 12).
+> **Mudança do dono:** as 3 tranças da cauda saem de um fecho prata nas costas da armadura superior (y ≈ 24–27) e
+> descem **retas para baixo**, sem curva, encostadas por fora da capa e acompanhando a inclinação dela (~17°).
+> - A central termina em y ≈ 2.
+> - As laterais (x ±3) terminam em y ≈ 8.
 >
-> Isso substitui as pontas das caudas A, B e C da tabela acima. A planta mostra o caminho novo em vermelho.
+> Isso substitui as caudas A, B e C da tabela acima. A construção de referência está em `modelos/pirococo/blockout/`.
 
 ## 6. Peças, contagens e formas
 
