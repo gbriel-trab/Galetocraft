@@ -1,9 +1,0 @@
-nível 1 (16+ blocos): 45 grupos, 450 faces, dif 1.0% -> rabo_1_junta, rabo_6_junta, rabo_7_junta, rabo_8_junta, rabo_10_junta, rabo_11_junta, rabo_ponta, rabo_ponta2, lombo, juba5, juba6, juba8, juba9, fogo3, rabo_9_junta, viseira_meio, juba2_d_p_ponta, juba3_d_p_ponta, juba3_e_p_ponta, juba5_d_p_ponta, juba5_e_p_ponta, juba6_d_p_ponta, juba6_e_p_ponta, juba7_d_p_ponta, juba8_d_p_ponta, juba8_e_p_ponta, juba9_d_p_ponta, juba9_e_p_ponta, escama_recheio0, escama_recheio1, escama_recheio5, escama1_d_ponta, escama1_e_ponta, bico3, rabo_5_junta, escama_recheio2, escama0_e_ponta, fogo2, escama0, fogo4_e_ponta, queixo, fogo3_e_ponta, juba4_d_p_ponta, juba7_e_p_ponta, perna_td_dedo1
-nível 2 (32+ blocos): 10 grupos, 96 faces, dif 2.0% -> rabo_2_junta, fogo3_d_ponta, fogo1, escama1, juba7, fogo0, juba2_e_p_ponta, bico0, ombreira_e_ponta, perna_td_dedo2
-nível 3 (48+ blocos): 14 grupos, 108 faces, dif 2.9% -> fogo2_d_ponta, fogo4_d_ponta, escama0_d_ponta, lombo_alto, bochecha1_e_ponta, fogo0_e_ponta, fogo1_e_ponta, fogo2_e_ponta, rabo_4_junta, bochecha1_d_ponta, perna_te_dedo1, ombreira_d_ponta, juba0_d_p_ponta, cranio_frente
-faces no modelo (antes de otimizar): 1674
--> C:\Users\gbriel\Desktop\galopiru\modelos\salambrasa\lods.json
-otimização: ossos 113 -> 70, cubos -> 269, faces 1674 -> 1547, cubos com brilho 66, faces de LOD por nível {1: 369, 2: 92, 3: 100}
-salambrasa: altura do modelo 2.48 blocos -> 1.10 (escala 0.444)
-ok: 269 cubos em 70 ossos, textura 512x512, ossos animados: ['asa_d', 'asa_e', 'cabeca', 'cauda', 'corpo', 'crista', 'perna_fd', 'perna_fe', 'perna_td', 'perna_te', 'pescoco', 'rabo_0', 'rabo_1', 'rabo_10', 'rabo_11', 'rabo_2', 'rabo_3', 'rabo_4', 'rabo_5', 'rabo_6', 'rabo_7', 'rabo_8', 'rabo_9']
-fim: 0

@@ -1,9 +1,0 @@
-nível 1 (16+ blocos): 40 grupos, 546 faces, dif 1.0% -> pena0, coxa, pescoco, asa_baixo, gola5, gola_b4, gola_b5, calca1, calca2, garra2_meio, garra3_meio, garra2_fora, garra3_fora, garra2_dentro, garra3_dentro, garra_tras2, cranio, gola_b3, anca, gola6, asa_p1, barbela2, gola2, pena1, asa_p2, bico_baixo, gola0, pena0_meio, sela0, sela1, sela2, sela3, sela4, sela5, sela8, rabo_0_pf0, rabo_9_leque0, sela7, dedo_meio, rabo_0_ple
-nível 2 (32+ blocos): 12 grupos, 144 faces, dif 2.0% -> gola1, gola7, rabo_6_pd, gola4, cranio_alto, testa, gola3, calca0, asa_p3, garra_tras, rabo_9_leque1, rabo_3_pd
-nível 3 (48+ blocos): 12 grupos, 116 faces, dif 3.0% -> bico_meio, asa_m3, rabo_0_pld, rabo_5_pd, asa_ombro, tronco1, pena1_meio, rabo_1_pf0, bico_ponta, rabo_4_pd, rabo_8_pf1, rabo_3_pf0
-faces no modelo (antes de otimizar): 1766
--> C:\Users\gbriel\Desktop\galopiru\modelos\cocorak\lods.json
-otimização: ossos 265 -> 50, cubos -> 294, faces 1766 -> 1394, cubos com brilho 2, faces de LOD por nível {1: 376, 2: 106, 3: 108}
-cocorak: altura do modelo 3.01 blocos -> 3.00 (escala 0.996)
-ok: 294 cubos em 50 ossos, textura 512x1024, ossos animados: ['asa_d', 'asa_e', 'barbela', 'cabeca', 'cauda', 'corpo', 'crista', 'perna_d', 'perna_e', 'pescoco', 'rabo_0', 'rabo_1', 'rabo_2', 'rabo_3', 'rabo_4', 'rabo_5', 'rabo_6', 'rabo_7', 'rabo_8', 'rabo_9']
-fim: 0

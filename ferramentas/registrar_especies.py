@@ -1,4 +1,4 @@
-"""Gera os recursos de item e texto das espécies do Galetocraft (além do Pirococó, que já existe):
+"""Gera os recursos de item e texto das espécies do Galetocraft:
 ovo gerador (textura 16x16 + modelos do item) e nomes em pt_br / en_us.
 Uso: python registrar_especies.py"""
 import json, random
@@ -9,23 +9,13 @@ RAIZ = Path(__file__).resolve().parent.parent
 ASSETS = RAIZ / "galetocraft" / "src" / "main" / "resources" / "assets" / "galetocraft"
 
 # id, nome, cor de fundo do ovo, cor das pintas
-ESPECIES = [
-    ("esporoco", "Esporocó", (92, 170, 62), (236, 82, 160)),
-    ("cocorak", "Cocórak", (214, 176, 110), (64, 38, 74)),
-    ("cocorion", "Cocórion", (236, 232, 222), (40, 100, 62)),
-    ("cocorvolt", "Cocórvolt", (104, 108, 120), (255, 212, 40)),
-    ("taturico", "Taturico", (150, 96, 60), (228, 172, 112)),
-    ("axococo", "Axococó", (246, 172, 202), (62, 122, 232)),
-    ("vagalo", "Vagaló", (72, 48, 92), (255, 222, 60)),
-    ("morcegalo", "Morcegalo", (112, 62, 172), (240, 122, 200)),
-    ("espinhoco", "Espinhocó", (132, 92, 60), (132, 192, 62)),
-    ("salambrasa", "Salambrasa", (70, 56, 66), (255, 150, 40)),
-    ("renacoco", "Renacocó", (124, 40, 170), (90, 200, 245)),
-]
+# (vazia: os modelos antigos foram apagados em 20/11/2026; cada espécie nova entra aqui com uma linha,
+#  por exemplo ("<id>", "<Nome>", (92, 170, 62), (236, 82, 160)))
+ESPECIES = []
 SEM_ACENTO = str.maketrans("áéíóúâêôãõç", "aeiouaeoaoc")
 
 def ovo(fundo, pinta, semente):
-    """Ovo 16x16 com o mesmo contorno do ovo do Pirococó: luz em cima à esquerda, sombra embaixo, borda escura."""
+    """Ovo 16x16 com o contorno de ferramentas/molde_ovo.png: luz em cima à esquerda, sombra embaixo, borda escura."""
     molde = Image.open(Path(__file__).resolve().parent / "molde_ovo.png").convert("RGBA")
     img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
     dentro = lambda x, y: 0 <= x < 16 and 0 <= y < 16 and molde.getpixel((x, y))[3] > 0

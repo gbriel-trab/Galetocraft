@@ -1,9 +1,0 @@
-nível 1 (16+ blocos): 51 grupos, 456 faces, dif 1.0% -> crista_tras1, pena00, pena01, pena02, pena04, pena05, pena10, pena12, pena14, pena15, pena16, garra_ponta_meio, garra_ponta_fora, garra_ponta_dentro, dedo_tras, crista_tras4, crista3, crista_topo1, crista_tras4_pt, pescoco, pena00_d_pt, pena04_d_pt, pena05_d_pt, pena00_e_pt, pena01_e_pt, pena02_e_pt, pena03_e_pt, pena04_e_pt, pena05_e_pt, pena10_d_pt, pena12_d_pt, pena14_d_pt, pena16_d_pt, pena10_e_pt, pena14_e_pt, pena16_e_pt, pena_costas0_pt, asa4_d_pt, asa5_d_pt, asa4_e_pt, asa5_e_pt, dedo_meio, crista_topo0, pena15_d_pt, pena_costas1, bico_ponta, pena01_d_pt, pena_costas0, asa2_e_pt, pena02_d_pt, pena03_d_pt
-nível 2 (32+ blocos): 18 grupos, 156 faces, dif 1.9% -> crista4, pena13, cranio_frente, crista6_pt, peito4, pena12_e_pt, crista_topo0_pt, pena11, pena_costas1_pt, dedo_dentro, bochecha_baixo, sobrancelha_lado, pena03, bico_baixo, crista_topo1_pt, asa2_d_pt, crista_tras3_pt, asa3_e_pt
-nível 3 (48+ blocos): 7 grupos, 132 faces, dif 3.0% -> crista5_pt, espinho7, asa2, asa4, asa6, crista6, asa3_d_pt
-faces no modelo (antes de otimizar): 2088
--> C:\Users\gbriel\Desktop\galopiru\modelos\espinhoco\lods.json
-otimização: ossos 307 -> 28, cubos -> 348, faces 2088 -> 1942, cubos com brilho 0, faces de LOD por nível {1: 449, 2: 152, 3: 132}
-espinhoco: altura do modelo 2.36 blocos -> 1.25 (escala 0.530)
-ok: 348 cubos em 28 ossos, textura 512x512, ossos animados: ['asa_d', 'asa_e', 'cabeca', 'cauda', 'corpo', 'crista', 'perna_d', 'perna_e', 'pescoco']
-fim: 0

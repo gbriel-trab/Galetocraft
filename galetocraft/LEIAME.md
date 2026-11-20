@@ -4,8 +4,9 @@ Galos lendários para o Minecraft **1.21.11**.
 
 **Estado em 20/11/2026:** o mod não tem nenhuma criatura registrada. Os 12 modelos antigos (Pirococó, Esporocó,
 Cocórak, Cocórion, Cocórvolt, Taturico, Axococó, Vagaló, Morcegalo, Espinhocó, Salambrasa e Renacocó) saíram do
-jogo a pedido do dono, para dar lugar aos modelos novos. Os arquivos-fonte deles continuam em `../modelos/` e
-`../ferramentas/especies/`.
+jogo a pedido do dono, para dar lugar aos modelos novos. Os arquivos-fonte, os geradores, o histórico de rodadas
+e as fotos deles também foram apagados do repositório; as fichas de referência continuam em
+`../modelos/referencias/`.
 
 ## Versões
 | Item | Versão |
