@@ -16,10 +16,7 @@ import net.minecraft.world.item.SpawnEggItem;
 
 /** Registro dos itens do Galetocraft. */
 public final class ModItens {
-	public static final Item OVO_PIROCOCO = registrar("pirococo_spawn_egg",
-			SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntidades.PIROCOCO));
-
-	/** Ovos geradores das outras espécies ("&lt;id&gt;_spawn_egg"), na ordem de {@link ModEntidades#GALOS}. */
+	/** Ovos geradores das espécies ("&lt;id&gt;_spawn_egg"), na ordem de {@link ModEntidades#GALOS}. */
 	public static final List<Item> OVOS_GALOS;
 
 	static {

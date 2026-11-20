@@ -1,6 +1,11 @@
 # Galetocraft (mod Fabric + GeckoLib)
 
-Galos lendários para o Minecraft **1.21.11**. Criatura #001: **Pirococó**, o galo-fênix das chamas.
+Galos lendários para o Minecraft **1.21.11**.
+
+**Estado em 20/11/2026:** o mod não tem nenhuma criatura registrada. Os 12 modelos antigos (Pirococó, Esporocó,
+Cocórak, Cocórion, Cocórvolt, Taturico, Axococó, Vagaló, Morcegalo, Espinhocó, Salambrasa e Renacocó) saíram do
+jogo a pedido do dono, para dar lugar aos modelos novos. Os arquivos-fonte deles continuam em `../modelos/` e
+`../ferramentas/especies/`.
 
 ## Versões
 | Item | Versão |
@@ -30,28 +35,25 @@ Para abrir o jogo de teste já com o mod: `gradlew runClient`.
    - `galetocraft-0.1.0.jar` (deste projeto)
    - **Fabric API** para 1.21.11
    - **GeckoLib** (Fabric) 5.4.5 para 1.21.11
-3. No jogo, o **Ovo Gerador de Pirococó** fica na aba de ovos geradores do modo criativo.
+3. No jogo, o ovo gerador de cada criatura fica na aba de ovos geradores do modo criativo.
 
 ## Onde fica cada coisa
 | O quê | Arquivo |
 |---|---|
-| Comportamento (vida, ataque, IA, sons) | `src/main/java/br/galetocraft/entidade/PirococoEntity.java` |
-| Registro da criatura e do ovo | `src/main/java/br/galetocraft/registro/` |
-| Desenho / brilho | `src/client/java/br/galetocraft/client/PirococoRenderer.java` |
-| Modelo 3D (formato GeckoLib/Bedrock) | `src/main/resources/assets/galetocraft/geckolib/models/entity/pirococo.geo.json` |
-| Animações (parado, andando) | `src/main/resources/assets/galetocraft/geckolib/animations/entity/pirococo.animation.json` |
-| Textura | `src/main/resources/assets/galetocraft/textures/entity/pirococo.png` |
-| Partes que brilham no escuro | `src/main/resources/assets/galetocraft/textures/entity/pirococo_glowmask.png` |
-| Nome no jogo | `src/main/resources/assets/galetocraft/lang/pt_br.json` |
+| Comportamento (vida, ataque, IA, sons) | `src/main/java/br/galetocraft/entidade/GaloEntity.java` |
+| Registro das criaturas e dos ovos | `src/main/java/br/galetocraft/registro/` |
+| Desenho, brilho e LOD | `src/client/java/br/galetocraft/client/GaloRenderer.java` e `BrilhoParcialGeoLayer.java` |
+| Modelo 3D (formato GeckoLib/Bedrock) | `src/main/resources/assets/galetocraft/geckolib/models/entity/<id>.geo.json` |
+| Animações (parado, andando) | `src/main/resources/assets/galetocraft/geckolib/animations/entity/<id>.animation.json` |
+| Textura | `src/main/resources/assets/galetocraft/textures/entity/<id>.png` |
+| Partes que brilham no escuro | `src/main/resources/assets/galetocraft/textures/entity/<id>_glowmask.png` |
+| Ovo gerador | `items/<id>_spawn_egg.json`, `models/item/<id>_spawn_egg.json` e `textures/item/<id>_spawn_egg.png` |
+| Nome no jogo | `src/main/resources/assets/galetocraft/lang/pt_br.json` e `en_us.json` |
 
-## Atualizar o modelo
-O modelo é gerado pelo script `../ferramentas/pirococo6.py` e convertido para o GeckoLib por
-`../ferramentas/exportar_geckolib.py`. Depois de mudar o `pirococo6.py`, rode (na pasta `galopiru`):
-
-```
-python ferramentas/exportar_geckolib.py galetocraft/src/main/resources/assets/galetocraft
-```
-
-Também dá para editar direto no **Blockbench** (com o plugin *GeckoLib Animation Utils*): abra o
-`pirococo.geo.json`, ajuste e exporte por cima do mesmo arquivo. As animações também podem ser
-feitas no Blockbench, na aba **Animar**.
+## Colocar uma criatura no jogo
+1. Ponha o modelo, as animações (`animation.<id>.idle` e `animation.<id>.walk`), a textura e a `_glowmask` nos caminhos
+   da tabela acima.
+2. Registre a espécie com uma linha `galo("<id>", ...)` em `ModEntidades.java`. O ovo gerador e o desenho são
+   registrados sozinhos a partir dessa lista.
+3. Crie o ovo gerador e os nomes (`entity.galetocraft.<id>` e `item.galetocraft.<id>_spawn_egg`).
+   `../ferramentas/registrar_especies.py` faz isso para as espécies da lista dele.

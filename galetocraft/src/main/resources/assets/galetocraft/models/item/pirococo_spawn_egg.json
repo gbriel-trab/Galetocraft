@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "galetocraft:item/pirococo_spawn_egg"
-  }
-}

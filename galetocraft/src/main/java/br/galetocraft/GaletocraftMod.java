@@ -25,11 +25,8 @@ public class GaletocraftMod implements ModInitializer {
 
 		// os ovos dos galos aparecem na aba de ovos geradores do modo criativo
 		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS)
-				.register(entradas -> {
-					entradas.accept(ModItens.OVO_PIROCOCO);
-					ModItens.OVOS_GALOS.forEach(entradas::accept);
-				});
+				.register(entradas -> ModItens.OVOS_GALOS.forEach(entradas::accept));
 
-		LOGGER.info("Galetocraft carregado: {} galos prontos!", 1 + ModEntidades.GALOS.size());
+		LOGGER.info("Galetocraft carregado: {} galos prontos!", ModEntidades.GALOS.size());
 	}
 }

@@ -29,7 +29,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
  * "animation.&lt;id&gt;.idle" e "animation.&lt;id&gt;.walk" em geckolib/animations/entity/&lt;id&gt;.animation.json
  * (geradas por ferramentas/exportar_especie.py).
  * <p>
- * Comportamento igual ao do Pirococó: neutro, passeia e olha os jogadores, revida quando é atacado.
+ * Comportamento: neutro, passeia e olha os jogadores, revida quando é atacado.
  */
 public class GaloEntity extends PathfinderMob implements GeoEntity {
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);

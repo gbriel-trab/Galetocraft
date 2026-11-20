@@ -26,7 +26,7 @@ SEM_ACENTO = str.maketrans("áéíóúâêôãõç", "aeiouaeoaoc")
 
 def ovo(fundo, pinta, semente):
     """Ovo 16x16 com o mesmo contorno do ovo do Pirococó: luz em cima à esquerda, sombra embaixo, borda escura."""
-    molde = Image.open(ASSETS / "textures" / "item" / "pirococo_spawn_egg.png").convert("RGBA")
+    molde = Image.open(Path(__file__).resolve().parent / "molde_ovo.png").convert("RGBA")
     img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
     dentro = lambda x, y: 0 <= x < 16 and 0 <= y < 16 and molde.getpixel((x, y))[3] > 0
     escuro = tuple(int(c * 0.35) for c in fundo)

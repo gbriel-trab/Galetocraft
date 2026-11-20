@@ -38,10 +38,10 @@ public class GaleriaTesteCliente implements FabricClientGameTest {
 			especies.add(ModEntidades.id(tipo));
 			altura.put(ModEntidades.id(tipo), (double) tipo.getHeight());
 		});
-		altura.put("pirococo", (double) ModEntidades.PIROCOCO.getHeight());
-		especies.add(0, "pirococo");   // o Pirococó tem tipo próprio (fora de GALOS), mas entra na galeria também
 		if (filtro != null && !filtro.isBlank())
 			especies.removeIf(id -> !List.of(filtro.toLowerCase(Locale.ROOT).split(",")).contains(id));
+		if (especies.isEmpty())
+			return;   // nenhuma espécie registrada (ou nenhuma no filtro): nada a fotografar
 
 		contexto.getInput().resizeWindow(1920, 1080);
 		contexto.runOnClient(mc -> mc.options.getSoundSourceOptionInstance(SoundSource.MASTER).set(0.0));   // sem som
@@ -88,8 +88,7 @@ public class GaleriaTesteCliente implements FabricClientGameTest {
 			servidor.runCommand("fill -12 -60 1 12 -60 12 air");
 			servidor.runCommand("fill -12 -61 1 12 -61 12 grass_block replace dirt");   // a grama coberta pelo degrau vira terra
 			servidor.runCommand("time set noon");
-			final List<String> todas = new ArrayList<>(List.of("pirococo"));
-			especies.stream().filter(id -> !id.equals("pirococo")).forEach(todas::add);
+			final List<String> todas = new ArrayList<>(especies);
 			final double[] larg = todas.stream().mapToDouble(id -> 0.75 * altura.getOrDefault(id, 2.0) + 0.5).toArray();
 			double x = -Arrays.stream(larg).sum() / 2;
 
